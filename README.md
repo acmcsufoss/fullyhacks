@@ -1,2 +1,3 @@
-# tuffyhacks
-🐘 TuffyHacks hackathon event, an ACM at CSUF production.
+# FullyHacks 2023
+
+Welcome to FullHacks 2023
