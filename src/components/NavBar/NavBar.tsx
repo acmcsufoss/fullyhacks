@@ -102,7 +102,7 @@ export const NavBarLanding: React.FC = () => {
       <div className="navbar-end">
         <Link href="/" className="flex gap-2 items-center mr-4 lg:hidden">
           <img src="/logo.svg" alt="Fully logo" width={36} height={36} />
-          <p> TH </p>
+          <p> FH </p>
         </Link>
       </div>
     </nav>
