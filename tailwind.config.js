@@ -10,6 +10,25 @@ module.exports = {
   ],
   theme: {
     extend: {
+      keyframes: {
+        float: {
+          '0%': {
+            transform: 'translateX(0)',
+            transform: 'translateY(0)'
+          },
+          '50%': {
+            transform: 'translateX(20%)',
+            transform: 'translateY(20%)'
+          },
+          '100%': {
+            transform: 'translateX(0)',
+            transform: 'translateY(0)'
+          }
+        }
+      },
+      animation: {
+        float: 'float 3s infinite ease-in-out'
+      },
       fontSize: {
         md: '1.25rem',
         lg: '1.5rem',

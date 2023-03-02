@@ -29,7 +29,7 @@ export const NavBarLanding: React.FC = () => {
     }
   ]
   return (
-    <nav className="navbar text-purple_main font-semibold text-lg lg:ml-4 lg:mt-2">
+    <nav className="navbar text-purple_main font-semibold text-lg lg:ml-8 lg:mt-2">
       <div className="navbar-start">
         <Link href="/" className="lg:flex gap-2 items-center hidden">
           <img src="/logo.svg" alt="Fully logo" width={36} height={36} />
