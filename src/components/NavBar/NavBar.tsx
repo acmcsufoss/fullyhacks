@@ -58,7 +58,6 @@ export const NavBarLanding: React.FC = () => {
               return (
                 <Link
                   key={item.id}
-                  id={item.id}
                   href={item.href}
                   className="flex gap-2 items-center m-2">
                   <img

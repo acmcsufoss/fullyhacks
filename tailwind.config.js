@@ -1,3 +1,5 @@
+const { transform } = require('typescript')
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -32,6 +34,7 @@ module.exports = {
       fontSize: {
         md: '1.25rem',
         lg: '1.5rem',
+        xl: '2rem',
         xxl: '3.5rem'
       },
       fontFamily: {

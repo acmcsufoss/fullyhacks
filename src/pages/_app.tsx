@@ -10,7 +10,7 @@ export default function App({
   return (
     <>
       <AuthProvider session={session}>
-        <section className="bg-body_bg w-[100vw] h-[100vh] flex flex-col overflow-scroll">
+        <section className="bg-body_bg w-[100vw] h-[100vh] flex flex-col overflow-scroll overflow-x-hidden">
           <NavBarLanding />
           <Component {...pageProps} />
         </section>

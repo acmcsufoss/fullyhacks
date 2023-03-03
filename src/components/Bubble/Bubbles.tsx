@@ -12,7 +12,7 @@ const Bubbles = () => {
         color="bg-orange_300"
       />
       <Bubble
-        top="top-50 hidden md:block"
+        top="top-[16em] hidden md:block"
         left="left-48"
         width="w-36"
         height="h-36"
@@ -41,7 +41,7 @@ const Bubbles = () => {
         color="bg-orange_300"
       />
       <Bubble
-        top="top-50 hidden md:block"
+        top="top-[16em] hidden md:block"
         left="left-100"
         right="right-48"
         width="w-36"
@@ -49,7 +49,7 @@ const Bubbles = () => {
         color="bg-purple_300"
       />
       <Bubble
-        top="top-[80px] hidden md:block"
+        top="top-[80px] hidden md:inline-block"
         left="left-100"
         right="right-80"
         width="w-28"

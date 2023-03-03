@@ -1,4 +1,5 @@
 import React from 'react'
+import About from '../About/About'
 import Bubble from '../Bubble/Bubble'
 import Bubbles from '../Bubble/Bubbles'
 import CountDown from '../CountDown/CountDown'
@@ -20,6 +21,10 @@ const LandingPage: React.FC = () => {
         </button>
         <button className="font-normal"> Sponsor Us!</button>
       </div>
+      <section
+        className="mx-4 relative font-normal font-rubik text-purple_main my-40 flex flex-col items-center justify-center md:flex-row md:mx-8 md:text-md">
+        <About />
+      </section>
     </>
   )
 }
