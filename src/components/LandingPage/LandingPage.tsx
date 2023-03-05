@@ -2,11 +2,10 @@ import { companyType } from '@/types/interface'
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import About from '../About/About'
-import Bubble from '../Bubble/Bubble'
 import Bubbles from '../Bubble/Bubbles'
-import CountDown from '../CountDown/CountDown'
 import { NavBarLanding } from '../NavBar/NavBar'
-import Sponsors from '../Sponsors/Sponsors'
+import CountDown from './CountDown/CountDown'
+import Sponsors from './Sponsors/Sponsors'
 
 const LandingPage: React.FC = () => {
   const [companies, setCompanies] = useState<companyType[]>([])

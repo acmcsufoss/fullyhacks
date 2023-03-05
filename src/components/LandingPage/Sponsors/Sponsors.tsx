@@ -1,6 +1,6 @@
+import Bubble from '@/components/Bubble/Bubble'
 import { companyType } from '@/types/interface'
 import React from 'react'
-import Bubble from '../Bubble/Bubble'
 
 interface SponsorProps {
   companies: companyType[]
@@ -12,7 +12,7 @@ const Sponsors: React.FC<SponsorProps> = (props) => {
     <div className="md:ml-[6rem]">
       <p className="mt-10 text-xl font-medium md:text-xxl">Sponsors</p>
       <p className="mt-4 font-light">
-        Companies that help make Tuffyhack 2023 possible
+        Companies that help make FullyHacks 2023 possible
       </p>
       <section
         id="sponsors"
