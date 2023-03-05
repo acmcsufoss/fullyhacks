@@ -6,24 +6,24 @@ const About: React.FC = () => {
     <>
       <img
         src="/tuffy_rocket.svg"
-        className="z-10 object-cover w-[58%] md:w-[20%] md:order-2 animate-float"
+        className="z-10 object-cover w-[58%] md:w-[300px] md:order-2 animate-float"
         alt="tuffy rocket"
       />
       <Bubble
         top="top-8 md:top-12"
-        left="left-14 md:left-[46em]"
+        left="left-14 md:left-[40em]"
         width="w-20 md:w-30"
         height="h-20 md:w-30"
         color="bg-orange_300"
       />
       <Bubble
         top="top-0 md:top-20"
-        left="left-[11em] md:left-[51em]"
+        left="left-[11em] md:left-[44em]"
         width="w-28 md:w-36"
         height="h-28 md:h-36"
         color="bg-purple_300"
       />
-      <div className="md:w-1/2">
+      <div id="about" className="md:ml-[6rem]">
         <p className="mt-10 text-xl font-medium md:text-xxl">About</p>
         <p className="mt-4">
           California State University, Fullerton 24-hour hackathon for beginners

@@ -41,12 +41,15 @@ module.exports = {
         rubik: ['Rubik']
       },
       colors: {
+        sky_100: '#ABE1FF',
         sky_300: '#18AAFF',
         blue_300: '#385DDF',
         purple_300: '#9EA8FF',
         purple_500: '#4F38DF',
         pink_700: '#B438DF',
+        pink_400: '#FF8F8F',
         pink_300: '#DF389C',
+        pink_100: '#FFABCE',
         orange_300: '#FFC985'
       },
       textColor: {
