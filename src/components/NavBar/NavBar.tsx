@@ -30,12 +30,20 @@ export const NavBarLanding: React.FC = () => {
     }
   ]
   return (
-    <nav className="z-10 navbar text-purple_main font-semibold text-lg lg:ml-8 lg:mt-2">
+    <nav className="z-[3] navbar text-purple_main font-semibold text-lg lg:ml-8 lg:mt-2 lg:grid lg:grid-cols-4">
       <div className="navbar-start">
-        <Link href="/" className="lg:flex gap-2 items-center hidden">
-          <img src="/logo.svg" alt="Fully logo" width={36} height={36} />
-          <p> FH </p>
-        </Link>
+        <>
+          <img
+            src="/logo.svg"
+            alt="Fully logo"
+            width={36}
+            height={36}
+            className="lg:inline-flex hidden"
+          />
+          <Link href="/" className="hidden lg:flex gap-2 items-center">
+            <p className="lg:inline-flex ml-2 cursor-pointer hidden"> FH </p>
+          </Link>
+        </>
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
             <svg
@@ -54,56 +62,63 @@ export const NavBarLanding: React.FC = () => {
           </label>
           <ul
             tabIndex={0}
-            className="ml-4 menu menu-compact dropdown-content mt-3 p-2 shadow bg-purple_300 rounded-box w-52 text-[1rem]">
+            className="z-[3] ml-4 menu menu-compact dropdown-content mt-3 p-2 shadow bg-purple_300 rounded-box w-52 text-[1rem]">
             {menuList.map((item) => {
               return (
-                <Link
-                  key={item.id}
-                  href={item.href}
-                  className="flex gap-2 items-center m-2">
+                <div className="flex gap-4 my-2">
                   <img
                     src={item.logo}
                     alt={item.logo + '"s logo'}
                     width={item.mobile}
                     height={item.mobile}
                   />
-                  {item.name}
-                </Link>
+                  <Link
+                    key={item.id}
+                    href={item.href}
+                    className="flex gap-2 items-center m-2">
+                    <p className="cursor-pointer"> {item.name} </p>
+                  </Link>
+                </div>
               )
             })}
           </ul>
         </div>
       </div>
-      <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1">
+      <div className="navbar-center hidden lg:flex lg:col-span-3">
+        <ul className="menu menu-horizontal w-[100%] flex justify-end items-center">
           {menuList.map((item) => {
             return (
-              <Link
-                key={item.id}
-                id={item.id}
-                href={item.href}
-                className="flex items-center mx-10">
+              <>
                 <img
                   src={item.logo}
                   alt={item.logo + '"s logo'}
                   width={item.desktop}
                   height={item.desktop}
-                  className="mx-4"
+                  className="mx-4 ml-12"
                 />
-                {item.name}
-              </Link>
+                <Link
+                  key={item.id}
+                  id={item.id}
+                  href={item.href}
+                  className="flex items-center">
+                  <p className="cursor-pointer hover:ease-in-out hover:duration-200 hover:text-purple_main_hover">
+                    {' '}
+                    {item.name}{' '}
+                  </p>
+                </Link>
+              </>
             )
           })}
-          <button className="bg-sky_300 text-white mx-14 py-1 px-6 rounded-lg">
-            Apply
-          </button>
+          <button className="apply-btn">Apply</button>
         </ul>
       </div>
-      <div className="navbar-end">
-        <Link href="/" className="flex gap-2 items-center mr-4 lg:hidden">
+      <div className="navbar-end lg:hidden">
+        <>
           <img src="/logo.svg" alt="Fully logo" width={36} height={36} />
-          <p> FH </p>
-        </Link>
+          <Link href="/" className="flex gap-2 items-center mr-4">
+            <p className="ml-2"> FH </p>
+          </Link>
+        </>
       </div>
     </nav>
   )

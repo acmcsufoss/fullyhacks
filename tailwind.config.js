@@ -53,7 +53,8 @@ module.exports = {
         orange_300: '#FFC985'
       },
       textColor: {
-        purple_main: '#340B67'
+        purple_main: '#340B67',
+        purple_main_hover: '#b49fcc'
       },
       backgroundColor: {
         body_bg: '#FFFAF1'

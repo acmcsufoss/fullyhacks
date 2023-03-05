@@ -2,3 +2,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .apply-btn {
+    @apply bg-sky_300 hover:bg-[#36558F] hover:ease-in-out hover:duration-200 text-white py-1 px-6 rounded-lg mx-8 ml-12;
+  }
+}

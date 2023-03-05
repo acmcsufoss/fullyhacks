@@ -1,5 +1,5 @@
 import React from 'react'
-import Bubble from '../Bubble/Bubble'
+import Bubble from '../../Bubble/Bubble'
 
 const About: React.FC = () => {
   return (

@@ -1,9 +1,9 @@
 import { companyType } from '@/types/interface'
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import About from '../About/About'
 import Bubbles from '../Bubble/Bubbles'
 import { NavBarLanding } from '../NavBar/NavBar'
+import About from './About/About'
 import CountDown from './CountDown/CountDown'
 import Sponsors from './Sponsors/Sponsors'
 
@@ -20,7 +20,7 @@ const LandingPage: React.FC = () => {
   return (
     <>
       <NavBarLanding />
-      <section className="mt-20 text-center text-purple_main z-10">
+      <section className="mt-20 text-center text-purple_main z-[2]">
         <h1 className="text-xxl">
           FullyHacks <span className="text-orange_300">2023</span>
         </h1>
@@ -29,13 +29,13 @@ const LandingPage: React.FC = () => {
       <Bubbles />
       <CountDown />
       <div className="flex items-center mt-12 gap-8 text-md font-medium">
-        <button className="bg-sky_300 text-white px-6 py-1 rounded-lg">
-          Apply
-        </button>
+        <button className="apply-btn">Apply</button>
         <button className="font-normal"> Sponsor Us!</button>
       </div>
       <section>
-        <div className="mx-4 relative font-normal font-rubik text-purple_main mt-40 flex flex-col items-center justify-center md:flex-row md:mx-8 md:text-md max-w-[1048px]">
+        <div
+          id="about"
+          className="mx-4 relative font-normal font-rubik text-purple_main mt-40 flex flex-col items-center justify-center md:flex-row md:mx-8 md:text-md max-w-[1048px]">
           <About />
         </div>
         <div className="mx-4 font-normal font-rubik text-purple_main mt-8 flex flex-col items-start justify-center md:mx-8 md:text-md max-w-[1048px] md:mt-40">
