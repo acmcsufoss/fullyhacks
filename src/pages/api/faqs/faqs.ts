@@ -1,4 +1,4 @@
-import { companyType, FAQType } from '@/types/interface'
+import { FAQType } from '@/types/interface'
 
 export const faqs: FAQType[] = [
   {
