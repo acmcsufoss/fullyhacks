@@ -45,6 +45,7 @@ module.exports = {
         sky_300: '#18AAFF',
         blue_300: '#385DDF',
         purple_300: '#9EA8FF',
+        purple_hover: '#3b3561',
         purple_500: '#4F38DF',
         pink_700: '#B438DF',
         pink_400: '#FF8F8F',

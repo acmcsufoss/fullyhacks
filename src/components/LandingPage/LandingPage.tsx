@@ -1,21 +1,27 @@
-import { companyType } from '@/types/interface'
+import { companyType, FAQType } from '@/types/interface'
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import Bubbles from '../Bubble/Bubbles'
 import { NavBarLanding } from '../NavBar/NavBar'
 import About from './About/About'
 import CountDown from './CountDown/CountDown'
+import FAQ from './FAQ/FAQ'
 import Partners from './Partners/Partners'
 import Sponsors from './Sponsors/Sponsors'
 
 const LandingPage: React.FC = () => {
   const [companies, setCompanies] = useState<companyType[]>([])
+  const [FAQs, setFAQS] = useState<FAQType[]>([])
+
   useEffect(() => {
-    const getCompanies = async () => {
-      const res = await axios.get('/api/companies')
-      setCompanies(res.data)
+    const getData = async () => {
+      const company = axios.get('/api/companies')
+      const faq = axios.get('/api/faqs')
+      const [companyData, faqData] = await Promise.all([company, faq])
+      setCompanies(companyData.data)
+      setFAQS(faqData.data)
     }
-    getCompanies()
+    getData()
   }, [])
 
   return (
@@ -46,6 +52,11 @@ const LandingPage: React.FC = () => {
         </div>
         <div className="mx-4 relative font-normal font-rubik text-purple_main flex flex-col items-center justify-center md:flex-row md:mx-8 md:text-md md:mt-40 max-w-[1048px]">
           <Partners />
+        </div>
+        <div
+          id="faq"
+          className="mx-4 relative font-normal font-rubik text-purple_main flex flex-col items-center justify-center md:mx-8 md:text-md md:mt-40 max-w-[1048px]">
+          <FAQ faqs={FAQs} />
         </div>
       </section>
     </>

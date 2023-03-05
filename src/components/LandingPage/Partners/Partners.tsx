@@ -1,7 +1,7 @@
 import Bubble from '@/components/Bubble/Bubble'
 import React from 'react'
 
-const Partners = () => {
+const Partners: React.FC = () => {
   return (
     <>
       <img

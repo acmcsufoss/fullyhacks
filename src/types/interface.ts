@@ -13,3 +13,9 @@ export interface MenuType {
   mobile: number
   desktop: number
 }
+
+export interface FAQType {
+  id: string
+  question: string
+  answer: string
+}
