@@ -14,9 +14,7 @@ const Sponsors: React.FC<SponsorProps> = (props) => {
       <p className="mt-4 font-light">
         Companies that help make FullyHacks 2023 possible
       </p>
-      <section
-        id="sponsors"
-        className="grid grid-cols-3 justify-center gap-8 my-10 ">
+      <section className="grid grid-cols-3 justify-center gap-8 my-10 ">
         {companies.map((company: companyType) => {
           return (
             <div className="mt-4 md:mt-8 md:mr-24" key={company.id}>

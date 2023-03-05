@@ -13,7 +13,7 @@ const About: React.FC = () => {
         top="top-8 md:top-12"
         left="left-14 md:left-[40em]"
         width="w-20 md:w-30"
-        height="h-20 md:w-30"
+        height="h-20 md:h-30"
         color="bg-orange_300"
       />
       <Bubble
