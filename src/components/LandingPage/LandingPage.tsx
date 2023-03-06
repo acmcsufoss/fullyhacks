@@ -2,6 +2,7 @@ import { companyType, FAQType } from '@/types/interface'
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import Bubbles from '../Bubble/Bubbles'
+import { LandingFooter } from '../Footer/Footer'
 import { NavBarLanding } from '../NavBar/NavBar'
 import About from './About/About'
 import CountDown from './CountDown/CountDown'
@@ -59,6 +60,9 @@ const LandingPage: React.FC = () => {
           <FAQ faqs={FAQs} />
         </div>
       </section>
+      <div className="md:w-[100vw] mt-12 h-[480px] relative font-normal font-rubik text-purple_main flex flex-col items-center justify-start overflow-hidden md:mx-8 md:text-md md:mt-40 md:h-[720px]">
+        <LandingFooter />
+      </div>
     </>
   )
 }

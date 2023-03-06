@@ -33,8 +33,7 @@ export const faqs: FAQType[] = [
   },
   {
     id: 'faq6',
-    question:
-      "I've never coded or been to a hackathon before. Can I participate?",
+    question: 'I have no experience at all, can I still participate?',
     answer:
       'Yes! We welcome people of all backgrounds and experience levels. We program workshops and bring in mentors who stick around throughout the event to help you get started!'
   },
