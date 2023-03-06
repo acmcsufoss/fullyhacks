@@ -13,11 +13,13 @@ interface FAQDropDownProps {
 const FAQDropDown: React.FC<FAQDropDownProps> = (props) => {
   const { question, answer } = props
   return (
-    <div className="w-[80vw] rounded-lg dropdown">
+    <div className="w-[90vw] md:w-[80vw] rounded-lg dropdown">
       <label
         tabIndex={0}
-        className="w-full btn bg-purple_300 hover:ease-in-out hover:duration-200 hover:bg-purple_hover hover:text-white text-purple_main border-none">
-        <label className="normal-case mr-auto text-lg m-1">{question}</label>
+        className="w-full btn h-[5.5rem] bg-purple_300 hover:ease-in-out hover:duration-200 hover:bg-purple_hover hover:text-white text-purple_main border-none">
+        <p className="text-start leading-9 normal-case mr-auto text-md md:text-lg m-1">
+          {question}
+        </p>
       </label>
       <ul
         tabIndex={0}
@@ -42,6 +44,11 @@ const FAQ: React.FC<FAQProps> = (props) => {
           </div>
         )
       })}
+      <p className="mt-2">
+        More questions? Reach out to us at
+        <span className="font-bold"> info@fullyhacks.com </span> and we'll get
+        back to you ASAP!
+      </p>
     </>
   )
 }
