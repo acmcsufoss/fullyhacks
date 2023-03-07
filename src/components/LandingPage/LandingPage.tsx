@@ -22,7 +22,7 @@ const LandingPage: React.FC<LandingPageProps> = (props) => {
       <NavBarLanding />
       <section className="mt-20 text-center text-purple_main z-[2]">
         <h1 className="text-xxl">
-          Staging FullyHacks <span className="text-orange_300">2023</span>
+          FullyHacks <span className="text-orange_300">2023</span>
         </h1>
         <p className="font-normal text-lg">April 8th - 9th</p>
       </section>
@@ -52,7 +52,7 @@ const LandingPage: React.FC<LandingPageProps> = (props) => {
           <FAQ faqs={faqData} />
         </div>
       </section>
-      <div className="md:w-[100vw] mt-12 h-[480px] relative font-normal font-rubik text-purple_main flex flex-col items-center justify-start overflow-hidden md:mx-8 md:text-md md:mt-40 md:h-[720px]">
+      <div className="w-[100vw] mt-12 h-[480px] relative font-normal font-rubik text-purple_main flex flex-col items-center justify-start overflow-hidden md:mx-8 md:text-md md:mt-40 md:h-[720px]">
         <LandingFooter />
       </div>
     </>

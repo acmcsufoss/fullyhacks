@@ -5,30 +5,9 @@ const Partners: React.FC = () => {
   return (
     <>
       <img
-        src="/acm.svg"
-        alt="acm logo"
+        src="/partners.svg"
+        alt="partners"
         className="animate-float z-[2] relative w-[58%] md:w-[300px]"
-      />
-      <Bubble
-        top="top-[-0.5rem] md:top-[-2rem] z-[1]"
-        left="left-[8rem] md:left-[6rem]"
-        width="w-20 md:w-36"
-        height="h-20 md:h-36"
-        color="bg-orange_300"
-      />
-      <Bubble
-        top="z-[1] top-[7rem] md:top-auto"
-        left="left-20 md:left-0"
-        width="w-20 md:w-36"
-        height="h-20 md:h-36"
-        color="bg-purple_300"
-      />
-      <Bubble
-        top="z-[1] top-[7rem] md:top-auto"
-        left="left-[11rem] md:left-48"
-        width="w-20 md:w-36"
-        height="h-20 md:h-36"
-        color="bg-pink_100"
       />
       <div className="mb-auto flex flex-col md:ml-[6rem]">
         <p className="mt-14 text-xl font-medium md:text-xxl">Our Partners</p>
