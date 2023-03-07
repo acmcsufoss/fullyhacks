@@ -7,7 +7,7 @@ const Partners: React.FC = () => {
       <img
         src="/partners.svg"
         alt="partners"
-        className="animate-float z-[2] relative w-[58%] md:w-[300px]"
+        className="motion-reduce:animate-none animate-float z-[2] relative w-[58%] md:w-[300px]"
       />
       <div className="mb-auto flex flex-col md:ml-[6rem]">
         <p className="mt-14 text-xl font-medium md:text-xxl">Our Partners</p>
