@@ -34,14 +34,16 @@ const signin: NextPage = () => {
         action="I understand"
       />
       <div className="relative mt-10 flex flex-col justify-center items-center mx-4">
-        <Bubbles/>
+        <Bubbles />
         <img
           className="animate-float motion-reduce:animate-none w-48 md:w-[260px]"
           src="/tuffy_rocket.svg"
           alt="Tuffy Rocket"
         />
         <div className="text-center font-normal">
-          <p className="mt-14 text-lg md:text-xl font-semibold">Welcome to FullyHacks! </p>
+          <p className="mt-14 text-lg md:text-xl font-semibold">
+            Welcome to FullyHacks!{' '}
+          </p>
           <p>Let's sign in and start your application</p>
         </div>
         <button
