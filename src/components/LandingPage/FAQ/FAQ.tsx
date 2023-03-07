@@ -46,8 +46,8 @@ const FAQ: React.FC<FAQProps> = (props) => {
       })}
       <p className="mt-2">
         More questions? Reach out to us at
-        <span className="font-bold"> info@fullyhacks.com </span> and we&apos;ll get
-        back to you ASAP!
+        <span className="font-bold"> info@fullyhacks.com </span> and we&apos;ll
+        get back to you ASAP!
       </p>
     </>
   )

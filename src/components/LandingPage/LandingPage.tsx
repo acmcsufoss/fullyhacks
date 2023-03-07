@@ -10,27 +10,19 @@ import FAQ from './FAQ/FAQ'
 import Partners from './Partners/Partners'
 import Sponsors from './Sponsors/Sponsors'
 
-const LandingPage: React.FC = () => {
-  const [companies, setCompanies] = useState<companyType[]>([])
-  const [FAQs, setFAQS] = useState<FAQType[]>([])
+interface LandingPageProps {
+  companyData: companyType[]
+  faqData: FAQType[]
+}
 
-  useEffect(() => {
-    const getData = async () => {
-      const company = axios.get('/api/companies')
-      const faq = axios.get('/api/faqs')
-      const [companyData, faqData] = await Promise.all([company, faq])
-      setCompanies(companyData.data)
-      setFAQS(faqData.data)
-    }
-    getData()
-  }, [])
-
+const LandingPage: React.FC<LandingPageProps> = (props) => {
+  const { companyData, faqData } = props
   return (
     <>
       <NavBarLanding />
       <section className="mt-20 text-center text-purple_main z-[2]">
         <h1 className="text-xxl">
-          FullyHacks <span className="text-orange_300">2023</span>
+          Staging FullyHacks <span className="text-orange_300">2023</span>
         </h1>
         <p className="font-normal text-lg">April 8th - 9th</p>
       </section>
@@ -49,7 +41,7 @@ const LandingPage: React.FC = () => {
         <div
           id="sponsors"
           className="mx-4 font-normal font-rubik text-purple_main mt-8 flex flex-col items-start justify-center md:mx-8 md:text-md max-w-[1048px] md:mt-40">
-          <Sponsors companies={companies} />
+          <Sponsors companies={companyData} />
         </div>
         <div className="mx-4 relative font-normal font-rubik text-purple_main flex flex-col items-center justify-center md:flex-row md:mx-8 md:text-md md:mt-40 max-w-[1048px]">
           <Partners />
@@ -57,7 +49,7 @@ const LandingPage: React.FC = () => {
         <div
           id="faq"
           className="mx-4 relative font-normal font-rubik text-purple_main flex flex-col items-center justify-center md:mx-8 md:text-md md:mt-40 max-w-[1048px]">
-          <FAQ faqs={FAQs} />
+          <FAQ faqs={faqData} />
         </div>
       </section>
       <div className="md:w-[100vw] mt-12 h-[480px] relative font-normal font-rubik text-purple_main flex flex-col items-center justify-start overflow-hidden md:mx-8 md:text-md md:mt-40 md:h-[720px]">
