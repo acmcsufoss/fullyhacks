@@ -6,7 +6,7 @@ const About: React.FC = () => {
     <>
       <img
         src="/tuffy_rocket.svg"
-        className="z-10 object-cover w-[58%] md:w-[300px] md:order-2 animate-float"
+        className="motion-reduce:animate-none z-10 object-cover w-[58%] md:w-[300px] md:order-2 animate-float"
         alt="tuffy rocket"
       />
       <Bubble

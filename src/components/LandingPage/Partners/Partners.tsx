@@ -7,7 +7,7 @@ const Partners: React.FC = () => {
       <img
         src="/acm.svg"
         alt="acm logo"
-        className="animate-float z-[2] relative w-[58%] md:w-[300px]"
+        className="motion-reduce:animate-none animate-float z-[2] relative w-[58%] md:w-[300px]"
       />
       <Bubble
         top="top-[-0.5rem] md:top-[-2rem] z-[1]"

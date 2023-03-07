@@ -22,7 +22,7 @@ const Bubble: React.FC<BubbleProps> = (props) => {
   } = props
   return (
     <div
-      className={`animate-float absolute ${top} ${right} ${bottom} ${left} rounded-full ${width} ${height} ${color}`}></div>
+      className={`motion-reduce:animate-none animate-float absolute ${top} ${right} ${bottom} ${left} rounded-full ${width} ${height} ${color}`}></div>
   )
 }
 
