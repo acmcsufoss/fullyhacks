@@ -12,7 +12,7 @@ export const LandingFooter: React.FC = () => {
           alt="confetti left logo"
         />
         <div className="w-full flex flex-col items-center">
-          <p className="mx-4 mt-14 text-lg font-medium md:text-xxl mb-4">
+          <p className="text-center mx-4 mt-14 text-lg font-medium md:text-xxl mb-4">
             Stay Connected
           </p>
           <div className="flex gap-8">

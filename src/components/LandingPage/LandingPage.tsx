@@ -1,5 +1,6 @@
 import { companyType, FAQType } from '@/types/interface'
 import axios from 'axios'
+import { useRouter } from 'next/router'
 import React, { useEffect, useState } from 'react'
 import Bubbles from '../Bubble/Bubbles'
 import { LandingFooter } from '../Footer/Footer'
@@ -16,6 +17,7 @@ interface LandingPageProps {
 }
 
 const LandingPage: React.FC<LandingPageProps> = (props) => {
+  const router = useRouter()
   const { companyData, faqData } = props
   return (
     <>
@@ -29,7 +31,11 @@ const LandingPage: React.FC<LandingPageProps> = (props) => {
       <Bubbles />
       <CountDown />
       <div className="flex items-center mt-12 gap-8 text-md font-medium">
-        <button className="apply-btn mx-0">Apply</button>
+        <button
+          onClick={() => router.push('/signin')}
+          className="apply-btn mx-0">
+          Apply
+        </button>
         <button className="font-normal"> Sponsor Us!</button>
       </div>
       <section>

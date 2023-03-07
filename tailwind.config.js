@@ -51,7 +51,8 @@ module.exports = {
         pink_400: '#FF8F8F',
         pink_300: '#DF389C',
         pink_100: '#FFABCE',
-        orange_300: '#FFC985'
+        orange_300: '#FFC985',
+        orange_100: '#FFEDCC'
       },
       textColor: {
         purple_main: '#340B67',
@@ -60,7 +61,7 @@ module.exports = {
       backgroundColor: {
         body_bg: '#FFFAF1'
       },
-      screens:{
+      screens: {
         md: '700px'
       }
     }

@@ -1,8 +1,11 @@
 import { MenuType } from '@/types/interface'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 import React from 'react'
+import { IoArrowBackSharp } from 'react-icons/io5'
 
 export const NavBarLanding: React.FC = () => {
+  const router = useRouter()
   const menuList: MenuType[] = [
     {
       id: 'about',
@@ -108,7 +111,9 @@ export const NavBarLanding: React.FC = () => {
               </>
             )
           })}
-          <button className="apply-btn">Apply</button>
+          <button onClick={() => router.push('/signin')} className="apply-btn">
+            Apply
+          </button>
         </ul>
       </div>
       <div className="navbar-end lg:hidden">
@@ -118,6 +123,26 @@ export const NavBarLanding: React.FC = () => {
             <p className="ml-2"> FH </p>
           </Link>
         </>
+      </div>
+    </nav>
+  )
+}
+
+export const GenericNavBar = () => {
+  const router = useRouter()
+  return (
+    <nav className="flex items-center text-purple_main bg-orange_100">
+      <img src="/logo.svg" className="my-4 ml-2 w-12 h-12 md:w-16 md:h-16" />
+      <div className="mr-4 ml-auto flex gap-4 items-center">
+        <button
+          onClick={() => router.push('/')}
+          className="font-semibold text-sm md:text-md">
+          Back to home
+        </button>
+        <IoArrowBackSharp
+          onClick={() => router.push('/')}
+          className="cursor-pointer scale-x-[-1] w-8 h-8"
+        />
       </div>
     </nav>
   )
