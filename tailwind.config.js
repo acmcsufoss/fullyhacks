@@ -59,6 +59,9 @@ module.exports = {
       },
       backgroundColor: {
         body_bg: '#FFFAF1'
+      },
+      screens:{
+        md: '700px'
       }
     }
   },
