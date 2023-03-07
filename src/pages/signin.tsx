@@ -42,7 +42,7 @@ const signin: NextPage = () => {
         />
         <div className="text-center font-normal">
           <p className="mt-14 text-lg md:text-xl font-semibold">
-            Welcome to FullyHacks!{' '}
+            Welcome to FullyHacks!
           </p>
           <p>Let's sign in and start your application</p>
         </div>
@@ -52,7 +52,7 @@ const signin: NextPage = () => {
             setClick(true)
             signIn('github', {
               redirect: false,
-              callbackUrl: 'http://localhost:3000/apply'
+              callbackUrl: 'https://fullyhacks.netlify.app/apply'
             })
           }}>
           {isClicked ? (
