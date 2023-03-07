@@ -1,5 +1,5 @@
 import React, { useReducer } from 'react'
-// @ts-nocheck
+import { CSSProperties } from 'react'
 interface TimeState {
   days: number
   hours: number
@@ -42,26 +42,26 @@ const CountDown = () => {
       <div className="flex flex-col text-blue_300">
         <div className="flex items-center">
           <span className="countdown text-5xl">
-            <span style={{ '--value': time.days }}></span>
+            <span style={{ '--value': time.days } as CSSProperties}></span>
           </span>
         </div>
         Days
       </div>
       <div className="flex flex-col text-purple_500">
         <span className="countdown text-5xl">
-          <span style={{ '--value': time.hours }}></span>
+          <span style={{ '--value': time.hours } as CSSProperties}></span>
         </span>
         Hours
       </div>
       <div className="flex flex-col text-pink_700">
         <span className="countdown text-5xl">
-          <span style={{ '--value': time.minutes }}></span>
+          <span style={{ '--value': time.minutes } as CSSProperties}></span>
         </span>
         Mins
       </div>
       <div className="flex flex-col text-pink_300">
         <span className="countdown text-5xl">
-          <span style={{ '--value': time.seconds }}></span>
+          <span style={{ '--value': time.seconds } as CSSProperties}></span>
         </span>
         Secs
       </div>
