@@ -65,7 +65,7 @@ export const NavBarLanding: React.FC = () => {
             className="z-[3] ml-4 menu menu-compact dropdown-content mt-3 p-2 shadow bg-purple_300 rounded-box w-52 text-[1rem]">
             {menuList.map((item) => {
               return (
-                <div className="flex gap-4 my-2">
+                <div key={item.id} className="flex gap-4 my-2">
                   <img
                     src={item.logo}
                     alt={item.logo + '"s logo'}
@@ -102,8 +102,7 @@ export const NavBarLanding: React.FC = () => {
                   href={item.href}
                   className="flex items-center">
                   <p className="cursor-pointer hover:ease-in-out hover:duration-200 hover:text-purple_main_hover">
-                    {' '}
-                    {item.name}{' '}
+                    {item.name}
                   </p>
                 </Link>
               </>
