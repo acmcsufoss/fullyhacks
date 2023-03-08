@@ -52,7 +52,7 @@ const signin: NextPage = () => {
             setClick(true)
             signIn('github', {
               redirect: false,
-              callbackUrl: 'https://fullyhacks.netlify.app/apply'
+              callbackUrl: 'https://fullyhacks.vercel.app/apply'
             })
           }}>
           {isClicked ? (
