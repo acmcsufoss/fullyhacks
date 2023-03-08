@@ -10,8 +10,8 @@ const options = {
   adapter: PrismaAdapter(prisma),
   providers: [
     GitHubProvider({
-      clientId: process.env.GITHUB_ID_PROD,
-      clientSecret: process.env.GITHUB_SECRET_PROD
+      clientId: process.env.GITHUB_ID,
+      clientSecret: process.env.GITHUB_SECRET
     })
   ],
   callbacks: {
