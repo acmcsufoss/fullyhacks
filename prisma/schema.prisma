@@ -70,6 +70,7 @@ model User {
   bio           String?
   emailVerified DateTime?
   image         String?
+  isAdmin       Boolean @default(false)
   accounts      Account[]
   sessions      Session[]
   application   Application?
