@@ -31,7 +31,4 @@ const options = {
   }
   // adapter: PrismaAdapter(prisma),
 }
-const nextAuth = (req, res) => {
-  NextAuth(req, res, options)
-}
-export default nextAuth
+export default (req, res) => NextAuth(req, res, options)
