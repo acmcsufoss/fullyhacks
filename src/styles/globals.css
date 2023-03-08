@@ -7,4 +7,13 @@
   .apply-btn {
     @apply bg-sky_300 hover:bg-[#36558F] hover:ease-in-out hover:duration-200 text-white py-1 px-6 rounded-lg mx-8 ml-12;
   }
+  .form-input {
+    @apply border-2 border-purple_300 p-2 bg-body_bg mt-2 mb-4;
+  }
+  .error-msg {
+    @apply text-red-600 mb-2;
+  }
+  .error-form {
+    @apply border-2 border-red-600 animate-shake p-2;
+  }
 }
