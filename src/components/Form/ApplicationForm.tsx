@@ -1,4 +1,4 @@
-import React, { useReducer, useState } from 'react'
+import React, { useEffect, useReducer, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
@@ -18,7 +18,7 @@ interface ApplicationState {
 }
 interface FormAction {
   type: string
-  payload: any
+  payload?: any
 }
 const schema = yup
   .object({
@@ -80,6 +80,20 @@ const reducer = (
   action: FormAction
 ): ApplicationState => {
   switch (action.type) {
+    case 'SAVE_DRAFT':
+      const { name, value } = action.payload
+      localStorage.setItem(name, value)
+      return { ...state, [name]: value }
+    case 'LOAD_DRAFT':
+      const data = localStorage.getItem('formData')
+      if (data) {
+        const parsedData = JSON.parse(data)
+        return {
+          ...state,
+          ...parsedData
+        }
+      }
+      return state
     case 'SET_NAME':
       return { ...state, name: action.payload }
     case 'SET_EMAIL':
@@ -113,13 +127,23 @@ const ApplicationForm: React.FC = () => {
     handleSubmit,
     formState: { errors }
   } = useForm<FormData>({ resolver: yupResolver(schema) })
-  const [value, setValue] = useState('')
-  const [agree1, setAgree1] = useState(false)
-  const [agree2, setAgree2] = useState(false)
   const [application, dispatch] = useReducer(reducer, initialState)
-  const wordCount = value.trim().split(/\s+/).length
+  const wordCount = application.response.trim().split(/\s+/).length
+  useEffect(() => {
+    for (let key in initialState) {
+      const value = localStorage.getItem(key)
+      if (value !== null) {
+        dispatch({
+          type: 'SAVE_DRAFT',
+          payload: { name: key, value: value }
+        })
+      }
+    }
+  }, [])
+
   const handleChange = (event: React.ChangeEvent<any>) => {
     const { name, value } = event.target
+    dispatch({ type: 'SAVE_DRAFT', payload: { name, value } })
     switch (name) {
       case 'name':
         dispatch({ type: 'SET_NAME', payload: value })
@@ -142,25 +166,28 @@ const ApplicationForm: React.FC = () => {
       case 'food':
         dispatch({ type: 'SET_FOOD', payload: value })
       case 'agree':
-        console.log(agree1)
-        console.log(agree2)
-        if (agree1 && agree2) {
-          dispatch({ type: 'SET_AGREE', payload: true })
-        }
+        dispatch({ type: 'SET_AGREE', payload: true })
     }
   }
   const onSubmit = async () => {
     console.log(application)
   }
+  const updateLocalStorage = (name: string, value: string) => {
+    localStorage.setItem(name, value)
+  }
   return (
     <>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form className="md:w-[600px]" onSubmit={handleSubmit(onSubmit)}>
         <div className="my-10 flex flex-col">
           <p>Full name</p>
           <input
             {...register('name')}
             name="name"
-            onChange={handleChange}
+            value={application.name}
+            onChange={(e) => {
+              handleChange(e)
+              updateLocalStorage('name', e.target.value)
+            }}
             className={`form-input ${errors.name ? 'error-form' : ''}`}
             type="text"
             placeholder="John Doe"
@@ -170,7 +197,10 @@ const ApplicationForm: React.FC = () => {
           <input
             {...register('email')}
             name="email"
-            onChange={handleChange}
+            onChange={(e) => {
+              handleChange(e)
+              updateLocalStorage('email', e.target.value)
+            }}
             className={`form-input ${errors.email ? 'error-form' : ''}`}
             type="text"
             placeholder="jdoe@csu.fullerton.edu"
@@ -178,7 +208,10 @@ const ApplicationForm: React.FC = () => {
           <p className="error-msg">{errors.email?.message}</p>
           <p>Pronouns</p>
           <select
-            onChange={handleChange}
+            onChange={(e) => {
+              handleChange(e)
+              updateLocalStorage('pronouns', e.target.value)
+            }}
             name="pronouns"
             className="form-input">
             <option value="she/her">she/her</option>
@@ -190,7 +223,10 @@ const ApplicationForm: React.FC = () => {
           <input
             {...register('phone')}
             name="phone"
-            onChange={handleChange}
+            onChange={(e) => {
+              handleChange(e)
+              updateLocalStorage('phone', e.target.value)
+            }}
             className={`form-input ${errors.phone ? 'error-form' : ''}`}
             type="text"
             placeholder="000-111-2222"
@@ -199,7 +235,10 @@ const ApplicationForm: React.FC = () => {
           <p>Major</p>
           <input
             name="major"
-            onChange={handleChange}
+            onChange={(e) => {
+              handleChange(e)
+              updateLocalStorage('major', e.target.value)
+            }}
             className="form-input"
             type="text"
             placeholder="Computer Science"
@@ -208,7 +247,10 @@ const ApplicationForm: React.FC = () => {
           <input
             {...register('gradYear')}
             name="gradYear"
-            onChange={handleChange}
+            onChange={(e) => {
+              handleChange(e)
+              updateLocalStorage('gradYear', e.target.value)
+            }}
             className={`form-input ${errors.gradYear ? 'error-form' : ''}`}
             type="text"
             placeholder="2025"
@@ -216,14 +258,23 @@ const ApplicationForm: React.FC = () => {
           <p className="error-msg">{errors.gradYear?.message}</p>
           <p>Education level</p>
           <select
-            onChange={handleChange}
+            onChange={(e) => {
+              handleChange(e)
+              updateLocalStorage('education', e.target.value)
+            }}
             name="education"
             className="form-input">
             <option value="Bachelor">Bachelor</option>
             <option value="Master">Master</option>
           </select>
           <p>Skill level</p>
-          <select name="skill" onChange={handleChange} className="form-input">
+          <select
+            name="skill"
+            onChange={(e) => {
+              handleChange(e)
+              updateLocalStorage('skill', e.target.value)
+            }}
+            className="form-input">
             <option value="1">No experience</option>
             <option value="2">Beginner</option>
             <option value="3">Intermediate</option>
@@ -235,18 +286,23 @@ const ApplicationForm: React.FC = () => {
               {...register('response')}
               name="response"
               className={`form-input ${errors.response ? 'error-form' : ''}`}
-              value={value}
               onChange={(e) => {
                 handleChange(e)
-                setValue(e.target.value)
+                updateLocalStorage('response', e.target.value)
               }}
               placeholder="50-500 words"
             />
-            <p className="absolute bottom-4 right-4">{wordCount} words</p>
+            <p className="absolute bottom-6 right-4">{wordCount} words</p>
             <p className="error-msg">{errors.response?.message}</p>
           </div>
           <p>Food choice</p>
-          <select name="food" onChange={handleChange} className="form-input">
+          <select
+            name="food"
+            onChange={(e) => {
+              handleChange(e)
+              updateLocalStorage('food', e.target.value)
+            }}
+            className="form-input">
             <option value="vegan">Vegan</option>
             <option value="non-vegan">Non-vegan</option>
             <option value="vegetarian">Vegetarian</option>
@@ -258,7 +314,10 @@ const ApplicationForm: React.FC = () => {
           </p>
           <input
             name="food"
-            onChange={handleChange}
+            onChange={(e) => {
+              handleChange(e)
+              updateLocalStorage('food', e.target.value)
+            }}
             className="form-input"
             type="text"
             placeholder="non-diary,..."
@@ -266,10 +325,8 @@ const ApplicationForm: React.FC = () => {
           <div className="mt-4 flex items-center gap-4">
             <input
               {...register('over18')}
-              name="age"
-              onChange={(e) => {
-                setAgree1(e.target.checked), handleChange(e)
-              }}
+              name="over18"
+              onChange={handleChange}
               type="checkbox"
               className="bg-purple_300 checkbox"
             />
@@ -280,9 +337,7 @@ const ApplicationForm: React.FC = () => {
             <input
               {...register('waiver')}
               name="waiver"
-              onChange={(e) => {
-                setAgree2(e.target.checked), handleChange(e)
-              }}
+              onChange={handleChange}
               type="checkbox"
               className="bg-purple_300 checkbox"
             />

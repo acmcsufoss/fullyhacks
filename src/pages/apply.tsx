@@ -9,7 +9,8 @@ const apply: NextPage = () => {
       <GenericNavBar />
       <button onClick={() => signOut()}> Sign out</button>
       <div className="font-rubik text-purple_main mt-10 flex flex-col items-center">
-        <p className="text-lg font-semibold">My Application</p>
+        <p className="text-lg font-semibold md:text-xl">My Application</p>
+        <p className="text-purple_300">Draft will be saved</p>
         <ApplicationForm />
       </div>
     </section>

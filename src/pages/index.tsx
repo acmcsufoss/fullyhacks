@@ -23,16 +23,14 @@ export default function Home({
     <>
       <Head>
         <title>FullyHacks 2023</title>
-        <meta name="description" content="Welcome to FullyHacks 2023" key="desc" />
-        <meta property="og:title" content="FullyHacks 2023" />
         <meta
-          property="og:description"
+          name="description"
           content="Welcome to FullyHacks 2023"
+          key="desc"
         />
-        <meta
-          property="og:image"
-          content="/logo.svg"
-        />
+        <meta property="og:title" content="FullyHacks 2023" />
+        <meta property="og:description" content="Welcome to FullyHacks 2023" />
+        <meta property="og:image" content="/logo.svg" />
       </Head>
       <main className="relative flex flex-col items-center font-rubik font-semibold">
         <LandingPage companyData={companyData} faqData={faqData} />
