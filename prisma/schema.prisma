@@ -66,6 +66,7 @@ model User {
   email         String?      @unique
   discordId     String?
   bio           String?
+  githubId      String?
   emailVerified DateTime?
   image         String?
   isAdmin       Boolean @default(false)

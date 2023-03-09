@@ -2,6 +2,7 @@ import React, { useEffect, useReducer, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
+import axios from 'axios'
 
 interface ApplicationState {
   name: string
@@ -121,15 +122,26 @@ const reducer = (
   }
 }
 
-const ApplicationForm: React.FC = () => {
+interface ApplicationProps {
+  url: string
+}
+
+const ApplicationForm: React.FC<ApplicationProps> = (props) => {
+  const { url } = props
   const {
     register,
     handleSubmit,
     formState: { errors }
   } = useForm<FormData>({ resolver: yupResolver(schema) })
+  const userId = url?.split('/').pop()?.split('?')[0] || ''
   const [application, dispatch] = useReducer(reducer, initialState)
+  const [githubLogin, setGithub] = useState('')
   const wordCount = application.response.trim().split(/\s+/).length
   useEffect(() => {
+    const getGithubLogin = async () => {
+      const res = await axios.get(`https://api.github.com/user/${userId}`)
+      setGithub(res.data.login)
+    }
     for (let key in initialState) {
       const value = localStorage.getItem(key)
       if (value !== null) {
@@ -139,6 +151,7 @@ const ApplicationForm: React.FC = () => {
         })
       }
     }
+    getGithubLogin()
   }, [])
 
   const handleChange = (event: React.ChangeEvent<any>) => {
@@ -204,6 +217,13 @@ const ApplicationForm: React.FC = () => {
             className={`form-input ${errors.email ? 'error-form' : ''}`}
             type="text"
             placeholder="jdoe@csu.fullerton.edu"
+          />
+          <p>Github</p>
+          <input
+            className="form-input"
+            disabled
+            type="text"
+            value={githubLogin}
           />
           <p className="error-msg">{errors.email?.message}</p>
           <p>Pronouns</p>

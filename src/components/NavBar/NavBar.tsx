@@ -1,4 +1,5 @@
 import { MenuType } from '@/types/interface'
+import { signOut } from 'next-auth/react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import React from 'react'
@@ -132,7 +133,11 @@ export const GenericNavBar = () => {
   const router = useRouter()
   return (
     <nav className="flex items-center text-purple_main bg-orange_100">
-      <img src="/logo.svg" className="my-4 ml-2 w-12 h-12 md:w-16 md:h-16" />
+      <img
+        onClick={() => router.push('/')}
+        src="/logo.svg"
+        className="cursor-pointer my-4 ml-2 w-12 h-12 md:w-16 md:h-16"
+      />
       <div className="mr-4 ml-auto flex gap-4 items-center">
         <button
           onClick={() => router.push('/')}
@@ -143,6 +148,22 @@ export const GenericNavBar = () => {
           onClick={() => router.push('/')}
           className="cursor-pointer scale-x-[-1] w-8 h-8"
         />
+      </div>
+    </nav>
+  )
+}
+
+export const AuthNavBar = () => {
+  const router = useRouter()
+  return (
+    <nav className="flex items-center text-purple_main bg-orange_100">
+      <img
+        onClick={() => router.push('/')}
+        src="/logo.svg"
+        className="cursor-pointer my-4 ml-2 w-12 h-12 md:w-16 md:h-16"
+      />
+      <div className="mr-4 ml-auto text-md">
+        <button onClick={() => signOut()}> Sign out</button>
       </div>
     </nav>
   )
