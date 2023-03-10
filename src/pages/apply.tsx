@@ -1,5 +1,6 @@
 import ApplicationForm from '@/components/Form/ApplicationForm'
 import { AuthNavBar } from '@/components/NavBar/NavBar'
+import { PrismaClient } from '@prisma/client'
 import {
   GetServerSideProps,
   GetServerSidePropsContext,
@@ -7,6 +8,7 @@ import {
   NextPage
 } from 'next'
 import { getSession } from 'next-auth/react'
+const prisma = new PrismaClient()
 export async function getServerSideProps(context: GetServerSidePropsContext) {
   // Check if user is authenticated
   const session = await getSession(context)
@@ -20,6 +22,20 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
     }
   }
   const { user } = session
+  const User = await prisma.user.findUnique({
+    where: { email: session?.user?.email as any },
+    select: {
+      application: true
+    }
+  })
+  if (User?.application?.applied) {
+    return {
+      redirect: {
+        destination: '/portal',
+        permanent: false
+      }
+    }
+  }
   return {
     props: {
       user: user
