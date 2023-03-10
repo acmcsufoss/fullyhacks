@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
 import axios from 'axios'
+import Loading from '../Loading/Loading'
 
 interface ApplicationState {
   name: string
@@ -12,7 +13,7 @@ interface ApplicationState {
   major: string
   gradYear: number
   education: string
-  skill: string
+  skill: number
   response: string
   food: string
   agree: boolean
@@ -66,14 +67,14 @@ type FormData = yup.InferType<typeof schema>
 const initialState: ApplicationState = {
   name: '',
   email: '',
-  pronouns: '',
+  pronouns: 'she/her',
   phone: '',
   major: '',
   gradYear: 2023,
-  education: '',
-  skill: '',
+  education: 'Bachelor',
+  skill: 0,
   response: '',
-  food: '',
+  food: 'Vegan',
   agree: false
 }
 const reducer = (
@@ -110,7 +111,7 @@ const reducer = (
     case 'SET_EDUCATION':
       return { ...state, education: action.payload }
     case 'SET_SKILL':
-      return { ...state, skill: action.payload }
+      return { ...state, skill: parseInt(action.payload) }
     case 'SET_RESPONSE':
       return { ...state, response: action.payload }
     case 'SET_FOOD':
@@ -136,6 +137,7 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
   const userId = url?.split('/').pop()?.split('?')[0] || ''
   const [application, dispatch] = useReducer(reducer, initialState)
   const [githubLogin, setGithub] = useState('')
+  const [isLoading, setLoading] = useState(false)
   const wordCount = application.response.trim().split(/\s+/).length
   useEffect(() => {
     const getGithubLogin = async () => {
@@ -154,39 +156,18 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
     getGithubLogin()
   }, [])
 
-  const handleChange = (event: React.ChangeEvent<any>) => {
-    const { name, value } = event.target
-    dispatch({ type: 'SAVE_DRAFT', payload: { name, value } })
-    switch (name) {
-      case 'name':
-        dispatch({ type: 'SET_NAME', payload: value })
-      case 'email':
-        dispatch({ type: 'SET_EMAIL', payload: value })
-      case 'pronouns':
-        dispatch({ type: 'SET_PRONOUNS', payload: value })
-      case 'phone':
-        dispatch({ type: 'SET_PHONE', payload: value })
-      case 'major':
-        dispatch({ type: 'SET_MAJOR', payload: value })
-      case 'gradYear':
-        dispatch({ type: 'SET_GRADYEAR', payload: value })
-      case 'education':
-        dispatch({ type: 'SET_EDUCATION', payload: value })
-      case 'skill':
-        dispatch({ type: 'SET_SKILL', payload: value })
-      case 'response':
-        dispatch({ type: 'SET_RESPONSE', payload: value })
-      case 'food':
-        dispatch({ type: 'SET_FOOD', payload: value })
-      case 'agree':
-        dispatch({ type: 'SET_AGREE', payload: true })
-    }
-  }
   const onSubmit = async () => {
-    console.log(application)
-  }
-  const updateLocalStorage = (name: string, value: string) => {
-    localStorage.setItem(name, value)
+    try {
+      setLoading(true)
+      const newApplication = {
+        ...application,
+        github: githubLogin
+      }
+      await axios.post('/api/application', newApplication)
+      setLoading(false)
+    } catch (error) {
+      console.log(error)
+    }
   }
   return (
     <>
@@ -198,8 +179,11 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
             name="name"
             value={application.name}
             onChange={(e) => {
-              handleChange(e)
-              updateLocalStorage('name', e.target.value)
+              dispatch({
+                type: 'SAVE_DRAFT',
+                payload: { name: 'name', value: e.target.value }
+              })
+              dispatch({ type: 'SET_NAME', payload: e.target.value })
             }}
             className={`form-input ${errors.name ? 'error-form' : ''}`}
             type="text"
@@ -210,14 +194,19 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
           <input
             {...register('email')}
             name="email"
+            value={application.email}
             onChange={(e) => {
-              handleChange(e)
-              updateLocalStorage('email', e.target.value)
+              dispatch({
+                type: 'SAVE_DRAFT',
+                payload: { name: 'email', value: e.target.value }
+              })
+              dispatch({ type: 'SET_EMAIL', payload: e.target.value })
             }}
             className={`form-input ${errors.email ? 'error-form' : ''}`}
             type="text"
             placeholder="jdoe@csu.fullerton.edu"
           />
+          <p className="error-msg">{errors.email?.message}</p>
           <p>Github</p>
           <input
             className="form-input"
@@ -225,14 +214,17 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
             type="text"
             value={githubLogin}
           />
-          <p className="error-msg">{errors.email?.message}</p>
           <p>Pronouns</p>
           <select
             onChange={(e) => {
-              handleChange(e)
-              updateLocalStorage('pronouns', e.target.value)
+              dispatch({ type: 'SET_PRONOUNS', payload: e.target.value })
+              dispatch({
+                type: 'SAVE_DRAFT',
+                payload: { name: 'pronouns', value: e.target.value }
+              })
             }}
             name="pronouns"
+            value={application.pronouns}
             className="form-input">
             <option value="she/her">she/her</option>
             <option value="he/him">he/him</option>
@@ -243,9 +235,13 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
           <input
             {...register('phone')}
             name="phone"
+            value={application.phone}
             onChange={(e) => {
-              handleChange(e)
-              updateLocalStorage('phone', e.target.value)
+              dispatch({ type: 'SET_PHONE', payload: e.target.value })
+              dispatch({
+                type: 'SAVE_DRAFT',
+                payload: { name: 'phone', value: e.target.value }
+              })
             }}
             className={`form-input ${errors.phone ? 'error-form' : ''}`}
             type="text"
@@ -255,9 +251,13 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
           <p>Major</p>
           <input
             name="major"
+            value={application.major}
             onChange={(e) => {
-              handleChange(e)
-              updateLocalStorage('major', e.target.value)
+              dispatch({ type: 'SET_MAJOR', payload: e.target.value })
+              dispatch({
+                type: 'SAVE_DRAFT',
+                payload: { name: 'major', value: e.target.value }
+              })
             }}
             className="form-input"
             type="text"
@@ -267,9 +267,13 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
           <input
             {...register('gradYear')}
             name="gradYear"
+            value={application.gradYear}
             onChange={(e) => {
-              handleChange(e)
-              updateLocalStorage('gradYear', e.target.value)
+              dispatch({ type: 'SET_GRADYEAR', payload: e.target.value })
+              dispatch({
+                type: 'SAVE_DRAFT',
+                payload: { name: 'gradYear', value: e.target.value }
+              })
             }}
             className={`form-input ${errors.gradYear ? 'error-form' : ''}`}
             type="text"
@@ -279,9 +283,13 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
           <p>Education level</p>
           <select
             onChange={(e) => {
-              handleChange(e)
-              updateLocalStorage('education', e.target.value)
+              dispatch({ type: 'SET_EDUCATION', payload: e.target.value })
+              dispatch({
+                type: 'SAVE_DRAFT',
+                payload: { name: 'education', value: e.target.value }
+              })
             }}
+            value={application.education}
             name="education"
             className="form-input">
             <option value="Bachelor">Bachelor</option>
@@ -290,9 +298,13 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
           <p>Skill level</p>
           <select
             name="skill"
+            value={application.skill}
             onChange={(e) => {
-              handleChange(e)
-              updateLocalStorage('skill', e.target.value)
+              dispatch({ type: 'SET_SKILL', payload: e.target.value })
+              dispatch({
+                type: 'SAVE_DRAFT',
+                payload: { name: 'skill', value: e.target.value }
+              })
             }}
             className="form-input">
             <option value="1">No experience</option>
@@ -304,11 +316,15 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
           <div className="flex flex-col relative">
             <textarea
               {...register('response')}
+              value={application.response}
               name="response"
               className={`form-input ${errors.response ? 'error-form' : ''}`}
               onChange={(e) => {
-                handleChange(e)
-                updateLocalStorage('response', e.target.value)
+                dispatch({ type: 'SET_RESPONSE', payload: e.target.value })
+                dispatch({
+                  type: 'SAVE_DRAFT',
+                  payload: { name: 'response', value: e.target.value }
+                })
               }}
               placeholder="50-500 words"
             />
@@ -318,9 +334,9 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
           <p>Food choice</p>
           <select
             name="food"
+            value={application.food}
             onChange={(e) => {
-              handleChange(e)
-              updateLocalStorage('food', e.target.value)
+              dispatch({ type: 'SET_FOOD', payload: e.target.value })
             }}
             className="form-input">
             <option value="vegan">Vegan</option>
@@ -334,9 +350,9 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
           </p>
           <input
             name="food"
+            value={application.food}
             onChange={(e) => {
-              handleChange(e)
-              updateLocalStorage('food', e.target.value)
+              dispatch({ type: 'SET_FOOD', payload: e.target.value })
             }}
             className="form-input"
             type="text"
@@ -346,7 +362,9 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
             <input
               {...register('over18')}
               name="over18"
-              onChange={handleChange}
+              onChange={(e) => {
+                dispatch({ type: 'SET_AGREE', payload: e.target.checked })
+              }}
               type="checkbox"
               className="bg-purple_300 checkbox"
             />
@@ -357,7 +375,9 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
             <input
               {...register('waiver')}
               name="waiver"
-              onChange={handleChange}
+              onChange={(e) => {
+                dispatch({ type: 'SET_AGREE', payload: e.target.checked })
+              }}
               type="checkbox"
               className="bg-purple_300 checkbox"
             />
@@ -372,9 +392,15 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
             </p>
           </div>
           <p className="error-msg">{errors.waiver?.message}</p>
-          <button className="mt-8 w-[100px] mr-auto p-2 bg-purple_300 hover:bg-purple_hover hover:text-white hover:ease-in-out hover:duration-200 rounded-md font-semibold">
-            Submit
-          </button>
+          {isLoading ? (
+            <button className="mt-8 w-[100px] flex justify-center mr-auto p-2 bg-purple_300 hover:bg-purple_hover hover:text-white hover:ease-in-out hover:duration-200 rounded-md font-semibold">
+              <Loading isLoading={isLoading} />
+            </button>
+          ) : (
+            <button className="mt-8 w-[100px] mr-auto p-2 bg-purple_300 hover:bg-purple_hover hover:text-white hover:ease-in-out hover:duration-200 rounded-md font-semibold">
+              Submit
+            </button>
+          )}
         </div>
       </form>
     </>
