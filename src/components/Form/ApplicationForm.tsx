@@ -4,6 +4,7 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
 import axios from 'axios'
 import Loading from '../Loading/Loading'
+import { useRouter } from 'next/router'
 
 interface ApplicationState {
   name: string
@@ -134,6 +135,7 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
     handleSubmit,
     formState: { errors }
   } = useForm<FormData>({ resolver: yupResolver(schema) })
+  const router = useRouter()
   const userId = url?.split('/').pop()?.split('?')[0] || ''
   const [application, dispatch] = useReducer(reducer, initialState)
   const [githubLogin, setGithub] = useState('')
@@ -164,6 +166,7 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
         github: githubLogin
       }
       await axios.post('/api/application', newApplication)
+      router.push('/portal')
       setLoading(false)
     } catch (error) {
       console.log(error)
