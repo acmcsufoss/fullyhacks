@@ -1,6 +1,7 @@
 import { AuthNavBar } from '@/components/NavBar/NavBar'
+import UserPortal from '@/components/PortalPage/UserPortal'
 import { PrismaClient } from '@prisma/client'
-import { GetServerSidePropsContext, NextPage } from 'next'
+import { GetServerSidePropsContext, InferGetServerSidePropsType } from 'next'
 import { getSession } from 'next-auth/react'
 import React from 'react'
 const prisma = new PrismaClient()
@@ -18,7 +19,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
   }
   const User = await prisma.user.findUnique({
     where: { email: session?.user?.email as any },
-    select: {
+    include: {
       application: true
     }
   })
@@ -31,15 +32,19 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
     }
   }
   return {
-    props: {}
+    props: {
+      user: JSON.parse(JSON.stringify(User))
+    }
   }
 }
 
-const portal: NextPage = () => {
+const portal = ({
+  user
+}: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   return (
     <>
       <AuthNavBar />
-      <p>User Portal</p>
+      <UserPortal user={user} />
     </>
   )
 }

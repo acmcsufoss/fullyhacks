@@ -19,3 +19,38 @@ export interface FAQType {
   question: string
   answer: string
 }
+
+export interface ApplicationType {
+  id: string
+  name: string
+  email: string
+  major: string
+  food: string
+  github: string
+  class: number
+  phone: string
+  degree: string
+  pronouns: string
+  approved: boolean
+  rejected: boolean
+  skillLevel: number
+  submittedAt: Date
+  updatedAt: Date
+  userId: string
+  applied: boolean
+  status: string
+  requirement: boolean
+  response: string
+}
+
+export interface User {
+  id: string
+  name: string
+  email: string
+  discordId?: string
+  bio?: string
+  emailVerified?: Date
+  image: string
+  isAdmin: boolean
+  application?: ApplicationType
+}
