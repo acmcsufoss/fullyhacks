@@ -37,20 +37,6 @@ export default async function handler(
       const user = await prisma.user.findUnique({
         where: { email: session?.user?.email as any }
       })
-      console.log(
-        name,
-        email,
-        pronouns,
-        github,
-        phone,
-        major,
-        gradYear,
-        education,
-        skill,
-        response,
-        food,
-        agree
-      )
       // submit
       await prisma.application.create({
         data: {
@@ -63,7 +49,7 @@ export default async function handler(
           github: github as any,
           degree: education as any,
           pronouns: pronouns as any,
-          skillLevel: skill as any,
+          skillLevel: parseInt(skill) as any,
           response: response as any,
           userId: user?.id as any,
           applied: true,
