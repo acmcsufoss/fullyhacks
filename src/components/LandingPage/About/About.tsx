@@ -32,7 +32,7 @@ const About: React.FC = () => {
         </p>
         <p className="mt-4">
           You can even
-          <span className="font-semibold">meet representatives </span> from our
+          <span className="font-semibold"> meet representatives </span> from our
           generous sponsors during our networking event. Your project also has
           the chance to
           <span className="font-semibold">win cool prizes! 🎉</span>

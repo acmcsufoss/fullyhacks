@@ -137,7 +137,22 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
   } = useForm<FormData>({ resolver: yupResolver(schema) })
   const router = useRouter()
   const userId = url?.split('/').pop()?.split('?')[0] || ''
-  const [application, dispatch] = useReducer(reducer, initialState)
+  const [application, dispatch] = useReducer(
+    reducer,
+    initialState,
+    (initialState: ApplicationState) => {
+      const persistedState: any = { ...initialState } as ApplicationState
+      if (typeof localStorage !== 'undefined') {
+        Object.entries(initialState).forEach(([key, value]) => {
+          const persistedValue = localStorage.getItem(key)
+          if (persistedValue) {
+            persistedState[key as keyof ApplicationState] = persistedValue
+          }
+        })
+      }
+      return persistedState
+    }
+  )
   const [githubLogin, setGithub] = useState('')
   const [isLoading, setLoading] = useState(false)
   const wordCount = application.response.trim().split(/\s+/).length
