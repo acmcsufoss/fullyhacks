@@ -1,6 +1,6 @@
-import ApplicationForm from '@/components/Form/ApplicationForm'
 import { AuthNavBar } from '@/components/NavBar/NavBar'
 import { PrismaClient } from '@prisma/client'
+import dynamic from 'next/dynamic'
 import {
   GetServerSideProps,
   GetServerSidePropsContext,
@@ -8,6 +8,7 @@ import {
   NextPage
 } from 'next'
 import { getSession } from 'next-auth/react'
+import { useRouter } from 'next/router'
 const prisma = new PrismaClient()
 export async function getServerSideProps(context: GetServerSidePropsContext) {
   // Check if user is authenticated
@@ -28,32 +29,51 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
       application: true
     }
   })
-  if (User?.application?.applied) {
-    return {
-      redirect: {
-        destination: '/portal',
-        permanent: false
-      }
-    }
-  }
   return {
     props: {
-      user: user
+      user: JSON.parse(JSON.stringify(user)),
+      application: JSON.parse(JSON.stringify(User?.application))
     }
   }
 }
 
+const ApplicationForm = dynamic(
+  () => import('../components/Form/ApplicationForm'),
+  {
+    ssr: false
+  }
+)
+
 const apply: NextPage = ({
-  user
+  user,
+  application
 }: InferGetServerSidePropsType<GetServerSideProps>) => {
+  const router = useRouter()
   return (
     <section>
       <AuthNavBar />
-      <div className="font-rubik text-purple_main mt-10 flex flex-col items-center">
-        <p className="text-lg font-semibold md:text-xl">My Application</p>
-        <p className="text-purple_300">Draft will be saved</p>
-        <ApplicationForm url={user?.image} />
-      </div>
+      {application?.applied ? (
+        <>
+          <div className="font-rubik text-purple_main mt-10 flex flex-col items-center justify-center text-center">
+            <p className="text-lg font-semibold md:text-xl">
+              You've already submitted an application
+            </p>
+            <button
+              onClick={() => router.push('/portal')}
+              className="p-2 bg-purple_300 rounded-md mt-10 hover:bg-purple_hover hover:text-white hover:duration-200 hover:ease-in-out">
+              Go to User Portal
+            </button>
+          </div>
+        </>
+      ) : (
+        <>
+          <div className="font-rubik text-purple_main mt-10 flex flex-col items-center">
+            <p className="text-lg font-semibold md:text-xl">My Application</p>
+            <p className="text-purple_300">Draft will be saved</p>
+            <ApplicationForm url={user?.image} />
+          </div>
+        </>
+      )}
     </section>
   )
 }
