@@ -14,6 +14,14 @@ export interface MenuType {
   desktop: number
 }
 
+export interface TeamType {
+  id: string
+  name: string
+  image: string
+  role: string
+  href: string
+}
+
 export interface FAQType {
   id: string
   question: string

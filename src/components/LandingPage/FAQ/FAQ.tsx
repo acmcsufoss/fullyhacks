@@ -15,7 +15,7 @@ const FAQDropDown: React.FC<FAQDropDownProps> = (props) => {
   return (
     <div
       tabIndex={0}
-      className="w-[90vw] md:w-[80vw] collapse collapse-arrow border border-base-300 bg-base-100 rounded-box">
+      className="w-[90vw] md:w-[60vw] collapse collapse-arrow border border-base-300 bg-base-100 rounded-box">
       <div className="collapse-title w-full bg-purple_300 hover:ease-in-out hover:duration-200 hover:bg-purple_hover hover:text-white text-purple_main border-none">
         <p className="text-start leading-9 normal-case mr-auto text-md md:text-lg m-1">
           {question}
@@ -44,8 +44,10 @@ const FAQ: React.FC<FAQProps> = (props) => {
       })}
       <p className="mt-2 text-center">
         More questions? Reach out to us at
-        <span className="font-bold"> fullyhacks@gmail.com </span> and we&apos;ll
-        get back to you ASAP!
+        <a href="mailto:fullyhacks@gmail.com" className="font-bold">
+          {' fullyhacks@gmail.com '}
+        </a>
+        and we&apos;ll get back to you ASAP!
       </p>
     </>
   )

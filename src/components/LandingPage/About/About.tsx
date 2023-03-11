@@ -27,15 +27,18 @@ const About: React.FC = () => {
         <p className="mt-10 text-xl font-medium md:text-xxl">About</p>
         <p className="mt-4">
           California State University, Fullerton 24-hour hackathon for beginners
-          and first-time hackers. This year, our hackathon will be held on
+          and first-time hackers. This year, our hackathon will be held
+          <span className="font-semibold"> 100% in-person</span> on
           <span className="font-semibold"> April 8th-9th.</span>
         </p>
         <p className="mt-4">
-          You can even
-          <span className="font-semibold"> meet representatives </span> from our
-          generous sponsors during our networking event. Your project also has
-          the chance to
-          <span className="font-semibold">win cool prizes! 🎉</span>
+          You'll be able to
+          <span className="font-semibold">
+            {' '}
+            meet future Software Engineer{' '}
+          </span>{' '}
+          during our networking event. Your project also has the chance to
+          <span className="font-semibold"> win cool prizes! 🎉</span>
         </p>
       </div>
     </>

@@ -1,4 +1,4 @@
-import { companyType, FAQType } from '@/types/interface'
+import { companyType, FAQType, TeamType } from '@/types/interface'
 import { useRouter } from 'next/router'
 import React from 'react'
 import Bubbles from '../Bubble/Bubbles'
@@ -8,15 +8,17 @@ import About from './About/About'
 import CountDown from './CountDown/CountDown'
 import FAQ from './FAQ/FAQ'
 import Partners from './Partners/Partners'
+import Team from './Team/Team'
 
 interface LandingPageProps {
   companyData: companyType[]
   faqData: FAQType[]
+  teamData: TeamType[]
 }
 
 const LandingPage: React.FC<LandingPageProps> = (props) => {
   const router = useRouter()
-  const { companyData, faqData } = props
+  const { companyData, faqData, teamData } = props
   return (
     <>
       <NavBarLanding />
@@ -59,6 +61,11 @@ const LandingPage: React.FC<LandingPageProps> = (props) => {
           id="faq"
           className="mx-4 relative font-normal font-rubik text-purple_main flex flex-col items-center justify-center md:mx-8 md:text-md md:mt-40 max-w-[1048px]">
           <FAQ faqs={faqData} />
+        </div>
+        <div
+          id="team"
+          className="mx-4 font-normal font-rubik text-purple_main mt-8 flex flex-col items-start justify-center md:mx-8 md:text-md max-w-[1048px] md:mt-40">
+          <Team team={teamData} />
         </div>
       </section>
       <div className="w-[100vw] mt-12 h-[480px] relative font-normal font-rubik text-purple_main flex flex-col items-center justify-start overflow-hidden md:mx-8 md:text-md md:mt-40 md:h-[720px]">
