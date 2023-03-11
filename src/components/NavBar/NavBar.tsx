@@ -1,9 +1,8 @@
 import { MenuType } from '@/types/interface'
-import axios from 'axios'
 import { signOut } from 'next-auth/react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { IoArrowBackSharp } from 'react-icons/io5'
 
 export const NavBarLanding: React.FC = () => {
@@ -32,32 +31,17 @@ export const NavBarLanding: React.FC = () => {
       logo: '/handshake.svg',
       mobile: 24,
       desktop: 24
+    },
+    {
+      id: 'portal',
+      name: 'User Portal',
+      href: '/portal',
+      logo: '/portal.svg',
+      mobile: 24,
+      desktop: 24
     }
   ])
 
-  useEffect(() => {
-    const getApplication = async () => {
-      try {
-        const res = await axios.get('/api/application')
-        if (res.data.application != null) {
-          setMenu((prev) => [
-            ...prev,
-            {
-              id: 'portal',
-              name: 'User Portal',
-              href: '/portal',
-              logo: '/portal.svg',
-              mobile: 24,
-              desktop: 24
-            }
-          ])
-        }
-      } catch (e) {
-        console.log(e)
-      }
-    }
-    getApplication()
-  }, [])
   return (
     <nav className="z-[30] rounded-lg backdrop-filter backdrop-blur-md bg-opacity-25 border border-gray-300 border-opacity-25 shadow-xl fixed bg-body_bg navbar text-purple_main font-semibold text-lg lg:pl-8 lg:pt-2 lg:grid lg:grid-cols-4">
       <div className="navbar-start">
