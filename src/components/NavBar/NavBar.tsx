@@ -17,24 +17,24 @@ export const NavBarLanding: React.FC = () => {
       desktop: 24
     },
     {
-      id: 'sponsors',
-      name: 'Sponsors',
-      href: '#sponsors',
-      logo: '/handshake.svg',
-      mobile: 24,
-      desktop: 24
-    },
-    {
       id: 'faq',
       name: 'FAQ',
       href: '#faq',
       logo: '/thinking.svg',
       mobile: 24,
       desktop: 24
+    },
+    {
+      id: 'team',
+      name: 'Team',
+      href: '#team',
+      logo: '/handshake.svg',
+      mobile: 24,
+      desktop: 24
     }
   ]
   return (
-    <nav className="z-[3] navbar text-purple_main font-semibold text-lg lg:ml-8 lg:mt-2 lg:grid lg:grid-cols-4">
+    <nav className="z-[30] rounded-lg backdrop-filter backdrop-blur-md bg-opacity-25 border border-gray-300 border-opacity-25 shadow-xl fixed bg-body_bg navbar text-purple_main font-semibold text-lg lg:pl-8 lg:pt-2 lg:grid lg:grid-cols-4">
       <div className="navbar-start">
         <>
           <img
@@ -92,7 +92,7 @@ export const NavBarLanding: React.FC = () => {
         <ul className="menu menu-horizontal w-[100%] flex justify-end items-center">
           {menuList.map((item) => {
             return (
-              <>
+              <div key={item.id} className="flex">
                 <img
                   src={item.logo}
                   alt={item.logo + '"s logo'}
@@ -109,7 +109,7 @@ export const NavBarLanding: React.FC = () => {
                     {item.name}
                   </p>
                 </Link>
-              </>
+              </div>
             )
           })}
           <button onClick={() => router.push('/signin')} className="apply-btn">

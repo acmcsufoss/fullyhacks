@@ -1,7 +1,6 @@
 import { companyType, FAQType } from '@/types/interface'
-import axios from 'axios'
 import { useRouter } from 'next/router'
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import Bubbles from '../Bubble/Bubbles'
 import { LandingFooter } from '../Footer/Footer'
 import { NavBarLanding } from '../NavBar/NavBar'
@@ -9,7 +8,6 @@ import About from './About/About'
 import CountDown from './CountDown/CountDown'
 import FAQ from './FAQ/FAQ'
 import Partners from './Partners/Partners'
-import Sponsors from './Sponsors/Sponsors'
 
 interface LandingPageProps {
   companyData: companyType[]
@@ -36,7 +34,12 @@ const LandingPage: React.FC<LandingPageProps> = (props) => {
           className="apply-btn mx-0">
           Apply
         </button>
-        <button className="font-normal"> Sponsor Us!</button>
+        <a
+          target="_blank"
+          href="https://drive.google.com/file/d/1ripzdwMPX7rdlFX4h-FWx9j2va0jVSG5/view?usp=share_link"
+          className="font-normal">
+          Sponsor Us!
+        </a>
       </div>
       <section>
         <div
@@ -44,11 +47,11 @@ const LandingPage: React.FC<LandingPageProps> = (props) => {
           className="mx-4 relative font-normal font-rubik text-purple_main mt-40 flex flex-col items-center justify-center md:flex-row md:mx-8 md:text-md max-w-[1048px]">
           <About />
         </div>
-        <div
+        {/* <div
           id="sponsors"
           className="mx-4 font-normal font-rubik text-purple_main mt-8 flex flex-col items-start justify-center md:mx-8 md:text-md max-w-[1048px] md:mt-40">
           <Sponsors companies={companyData} />
-        </div>
+        </div> */}
         <div className="mx-4 relative font-normal font-rubik text-purple_main flex flex-col items-center justify-center md:flex-row md:mx-8 md:text-md md:mt-40 max-w-[1048px]">
           <Partners />
         </div>

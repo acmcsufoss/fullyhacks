@@ -58,6 +58,6 @@ export const faqs: FAQType[] = [
     id: 'faq10',
     question: 'When will I know my application status?',
     answer:
-      'After April 1st, go to FullyHacks application portal to view your application status'
+      'All applications will be reviewed by April 1st, you can check application status in your user portal'
   }
 ]
