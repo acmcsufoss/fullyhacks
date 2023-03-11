@@ -60,10 +60,23 @@ export default async function handler(
     } catch (e) {
       res.status(500).json(e)
     }
+  } else if (req.method === 'GET') {
+    try {
+      // Retrieve current user
+      const application = await prisma.user.findUnique({
+        where: { email: session?.user?.email as any },
+        select: {
+          application: true
+        }
+      })
+      res.status(200).json(application)
+    } catch (error) {
+      res.status(500).json(error)
+    }
   }
   // HTTP method not supported!
   else {
-    res.setHeader('Allow', ['POST'])
+    res.setHeader('Allow', ['POST', 'GET'])
     res
       .status(405)
       .json({ message: `HTTP method ${req.method} is not supported.` })
