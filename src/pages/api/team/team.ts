@@ -18,7 +18,7 @@ export const team: TeamType[] = [
   {
     id: 'team3',
     name: 'Alan',
-    image: '/tuffy_rocket.svg',
+    image: '/alan_c.png',
     role: 'Design Lead',
     href: 'https://www.linkedin.com/in/alancortez1337/'
   },

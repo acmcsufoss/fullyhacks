@@ -15,7 +15,7 @@ const ApplyAuth: React.FC<ApplyAuthProps> = ({ children }) => {
       {applicationOpen ? (
         children
       ) : (
-        <div className="text-purple_main flex-col font-rubik font-semibold text-xl  mt-10 flex items-center justify-center">
+        <div className="text-purple_main flex-col font-rubik font-semibold text-lg text-center md:text-xl mt-10 flex items-center justify-center">
           {dateToCheck < openDate && (
             <p>Application will open on March 13rd, stay tuned.</p>
           )}
@@ -23,7 +23,7 @@ const ApplyAuth: React.FC<ApplyAuthProps> = ({ children }) => {
             <p>Application has closed, we'll see you next year 🐘.</p>
           )}
           <img
-            className="animate-float motion-reduce:animate-none md:h-52 md:w-52"
+            className="animate-float motion-reduce:animate-none h-36 w-36 md:h-52 md:w-52"
             src="/tuffy_rocket.svg"
             alt="tuffy rocket"
           />
