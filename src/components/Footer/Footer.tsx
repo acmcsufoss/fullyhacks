@@ -16,7 +16,7 @@ export const LandingFooter: React.FC = () => {
             Stay Connected
           </p>
           <div className="flex gap-8">
-            <a target="_blank" href="https://www.instagram.com/tuffyhacks/">
+            <a target="_blank" href="https://www.instagram.com/fullyhacks/">
               <BsInstagram className="w-8 h-8 md:w-12 md:h-12" />
             </a>
             <a

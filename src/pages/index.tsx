@@ -40,7 +40,8 @@ export default function Home({
           property="og:description"
           content="Welcome to FullyHacks 2023, CSUF's largest 24-hour hackathon"
         />
-        <meta property="og:image" content="/logo.svg" />
+        <meta property="og:image" content="/fullyhacks_logo.png" />
+        <link rel="shortcut icon" href="/favicon.ico" />
       </Head>
       <main className="relative flex flex-col items-center font-rubik font-semibold">
         <LandingPage
