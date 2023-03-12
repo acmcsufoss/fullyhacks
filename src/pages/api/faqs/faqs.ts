@@ -40,7 +40,7 @@ export const faqs: FAQType[] = [
   {
     id: 'faq7',
     question: 'When are applications due?',
-    answer: 'Application will be closed on April 1st, 2023.'
+    answer: 'All applications should be submitted BEFORE April 1st, 2023.'
   },
   {
     id: 'faq8',

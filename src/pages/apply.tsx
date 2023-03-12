@@ -9,6 +9,7 @@ import {
 } from 'next'
 import { getSession } from 'next-auth/react'
 import { useRouter } from 'next/router'
+import ApplyAuth from '@/components/AuthWrapper/ApplyAuth'
 const prisma = new PrismaClient()
 export async function getServerSideProps(context: GetServerSidePropsContext) {
   // Check if user is authenticated
@@ -67,11 +68,13 @@ const apply: NextPage = ({
         </>
       ) : (
         <>
-          <div className="font-rubik text-purple_main mt-10 flex flex-col items-center">
-            <p className="text-lg font-semibold md:text-xl">My Application</p>
-            <p className="text-purple_300">Draft will be saved</p>
-            <ApplicationForm url={user?.image} />
-          </div>
+          <ApplyAuth>
+            <div className="font-rubik text-purple_main mt-10 flex flex-col items-center">
+              <p className="text-lg font-semibold md:text-xl">My Application</p>
+              <p className="text-purple_300">Draft will be saved</p>
+              <ApplicationForm url={user?.image} />
+            </div>
+          </ApplyAuth>
         </>
       )}
     </section>
