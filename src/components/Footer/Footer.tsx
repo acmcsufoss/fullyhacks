@@ -21,7 +21,7 @@ export const LandingFooter: React.FC = () => {
             </a>
             <a
               target="_blank"
-              href="https://www.linkedin.com/company/tuffyhacks/">
+              href="https://www.linkedin.com/company/fullyhacks/">
               <BsLinkedin className="w-8 h-8 md:w-12 md:h-12" />
             </a>
           </div>
