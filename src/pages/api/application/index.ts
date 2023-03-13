@@ -62,14 +62,9 @@ export default async function handler(
     }
   } else if (req.method === 'GET') {
     try {
-      // Retrieve current user
-      const application = await prisma.user.findUnique({
-        where: { email: session?.user?.email as any },
-        select: {
-          application: true
-        }
-      })
-      res.status(200).json(application)
+      // Retrieve all applications
+      const applications = await prisma.application.findMany()
+      res.status(200).json(applications)
     } catch (error) {
       res.status(500).json(error)
     }
