@@ -36,7 +36,7 @@ const schema = yup
         /^\D?(\d{3})\D?\D?(\d{3})\D?(\d{4})$/,
         'Invalid phone number format'
       ),
-    major: yup.string(),
+    major: yup.string().min(2),
     gradYear: yup
       .number()
       .typeError('Must be number')
@@ -272,6 +272,7 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
           <p className="error-msg">{errors.phone?.message}</p>
           <p>Major</p>
           <input
+            {...register('major')}
             name="major"
             value={application.major}
             onChange={(e) => {
@@ -281,10 +282,11 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
                 payload: { name: 'major', value: e.target.value }
               })
             }}
-            className="form-input"
+            className={`form-input ${errors.major ? 'error-form' : ''}`}
             type="text"
             placeholder="Computer Science"
           />
+          <p className="error-msg">{errors.major?.message}</p>
           <p>Graduation year</p>
           <input
             {...register('gradYear')}
