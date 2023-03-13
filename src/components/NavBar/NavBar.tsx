@@ -17,6 +17,14 @@ export const NavBarLanding: React.FC = () => {
       desktop: 24
     },
     {
+      id: 'sponsor',
+      name: 'Sponsors',
+      href: '#sponsors',
+      logo: '/confetti.svg',
+      mobile: 24,
+      desktop: 24
+    },
+    {
       id: 'faq',
       name: 'FAQ',
       href: '#faq',
@@ -121,9 +129,6 @@ export const NavBarLanding: React.FC = () => {
               </div>
             )
           })}
-          <button onClick={() => router.push('/signin')} className="apply-btn">
-            Apply
-          </button>
         </ul>
       </div>
       <div className="navbar-end lg:hidden">
