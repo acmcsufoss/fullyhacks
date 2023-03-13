@@ -136,6 +136,7 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
     formState: { errors }
   } = useForm<FormData>({ resolver: yupResolver(schema) })
   const router = useRouter()
+  const [foodState, setFood] = useState('N/A')
   const userId = url?.split('/').pop()?.split('?')[0] || ''
   const [application, dispatch] = useReducer(
     reducer,
@@ -176,6 +177,9 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
   const onSubmit = async () => {
     try {
       setLoading(true)
+      if (application.food == 'other') {
+        application.food = foodState
+      }
       const newApplication = {
         ...application,
         github: githubLogin
@@ -368,9 +372,9 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
           </p>
           <input
             name="food"
-            value={application.food}
+            value={foodState}
             onChange={(e) => {
-              dispatch({ type: 'SET_FOOD', payload: e.target.value })
+              setFood(e.target.value)
             }}
             className="form-input"
             type="text"
