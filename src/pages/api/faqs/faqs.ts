@@ -38,9 +38,14 @@ export const faqs: FAQType[] = [
       'Yes! We welcome people of all backgrounds and experience levels. We program workshops and bring in mentors who stick around throughout the event to help you get started!'
   },
   {
+    id: 'faq11',
+    question: 'What should I bring?',
+    answer: 'Sleeping bag, laptop, chargers, snacks & drinks, hygiene items,...'
+  },
+  {
     id: 'faq7',
     question: 'When are applications due?',
-    answer: 'All applications should be submitted BEFORE April 1st, 2023.'
+    answer: 'Before 23:59PM April 1st, 2023'
   },
   {
     id: 'faq8',
@@ -58,6 +63,6 @@ export const faqs: FAQType[] = [
     id: 'faq10',
     question: 'When will I know my application status?',
     answer:
-      'All applications will be reviewed by April 1st, you can check application status in your user portal'
+      'All applications will be reviewed on a rolling basis until April 1st, you can check application status in your user portal'
   }
 ]

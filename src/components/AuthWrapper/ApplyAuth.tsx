@@ -4,11 +4,18 @@ interface ApplyAuthProps {
 }
 const ApplyAuth: React.FC<ApplyAuthProps> = ({ children }) => {
   // Application from March 13rd to April 1st
-  const openDate = new Date('2023-03-13')
-  const closeDate = new Date('2023-04-01')
-  const dateToCheck = new Date()
+  const options = { timeZone: 'America/Los_Angeles' }
+  const openDate = new Date('2023-03-13T00:00:00.000-07:00').toLocaleString(
+    'en-US',
+    options
+  )
+  const closeDate = new Date('2023-04-01T23:59:59.999-07:00').toLocaleString(
+    'en-US',
+    options
+  )
+  const now = new Date().toLocaleString('en-US', options)
   const [applicationOpen, setOpen] = useState<boolean>(
-    dateToCheck >= openDate && dateToCheck <= closeDate
+    now >= openDate && now <= closeDate
   )
   return (
     <>
@@ -16,10 +23,10 @@ const ApplyAuth: React.FC<ApplyAuthProps> = ({ children }) => {
         children
       ) : (
         <div className="text-purple_main flex-col font-rubik font-semibold text-lg text-center md:text-xl mt-10 flex items-center justify-center">
-          {dateToCheck < openDate && (
+          {now < openDate && (
             <p>Application will open on March 13rd, stay tuned.</p>
           )}
-          {dateToCheck >= closeDate && (
+          {now >= closeDate && (
             <p>Application has closed, we'll see you next year 🐘.</p>
           )}
           <img

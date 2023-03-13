@@ -38,7 +38,7 @@ const LandingPage: React.FC<LandingPageProps> = (props) => {
         </button>
         <a
           target="_blank"
-          href="https://drive.google.com/file/d/1ripzdwMPX7rdlFX4h-FWx9j2va0jVSG5/view?usp=share_link"
+          href="https://drive.google.com/file/d/1_JJoRMsqY2n5EUpNk4GFdhJInvi8GEp2/view?usp=share_link"
           className="font-normal">
           Sponsor Us!
         </a>
