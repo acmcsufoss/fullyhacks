@@ -52,7 +52,7 @@ export default async function handler(
           email: email as any,
           major: major as any,
           food: food as any,
-          class: gradYear as any,
+          class: parseInt(gradYear) as any,
           phone: phone as any,
           github: github as any,
           degree: education as any,
