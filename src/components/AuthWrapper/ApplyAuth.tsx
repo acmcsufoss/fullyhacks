@@ -5,7 +5,7 @@ interface ApplyAuthProps {
 const ApplyAuth: React.FC<ApplyAuthProps> = ({ children }) => {
   // Application from March 13rd to April 1st
   const options = { timeZone: 'America/Los_Angeles' }
-  const openDate = new Date('2023-03-13T00:00:00.000-07:00').toLocaleString(
+  const openDate = new Date('2023-03-14T08:00:00.000-07:00').toLocaleString(
     'en-US',
     options
   )
@@ -24,7 +24,7 @@ const ApplyAuth: React.FC<ApplyAuthProps> = ({ children }) => {
       ) : (
         <div className="text-purple_main flex-col font-rubik font-semibold text-lg text-center md:text-xl mt-10 flex items-center justify-center">
           {now < openDate && (
-            <p>Application will open on March 13rd, stay tuned.</p>
+            <p>Application will open on March 14th, stay tuned.</p>
           )}
           {now >= closeDate && (
             <p>Application has closed, we'll see you next year 🐘.</p>

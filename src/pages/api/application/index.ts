@@ -35,8 +35,16 @@ export default async function handler(
       }
       // Retrieve current user
       const user = await prisma.user.findUnique({
-        where: { email: session?.user?.email as any }
+        where: { email: session?.user?.email as any },
+        include: {
+          application: true
+        }
       })
+      if (user?.application?.applied) {
+        return res
+          .status(403)
+          .json({ message: "You've already submitted an application!" })
+      }
       // submit
       await prisma.application.create({
         data: {
@@ -44,7 +52,7 @@ export default async function handler(
           email: email as any,
           major: major as any,
           food: food as any,
-          class: gradYear as any,
+          class: parseInt(gradYear) as any,
           phone: phone as any,
           github: github as any,
           degree: education as any,

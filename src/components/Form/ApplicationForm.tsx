@@ -36,7 +36,7 @@ const schema = yup
         /^\D?(\d{3})\D?\D?(\d{3})\D?(\d{4})$/,
         'Invalid phone number format'
       ),
-    major: yup.string(),
+    major: yup.string().min(2),
     gradYear: yup
       .number()
       .typeError('Must be number')
@@ -136,6 +136,7 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
     formState: { errors }
   } = useForm<FormData>({ resolver: yupResolver(schema) })
   const router = useRouter()
+  const [foodState, setFood] = useState('N/A')
   const userId = url?.split('/').pop()?.split('?')[0] || ''
   const [application, dispatch] = useReducer(
     reducer,
@@ -176,6 +177,9 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
   const onSubmit = async () => {
     try {
       setLoading(true)
+      if (application.food == 'other') {
+        application.food = foodState
+      }
       const newApplication = {
         ...application,
         github: githubLogin
@@ -268,6 +272,7 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
           <p className="error-msg">{errors.phone?.message}</p>
           <p>Major</p>
           <input
+            {...register('major')}
             name="major"
             value={application.major}
             onChange={(e) => {
@@ -277,10 +282,11 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
                 payload: { name: 'major', value: e.target.value }
               })
             }}
-            className="form-input"
+            className={`form-input ${errors.major ? 'error-form' : ''}`}
             type="text"
             placeholder="Computer Science"
           />
+          <p className="error-msg">{errors.major?.message}</p>
           <p>Graduation year</p>
           <input
             {...register('gradYear')}
@@ -368,9 +374,9 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
           </p>
           <input
             name="food"
-            value={application.food}
+            value={foodState}
             onChange={(e) => {
-              dispatch({ type: 'SET_FOOD', payload: e.target.value })
+              setFood(e.target.value)
             }}
             className="form-input"
             type="text"
@@ -401,10 +407,7 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
             />
             <p>
               I agree to
-              <a
-                className="font-semibold"
-                target="_blank"
-                href="https://google.com">
+              <a className="font-semibold" target="_blank" href="/waiver">
                 {' the terms of the waiver'}
               </a>
             </p>

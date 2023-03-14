@@ -12,5 +12,11 @@ export const companies: companyType[] = [
     name: 'ECS',
     href: 'http://www.fullerton.edu/ecs/',
     image: '/ecs.png'
+  },
+  {
+    id: 'co3',
+    name: 'Wolfram',
+    href: 'https://www.wolfram.com/language/',
+    image: '/wolfram.png'
   }
 ]
