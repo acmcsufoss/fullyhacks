@@ -6,7 +6,7 @@ import { prisma } from 'db'
 import { getAllApplications } from 'lib'
 import { GetServerSidePropsContext } from 'next'
 import { getSession } from 'next-auth/react'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { dehydrate, QueryClient, useQuery } from 'react-query'
 export async function getServerSideProps(context: GetServerSidePropsContext) {
   // Check if user is authenticated
@@ -58,9 +58,12 @@ const AdminPage = ({ user, cookie }: AdminProps) => {
   const { data, isLoading } = useQuery(['applications', cookie], () =>
     getAllApplications(cookie)
   )
-  console.log([...data])
-  let [categories] = useState({
-    Application: [...data],
+  const [statusFilter, setStatusFilter] = useState('all')
+  const handleStatusChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    setStatusFilter(event.target.value)
+  }
+  const [categories, setCategories] = useState({
+    Application: [...data]
     // Statistic: [
     //   {
     //     id: 2,
@@ -74,6 +77,15 @@ const AdminPage = ({ user, cookie }: AdminProps) => {
     //   }
     // ]
   })
+  const filteredApplications =
+    statusFilter === 'all'
+      ? [...data]
+      : [...data].filter((app) => app.status === statusFilter)
+  useEffect(() => {
+    setCategories({
+      Application: filteredApplications
+    })
+  }, [statusFilter])
   return (
     <section className="font-rubik text-purple_main">
       <AuthNavBar />
@@ -98,13 +110,25 @@ const AdminPage = ({ user, cookie }: AdminProps) => {
                 </Tab>
               ))}
             </Tab.List>
-            <Tab.Panels className="mt-2">
+            <Tab.Panels className="mt-2 flex flex-col">
+              <select
+                value={statusFilter}
+                onChange={(e) => handleStatusChange(e)}
+                className="select my-4 bg-purple_300 text-purple_main md:w-[200px] max-w-xs">
+                <option disabled selected>
+                  Filter by:
+                </option>
+                <option value="all">All</option>
+                <option value="approved">Approved</option>
+                <option value="rejected">Rejected</option>
+                <option value="none">Not Done</option>
+              </select>
               {Object.values(categories).map((posts, idx) => (
                 <Tab.Panel
                   key={idx}
                   className={classNames(
-                    'rounded-xl bg-white p-3',
-                    'ring-white ring-opacity-60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2'
+                    'rounded-xl bg-purple_300 p-1',
+                    'ring-purple_300 ring-opacity-60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2'
                   )}>
                   <Applications applications={posts} />
                 </Tab.Panel>
