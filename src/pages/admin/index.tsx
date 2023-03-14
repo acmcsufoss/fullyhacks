@@ -2,13 +2,12 @@ import { Applications } from '@/components/Admin/Applications/Applications'
 import { AuthNavBar } from '@/components/NavBar/NavBar'
 import { User } from '@/types/interface'
 import { Tab } from '@headlessui/react'
-import { PrismaClient } from '@prisma/client'
+import { prisma } from 'db'
 import { getAllApplications } from 'lib'
 import { GetServerSidePropsContext } from 'next'
 import { getSession } from 'next-auth/react'
 import React, { useState } from 'react'
 import { dehydrate, QueryClient, useQuery } from 'react-query'
-const prisma = new PrismaClient()
 export async function getServerSideProps(context: GetServerSidePropsContext) {
   // Check if user is authenticated
   const session = await getSession(context)
@@ -59,6 +58,7 @@ const AdminPage = ({ user, cookie }: AdminProps) => {
   const { data, isLoading } = useQuery(['applications', cookie], () =>
     getAllApplications(cookie)
   )
+  console.log([...data])
   let [categories] = useState({
     Application: [...data],
     // Statistic: [
@@ -82,7 +82,7 @@ const AdminPage = ({ user, cookie }: AdminProps) => {
         <div className="w-full max-w-[80%] px-2 py-16 sm:px-0">
           <Tab.Group>
             <Tab.List className="flex space-x-1 rounded-xl bg-blue-900/20 p-1">
-              {Object.keys(categories).map((category) => (
+              {Object.keys(categories)?.map((category) => (
                 <Tab
                   key={category}
                   className={({ selected }) =>
@@ -106,7 +106,7 @@ const AdminPage = ({ user, cookie }: AdminProps) => {
                     'rounded-xl bg-white p-3',
                     'ring-white ring-opacity-60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2'
                   )}>
-                    <Applications applications={posts}/>
+                  <Applications applications={posts} />
                 </Tab.Panel>
               ))}
             </Tab.Panels>

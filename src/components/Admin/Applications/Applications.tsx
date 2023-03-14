@@ -35,7 +35,7 @@ export const Applications: React.FC<ApplicationsProps> = (props) => {
             </tr>
           </thead>
           <tbody>
-            {applications.map((application, idx) => (
+            {applications?.map((application, idx) => (
               <tr
                 key={application.id}
                 className="relative rounded-md p-3 hover:bg-gray-100">
