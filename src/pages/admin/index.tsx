@@ -1,3 +1,4 @@
+import { Applications } from '@/components/Admin/Applications/Applications'
 import { AuthNavBar } from '@/components/NavBar/NavBar'
 import { User } from '@/types/interface'
 import { Tab } from '@headlessui/react'
@@ -60,18 +61,18 @@ const AdminPage = ({ user, cookie }: AdminProps) => {
   )
   let [categories] = useState({
     Application: [...data],
-    Statistic: [
-      {
-        id: 2,
-        title: 'Statistic'
-      }
-    ],
-    CheckIn: [
-      {
-        id: 1,
-        title: 'Check-in'
-      }
-    ]
+    // Statistic: [
+    //   {
+    //     id: 2,
+    //     title: 'Statistic'
+    //   }
+    // ],
+    // CheckIn: [
+    //   {
+    //     id: 1,
+    //     title: 'Check-in'
+    //   }
+    // ]
   })
   return (
     <section className="font-rubik text-purple_main">
@@ -105,62 +106,7 @@ const AdminPage = ({ user, cookie }: AdminProps) => {
                     'rounded-xl bg-white p-3',
                     'ring-white ring-opacity-60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2'
                   )}>
-                  <ul>
-                    <div className="overflow-x-auto">
-                      <table className="table w-full text-white">
-                        <thead>
-                          <tr>
-                            <th>#</th>
-                            <th>Name</th>
-                            <th>Major</th>
-                            <th>Food</th>
-                            <th>Class</th>
-                            <th>Phone</th>
-                            <th>Degree</th>
-                            <th>Pronouns</th>
-                            <th>Skill Level</th>
-                            <th>Response</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          {posts.map((post, idx) => (
-                            <tr
-                              key={post.id}
-                              className="relative rounded-md p-3 hover:bg-gray-100">
-                              <th> {idx + 1} </th>
-                              <td className="text-sm font-medium leading-5">
-                                {post.name}
-                              </td>
-                              <td className="text-sm font-medium leading-5">
-                                {post.major}
-                              </td>
-                              <td className="text-sm font-medium leading-5">
-                                {post.food}
-                              </td>
-                              <td className="text-sm font-medium leading-5">
-                                {post.class}
-                              </td>
-                              <td className="text-sm font-medium leading-5">
-                                {post.phone}
-                              </td>
-                              <td className="text-sm font-medium leading-5">
-                                {post.degree}
-                              </td>
-                              <td className="text-sm font-medium leading-5">
-                                {post.pronouns}
-                              </td>
-                              <td className="text-sm font-medium leading-5">
-                                {post.skillLevel}
-                              </td>
-                              <td className="break-all text-sm font-medium leading-5">
-                                {post.response}
-                              </td>
-                            </tr>
-                          ))}
-                        </tbody>
-                      </table>
-                    </div>
-                  </ul>
+                    <Applications applications={posts}/>
                 </Tab.Panel>
               ))}
             </Tab.Panels>
