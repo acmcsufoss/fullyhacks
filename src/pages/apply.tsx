@@ -1,5 +1,4 @@
 import { AuthNavBar } from '@/components/NavBar/NavBar'
-import { PrismaClient } from '@prisma/client'
 import dynamic from 'next/dynamic'
 import {
   GetServerSideProps,
@@ -10,7 +9,7 @@ import {
 import { getSession } from 'next-auth/react'
 import { useRouter } from 'next/router'
 import ApplyAuth from '@/components/AuthWrapper/ApplyAuth'
-const prisma = new PrismaClient()
+import { prisma } from 'db'
 export async function getServerSideProps(context: GetServerSidePropsContext) {
   // Check if user is authenticated
   const session = await getSession(context)

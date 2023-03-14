@@ -407,10 +407,7 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
             />
             <p>
               I agree to
-              <a
-                className="font-semibold"
-                target="_blank"
-                href="/waiver">
+              <a className="font-semibold" target="_blank" href="/waiver">
                 {' the terms of the waiver'}
               </a>
             </p>

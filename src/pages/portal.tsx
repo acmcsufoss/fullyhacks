@@ -1,10 +1,9 @@
 import { AuthNavBar } from '@/components/NavBar/NavBar'
 import UserPortal from '@/components/PortalPage/UserPortal'
-import { PrismaClient } from '@prisma/client'
+import { prisma } from 'db'
 import { GetServerSidePropsContext, InferGetServerSidePropsType } from 'next'
 import { getSession } from 'next-auth/react'
 import React from 'react'
-const prisma = new PrismaClient()
 export async function getServerSideProps(context: GetServerSidePropsContext) {
   // Check if user is authenticated
   const session = await getSession(context)
