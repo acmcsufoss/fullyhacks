@@ -16,7 +16,9 @@ const Sponsors: React.FC<SponsorProps> = (props) => {
       <section className="grid grid-cols-3 items-center justify-center gap-8 my-10 ">
         {companies.map((company: companyType) => {
           return (
-            <div className="flex items-center mt-4 md:mt-8 md:mr-24" key={company.id}>
+            <div
+              className="flex items-center mt-4 md:mt-8 md:mr-24"
+              key={company.id}>
               <a target="_blank" href={company.href}>
                 <img
                   src={company.image}

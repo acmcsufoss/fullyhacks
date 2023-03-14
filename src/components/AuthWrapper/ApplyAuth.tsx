@@ -6,7 +6,7 @@ const ApplyAuth: React.FC<ApplyAuthProps> = ({ children }) => {
   // Application from March 13rd to April 1st
   const options = { timeZone: 'America/Los_Angeles' }
   const openDate = new Date('2023-03-14T08:00:00.000-07:00').toLocaleString(
-  'en-US',
+    'en-US',
     options
   )
   const closeDate = new Date('2023-04-01T23:59:59.999-07:00').toLocaleString(
