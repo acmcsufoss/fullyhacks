@@ -1,8 +1,6 @@
-import { PrismaClient } from '@prisma/client'
+import { prisma } from 'db'
 import { NextApiRequest, NextApiResponse } from 'next'
 import { getSession } from 'next-auth/react'
-
-const prisma = new PrismaClient()
 
 export default async function handler(
   req: NextApiRequest,
@@ -71,12 +69,7 @@ export default async function handler(
   } else if (req.method === 'GET') {
     try {
       // Retrieve current user
-      const application = await prisma.user.findUnique({
-        where: { email: session?.user?.email as any },
-        select: {
-          application: true
-        }
-      })
+      const application = await prisma.application.findMany()
       res.status(200).json(application)
     } catch (error) {
       res.status(500).json(error)

@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 
 interface PopUpProps {
   title: string
-  content: string
+  content: any
   action: string
 }
 
