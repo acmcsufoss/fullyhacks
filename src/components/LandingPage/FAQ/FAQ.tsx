@@ -13,9 +13,8 @@ interface FAQDropDownProps {
 const FAQDropDown: React.FC<FAQDropDownProps> = (props) => {
   const { question, answer } = props
   return (
-    <div
-      tabIndex={0}
-      className="w-[90vw] md:w-[60vw] collapse collapse-arrow border border-base-300 bg-base-100 rounded-box">
+    <div className="w-[90vw] md:w-[60vw] collapse border border-base-300 bg-base-100 rounded-box">
+      <input type="checkbox" />
       <div className="collapse-title w-full bg-purple_300 hover:ease-in-out hover:duration-200 hover:bg-purple_hover hover:text-white text-purple_main border-none">
         <p className="text-start leading-9 normal-case mr-auto text-md md:text-lg m-1">
           {question}

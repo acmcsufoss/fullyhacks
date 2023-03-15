@@ -23,6 +23,13 @@ export const team: TeamType[] = [
     href: 'https://www.linkedin.com/in/alancortez1337/'
   },
   {
+    id: 'team13',
+    name: 'Tanisha',
+    image: '/tanisha.jpg',
+    role: 'Design Officer',
+    href: 'https://www.linkedin.com/in/tanishanaik'
+  },
+  {
     id: 'team4',
     name: 'Karni',
     image: '/tuffy_rocket.svg',
@@ -44,18 +51,18 @@ export const team: TeamType[] = [
     href: '/'
   },
   {
+    id: 'team6',
+    name: 'Angel',
+    image: '/angel_s.jpg',
+    role: 'Operation Lead',
+    href: 'https://www.linkedin.com/in/asantoyo/'
+  },
+  {
     id: 'team11',
     name: 'Joel',
     image: '/joel_d.jpg',
     role: 'Operation Officer',
     href: 'https://github.com/jjoeldaniel'
-  },
-  {
-    id: 'team6',
-    name: 'Angel',
-    image: '/angel_s.jpg',
-    role: 'Operation Officer',
-    href: 'https://www.linkedin.com/in/asantoyo/'
   },
   {
     id: 'team7',
@@ -77,5 +84,12 @@ export const team: TeamType[] = [
     image: '/tuffy_rocket.svg',
     role: 'Operation Officer',
     href: 'https://www.linkedin.com/in/wayson/'
+  },
+  {
+    id: 'team12',
+    name: 'Christos',
+    image: '/christos.png',
+    role: 'Operation Officer',
+    href: '/'
   }
 ]

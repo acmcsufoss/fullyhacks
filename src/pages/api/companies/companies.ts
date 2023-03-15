@@ -18,5 +18,23 @@ export const companies: companyType[] = [
     name: 'Wolfram',
     href: 'https://www.wolfram.com/language/',
     image: '/wolfram.png'
+  },
+  {
+    id: 'co4',
+    name: 'XYZ',
+    href: 'https://gen.xyz/',
+    image: '/xyz.png'
+  },
+  {
+    id: 'co6',
+    name: 'StickerMule',
+    href: 'https://mule.to/p3vq',
+    image: '/stickermule.png'
+  },
+  {
+    id: 'co5',
+    name: 'Balsamiq',
+    href: 'https://balsamiq.com/',
+    image: '/balsamiq.png'
   }
 ]

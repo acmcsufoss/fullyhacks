@@ -1,11 +1,12 @@
-import { prisma } from 'db'
+import { validate } from '@/middleware/validate'
+import { applicationSchema } from '@/schemas/application'
+import { PrismaClient } from '@prisma/client'
 import { NextApiRequest, NextApiResponse } from 'next'
 import { getSession } from 'next-auth/react'
 
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse
-) {
+const prisma = new PrismaClient()
+
+async function handler(req: NextApiRequest, res: NextApiResponse) {
   // Only authorized user able submit application
   const session = await getSession({ req })
   if (!session) {
@@ -50,12 +51,12 @@ export default async function handler(
           email: email as any,
           major: major as any,
           food: food as any,
-          class: parseInt(gradYear) as any,
+          class: gradYear as any,
           phone: phone as any,
           github: github as any,
           degree: education as any,
           pronouns: pronouns as any,
-          skillLevel: parseInt(skill) as any,
+          skillLevel: skill as any,
           response: response as any,
           userId: user?.id as any,
           applied: true,
@@ -83,3 +84,5 @@ export default async function handler(
       .json({ message: `HTTP method ${req.method} is not supported.` })
   }
 }
+
+export default validate(applicationSchema, handler)
