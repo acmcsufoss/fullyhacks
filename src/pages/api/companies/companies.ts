@@ -26,7 +26,7 @@ export const companies: companyType[] = [
     image: '/xyz.png'
   },
   {
-    id: 'co5',
+    id: 'co6',
     name: 'StickerMule',
     href: 'https://mule.to/p3vq',
     image: '/stickermule.png'

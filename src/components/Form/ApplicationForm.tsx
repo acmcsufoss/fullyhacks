@@ -12,9 +12,9 @@ interface ApplicationState {
   pronouns: string
   phone: string
   major: string
-  gradYear: number
+  gradYear: string
   education: string
-  skill: number
+  skill: string
   response: string
   food: string
   agree: boolean
@@ -71,9 +71,9 @@ const initialState: ApplicationState = {
   pronouns: 'she/her',
   phone: '',
   major: '',
-  gradYear: 2023,
+  gradYear: '2023',
   education: 'Bachelor',
-  skill: 0,
+  skill: '0',
   response: '',
   food: 'Vegan',
   agree: false
@@ -112,7 +112,7 @@ const reducer = (
     case 'SET_EDUCATION':
       return { ...state, education: action.payload }
     case 'SET_SKILL':
-      return { ...state, skill: parseInt(action.payload) }
+      return { ...state, skill: action.payload }
     case 'SET_RESPONSE':
       return { ...state, response: action.payload }
     case 'SET_FOOD':
@@ -182,6 +182,8 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
       }
       const newApplication = {
         ...application,
+        gradYear: parseInt(application.gradYear),
+        skill: parseInt(application.skill),
         github: githubLogin
       }
       await axios.post('/api/application', newApplication)
@@ -324,17 +326,17 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
             name="skill"
             value={application.skill}
             onChange={(e) => {
-              dispatch({ type: 'SET_SKILL', payload: e.target.value })
+              dispatch({ type: 'SET_SKILL', payload: parseInt(e.target.value) })
               dispatch({
                 type: 'SAVE_DRAFT',
                 payload: { name: 'skill', value: e.target.value }
               })
             }}
             className="form-input">
-            <option value="1">No experience</option>
-            <option value="2">Beginner</option>
-            <option value="3">Intermediate</option>
-            <option value="4">Master</option>
+            <option value={1}>No experience</option>
+            <option value={2}>Beginner</option>
+            <option value={3}>Intermediate</option>
+            <option value={4}>Master</option>
           </select>
           <p>Why do you want to attend FullyHacks?</p>
           <div className="flex flex-col relative">
