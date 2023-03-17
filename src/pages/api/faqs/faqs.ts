@@ -51,13 +51,13 @@ export const faqs: FAQType[] = [
     id: 'faq8',
     question: "I'm not a CSUF student, can I attend?",
     answer:
-      'Unfortunately, due to restricted timeline, only CSUF students allow to attend FullyHacks'
+      'Unfortunately, due to restricted timeline, only CSUF students may attend FullyHacks'
   },
   {
     id: 'faq9',
     question: "I'm a CSUF student but I'm under 18, can I attend?",
     answer:
-      'Unfortunately, due to the overnight factor, only 18 or above CSUF students allow to attend'
+      'Unfortunately, due to the overnight factor, only 18 or above CSUF students may attend'
   },
   {
     id: 'faq10',
