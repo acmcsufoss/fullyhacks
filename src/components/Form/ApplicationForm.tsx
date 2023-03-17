@@ -366,7 +366,7 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
             }}
             className="form-input">
             <option value="vegan">Vegan</option>
-            <option value="non-vegan">Non-vegan</option>
+            <option value="non-veg">Non-veg</option>
             <option value="vegetarian">Vegetarian</option>
             <option value="other">Other</option>
           </select>
