@@ -1,10 +1,8 @@
 import { validate } from '@/middleware/validate'
 import { applicationSchema } from '@/schemas/application'
-import { PrismaClient } from '@prisma/client'
+import { prisma } from 'db'
 import { NextApiRequest, NextApiResponse } from 'next'
 import { getSession } from 'next-auth/react'
-
-const prisma = new PrismaClient()
 
 async function handler(req: NextApiRequest, res: NextApiResponse) {
   // Only authorized user able submit application

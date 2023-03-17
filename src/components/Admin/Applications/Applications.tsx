@@ -56,34 +56,34 @@ export const Applications: React.FC<ApplicationsProps> = (props) => {
                 key={application.id}
                 className="relative rounded-md p-3 hover:bg-gray-100">
                 <th> {idx + 1} </th>
-                <td className="col-span-3 text-sm font-medium leading-5">
+                <td className="whitespace-normal col-span-3 text-sm font-medium leading-5">
                   {application.name}
                 </td>
-                <td className="break-all text-sm font-medium leading-5">
+                <td className="whitespace-normal break-all text-sm font-medium leading-5">
                   {application.major}
                 </td>
-                <td className="text-sm font-medium leading-5">
+                <td className="whitespace-normal text-sm font-medium leading-5">
                   {application.food}
                 </td>
-                <td className="text-sm font-medium leading-5">
+                <td className="whitespace-normal text-sm font-medium leading-5">
                   {application.class}
                 </td>
-                <td className="text-sm font-medium leading-5">
+                <td className="whitespace-normal text-sm font-medium leading-5">
                   {application.phone}
                 </td>
-                <td className="text-sm font-medium leading-5">
+                <td className="whitespace-normal text-sm font-medium leading-5">
                   {application.degree}
                 </td>
-                <td className="text-sm font-medium leading-5">
+                <td className="whitespace-normal text-sm font-medium leading-5">
                   {application.pronouns}
                 </td>
-                <td className="text-sm font-medium leading-5">
+                <td className="whitespace-normal text-sm font-medium leading-5">
                   {application.skillLevel}
                 </td>
-                <td className="text-sm font-medium leading-5">
+                <td className="whitespace-normal text-sm font-medium leading-5">
                   {application.response}
                 </td>
-                <td className="flex gap-8">
+                <td className="whitespace-normal ">
                   {application.approved ? (
                     <button
                       disabled
@@ -102,7 +102,7 @@ export const Applications: React.FC<ApplicationsProps> = (props) => {
                         onClick={() => {
                           updateApplication(application.id, true)
                         }}
-                        className="bg-emerald-500 hover:bg-emerald-700 font-semibold p-1 rounded-lg">
+                        className="bg-emerald-500 hover:bg-emerald-700 font-semibold p-1 rounded-lg my-8">
                         Approve
                       </button>
                       <button

@@ -1,17 +1,14 @@
 import { Applications } from '@/components/Admin/Applications/Applications'
 import { AuthNavBar } from '@/components/NavBar/NavBar'
-import { User } from '@/types/interface'
+import { ApplicationType, User } from '@/types/interface'
 import { Tab } from '@headlessui/react'
 import { prisma } from 'db'
-import { getAllApplications } from 'lib'
 import { GetServerSidePropsContext } from 'next'
 import { getSession } from 'next-auth/react'
 import React, { useEffect, useState } from 'react'
-import { dehydrate, QueryClient, useQuery } from 'react-query'
 export async function getServerSideProps(context: GetServerSidePropsContext) {
   // Check if user is authenticated
   const session = await getSession(context)
-  const queryClient = new QueryClient()
   // If user already signed in, move them to application page
   if (!session) {
     return {
@@ -33,54 +30,44 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
       }
     }
   }
-  await queryClient.prefetchQuery(
-    ['applications', context.req.headers.cookie],
-    () => getAllApplications(context.req.headers.cookie)
-  )
+  const application = await prisma.application.findMany()
+  const counts = await prisma.application.groupBy({
+    by: ['food', 'class', 'pronouns', 'degree', 'skillLevel'],
+    _count: {
+      _all: true
+    }
+  })
   return {
     props: {
       user: JSON.parse(JSON.stringify(user)),
-      cookie: context.req.headers.cookie,
-      dehydratedState: dehydrate(queryClient)
+      applications: JSON.parse(JSON.stringify(application)),
+      counts: JSON.parse(JSON.stringify(counts))
     }
   }
 }
 
 interface AdminProps {
   user: User
-  cookie: string
+  applications: ApplicationType[]
+  counts: any
 }
 
 function classNames(...classes: any) {
   return classes.filter(Boolean).join(' ')
 }
-const AdminPage = ({ user, cookie }: AdminProps) => {
-  const { data, isLoading } = useQuery(['applications', cookie], () =>
-    getAllApplications(cookie)
-  )
+const AdminPage = ({ user, applications, counts }: AdminProps) => {
   const [statusFilter, setStatusFilter] = useState('all')
   const handleStatusChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setStatusFilter(event.target.value)
   }
+  console.log(counts)
   const [categories, setCategories] = useState({
-    Application: [...data]
-    // Statistic: [
-    //   {
-    //     id: 2,
-    //     title: 'Statistic'
-    //   }
-    // ],
-    // CheckIn: [
-    //   {
-    //     id: 1,
-    //     title: 'Check-in'
-    //   }
-    // ]
+    Application: applications
   })
   const filteredApplications =
     statusFilter === 'all'
-      ? [...data]
-      : [...data].filter((app) => app.status === statusFilter)
+      ? applications
+      : applications.filter((app) => app.status === statusFilter)
   useEffect(() => {
     setCategories({
       Application: filteredApplications
@@ -123,6 +110,28 @@ const AdminPage = ({ user, cookie }: AdminProps) => {
                 <option value="rejected">Rejected</option>
                 <option value="none">Not Done</option>
               </select>
+              <div className="stats stats-vertical lg:stats-horizontal shadow my-8">
+                <div className="stat">
+                  <div className="stat-title">Total applications</div>
+                  <div className="stat-value">{applications.length}</div>
+                </div>
+
+                <div className="stat">
+                  <div className="stat-title"># Vegan</div>
+                  <div className="stat-value">{}</div>
+                </div>
+
+                <div className="stat">
+                  <div className="stat-title">New Users</div>
+                  <div className="stat-value">4,200</div>
+                  <div className="stat-desc">↗︎ 400 (22%)</div>
+                </div>
+                <div className="stat">
+                  <div className="stat-title">New Registers</div>
+                  <div className="stat-value">1,200</div>
+                  <div className="stat-desc">↘︎ 90 (14%)</div>
+                </div>
+              </div>
               {Object.values(categories).map((posts, idx) => (
                 <Tab.Panel
                   key={idx}
