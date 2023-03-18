@@ -10,14 +10,9 @@ const Partners: React.FC = () => {
         className="motion-reduce:animate-none animate-float z-[2] relative w-[58%] md:w-[300px]"
       />
       <div className="mb-auto flex flex-col md:ml-[6rem]">
-        <p className="mt-14 text-xl font-medium md:text-xxl">Our Partners</p>
+        <p className="mt-14 text-xl font-medium md:text-xxl">Our Mission</p>
         <p className="mt-4">
-          The teams of people here in
-          <span className="font-semibold"> CSUF </span> that helped put this
-          together.
-        </p>
-        <p className="mt-4">
-          We are the largest computer science community at{' '}
+          ACM is the largest computer science community at{' '}
           <span className="font-semibold"> CSUF </span>. We aim to build a
           foundation for future industry leaders by developing their technical,
           professional, and social skills. We facilitate these by offering
