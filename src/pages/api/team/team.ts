@@ -46,9 +46,16 @@ export const team: TeamType[] = [
   {
     id: 'team8',
     name: 'Ryan',
-    image: '/tuffy_rocket.svg',
+    image: '/ryan.jpg',
     role: 'Marketing Outreach Officer',
     href: '/'
+  },
+  {
+    id: 'team14',
+    name: 'Ashley',
+    image: '/ashley.jpg',
+    role: 'Marketing Outreach Officer',
+    href: 'https://www.linkedin.com/in/ashleykuewa/'
   },
   {
     id: 'team6',
@@ -89,6 +96,20 @@ export const team: TeamType[] = [
     id: 'team12',
     name: 'Christos',
     image: '/christos.png',
+    role: 'Operation Officer',
+    href: '/'
+  },
+  {
+    id: 'team15',
+    name: 'Joel',
+    image: '/joelalgo.jpg',
+    role: 'Operation Officer',
+    href: 'https://www.linkedin.com/in/joelaniljohn/'
+  },
+  {
+    id: 'team16',
+    name: 'Cyril',
+    image: '/cyril.jpg',
     role: 'Operation Officer',
     href: '/'
   }
