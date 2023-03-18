@@ -1,29 +1,70 @@
 import Loading from '@/components/Loading/Loading'
 import PopUp from '@/components/PopUp/PopUp'
 import { ApplicationType } from '@/types/interface'
-import axios from 'axios'
-import { useRouter } from 'next/router'
-import React, { useEffect, useState } from 'react'
+import React, { useMemo, useState } from 'react'
+import { Application } from './Application'
 
 interface ApplicationsProps {
   applications: ApplicationType[]
 }
 
-export const Applications: React.FC<ApplicationsProps> = (props) => {
+const Applications: React.FC<ApplicationsProps> = (props) => {
   const { applications } = props
-  const router = useRouter()
+  const [statusFilter, setStatusFilter] = useState('all')
   const [isLoading, setLoading] = useState(false)
-  const updateApplication = async (id: string, approved: boolean) => {
-    const data = {
-      approve: approved
-    }
-    setLoading(true)
-    await axios.put(`/api/application/${id}`, data)
-    setLoading(false)
-    router.reload()
+  const [applicationIdx, pushIdx] = useState<string[]>([])
+  const handleStatusChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    setStatusFilter(event.target.value)
   }
+  const getFilteredApplication = (
+    applications: ApplicationType[],
+    statusFilter: string
+  ) => {
+    return statusFilter === 'all'
+      ? applications.filter((app) => !applicationIdx.includes(app.id))
+      : applications.filter((app) => app.status === statusFilter)
+  }
+  const filteredApplications = useMemo(() => {
+    return getFilteredApplication(applications, statusFilter)
+  }, [applications, statusFilter, isLoading])
+  const applicationsNumber = filteredApplications.length
+  type GroupedData = Record<string, number>
+  const classStat: [] = []
+  const foodStat: [] = []
+  const skillStat: [] = []
+  function groupBy(array: any, key: any): GroupedData {
+    return array.reduce((result: GroupedData, currentValue: any) => {
+      const groupByKey = currentValue[key]
+      if (!result[groupByKey]) {
+        result[groupByKey] = 0
+      }
+      result[groupByKey]++
+      return result
+    }, {})
+  }
+  const groupByClass = groupBy(filteredApplications, 'class')
+  const groupByFood = groupBy(filteredApplications, 'food')
+  const groupBySkill = groupBy(filteredApplications, 'skillLevel')
+
+  const printData = (data: GroupedData, stat: any[]) => {
+    for (const key in data) {
+      const percentage = Math.floor((100 * data[key]) / applicationsNumber)
+      stat.push(
+        <>
+          <div className="stat-title font-semibold">{key}:</div>
+          <div className="stat-value text-md">
+            {data[key]} ({percentage}%)
+          </div>
+        </>
+      )
+    }
+  }
+  printData(groupByClass, classStat)
+  printData(groupByFood, foodStat)
+  printData(groupBySkill, skillStat)
+
   return (
-    <ul>
+    <div className="mt-2 flex flex-col">
       {isLoading && (
         <>
           <PopUp
@@ -33,6 +74,39 @@ export const Applications: React.FC<ApplicationsProps> = (props) => {
           />
         </>
       )}
+      <select
+        value={statusFilter}
+        onChange={(e) => handleStatusChange(e)}
+        className="select my-4 bg-purple_300 text-purple_main md:w-[200px] max-w-xs">
+        <option disabled selected>
+          Filter by:
+        </option>
+        <option value="all">All</option>
+        <option value="approved">Approved</option>
+        <option value="rejected">Rejected</option>
+        <option value="none">Not Done</option>
+      </select>
+      <p>Refresh page if you want the filter has the most recent update lol</p>
+      <div className="stats stats-vertical lg:stats-horizontal shadow my-8">
+        <div className="stat">
+          <div className="stat-title">Total applications</div>
+          <div className="stat-value">{applicationsNumber}</div>
+        </div>
+        <div className="stat flex-col justify-center">
+          <div className="stat-title">Grad Year</div>
+          <div className="stat flex items-center p-0">{classStat}</div>
+        </div>
+        <div className="stat flex-col justify-center">
+          <div className="stat-title">Food </div>
+          <div className="stat flex items-center p-0">{foodStat}</div>
+        </div>
+        <div className="stat flex-col justify-center">
+          <div className="stat-title">
+            Skill (1: No Exp, 2: Beginner, 3: Intermediate, 4: Master)
+          </div>
+          <div className="stat flex items-center p-0">{skillStat}</div>
+        </div>
+      </div>
       <div className="overflow-x-auto">
         <table className="w-full table text-white">
           <thead>
@@ -51,75 +125,19 @@ export const Applications: React.FC<ApplicationsProps> = (props) => {
             </tr>
           </thead>
           <tbody>
-            {applications?.map((application: ApplicationType, idx) => (
-              <tr
-                key={application.id}
-                className="relative rounded-md p-3 hover:bg-gray-100">
-                <th> {idx + 1} </th>
-                <td className="whitespace-normal col-span-3 text-sm font-medium leading-5">
-                  {application.name}
-                </td>
-                <td className="whitespace-normal break-all text-sm font-medium leading-5">
-                  {application.major}
-                </td>
-                <td className="whitespace-normal text-sm font-medium leading-5">
-                  {application.food}
-                </td>
-                <td className="whitespace-normal text-sm font-medium leading-5">
-                  {application.class}
-                </td>
-                <td className="whitespace-normal text-sm font-medium leading-5">
-                  {application.phone}
-                </td>
-                <td className="whitespace-normal text-sm font-medium leading-5">
-                  {application.degree}
-                </td>
-                <td className="whitespace-normal text-sm font-medium leading-5">
-                  {application.pronouns}
-                </td>
-                <td className="whitespace-normal text-sm font-medium leading-5">
-                  {application.skillLevel}
-                </td>
-                <td className="whitespace-normal text-sm font-medium leading-5">
-                  {application.response}
-                </td>
-                <td className="whitespace-normal ">
-                  {application.approved ? (
-                    <button
-                      disabled
-                      className="bg-emerald-700 hover:bg-emerald-700 font-semibold p-1 rounded-lg">
-                      Approved
-                    </button>
-                  ) : application.rejected ? (
-                    <button
-                      disabled
-                      className="bg-red-800 hover:bg-red-800 font-semibold p-1 rounded-lg">
-                      Rejected
-                    </button>
-                  ) : (
-                    <>
-                      <button
-                        onClick={() => {
-                          updateApplication(application.id, true)
-                        }}
-                        className="bg-emerald-500 hover:bg-emerald-700 font-semibold p-1 rounded-lg my-8">
-                        Approve
-                      </button>
-                      <button
-                        onClick={() => {
-                          updateApplication(application.id, false)
-                        }}
-                        className="bg-red-500 hover:bg-red-800 font-semibold p-1 rounded-lg">
-                        Reject
-                      </button>
-                    </>
-                  )}
-                </td>
-              </tr>
+            {filteredApplications.map((posts, idx) => (
+              <Application
+                idx={idx}
+                application={posts}
+                pushIdx={pushIdx}
+                setLoading={setLoading}
+              />
             ))}
           </tbody>
         </table>
       </div>
-    </ul>
+    </div>
   )
 }
+
+export default Applications
