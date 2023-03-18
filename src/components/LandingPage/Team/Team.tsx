@@ -10,7 +10,7 @@ const Team: React.FC<TeamProps> = ({ team }) => {
     <div className="md:ml-[6rem] font-rubik">
       <p className="mt-10 text-xl font-medium md:text-xxl">Our Team</p>
       <p className="mt-4 font-light">
-        Amazing people who makes FullyHacks happen
+        The amazing people who make FullyHacks possible
       </p>
       <section className="grid grid-cols-2 md:grid-cols-4 text-center gap-10 my-10">
         {team.map((people: TeamType) => {
