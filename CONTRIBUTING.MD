@@ -10,7 +10,7 @@
 
 # ENVIRONMENT VARIABLES
 
-- All environment varibles should be kept confidential for participants privacy, only FullyHacks Web Team shall have access to it, but you can set up your own database and play around
+- All environment variables should be kept confidential for participants privacy, only FullyHacks Web Team shall have access to it, but you can set up your own database and play around
 
 # IMPORTANT NOTE
 

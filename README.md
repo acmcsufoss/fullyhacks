@@ -7,3 +7,6 @@
 2. TailwindCSS, DaisyUI (Styling)
 3. Prisma (ORM)
 4. MongoDB (Database)
+
+## CONTRIBUTING
+### [READ HERE](https://github.com/acmcsufoss/fullyhacks/blob/main/CONTRIBUTING.MD)
