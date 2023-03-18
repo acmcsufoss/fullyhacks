@@ -22,7 +22,6 @@ export default async function handler(
         res.status(403).json({ message: "You're not the admin!" })
       }
       const { id } = req.query
-      console.log(id)
       const updatedApplication = await prisma.application.update({
         where: { id: `${id}` },
         data: {

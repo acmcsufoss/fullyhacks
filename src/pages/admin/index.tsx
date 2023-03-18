@@ -9,7 +9,7 @@ import React, { useState } from 'react'
 export async function getServerSideProps(context: GetServerSidePropsContext) {
   // Check if user is authenticated
   const session = await getSession(context)
-  // If user already signed in, move them to application page
+  // If user not signed in, move to signin
   if (!session) {
     return {
       redirect: {
@@ -22,6 +22,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
   const User = await prisma.user.findUnique({
     where: { email: session?.user?.email as any }
   })
+  //Only admin allow to access this page
   if (!User?.isAdmin) {
     return {
       redirect: {
