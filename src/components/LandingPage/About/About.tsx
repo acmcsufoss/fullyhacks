@@ -26,7 +26,8 @@ const About: React.FC = () => {
       <div id="about" className="md:ml-[6rem]">
         <p className="mt-10 text-xl font-medium md:text-xxl">About</p>
         <p className="mt-4">
-          FullyHacks is California State University, Fullerton's 24-hour, beginner-friendly hackathon which will be held
+          FullyHacks is California State University, Fullerton's 24-hour,
+          beginner-friendly hackathon which will be held
           <span className="font-semibold"> 100% in-person</span> from
           <span className="font-semibold"> April 8th to 9th.</span>
         </p>
