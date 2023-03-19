@@ -17,6 +17,4 @@
 - Server environment variables should be kept confidential for participants privacy, only FullyHacks Web Team shall have access to it, but you can set up your own database and play around
 
 # IMPORTANT NOTE
-
-### This repo is NOT the one connected to Vercel since it costs money to pay for Vercel Team Orgs project, here's the connected one: [https://github.com/anhduy1202/fullyhacks](FullyHacks)
-
+### This repo is NOT the one connected to Vercel since it costs money to pay for Vercel Team Orgs project, here's the connected one: https://github.com/anhduy1202/fullyhacks
