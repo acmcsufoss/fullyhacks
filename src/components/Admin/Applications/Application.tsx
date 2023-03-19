@@ -1,6 +1,6 @@
 import { ApplicationType } from '@/types/interface'
 import axios from 'axios'
-import React, { useState } from 'react'
+import React from 'react'
 
 interface ApplicationProps {
   application: ApplicationType
@@ -8,7 +8,7 @@ interface ApplicationProps {
   setLoading: React.Dispatch<React.SetStateAction<boolean>>
   pushIdx: React.Dispatch<React.SetStateAction<string[]>>
 }
-
+//For each row in the application dashboard
 export const Application: React.FC<ApplicationProps> = (props) => {
   const { application, idx, setLoading, pushIdx } = props
   const updateApplication = async (id: string, approved: boolean) => {
@@ -51,6 +51,7 @@ export const Application: React.FC<ApplicationProps> = (props) => {
       <td className="whitespace-normal text-sm font-medium leading-5">
         {application.response}
       </td>
+      {/* Button logic, if application has already been approved/rejected, it'll display that */}
       <td className="whitespace-normal ">
         {application.approved ? (
           <button

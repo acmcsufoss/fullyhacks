@@ -7,7 +7,7 @@ import { Application } from './Application'
 interface ApplicationsProps {
   applications: ApplicationType[]
 }
-
+//Application Dashboard
 const Applications: React.FC<ApplicationsProps> = (props) => {
   const { applications } = props
   const [statusFilter, setStatusFilter] = useState('all')
@@ -16,6 +16,7 @@ const Applications: React.FC<ApplicationsProps> = (props) => {
   const handleStatusChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setStatusFilter(event.target.value)
   }
+  // Filter out application when choose from the Filter by: dropdown
   const getFilteredApplication = (
     applications: ApplicationType[],
     statusFilter: string
@@ -32,6 +33,7 @@ const Applications: React.FC<ApplicationsProps> = (props) => {
   const classStat: [] = []
   const foodStat: [] = []
   const skillStat: [] = []
+  // Group By function to give the stats
   function groupBy(array: any, key: any): GroupedData {
     return array.reduce((result: GroupedData, currentValue: any) => {
       const groupByKey = currentValue[key]
@@ -42,6 +44,7 @@ const Applications: React.FC<ApplicationsProps> = (props) => {
       return result
     }, {})
   }
+  //Stats
   const groupByClass = groupBy(filteredApplications, 'class')
   const groupByFood = groupBy(filteredApplications, 'food')
   const groupBySkill = groupBy(filteredApplications, 'skillLevel')
