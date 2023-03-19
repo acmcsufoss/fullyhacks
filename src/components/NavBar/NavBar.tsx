@@ -4,6 +4,9 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import React, { useState } from 'react'
 import { IoArrowBackSharp } from 'react-icons/io5'
+import { BiHomeAlt, BiCalendarEvent } from 'react-icons/bi'
+import { SlEnergy } from 'react-icons/sl'
+import { BsDiscord } from 'react-icons/bs'
 
 export const NavBarLanding: React.FC = () => {
   const router = useRouter()
@@ -180,5 +183,71 @@ export const AuthNavBar = () => {
         <button onClick={() => signOut()}> Sign out</button>
       </div>
     </nav>
+  )
+}
+
+export const FeedNavBar = () => {
+  const router = useRouter()
+  return (
+    <nav className="flex items-center text-purple_main bg-body_bg border-b-2">
+      <img
+        onClick={() => router.push('/')}
+        src="/logo.svg"
+        className="cursor-pointer my-4 ml-4 md:ml-10 w-8 h-8 md:w-10 md:h-10"
+      />
+      <div className="mr-4 md:mr-10 ml-auto text-md">
+        <button onClick={() => signOut()}> Sign out</button>
+      </div>
+    </nav>
+  )
+}
+
+interface FeedSideBarProps {
+  setLocation: React.Dispatch<React.SetStateAction<string>>
+}
+
+export const FeedSideBar: React.FC<FeedSideBarProps> = ({ setLocation }) => {
+  const [currIdx, setIdx] = useState(0)
+  const feedItems = [
+    {
+      id: 'feed01',
+      name: 'Home',
+      icon: <BiHomeAlt size={28} />
+    },
+    {
+      id: 'feed02',
+      name: 'Events',
+      icon: <BiCalendarEvent size={28} />
+    },
+    {
+      id: 'feed03',
+      name: 'Hackpacks',
+      icon: <SlEnergy size={28} />
+    }
+  ]
+  return (
+    <div className="mt-10 mx-4 md:mx-10 font-rubik text-purple_main font-semibold md:text-md basis-1/5">
+      <ul className="border-b-2 p-2">
+        {feedItems.map((item, idx) => {
+          return (
+            <button
+              key={item.id}
+              onClick={() => {
+                setLocation(item.name), setIdx(idx)
+              }}
+              className={`w-full flex my-4 p-2 rounded-lg items-center ${
+                currIdx == idx ? 'bg-sky-100 text-sky-400' : ''
+              }`}>
+              {item.icon}
+              <li className="ml-4">{item.name}</li>
+            </button>
+          )
+        })}
+      </ul>
+      <div className="flex mt-4 gap-4">
+        <BsDiscord size={28} />
+        <p>Join our Discord server</p>
+      </div>
+    </div>
   )
 }

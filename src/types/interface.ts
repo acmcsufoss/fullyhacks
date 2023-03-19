@@ -51,6 +51,14 @@ export interface ApplicationType {
   response: string
 }
 
+export interface feedUsers {
+  id: string
+  name: string
+  discordId: string
+  bio: string
+  application: ApplicationType
+}
+
 export interface User {
   id: string
   name: string
