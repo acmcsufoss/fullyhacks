@@ -52,7 +52,7 @@ const signin: NextPage = () => {
             setClick(true)
             signIn('github', {
               redirect: false,
-              callbackUrl: 'http://localhost:3000/apply'
+              callbackUrl: 'https://fullyhacks.acmcsuf.com/apply'
             })
           }}>
           {isClicked ? (
