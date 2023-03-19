@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import React, { useState } from 'react'
 import { IoArrowBackSharp } from 'react-icons/io5'
-import { BiHomeAlt, BiCalendarEvent } from 'react-icons/bi'
+import { BiHomeAlt, BiCalendarEvent, BiUserCircle } from 'react-icons/bi'
 import { SlEnergy } from 'react-icons/sl'
 import { BsDiscord } from 'react-icons/bs'
 
@@ -223,10 +223,15 @@ export const FeedSideBar: React.FC<FeedSideBarProps> = ({ setLocation }) => {
       id: 'feed03',
       name: 'Hackpacks',
       icon: <SlEnergy size={28} />
+    },
+    {
+      id: 'feed04',
+      name: 'Profile',
+      icon: <BiUserCircle size={28} />
     }
   ]
   return (
-    <div className="mt-10 mx-4 md:mx-10 font-rubik text-purple_main font-semibold md:text-md basis-1/5">
+    <div className="text-sm mt-10 mx-4 md:mx-10 font-rubik text-purple_main font-semibold md:text-md basis-1/5">
       <ul className="border-b-2 p-2">
         {feedItems.map((item, idx) => {
           return (
@@ -244,7 +249,7 @@ export const FeedSideBar: React.FC<FeedSideBarProps> = ({ setLocation }) => {
           )
         })}
       </ul>
-      <div className="flex mt-4 gap-4">
+      <div className="flex text-center mt-4 gap-4">
         <BsDiscord size={28} />
         <p>Join our Discord server</p>
       </div>

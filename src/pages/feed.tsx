@@ -58,7 +58,7 @@ const feed = ({ user, feedUsers }: feedProps) => {
   return (
     <section>
       <FeedNavBar />
-      <Feed feedUsers={feedUsers} />
+      <Feed feedUsers={feedUsers} currentUser={user} />
     </section>
   )
 }
