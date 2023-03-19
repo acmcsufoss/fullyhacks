@@ -12,6 +12,9 @@
 1. npm run dev (website)
 2. prisma studio (database)
 
+# BEFORE COMMIT
+- Make sure to run ```npm run format```
+
 # ENVIRONMENT VARIABLES
 
 - Server environment variables should be kept confidential for participants privacy, only FullyHacks Web Team shall have access to it, but you can set up your own database and play around
