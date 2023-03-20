@@ -36,5 +36,11 @@ export const companies: companyType[] = [
     name: 'Balsamiq',
     href: 'https://balsamiq.com/',
     image: '/balsamiq.png'
+  },
+  {
+    id: 'co7',
+    name: 'Prisma',
+    href: 'https://www.prisma.io/',
+    image: '/prisma.png'
   }
 ]
