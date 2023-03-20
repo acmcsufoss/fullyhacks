@@ -38,7 +38,7 @@ const MainFeed: React.FC<MainFeedProps> = (props) => {
               {user.name[0].toUpperCase()}
             </p>
             <div className="flex flex-col">
-              <div className="flex items-center">
+              <div className="mb-2 gap-1 flex items-start flex-col md:flex-row md:tems-center">
                 <p className="font-semibold mr-4"> {user.name}</p>
                 <a
                   href={`https://github.com/${user.application.github}`}

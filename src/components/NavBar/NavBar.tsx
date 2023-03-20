@@ -7,6 +7,7 @@ import { IoArrowBackSharp } from 'react-icons/io5'
 import { BiHomeAlt, BiCalendarEvent, BiUserCircle } from 'react-icons/bi'
 import { SlEnergy } from 'react-icons/sl'
 import { BsDiscord } from 'react-icons/bs'
+import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai'
 
 export const NavBarLanding: React.FC = () => {
   const router = useRouter()
@@ -211,6 +212,7 @@ interface FeedSideBarProps {
 
 export const FeedSideBar: React.FC<FeedSideBarProps> = ({ setLocation }) => {
   const [currIdx, setIdx] = useState(0)
+  const [isOpen, setOpen] = useState(false)
   const feedItems = [
     {
       id: 'feed01',
@@ -234,28 +236,67 @@ export const FeedSideBar: React.FC<FeedSideBarProps> = ({ setLocation }) => {
     }
   ]
   return (
-    <div className="text-sm mt-10 mx-4 md:mx-10 font-rubik text-purple_main font-semibold md:text-md basis-1/5">
-      <ul className="border-b-2 p-2">
-        {feedItems.map((item, idx) => {
-          return (
-            <button
-              key={item.id}
-              onClick={() => {
-                setLocation(item.name), setIdx(idx)
-              }}
-              className={`w-full flex my-4 p-2 rounded-lg items-center ${
-                currIdx == idx ? 'bg-sky-100 text-sky-400' : ''
-              }`}>
-              {item.icon}
-              <li className="ml-4">{item.name}</li>
-            </button>
-          )
-        })}
-      </ul>
-      <div className="flex text-center mt-4 gap-4">
-        <BsDiscord size={28} />
-        <p>Join our Discord server</p>
+    <>
+      {!isOpen && (
+        <AiOutlineMenu
+          onClick={() => setOpen(true)}
+          className="ml-4 mt-4 md:hidden cursor-pointer text-purple_main"
+          size={20}
+        />
+      )}
+      {isOpen && (
+        <div className="md:hidden text-sm mt-4 mx-4 font-rubik text-purple_main font-semibold basis-1/6">
+          <AiOutlineClose
+            onClick={() => setOpen(false)}
+            size={20}
+            className="cursor-pointer"
+          />
+          <ul className="border-b-2 p-2">
+            {feedItems.map((item, idx) => {
+              return (
+                <button
+                  key={item.id}
+                  onClick={() => {
+                    setLocation(item.name), setIdx(idx)
+                  }}
+                  className={`w-full flex my-4 p-2 rounded-lg items-center ${
+                    currIdx == idx ? 'bg-sky-100 text-sky-400' : ''
+                  }`}>
+                  {item.icon}
+                  <li className="ml-4">{item.name}</li>
+                </button>
+              )
+            })}
+          </ul>
+          <div className="flex text-center mt-4 gap-4">
+            <BsDiscord size={28} />
+            <p>Join our Discord server</p>
+          </div>
+        </div>
+      )}
+      <div className="hidden md:block text-sm mt-12 mx-4 md:mx-10 font-rubik text-purple_main font-semibold md:text-md basis-1/5">
+        <ul className="border-b-2 p-2">
+          {feedItems.map((item, idx) => {
+            return (
+              <button
+                key={item.id}
+                onClick={() => {
+                  setLocation(item.name), setIdx(idx)
+                }}
+                className={`w-full flex my-4 p-2 rounded-lg items-center ${
+                  currIdx == idx ? 'bg-sky-100 text-sky-400' : ''
+                }`}>
+                {item.icon}
+                <li className="ml-4">{item.name}</li>
+              </button>
+            )
+          })}
+        </ul>
+        <div className="flex text-center mt-4 gap-4">
+          <BsDiscord size={28} />
+          <p>Join our Discord server</p>
+        </div>
       </div>
-    </div>
+    </>
   )
 }

@@ -1,7 +1,6 @@
 import React, { useRef, useState } from 'react'
 import { yupResolver } from '@hookform/resolvers/yup'
 import axios, { CancelTokenSource } from 'axios'
-import { useDebounce } from 'use-debounce'
 import { useForm } from 'react-hook-form'
 import * as yup from 'yup'
 import Loading from '../Loading/Loading'
@@ -84,9 +83,7 @@ const Profile: React.FC = (props) => {
           name="bio"
           value={updatedProfile.bio}
           onChange={handleInfoChange}
-          className={`bg-white rounded-md form-input ${
-            errors.bio ? 'error-form' : ''
-          }`}
+          className={`rounded-md form-input ${errors.bio ? 'error-form' : ''}`}
           type="text"
           placeholder="Hi, I loveee web development, add me on Discord to talk more:)"
         />
@@ -96,7 +93,7 @@ const Profile: React.FC = (props) => {
           {...register('discordId')}
           name="discordId"
           value={updatedProfile.discordId}
-          className={`bg-white rounded-md form-input ${
+          className={`rounded-md form-input ${
             errors.discordId ? 'error-form' : ''
           }`}
           onChange={handleInfoChange}
