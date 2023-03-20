@@ -130,6 +130,7 @@ const Applications: React.FC<ApplicationsProps> = (props) => {
           <tbody>
             {filteredApplications.map((posts, idx) => (
               <Application
+                key={posts.id}
                 idx={idx}
                 application={posts}
                 pushIdx={pushIdx}
