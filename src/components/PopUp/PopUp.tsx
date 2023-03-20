@@ -118,12 +118,13 @@ export const FeedPopUp: React.FC = (props) => {
           <div className="modal">
             <div className="modal-box bg-white">
               <h3 className="font-bold text-lg text-purple_main">
-                Let's introduce yourself 🤩
+                Let&apos;s introduce yourself 🤩
               </h3>
               <p className="py-4 text-purple_main font-normal">
                 Fill out these fields so other participants can see how cool you
-                are, it's a great chance to networking before the event, you'll
-                be able to update these information in your profile later.
+                are, it&apos;s a great chance to networking before the event,
+                you&apos;ll be able to update these information in your profile
+                later.
               </p>
               <form
                 onSubmit={handleSubmit(updateUserProfile)}

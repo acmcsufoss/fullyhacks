@@ -152,6 +152,7 @@ export const GenericNavBar = () => {
     <nav className="flex items-center text-purple_main bg-orange_100">
       <img
         onClick={() => router.push('/')}
+        alt="nav bar logo"
         src="/logo.svg"
         className="cursor-pointer my-4 ml-2 w-12 h-12 md:w-16 md:h-16"
       />
@@ -176,6 +177,7 @@ export const AuthNavBar = () => {
     <nav className="flex items-center text-purple_main bg-orange_100">
       <img
         onClick={() => router.push('/')}
+        alt="nav bar logo"
         src="/logo.svg"
         className="cursor-pointer my-4 ml-2 w-12 h-12 md:w-16 md:h-16"
       />
@@ -192,6 +194,7 @@ export const FeedNavBar = () => {
     <nav className="flex items-center text-purple_main bg-body_bg border-b-2">
       <img
         onClick={() => router.push('/')}
+        alt="nav bar logo"
         src="/logo.svg"
         className="cursor-pointer my-4 ml-4 md:ml-10 w-8 h-8 md:w-10 md:h-10"
       />

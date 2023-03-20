@@ -394,7 +394,7 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
               type="checkbox"
               className="bg-purple_300 checkbox"
             />
-            <p>I'm 18 or older by April 8th, 2023</p>
+            <p>I&apos;m 18 or older by April 8th, 2023</p>
           </div>
           <p className="error-msg">{errors.over18?.message}</p>
           <div className="mt-4 flex items-center gap-4">
