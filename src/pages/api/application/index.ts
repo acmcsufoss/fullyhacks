@@ -1,10 +1,8 @@
 import { validate } from '@/middleware/validate'
 import { applicationSchema } from '@/schemas/application'
-import { PrismaClient } from '@prisma/client'
+import { prisma } from 'db'
 import { NextApiRequest, NextApiResponse } from 'next'
 import { getSession } from 'next-auth/react'
-
-const prisma = new PrismaClient()
 
 async function handler(req: NextApiRequest, res: NextApiResponse) {
   // Only authorized user able submit application
@@ -70,12 +68,7 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
   } else if (req.method === 'GET') {
     try {
       // Retrieve current user
-      const application = await prisma.user.findUnique({
-        where: { email: session?.user?.email as any },
-        select: {
-          application: true
-        }
-      })
+      const application = await prisma.application.findMany()
       res.status(200).json(application)
     } catch (error) {
       res.status(500).json(error)
