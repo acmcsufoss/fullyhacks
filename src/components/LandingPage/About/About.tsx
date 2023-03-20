@@ -34,7 +34,7 @@ const About: React.FC = () => {
         </p>
         <p className="mt-4">
           You'll be able to
-          <span className="font-semibold">meet future Software Engineers</span>
+          <span className="font-semibold"> meet future Software Engineers </span>
           during our networking event. Your project also has the chance to
           <span className="font-semibold"> win cool prizes! 🎉</span>
         </p>
