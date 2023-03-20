@@ -111,7 +111,7 @@ const Applications: React.FC<ApplicationsProps> = (props) => {
         </div>
       </div>
       <div className="overflow-x-auto">
-        <table className="w-full table text-white">
+        <table className="w-full table">
           <thead>
             <tr>
               <th>#</th>

@@ -63,13 +63,15 @@ const AdminPage = ({ user, applications }: AdminProps) => {
     }
   ]
   return (
-    <section className="font-rubik text-purple_main">
+    <section className="font-rubik">
       <AuthNavBar />
       <div className="flex flex-col mt-10 items-center">
-        <p className="text-xl font-semibold">Welcome {user.name}</p>
+        <p className="text-xl font-semibold text-purple_main">
+          Welcome {user.name}
+        </p>
         <div className="w-full max-w-[80%] px-2 py-16 sm:px-0">
           <div>
-            <div className="flex justify-around space-x-1 rounded-xl p-2 bg-purple_300">
+            <div className="flex justify-around space-x-1 rounded-xl p-2 bg-purple_300 text-purple_main">
               {tabList.map((tab, idx) => {
                 return (
                   <p
