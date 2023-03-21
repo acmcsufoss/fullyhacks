@@ -72,7 +72,7 @@ const Profile: React.FC = (props) => {
   }
 
   return (
-    <section className="overflow-x-auto w-full mt-14 mx-10">
+    <section className="overflow-x-auto mt-14 mx-10">
       <form
         onSubmit={handleSubmit(updateUserProfile)}
         className="text-purple_main w-full flex flex-col items-start"

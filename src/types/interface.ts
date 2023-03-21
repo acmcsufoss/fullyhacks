@@ -1,3 +1,5 @@
+import React from 'react'
+
 export interface companyType {
   id: string
   name: string
@@ -69,4 +71,11 @@ export interface User {
   image: string
   isAdmin: boolean
   application?: ApplicationType
+}
+
+export interface sponsorGiftType {
+  id: string
+  company: string
+  content: string
+  access: string | JSX.Element
 }

@@ -4,6 +4,7 @@ import { FeedSideBar } from '../NavBar/NavBar'
 import Events from './Events'
 import MainFeed from './MainFeed'
 import Profile from './Profile'
+import Resources from './Resources'
 interface FeedProps {
   feedUsers: feedUsers[]
   currentUser: User
@@ -20,6 +21,8 @@ const Feed: React.FC<FeedProps> = (props) => {
         <Events />
       ) : currentLocation == 'Profile' ? (
         <Profile />
+      ) : currentLocation == 'Resources' ? (
+        <Resources />
       ) : (
         <></>
       )}

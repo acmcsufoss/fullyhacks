@@ -6,7 +6,7 @@ import React, { useState } from 'react'
 import { IoArrowBackSharp } from 'react-icons/io5'
 import { BiHomeAlt, BiCalendarEvent, BiUserCircle } from 'react-icons/bi'
 import { SlEnergy } from 'react-icons/sl'
-import { BsDiscord } from 'react-icons/bs'
+import { BsDiscord, BsLightbulb } from 'react-icons/bs'
 import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai'
 
 export const NavBarLanding: React.FC = () => {
@@ -231,6 +231,11 @@ export const FeedSideBar: React.FC<FeedSideBarProps> = ({ setLocation }) => {
     },
     {
       id: 'feed04',
+      name: 'Resources',
+      icon: <BsLightbulb size={28} />
+    },
+    {
+      id: 'feed05',
       name: 'Profile',
       icon: <BiUserCircle size={28} />
     }
@@ -270,7 +275,7 @@ export const FeedSideBar: React.FC<FeedSideBarProps> = ({ setLocation }) => {
           </ul>
           <div className="flex text-center mt-4 gap-4">
             <BsDiscord size={28} />
-            <p>Join our Discord server</p>
+            <p>Discord Server</p>
           </div>
         </div>
       )}
@@ -294,7 +299,9 @@ export const FeedSideBar: React.FC<FeedSideBarProps> = ({ setLocation }) => {
         </ul>
         <div className="flex text-center mt-4 gap-4">
           <BsDiscord size={28} />
-          <p>Join our Discord server</p>
+          <a target={'_blank'} href="https://discord.gg/XKNZxHEnJj">
+            Discord Server
+          </a>
         </div>
       </div>
     </>

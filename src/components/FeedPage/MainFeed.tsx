@@ -60,7 +60,7 @@ const MainFeed: React.FC<MainFeedProps> = (props) => {
                   )}
                 </div>
               </div>
-              <div className="flex gap-4 my-2 text-sm">
+              <div className="flex items-center gap-4 my-2 text-sm">
                 <p className="bg-sky-100 px-4 rounded-xl">
                   {user.application.class}
                 </p>
