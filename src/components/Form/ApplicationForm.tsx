@@ -136,7 +136,7 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
     formState: { errors }
   } = useForm<FormData>({ resolver: yupResolver(schema) })
   const router = useRouter()
-  const [foodState, setFood] = useState('N/A')
+  const [foodState, setFood] = useState('')
   const userId = url?.split('/').pop()?.split('?')[0] || ''
   const [application, dispatch] = useReducer(
     reducer,
