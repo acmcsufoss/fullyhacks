@@ -226,7 +226,7 @@ export const FeedSideBar: React.FC<FeedSideBarProps> = ({ setLocation }) => {
     },
     {
       id: 'feed03',
-      name: 'Hackpacks',
+      name: 'FullyPacks',
       icon: <SlEnergy size={28} />
     },
     {

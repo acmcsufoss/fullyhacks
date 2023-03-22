@@ -27,7 +27,10 @@ const xyzAccess = (
   </p>
 )
 const echo3DAccess = (
-  <a className="font-semibold" target={'_blank'} href="">
+  <a
+    className="font-semibold"
+    target={'_blank'}
+    href="https://console.echo3d.com/#/auth/register-promo?code=April2023echo572">
     Register here
   </a>
 )
@@ -58,6 +61,18 @@ const sponsorGifts: sponsorGiftType[] = [
     content:
       'echo3D is a cloud platform for 3D asset management that provides tools and cloud infrastructure to help developers quickly build and deploy 3D/AR/VR games, apps, and content. Participants will get 1-month FREE ACCESS to their premium plan of the echo3D platform ($99 value)',
     access: echo3DAccess
+  },
+  {
+    id: 'gift5',
+    company: 'Prisma',
+    content: 'Free Prisma stickers',
+    access: 'Grab it during event'
+  },
+  {
+    id: 'gift6',
+    company: 'Celsius',
+    content: 'Free Celsius drinks',
+    access: 'Grab it during event'
   }
 ]
 

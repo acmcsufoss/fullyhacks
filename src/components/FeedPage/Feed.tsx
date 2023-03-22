@@ -2,6 +2,7 @@ import { feedUsers, User } from '@/types/interface'
 import React, { useState } from 'react'
 import { FeedSideBar } from '../NavBar/NavBar'
 import Events from './Events'
+import FullyPacks from './FullyPacks'
 import MainFeed from './MainFeed'
 import Profile from './Profile'
 import Resources from './Resources'
@@ -19,8 +20,10 @@ const Feed: React.FC<FeedProps> = (props) => {
         <MainFeed feedUsers={feedUsers} currentUser={currentUser} />
       ) : currentLocation == 'Events' ? (
         <Events />
+      ) : currentLocation == 'FullyPacks' ? (
+        <FullyPacks />
       ) : currentLocation == 'Profile' ? (
-        <Profile />
+        <Profile currentUser={currentUser} />
       ) : currentLocation == 'Resources' ? (
         <Resources />
       ) : (

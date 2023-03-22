@@ -1,10 +1,8 @@
+import { rateLimitMiddleware } from '@/middleware/profileUpdateMiddleware'
 import { prisma } from 'db'
 import { NextApiRequest, NextApiResponse } from 'next'
 import { getSession } from 'next-auth/react'
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse
-) {
+async function handler(req: NextApiRequest, res: NextApiResponse) {
   // Only authorized user able to update their bio, discordId
   const session = await getSession({ req })
   if (!session) {
@@ -12,7 +10,7 @@ export default async function handler(
   }
   // update bio, discordId
   if (req.method === 'PUT') {
-    let { bio, discordId } = req.body
+    let { bio, discordId, userId } = req.body
     try {
       // Retrieve current user
       const user = await prisma.user.findUnique({
@@ -50,3 +48,6 @@ export default async function handler(
       .json({ message: `HTTP method ${req.method} is not supported.` })
   }
 }
+const rateLimitedUpdateProfileHandler = rateLimitMiddleware(handler)
+
+export default rateLimitedUpdateProfileHandler

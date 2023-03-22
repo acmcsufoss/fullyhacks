@@ -1,9 +1,10 @@
 import React, { useRef, useState } from 'react'
 import { yupResolver } from '@hookform/resolvers/yup'
-import axios, { CancelTokenSource } from 'axios'
+import axios, { AxiosError, CancelTokenSource } from 'axios'
 import { useForm } from 'react-hook-form'
 import * as yup from 'yup'
 import Loading from '../Loading/Loading'
+import { User } from '@/types/interface'
 
 const schema = yup
   .object({
@@ -24,8 +25,12 @@ const schema = yup
     }
   })
 
+interface ProfileProps {
+  currentUser: User
+}
+
 type FormData = yup.InferType<typeof schema>
-const Profile: React.FC = (props) => {
+const Profile: React.FC<ProfileProps> = ({ currentUser }) => {
   const {
     register,
     handleSubmit,
@@ -37,6 +42,7 @@ const Profile: React.FC = (props) => {
   })
   const cancelToken = useRef<CancelTokenSource | null>(null)
   const [isLoading, setLoading] = useState(false)
+  const [errorMsg, setErrorMsg] = useState('')
   const handleInfoChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target
     setProfile((prev) => ({
@@ -52,7 +58,8 @@ const Profile: React.FC = (props) => {
       setLoading(true)
       cancelToken.current = axios.CancelToken.source()
       const data = {
-        ...updatedProfile
+        ...updatedProfile,
+        userId: currentUser.id
       }
       await axios.put('/api/user', data, {
         cancelToken: cancelToken.current.token
@@ -62,11 +69,16 @@ const Profile: React.FC = (props) => {
         discordId: ''
       })
       setLoading(false)
-    } catch (e) {
+    } catch (e: any) {
       if (axios.isCancel(e)) {
         console.log('Request canceled:', e.message)
       } else {
-        console.log('Error:', e)
+        if (e.response.status == 429) {
+          setErrorMsg(e.response.data.message)
+          setLoading(false)
+        } else {
+          console.log(e)
+        }
       }
     }
   }
@@ -106,11 +118,14 @@ const Profile: React.FC = (props) => {
             <Loading isLoading={isLoading} />
           </button>
         ) : (
-          <button
-            type="submit"
-            className="mt-4 self-start normal-case btn bg-sky-100 border-none text-purple_main hover:bg-sky-200 hover:ease-in-out hover:duration-200">
-            Update
-          </button>
+          <>
+            <button
+              type="submit"
+              className="mt-4 self-start normal-case btn bg-sky-100 border-none text-purple_main hover:bg-sky-200 hover:ease-in-out hover:duration-200">
+              Update
+            </button>
+            <p className="error-msg">{errorMsg}</p>
+          </>
         )}
       </form>
     </section>
