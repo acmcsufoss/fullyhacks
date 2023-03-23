@@ -44,7 +44,7 @@ const PopUp: React.FC<PopUpProps> = (props) => {
 export default PopUp
 
 const schema = yup.object({
-  bio: yup.string().min(5).max(50).required(),
+  bio: yup.string().min(5).max(100).required(),
   discord: yup.string().max(20)
 })
 type FormData = yup.InferType<typeof schema>
