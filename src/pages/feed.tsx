@@ -35,6 +35,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
   const feedUsers = await prisma.user.findMany({
     select: {
       id: true,
+      isAdmin: true,
       application: true,
       name: true,
       bio: true,

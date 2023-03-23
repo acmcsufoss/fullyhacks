@@ -60,7 +60,7 @@ const MainFeed: React.FC<MainFeedProps> = (props) => {
                 </div>
               </div>
               <div className="flex items-center gap-4 my-2 text-sm">
-                {currentUser?.isAdmin && (
+                {user.isAdmin && (
                   <p className="bg-orange_300 px-4 rounded-xl">Organizer</p>
                 )}
                 <p className="bg-sky-100 px-4 rounded-xl">

@@ -56,6 +56,7 @@ export interface ApplicationType {
 export interface feedUsers {
   id: string
   name: string
+  isAdmin: boolean
   discordId: string
   bio: string
   application: ApplicationType
