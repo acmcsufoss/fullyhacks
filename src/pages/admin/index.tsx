@@ -75,14 +75,14 @@ const AdminPage = ({ user, applications }: AdminProps) => {
               {tabList.map((tab, idx) => {
                 return (
                   <p
+                    key={tab.id}
                     className={`cursor-pointer ${
                       idx == currentIdx ? 'font-bold underline' : ''
                     }`}
                     onClick={() => {
                       setIdx(idx)
                       setTabName(tab.name)
-                    }}
-                    key={tab.id}>
+                    }}>
                     {tab.name}
                   </p>
                 )

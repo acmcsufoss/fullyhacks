@@ -56,7 +56,7 @@ const apply: NextPage = ({
         <>
           <div className="font-rubik text-purple_main mt-10 flex flex-col items-center justify-center text-center">
             <p className="text-lg font-semibold md:text-xl">
-              You've already submitted an application
+              You&apos;ve already submitted an application
             </p>
             <button
               onClick={() => router.push('/portal')}

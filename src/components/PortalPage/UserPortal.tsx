@@ -1,5 +1,7 @@
 import { ApplicationType, User } from '@/types/interface'
+import { useRouter } from 'next/router'
 import React from 'react'
+import { BsArrowRight } from 'react-icons/bs'
 import Bubble from '../Bubble/Bubble'
 
 interface UserProps {
@@ -9,6 +11,7 @@ interface UserProps {
 const UserPortal: React.FC<UserProps> = ({ user }) => {
   const application: ApplicationType = user.application as ApplicationType
   const date: Date = new Date(application.submittedAt)
+  const router = useRouter()
   const option: Intl.DateTimeFormatOptions = {
     year: 'numeric',
     month: 'long',
@@ -17,9 +20,9 @@ const UserPortal: React.FC<UserProps> = ({ user }) => {
   const formattedDate = date.toLocaleDateString('en-US', option)
 
   return (
-    <div className="relative text-purple_main mx-4 md:mx-48 mt-10 font-rubik">
-      <p className="text-xl font-semibold">User Portal</p>
-      <div className="md:text-md mt-10 p-6 rounded-lg backdrop-filter backdrop-blur-md bg-opacity-25 border border-gray-300 border-opacity-25 shadow-xl">
+    <div className="flex flex-col items-center justify-center relative text-purple_main mx-4 md:mx-48 mt-10 font-rubik">
+      <p className="text-xl font-semibold self-start">User Portal</p>
+      <div className="w-full md:text-md mt-10 p-6 rounded-lg backdrop-filter backdrop-blur-md bg-opacity-25 border border-gray-300 border-opacity-25 shadow-xl">
         <div className="flex gap-4">
           <img
             className="z-[30] w-24 h-24 rounded-md md:w-48 md:h-48"
@@ -73,6 +76,14 @@ const UserPortal: React.FC<UserProps> = ({ user }) => {
           />
         </div>
       </div>
+      {application.status == 'approved' && (
+        <button
+          onClick={() => router.push('/feed')}
+          className="hover:bg-purple_hover hover:duration-200 hover:ease-in-out hover:text-white flex items-center gap-4 bg-purple_300 p-2 font-semibold mt-8 rounded-lg md:text-md">
+          Continue to Feed
+          <BsArrowRight size={24} />
+        </button>
+      )}
     </div>
   )
 }

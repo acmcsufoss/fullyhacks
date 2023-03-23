@@ -27,7 +27,7 @@ const Applications: React.FC<ApplicationsProps> = (props) => {
   }
   const filteredApplications = useMemo(() => {
     return getFilteredApplication(applications, statusFilter)
-  }, [applications, statusFilter, isLoading])
+  }, [applications, statusFilter, getFilteredApplication])
   const applicationsNumber = filteredApplications.length
   type GroupedData = Record<string, number>
   const classStat: [] = []

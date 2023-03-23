@@ -1,3 +1,5 @@
+import React from 'react'
+
 export interface companyType {
   id: string
   name: string
@@ -51,6 +53,14 @@ export interface ApplicationType {
   response: string
 }
 
+export interface feedUsers {
+  id: string
+  name: string
+  discordId: string
+  bio: string
+  application: ApplicationType
+}
+
 export interface User {
   id: string
   name: string
@@ -61,4 +71,18 @@ export interface User {
   image: string
   isAdmin: boolean
   application?: ApplicationType
+}
+
+export interface sponsorGiftType {
+  id: string
+  company: string
+  content: string
+  access: string | JSX.Element
+}
+
+export interface fullyPacksType {
+  id: string
+  name: string
+  github: string
+  description: string | JSX.Element
 }

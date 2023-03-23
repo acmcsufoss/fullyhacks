@@ -27,7 +27,7 @@ const ApplyAuth: React.FC<ApplyAuthProps> = ({ children }) => {
             <p>Application will open on March 14th, stay tuned.</p>
           )}
           {now >= closeDate && (
-            <p>Application has closed, we'll see you next year 🐘.</p>
+            <p>Application has closed, we&apos;ll see you next year 🐘.</p>
           )}
           <img
             className="animate-float motion-reduce:animate-none h-36 w-36 md:h-52 md:w-52"

@@ -4,6 +4,10 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import React, { useState } from 'react'
 import { IoArrowBackSharp } from 'react-icons/io5'
+import { BiHomeAlt, BiCalendarEvent, BiUserCircle } from 'react-icons/bi'
+import { SlEnergy } from 'react-icons/sl'
+import { BsDiscord, BsLightbulb } from 'react-icons/bs'
+import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai'
 
 export const NavBarLanding: React.FC = () => {
   const router = useRouter()
@@ -149,6 +153,7 @@ export const GenericNavBar = () => {
     <nav className="flex items-center text-purple_main bg-orange_100">
       <img
         onClick={() => router.push('/')}
+        alt="nav bar logo"
         src="/logo.svg"
         className="cursor-pointer my-4 ml-2 w-12 h-12 md:w-16 md:h-16"
       />
@@ -173,6 +178,7 @@ export const AuthNavBar = () => {
     <nav className="flex items-center text-purple_main bg-orange_100">
       <img
         onClick={() => router.push('/')}
+        alt="nav bar logo"
         src="/logo.svg"
         className="cursor-pointer my-4 ml-2 w-12 h-12 md:w-16 md:h-16"
       />
@@ -180,5 +186,124 @@ export const AuthNavBar = () => {
         <button onClick={() => signOut()}> Sign out</button>
       </div>
     </nav>
+  )
+}
+
+export const FeedNavBar = () => {
+  const router = useRouter()
+  return (
+    <nav className="flex items-center text-purple_main bg-body_bg border-b-2">
+      <img
+        onClick={() => router.push('/')}
+        alt="nav bar logo"
+        src="/logo.svg"
+        className="cursor-pointer my-4 ml-4 md:ml-10 w-8 h-8 md:w-10 md:h-10"
+      />
+      <div className="mr-4 md:mr-10 ml-auto text-md">
+        <button onClick={() => signOut()}> Sign out</button>
+      </div>
+    </nav>
+  )
+}
+
+interface FeedSideBarProps {
+  setLocation: React.Dispatch<React.SetStateAction<string>>
+}
+
+export const FeedSideBar: React.FC<FeedSideBarProps> = ({ setLocation }) => {
+  const [currIdx, setIdx] = useState(0)
+  const [isOpen, setOpen] = useState(false)
+  const feedItems = [
+    {
+      id: 'feed01',
+      name: 'Home',
+      icon: <BiHomeAlt size={28} />
+    },
+    {
+      id: 'feed02',
+      name: 'Events',
+      icon: <BiCalendarEvent size={28} />
+    },
+    {
+      id: 'feed03',
+      name: 'FullyPacks',
+      icon: <SlEnergy size={28} />
+    },
+    {
+      id: 'feed04',
+      name: 'Resources',
+      icon: <BsLightbulb size={28} />
+    },
+    {
+      id: 'feed05',
+      name: 'Profile',
+      icon: <BiUserCircle size={28} />
+    }
+  ]
+  return (
+    <>
+      {!isOpen && (
+        <AiOutlineMenu
+          onClick={() => setOpen(true)}
+          className="ml-4 mt-4 md:hidden cursor-pointer text-purple_main"
+          size={20}
+        />
+      )}
+      {isOpen && (
+        <div className="md:hidden text-sm mt-4 mx-4 font-rubik text-purple_main font-semibold basis-1/6">
+          <AiOutlineClose
+            onClick={() => setOpen(false)}
+            size={20}
+            className="cursor-pointer"
+          />
+          <ul className="border-b-2 p-2">
+            {feedItems.map((item, idx) => {
+              return (
+                <button
+                  key={item.id}
+                  onClick={() => {
+                    setLocation(item.name), setIdx(idx)
+                  }}
+                  className={`w-full flex my-4 p-2 rounded-lg items-center ${
+                    currIdx == idx ? 'bg-sky-100 text-sky-400' : ''
+                  }`}>
+                  {item.icon}
+                  <li className="ml-4">{item.name}</li>
+                </button>
+              )
+            })}
+          </ul>
+          <div className="flex items-center text-center mt-4 gap-4">
+            <BsDiscord size={28} />
+            <p>Discord Server</p>
+          </div>
+        </div>
+      )}
+      <div className="hidden md:block text-sm mt-12 mx-4 md:mx-10 font-rubik text-purple_main font-semibold md:text-md basis-1/5">
+        <ul className="border-b-2 p-2">
+          {feedItems.map((item, idx) => {
+            return (
+              <button
+                key={item.id}
+                onClick={() => {
+                  setLocation(item.name), setIdx(idx)
+                }}
+                className={`w-full flex my-4 p-2 rounded-lg items-center ${
+                  currIdx == idx ? 'bg-sky-100 text-sky-400' : ''
+                }`}>
+                {item.icon}
+                <li className="ml-4">{item.name}</li>
+              </button>
+            )
+          })}
+        </ul>
+        <div className="flex items-center text-center mt-4 gap-4">
+          <BsDiscord size={28} />
+          <a target={'_blank'} href="https://discord.gg/XKNZxHEnJj">
+            Discord Server
+          </a>
+        </div>
+      </div>
+    </>
   )
 }

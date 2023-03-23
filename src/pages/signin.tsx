@@ -44,7 +44,7 @@ const signin: NextPage = () => {
           <p className="mt-14 text-lg md:text-xl font-semibold">
             Welcome to FullyHacks!
           </p>
-          <p>Let's sign in and start your application</p>
+          <p>Let&apos;s sign in and start your application</p>
         </div>
         <button
           className="flex items-center rounded-md mt-12 p-4 bg-purple_300 text-[1.15rem] font-semibold font-mont"
