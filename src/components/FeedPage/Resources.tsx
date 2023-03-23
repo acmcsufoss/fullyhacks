@@ -15,7 +15,7 @@ const balsamiqAccess = (
   </p>
 )
 const xyzAccess = (
-  <p>
+  <div>
     <p>Search and register a .xyz domain </p>
     <a className="font-bold" target={'_blank'} href="https://gen.xyz/register">
       on this website
@@ -24,7 +24,7 @@ const xyzAccess = (
       During checkout, apply the promo code:{' '}
       <span className="font-bold">FHK23</span> to get it at 0.00$
     </p>
-  </p>
+  </div>
 )
 const echo3DAccess = (
   <a
@@ -79,10 +79,10 @@ const sponsorGifts: sponsorGiftType[] = [
 const Resources = () => {
   return (
     <section className="mt-14 mx-10 w-full text-purple_main">
-      <p className="md:text-xl font-semibold">Fully Gifts</p>
-      <p className="font-light md:text-md">
+      <div className="md:text-xl font-semibold">Fully Gifts</div>
+      <div className="font-light md:text-md">
         Cool gifts from our great sponsors
-      </p>
+      </div>
       <div className="my-10 justify-center grid md:grid-cols-3 gap-8">
         {sponsorGifts.map((gift: sponsorGiftType) => {
           return (
@@ -90,7 +90,7 @@ const Resources = () => {
               <p className="font-bold text-lg">{gift.company}</p>
               <p>{gift.content}</p>
               <p className="my-2 text-md font-semibold">How to access:</p>
-              <p>{gift.access}</p>
+              <div>{gift.access}</div>
             </div>
           )
         })}

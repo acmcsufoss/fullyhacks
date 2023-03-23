@@ -1,8 +1,7 @@
 import { feedUsers, User } from '@/types/interface'
-import { userInfo } from 'os'
 import React, { useState } from 'react'
 import { BsDiscord, BsGithub } from 'react-icons/bs'
-import PopUp, { FeedPopUp } from '../PopUp/PopUp'
+import { FeedPopUp } from '../PopUp/PopUp'
 
 interface MainFeedProps {
   feedUsers: feedUsers[]
@@ -61,11 +60,14 @@ const MainFeed: React.FC<MainFeedProps> = (props) => {
                 </div>
               </div>
               <div className="flex items-center gap-4 my-2 text-sm">
-                <p className="bg-sky-100 px-4 rounded-xl">
-                  {user.application.class}
-                </p>
+                {currentUser?.isAdmin && (
+                  <p className="bg-orange_300 px-4 rounded-xl">Organizer</p>
+                )}
                 <p className="bg-sky-100 px-4 rounded-xl">
                   {user.application.major}
+                </p>
+                <p className="bg-sky-100 px-4 rounded-xl">
+                  {user.application.class}
                 </p>
               </div>
 

@@ -79,3 +79,10 @@ export interface sponsorGiftType {
   content: string
   access: string | JSX.Element
 }
+
+export interface fullyPacksType {
+  id: string
+  name: string
+  github: string
+  description: string | JSX.Element
+}

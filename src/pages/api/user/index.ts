@@ -10,7 +10,7 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
   }
   // update bio, discordId
   if (req.method === 'PUT') {
-    let { bio, discordId, userId } = req.body
+    let { bio, discordId } = req.body
     try {
       // Retrieve current user
       const user = await prisma.user.findUnique({

@@ -273,7 +273,7 @@ export const FeedSideBar: React.FC<FeedSideBarProps> = ({ setLocation }) => {
               )
             })}
           </ul>
-          <div className="flex text-center mt-4 gap-4">
+          <div className="flex items-center text-center mt-4 gap-4">
             <BsDiscord size={28} />
             <p>Discord Server</p>
           </div>
@@ -297,7 +297,7 @@ export const FeedSideBar: React.FC<FeedSideBarProps> = ({ setLocation }) => {
             )
           })}
         </ul>
-        <div className="flex text-center mt-4 gap-4">
+        <div className="flex items-center text-center mt-4 gap-4">
           <BsDiscord size={28} />
           <a target={'_blank'} href="https://discord.gg/XKNZxHEnJj">
             Discord Server

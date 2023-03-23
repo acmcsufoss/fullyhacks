@@ -8,7 +8,7 @@ import { User } from '@/types/interface'
 
 const schema = yup
   .object({
-    bio: yup.string(),
+    bio: yup.string().max(100),
     discordId: yup.string().max(20)
   })
   .test({
@@ -58,8 +58,7 @@ const Profile: React.FC<ProfileProps> = ({ currentUser }) => {
       setLoading(true)
       cancelToken.current = axios.CancelToken.source()
       const data = {
-        ...updatedProfile,
-        userId: currentUser.id
+        ...updatedProfile
       }
       await axios.put('/api/user', data, {
         cancelToken: cancelToken.current.token
@@ -68,6 +67,7 @@ const Profile: React.FC<ProfileProps> = ({ currentUser }) => {
         bio: '',
         discordId: ''
       })
+      setErrorMsg('')
       setLoading(false)
     } catch (e: any) {
       if (axios.isCancel(e)) {
@@ -85,6 +85,10 @@ const Profile: React.FC<ProfileProps> = ({ currentUser }) => {
 
   return (
     <section className="overflow-x-auto mt-14 mx-10">
+      <p className="mb-10 text-purple_main md:text-lg font-bold">
+        {' '}
+        {currentUser.name}'s Profile
+      </p>
       <form
         onSubmit={handleSubmit(updateUserProfile)}
         className="text-purple_main w-full flex flex-col items-start"
@@ -113,6 +117,7 @@ const Profile: React.FC<ProfileProps> = ({ currentUser }) => {
           placeholder="Fully #456"
         />
         <p className="error-msg">{errors.discordId?.message}</p>
+        <p>Note: You can only update your profile once a day</p>
         {isLoading ? (
           <button className="mt-4 self-start normal-case btn bg-sky-100 border-none text-purple_main hover:bg-sky-200 hover:ease-in-out hover:duration-200">
             <Loading isLoading={isLoading} />
@@ -124,7 +129,7 @@ const Profile: React.FC<ProfileProps> = ({ currentUser }) => {
               className="mt-4 self-start normal-case btn bg-sky-100 border-none text-purple_main hover:bg-sky-200 hover:ease-in-out hover:duration-200">
               Update
             </button>
-            <p className="error-msg">{errorMsg}</p>
+            <p className="mt-4 error-msg">{errorMsg}</p>
           </>
         )}
       </form>

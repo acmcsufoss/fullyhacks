@@ -5,8 +5,6 @@ export const rateLimitMiddleware = (
   handler: NextApiHandler
 ): NextApiHandler => {
   return (req: NextApiRequest, res: NextApiResponse) => {
-    const userId = req.body.userId as string
-
     // Get the last update time of the user from the cookie
     const cookies = cookie.parse(req.headers.cookie ?? '')
     const lastUpdateTime = cookies.lastUpdateTime
