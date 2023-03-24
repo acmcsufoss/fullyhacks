@@ -39,7 +39,7 @@ const sponsorGifts: sponsorGiftType[] = [
     id: 'gift1',
     company: 'Wolfram',
     content:
-      'Access to both Desktop and Cloud, Wolfram Language, Knowledgebase, FreeCDF deployment, 5000 Wolfram|Alpha API calls, 5000 Cloud Credits, 2 installations per user, and 2 GB of Cloud Storage for 30 days.',
+      'Access to Wolfram|One for all participants for 30 days! Wolfram|One includes both Desktop and Cloud, Wolfram Language, Knowledgebase, FreeCDF deployment, 5000 Wolfram|Alpha API calls, 5000 Cloud Credits, 2 installations per user, and 2 GB of Cloud Storage for 30 days.',
     access: 'You will receive an email 36-48 hours before the hackathon'
   },
   {

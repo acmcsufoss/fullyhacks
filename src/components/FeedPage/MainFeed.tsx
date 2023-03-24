@@ -33,10 +33,10 @@ const MainFeed: React.FC<MainFeedProps> = (props) => {
                 </div>
               </div>
             )}
-            <p className="self-start md:text-lg w-12 text-center font-semibold p-2 bg-sky-100 rounded-[50%]">
+            <p className="md:w-12 md:h-12 w-[40px] h-[40px] self-start md:text-lg text-center font-semibold p-2 bg-sky-100 rounded-[50%]">
               {user.name[0].toUpperCase()}
             </p>
-            <div className="flex flex-col">
+            <div className="flex flex-col w-full">
               <div className="mb-2 gap-1 flex items-start flex-col md:flex-row md:tems-center">
                 <p className="font-semibold mr-4"> {user.name}</p>
                 <a
