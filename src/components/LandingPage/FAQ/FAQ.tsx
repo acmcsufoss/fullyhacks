@@ -1,5 +1,5 @@
 import { FAQType } from '@/types/interface'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 interface FAQProps {
   faqs: FAQType[]
@@ -13,29 +13,30 @@ interface FAQDropDownProps {
 const FAQDropDown: React.FC<FAQDropDownProps> = (props) => {
   const { question, answer } = props
   let [opened, setOpen] = useState(false)
+  let [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
   const toggleOpen = () => {
     setOpen(!opened)
   }
   return (
     <a
-      className="collapse border border-base-300 bg-base-100 rounded-box"
+      className="w-[90vw] md:w-[60vw] collapse border border-base-300 bg-base-100 rounded-box"
       onClick={toggleOpen}>
-      <div
-        className={`collapse-title w-full ${
-          opened
-            ? 'bg-purple_hover text-white'
-            : 'bg-purple_300 text-purple_main'
-        }  hover:ease-in-out hover:duration-200 hover:bg-purple_hover hover:text-white border-none rounded-box`}>
-        <p className="text-start leading-9 normal-case mr-auto text-md md:text-lg m-1 select-none">
+      <input type="checkbox" className={mounted ? 'hidden' : ''} />
+      <div className="collapse-title w-full bg-purple_300 hover:ease-in-out hover:duration-200 hover:bg-purple_hover hover:text-white text-purple_main border-none">
+        <p className="text-start leading-9 normal-case mr-auto text-md md:text-lg m-1">
           {question}
         </p>
       </div>
       <div
         className={`collapse-content overflow-hidden transition-all duration-500 w-full bg-body_bg ease-in-out ${
-          opened ? 'max-h-40 mb-4' : 'max-h-0'
+          opened ? 'max-h-40' : 'max-h-0'
         }`}>
-        <p className="mt-4">{answer}</p>
+        <p className="my-4">{answer}</p>
       </div>
     </a>
   )
