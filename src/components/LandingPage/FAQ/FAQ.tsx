@@ -1,5 +1,5 @@
 import { FAQType } from '@/types/interface'
-import React from 'react'
+import React, { useState } from 'react'
 
 interface FAQProps {
   faqs: FAQType[]
@@ -12,18 +12,32 @@ interface FAQDropDownProps {
 
 const FAQDropDown: React.FC<FAQDropDownProps> = (props) => {
   const { question, answer } = props
+  let [opened, setOpen] = useState(false)
+
+  const toggleOpen = () => {
+    setOpen(!opened)
+  }
   return (
-    <div className="w-[90vw] md:w-[60vw] collapse border border-base-300 bg-base-100 rounded-box">
-      <input type="checkbox" />
-      <div className="collapse-title w-full bg-purple_300 hover:ease-in-out hover:duration-200 hover:bg-purple_hover hover:text-white text-purple_main border-none">
-        <p className="text-start leading-9 normal-case mr-auto text-md md:text-lg m-1">
+    <a
+      className="collapse border border-base-300 bg-base-100 rounded-box"
+      onClick={toggleOpen}>
+      <div
+        className={`collapse-title w-full ${
+          opened
+            ? 'bg-purple_hover text-white'
+            : 'bg-purple_300 text-purple_main'
+        }  hover:ease-in-out hover:duration-200 hover:bg-purple_hover hover:text-white border-none rounded-box`}>
+        <p className="text-start leading-9 normal-case mr-auto text-md md:text-lg m-1 select-none">
           {question}
         </p>
       </div>
-      <div className="collapse-content w-full bg-body_bg">
+      <div
+        className={`collapse-content overflow-hidden transition-all duration-500 w-full bg-body_bg ease-in-out ${
+          opened ? 'max-h-40 mb-4' : 'max-h-0'
+        }`}>
         <p className="mt-4">{answer}</p>
       </div>
-    </div>
+    </a>
   )
 }
 
@@ -36,7 +50,7 @@ const FAQ: React.FC<FAQProps> = (props) => {
       </p>
       {faqs.map((faq: FAQType) => {
         return (
-          <div key={faq.id} className="my-4">
+          <div key={faq.id} className="w-full my-4">
             <FAQDropDown question={faq.question} answer={faq.answer} />
           </div>
         )
