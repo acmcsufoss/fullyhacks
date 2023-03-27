@@ -1,5 +1,4 @@
 import { companyType, FAQType, TeamType } from '@/types/interface'
-import { useRouter } from 'next/router'
 import React from 'react'
 import Bubbles from '../Bubble/Bubbles'
 import { LandingFooter } from '../Footer/Footer'
@@ -18,7 +17,6 @@ interface LandingPageProps {
 }
 
 const LandingPage: React.FC<LandingPageProps> = (props) => {
-  const router = useRouter()
   const { companyData, faqData, teamData } = props
   return (
     <>
@@ -32,15 +30,13 @@ const LandingPage: React.FC<LandingPageProps> = (props) => {
       <Bubbles />
       <CountDown />
       <div className="flex items-center mt-12 gap-8 text-md font-medium">
-        <button
-          onClick={() => router.push('/signin')}
-          className="apply-btn mx-0">
+        <a href="/signin" className="z-[11] apply-btn mx-0">
           Apply
-        </button>
+        </a>
         <a
           target="_blank"
           href="https://drive.google.com/file/d/1_JJoRMsqY2n5EUpNk4GFdhJInvi8GEp2/view?usp=share_link"
-          className="font-normal">
+          className="z-[11] font-normal">
           Sponsor Us!
         </a>
       </div>
