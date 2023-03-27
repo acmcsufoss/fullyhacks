@@ -109,7 +109,7 @@ export const NavBarLanding: React.FC = () => {
           </ul>
         </div>
       </div>
-      <div className="navbar-center hidden lg:flex lg:col-span-3">
+      <div className="navbar-center hidden xl:flex lg:col-span-3">
         <ul className="menu menu-horizontal w-[100%] flex justify-end items-center">
           {menuList.map((item) => {
             return (
