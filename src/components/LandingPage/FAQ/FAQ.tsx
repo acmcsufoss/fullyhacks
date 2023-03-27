@@ -1,5 +1,5 @@
 import { FAQType } from '@/types/interface'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 interface FAQProps {
   faqs: FAQType[]
@@ -12,18 +12,33 @@ interface FAQDropDownProps {
 
 const FAQDropDown: React.FC<FAQDropDownProps> = (props) => {
   const { question, answer } = props
+  const [opened, setOpen] = useState(false)
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  const toggleOpen = () => {
+    setOpen(!opened)
+  }
   return (
-    <div className="w-[90vw] md:w-[60vw] collapse border border-base-300 bg-base-100 rounded-box">
-      <input type="checkbox" />
-      <div className="collapse-title w-full bg-purple_300 hover:ease-in-out hover:duration-200 hover:bg-purple_hover hover:text-white text-purple_main border-none">
+    <a
+      className="collapse border border-purple_hover rounded-box"
+      onClick={toggleOpen}>
+      <input type="checkbox" className={mounted ? 'hidden' : ''} />
+      <div className="collapse-title w-full bg-purple_300 hover:ease-in-out hover:duration-200 hover:bg-purple_hover hover:text-white text-purple_main border-none rounded-box rounded-b-none">
         <p className="text-start leading-9 normal-case mr-auto text-md md:text-lg m-1">
           {question}
         </p>
       </div>
-      <div className="collapse-content w-full bg-body_bg">
-        <p className="mt-4">{answer}</p>
+      <div
+        className={`collapse-content overflow-hidden transition-all duration-500 w-full bg-body_bg ease-in-out ${
+          opened ? 'max-h-screen' : 'max-h-0'
+        }`}>
+        <p className="my-4">{answer}</p>
       </div>
-    </div>
+    </a>
   )
 }
 
@@ -34,13 +49,15 @@ const FAQ: React.FC<FAQProps> = (props) => {
       <p className="mt-14 text-xl font-medium md:text-xxl mb-4">
         Frequently Asked Questions
       </p>
-      {faqs.map((faq: FAQType) => {
-        return (
-          <div key={faq.id} className="my-4">
-            <FAQDropDown question={faq.question} answer={faq.answer} />
-          </div>
-        )
-      })}
+      <div className="flex flex-col items-center">
+        {faqs.map((faq: FAQType) => {
+          return (
+            <div key={faq.id} className="w-full my-4">
+              <FAQDropDown question={faq.question} answer={faq.answer} />
+            </div>
+          )
+        })}
+      </div>
       <p className="mt-2 text-center">
         More questions? Reach out to us at
         <a href="mailto:fullyhacks@gmail.com" className="font-bold">
