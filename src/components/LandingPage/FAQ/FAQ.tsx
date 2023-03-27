@@ -24,10 +24,10 @@ const FAQDropDown: React.FC<FAQDropDownProps> = (props) => {
   }
   return (
     <a
-      className="w-[90vw] md:w-[60vw] collapse border border-purple_hover rounded-box"
+      className="w-[90vw] collapse border border-purple_hover rounded-box"
       onClick={toggleOpen}>
       <input type="checkbox" className={mounted ? 'hidden' : ''} />
-      <div className="collapse-title w-full bg-purple_300 hover:ease-in-out hover:duration-200 hover:bg-purple_hover hover:text-white text-purple_main border-none rounded-box">
+      <div className="collapse-title w-full bg-purple_300 hover:ease-in-out hover:duration-200 hover:bg-purple_hover hover:text-white text-purple_main border-none rounded-box rounded-b-none">
         <p className="text-start leading-9 normal-case mr-auto text-md md:text-lg m-1">
           {question}
         </p>
