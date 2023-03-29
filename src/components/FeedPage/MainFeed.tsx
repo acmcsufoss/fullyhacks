@@ -21,7 +21,7 @@ const MainFeed: React.FC<MainFeedProps> = (props) => {
         return (
           <div
             key={user.id}
-            className="border-b-2 pb-4 mt-4 md:text-md flex gap-4 text-purple_main">
+            className="border-b-2 pb-4 my-4 w-full md:text-md flex gap-4 text-purple_main">
             {isOpen && (
               <div
                 className="toast cursor-pointer"
