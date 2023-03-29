@@ -37,6 +37,13 @@ const webDev: fullyPacksType[] = [
     name: 'Flask + Vercel',
     github: 'https://github.com/acmcsufoss/fullypack_flask_vercel',
     description: flaskDescription
+  },
+  {
+    id: 'web02',
+    name: 'HTML + CSS',
+    github: 'https://github.com/acmcsufoss/fullypack_html_css',
+    description:
+      'Most beginner-friendly website using HTML and CSS for everyone to create their first website, no coding experience required'
   }
 ]
 
@@ -64,10 +71,10 @@ interface FullyPackProps {
 }
 const FullyPack: React.FC<FullyPackProps> = ({ fullypack }) => {
   return (
-    <div className="bg-sky-100 p-4 rounded-lg">
+    <div className="flex flex-col items-start bg-sky-100 p-4 rounded-lg">
       <p className="text-lg font-semibold">{fullypack.name}</p>
-      {fullypack.description}
-      <button className="flex gap-2 items-center mt-4 font-semibold bg-[rgb(52,11,103)] text-white rounded-lg p-2">
+      <div className="mb-4">{fullypack.description}</div>
+      <button className="flex gap-2 items-center mt-auto font-semibold bg-[rgb(52,11,103)] text-white rounded-lg p-2">
         <a target={'_blank'} href={fullypack.github}>
           Github link
         </a>
