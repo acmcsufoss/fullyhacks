@@ -49,6 +49,16 @@ const mobileDev: fullyPacksType[] = [
   }
 ]
 
+const discordBot: fullyPacksType[] = [
+  {
+    id: 'bot01',
+    name: 'Discord Bot Python',
+    github: 'https://github.com/acmcsufoss/fullypack_discord_python',
+    description:
+      'Discord.py is a Python library for building Discord bots. It provides an easy-to-use interface for interacting with the Discord API, allowing developers to create bots that can perform a wide range of tasks, such as moderating channels, automating tasks, and responding to user commands.'
+  }
+]
+
 interface FullyPackProps {
   fullypack: fullyPacksType
 }
@@ -82,10 +92,18 @@ const FullyPacks = () => {
           })}
         </div>
       </div>
-      <div className="my-10">
+      <div className="mt-10">
         <p className="text-lg font-semibold">Mobile Development</p>
         <div className="mt-4 gap-10 grid md:grid-cols-3 justify-start">
           {mobileDev.map((fullypack: fullyPacksType) => {
+            return <FullyPack key={fullypack.id} fullypack={fullypack} />
+          })}
+        </div>
+      </div>
+      <div className="my-10">
+        <p className="text-lg font-semibold">Discord Bot</p>
+        <div className="mt-4 gap-10 grid md:grid-cols-3 justify-start">
+          {discordBot.map((fullypack: fullyPacksType) => {
             return <FullyPack key={fullypack.id} fullypack={fullypack} />
           })}
         </div>

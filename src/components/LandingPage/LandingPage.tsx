@@ -1,4 +1,5 @@
 import { companyType, FAQType, TeamType } from '@/types/interface'
+import Link from 'next/link'
 import React from 'react'
 import Bubbles from '../Bubble/Bubbles'
 import { LandingFooter } from '../Footer/Footer'
@@ -30,9 +31,9 @@ const LandingPage: React.FC<LandingPageProps> = (props) => {
       <Bubbles />
       <CountDown />
       <div className="flex items-center mt-12 gap-8 text-md font-medium">
-        <a href="/signin" className="z-[11] apply-btn mx-0">
-          Apply
-        </a>
+        <Link href="/signin" className="">
+          <p className="cursor-pointer z-[11] mx-0 apply-btn">Apply</p>
+        </Link>
         <a
           target="_blank"
           href="https://drive.google.com/file/d/1_JJoRMsqY2n5EUpNk4GFdhJInvi8GEp2/view?usp=share_link"

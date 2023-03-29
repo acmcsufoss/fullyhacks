@@ -10,6 +10,16 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model Announcement {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  title       String
+  content     String
+  submittedAt DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  userId      String
+  user        User     @relation(fields: [userId], references: [id])
+}
+
 model Application {
   id          String   @id @default(auto()) @map("_id") @db.ObjectId
   name        String
@@ -62,17 +72,18 @@ model Session {
 }
 
 model User {
-  id            String       @id @default(auto()) @map("_id") @db.ObjectId
+  id            String         @id @default(auto()) @map("_id") @db.ObjectId
   name          String?
-  email         String?      @unique
+  email         String?        @unique
   discordId     String?
   bio           String?
   emailVerified DateTime?
   image         String?
-  isAdmin       Boolean      @default(false)
+  isAdmin       Boolean        @default(false)
   accounts      Account[]
   sessions      Session[]
   application   Application?
+  Announcements Announcement[]
 }
 
 model VerificationToken {

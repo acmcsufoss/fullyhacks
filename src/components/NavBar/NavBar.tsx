@@ -7,7 +7,13 @@ import { IoArrowBackSharp } from 'react-icons/io5'
 import { BiHomeAlt, BiCalendarEvent, BiUserCircle } from 'react-icons/bi'
 import { SlEnergy } from 'react-icons/sl'
 import { BsDiscord, BsLightbulb } from 'react-icons/bs'
-import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai'
+import {
+  AiOutlineMenu,
+  AiOutlineClose,
+  AiOutlineQuestionCircle
+} from 'react-icons/ai'
+import { HiOutlineSpeakerphone } from 'react-icons/hi'
+import { HiOutlineTrophy } from 'react-icons/hi2'
 
 export const NavBarLanding: React.FC = () => {
   const router = useRouter()
@@ -221,21 +227,36 @@ export const FeedSideBar: React.FC<FeedSideBarProps> = ({ setLocation }) => {
     },
     {
       id: 'feed02',
+      name: 'Announcements',
+      icon: <HiOutlineSpeakerphone size={28} />
+    },
+    {
+      id: 'feed03',
       name: 'Events',
       icon: <BiCalendarEvent size={28} />
     },
     {
-      id: 'feed03',
+      id: 'feed07',
+      name: 'Prizes',
+      icon: <HiOutlineTrophy size={28} />
+    },
+    {
+      id: 'feed04',
       name: 'FullyPacks',
       icon: <SlEnergy size={28} />
     },
     {
-      id: 'feed04',
+      id: 'feed05',
       name: 'Resources',
       icon: <BsLightbulb size={28} />
     },
     {
-      id: 'feed05',
+      id: 'feed08',
+      name: 'FAQs',
+      icon: <AiOutlineQuestionCircle size={28} />
+    },
+    {
+      id: 'feed06',
       name: 'Profile',
       icon: <BiUserCircle size={28} />
     }

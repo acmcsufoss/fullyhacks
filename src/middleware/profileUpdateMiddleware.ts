@@ -14,11 +14,11 @@ export const rateLimitMiddleware = (
       const pastTime = Date.parse(lastUpdateTime)
       const timeSinceLastUpdate = Date.now() - pastTime
       // Set the time limit (in milliseconds)
-      const timeLimit = 24 * 60 * 60 * 1000 // 24 hours
+      const timeLimit = 60 * 60 * 1000 // 1 hour
       // Check if the time limit has been exceeded
       if (timeSinceLastUpdate < timeLimit) {
         return res.status(429).json({
-          message: 'You can only update your profile once every 24 hours.'
+          message: 'You can only update your profile once every 1 hour.'
         })
       }
     } else {

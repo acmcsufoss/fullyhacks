@@ -1,10 +1,15 @@
 import Feed from '@/components/FeedPage/Feed'
 import { FeedNavBar } from '@/components/NavBar/NavBar'
-import { feedUsers, User } from '@/types/interface'
+import { announcementsType, feedUsers, User } from '@/types/interface'
 import { prisma } from 'db'
 import { GetServerSidePropsContext } from 'next'
 import { getSession } from 'next-auth/react'
+
 export async function getServerSideProps(context: GetServerSidePropsContext) {
+  context.res.setHeader(
+    'Cache-Control',
+    'public, s-maxage=10, stale-while-revalidate=59'
+  )
   // Check if user is authenticated
   const session = await getSession(context)
   // If user signed out, back to homepage
@@ -42,10 +47,12 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
       discordId: true
     }
   })
+  const announcements = await prisma.announcement.findMany()
   return {
     props: {
       user: JSON.parse(JSON.stringify(User)),
-      feedUsers: JSON.parse(JSON.stringify(feedUsers))
+      feedUsers: JSON.parse(JSON.stringify(feedUsers)),
+      announcements: JSON.parse(JSON.stringify(announcements))
     }
   }
 }
@@ -53,13 +60,18 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
 interface feedProps {
   user: User
   feedUsers: feedUsers[]
+  announcements: announcementsType[]
 }
 
-const feed = ({ user, feedUsers }: feedProps) => {
+const feed = ({ user, feedUsers, announcements }: feedProps) => {
   return (
     <section>
       <FeedNavBar />
-      <Feed feedUsers={feedUsers} currentUser={user} />
+      <Feed
+        feedUsers={feedUsers}
+        currentUser={user}
+        announcements={announcements}
+      />
     </section>
   )
 }

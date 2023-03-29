@@ -88,7 +88,7 @@ export const FeedPopUp: React.FC = (props) => {
           <div className="modal">
             <div className="modal-box bg-white">
               <h3 className="font-bold text-lg text-purple_main">
-                Welcome to The Feed 🐘
+                Welcome to The Feed 🐘 (beta version)
               </h3>
               <p className="py-4 text-purple_main font-normal">
                 Where you meet other participants and explore other cool things

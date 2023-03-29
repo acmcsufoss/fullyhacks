@@ -38,7 +38,7 @@ const CountDown = () => {
     dispatch({ type: 'count', payload: { days, hours, minutes, seconds } })
   }, 1000)
   return (
-    <div className="grid lg:grid-flow-col md:grid-flow-col gap-10 text-center auto-cols-max font-rubik mt-12">
+    <div className="z-[11] grid lg:grid-flow-col md:grid-flow-col gap-10 text-center auto-cols-max font-rubik mt-12">
       <div className="flex flex-col text-blue_300">
         <div className="flex items-center">
           <span className="countdown text-5xl">

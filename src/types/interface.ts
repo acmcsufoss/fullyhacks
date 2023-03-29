@@ -62,6 +62,16 @@ export interface feedUsers {
   application: ApplicationType
 }
 
+export interface announcementsType {
+  id: string
+  title: string
+  content: string
+  userId: string
+  submittedAt: Date
+  updatedAt: Date
+  user: User
+}
+
 export interface User {
   id: string
   name: string

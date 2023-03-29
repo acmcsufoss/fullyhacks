@@ -5,6 +5,7 @@ import { useForm } from 'react-hook-form'
 import * as yup from 'yup'
 import Loading from '../Loading/Loading'
 import { User } from '@/types/interface'
+import AnnouncementForm from '../Admin/Announcements/AnnouncementForm'
 
 const schema = yup
   .object({
@@ -86,8 +87,7 @@ const Profile: React.FC<ProfileProps> = ({ currentUser }) => {
   return (
     <section className="overflow-x-auto mt-14 mx-10">
       <p className="mb-10 text-purple_main md:text-lg font-bold">
-        {' '}
-        {currentUser.name}'s Profile
+        {currentUser.name}&apos;s Profile
       </p>
       <form
         onSubmit={handleSubmit(updateUserProfile)}
@@ -117,7 +117,7 @@ const Profile: React.FC<ProfileProps> = ({ currentUser }) => {
           placeholder="Fully #456"
         />
         <p className="error-msg">{errors.discordId?.message}</p>
-        <p>Note: You can only update your profile once a day</p>
+        <p>Note: You can only update your profile once an hour</p>
         {isLoading ? (
           <button className="mt-4 self-start normal-case btn bg-sky-100 border-none text-purple_main hover:bg-sky-200 hover:ease-in-out hover:duration-200">
             <Loading isLoading={isLoading} />
@@ -133,6 +133,15 @@ const Profile: React.FC<ProfileProps> = ({ currentUser }) => {
           </>
         )}
       </form>
+      {currentUser.isAdmin && (
+        <>
+          <p className="text-pink_100 md:text-lg font-bold">FOR ADMIN </p>
+          <p className="text-pink_100 md:text-lg font-bold mb-4">
+            ANNOUNCEMENT FORM:
+          </p>
+          <AnnouncementForm />
+        </>
+      )}
     </section>
   )
 }
