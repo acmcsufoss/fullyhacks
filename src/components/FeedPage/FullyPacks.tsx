@@ -44,6 +44,13 @@ const webDev: fullyPacksType[] = [
     github: 'https://github.com/acmcsufoss/fullypack_html_css',
     description:
       'Most beginner-friendly website using HTML and CSS for everyone to create their first website, no coding experience required'
+  },
+  {
+    id: 'web03',
+    name: 'Sveltekit',
+    github: 'https://github.com/acmcsufoss/fullypack_sveltekit',
+    description:
+      'This is a project template to help you create your first web application with Sveltekit. It comes with a simple routing setup and a couple of helper components, including one that should keep most of your content mobile friendly and a premade mobile friendly navbar.'
   }
 ]
 
