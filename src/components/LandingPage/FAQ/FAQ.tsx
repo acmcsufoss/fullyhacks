@@ -10,7 +10,7 @@ interface FAQDropDownProps {
   answer: string
 }
 
-const FAQDropDown: React.FC<FAQDropDownProps> = (props) => {
+export const FAQDropDown: React.FC<FAQDropDownProps> = (props) => {
   const { question, answer } = props
   const [opened, setOpen] = useState(false)
   const [mounted, setMounted] = useState(false)
