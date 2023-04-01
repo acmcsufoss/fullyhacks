@@ -5,23 +5,93 @@ interface CalendarProps {
   events: eventsType[]
 }
 interface TimeProps {
-  style?: string
   time: string
   value?: number
 }
 const TimeStamp: React.FC<TimeProps> = (props) => {
-  const { time, style, value } = props
+  const { time, value } = props
   return (
-    <div className={style}>
-      <p className="absolute top-[-25px] translate-x-[-50%]">{time}</p>
-    </div>
+    <>
+      {time == '12am' && (
+        <p className="absolute font-bold left-[1085px] top-[-10px]">Sun</p>
+      )}
+      <div
+        style={{ left: value }}
+        className="absolute top-10 h-[100%] bg-slate-400 w-[1px]">
+        <p className="absolute top-[-25px] translate-x-[-50%]">{time}</p>
+      </div>
+    </>
+  )
+}
+
+interface EventProps {
+  event: eventsType
+}
+
+const Event: React.FC<EventProps> = ({ event }) => {
+  const width = (event.endTime - event.startTime) * 100
+  const left = event.startTime * 100
+  const top = event.row * 100
+  return (
+    <>
+      {/* start bar */}
+      <p
+        style={{ left: event.startTime * 100, top: top + 46 }}
+        className={`rounded-[50%] absolute w-2 h-2 z-[11] ${
+          event.type == 'event'
+            ? 'bg-sky_300'
+            : event.type == 'workshop'
+            ? 'bg-pink_300'
+            : event.type == 'food'
+            ? 'bg-orange-500'
+            : event.type == 'ctf'
+            ? 'bg-purple-700'
+            : 'bg-blue_300'
+        }`}></p>
+      <div style={{ left: left, top: top }} className="text-sm absolute">
+        <p>{event.name}</p>
+        <div className="mb-2 flex gap-2">
+          <p className="">{event.timeString} |</p>
+          <p className="">{event.location}</p>
+        </div>
+        {/* duration bar */}
+        <p
+          style={{ width: width }}
+          className={`rounded-md absolute h-1 ${
+            event.type == 'event'
+              ? 'bg-sky_100'
+              : event.type == 'workshop'
+              ? 'bg-pink_100'
+              : event.type == 'food'
+              ? 'bg-orange_300'
+              : event.type == 'ctf'
+              ? 'bg-purple_300'
+              : 'bg-blue_300'
+          }`}></p>
+      </div>
+      {/* end bar */}
+      <p
+        style={{ left: event.endTime * 100 - 5, top: top + 46 }}
+        className={`rounded-[50%] absolute w-2 h-2 z-[11] ${
+          event.type == 'event'
+            ? 'bg-sky_300'
+            : event.type == 'workshop'
+            ? 'bg-pink_300'
+            : event.type == 'food'
+            ? 'bg-orange-500'
+            : event.type == 'ctf'
+            ? 'bg-purple-700'
+            : 'bg-blue-700'
+        }`}></p>
+    </>
   )
 }
 
 const Calendar: React.FC<CalendarProps> = ({ events }) => {
-  const hoursArray = Array.from({ length: 12 }, (_, i) => {
+  const hoursArray = Array.from({ length: 30 }, (_, i) => {
+    console.log(i)
     const hour = (i % 12) + 1
-    const period = i < 12 ? 'pm' : 'am'
+    const period = i < 12 ? 'pm' : i > 22 ? 'pm' : 'am'
     const name = i === 11 ? '12am' : `${hour}${period}`
     const value = i === 0 ? 0 : i
     return {
@@ -30,10 +100,8 @@ const Calendar: React.FC<CalendarProps> = ({ events }) => {
       value: value * 100
     }
   })
-  console.log(hoursArray)
-
   return (
-    <section className="p-4 w-[90%] rounded-lg backdrop-filter backdrop-blur-md bg-opacity-25 border border-gray-300 border-opacity-25 shadow-xl text-purple_main font-semibold">
+    <section className="p-4 w-[70%] rounded-lg backdrop-filter backdrop-blur-md bg-opacity-25 border border-gray-300 border-opacity-25 shadow-xl text-purple_main font-semibold">
       <div className="border-b-2 py-2 flex flex-wrap items-center gap-4 md:gap-8">
         <p>All events</p>
         <div className="flex items-center gap-2">
@@ -57,19 +125,17 @@ const Calendar: React.FC<CalendarProps> = ({ events }) => {
           <p className="text-blue_300 font-bold">Fun</p>
         </div>
       </div>
-      <p className="my-4">Sat</p>
       <div className="overflow-x-scroll gap-10 w-full">
-        <div className="ml-8 mt-8 font-normal relative h-[800px] w-[5200px]">
+        <div className="ml-8 mt-8 font-normal relative h-[600px] md:h-[800px] w-[3200px]">
+          <p className="absolute font-bold left-[-15px] top-[-10px]">Sat</p>
           {/* schedule marker */}
           {hoursArray.map((hour) => {
             return (
-              <TimeStamp
-                key={hour.id}
-                time={hour.name}
-                value={hour.value}
-                style={`left-[${hour.value}px] absolute top-0 h-[100%] bg-slate-400 w-[1px]`}
-              />
+              <TimeStamp key={hour.id} time={hour.name} value={hour.value} />
             )
+          })}
+          {events.map((event: eventsType) => {
+            return <Event key={event.id} event={event} />
           })}
         </div>
       </div>

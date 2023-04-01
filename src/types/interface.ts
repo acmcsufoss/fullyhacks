@@ -103,5 +103,9 @@ export interface eventsType {
   name: string
   date: number
   startTime: number
+  timeString: string
+  location: string
   endTime: number
+  row: number
+  type: string
 }
