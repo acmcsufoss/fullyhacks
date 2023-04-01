@@ -41,7 +41,14 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
     select: {
       id: true,
       isAdmin: true,
-      application: true,
+      application: {
+        select: {
+          major: true,
+          approved: true,
+          github: true,
+          class: true
+        }
+      },
       name: true,
       bio: true,
       discordId: true
