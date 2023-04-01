@@ -42,7 +42,7 @@ const faqs: FAQType[] = [
     id: 'faq2',
     question: ' What are the four tracks that Fullyhacks offers?',
     answer:
-      'Fullyhacks offers four tracks, including education, security, new frontiers, and environment.'
+      'Fullyhacks offers four tracks, including Education, Security, New Frontiers (AI/ML, Web3.0, Crypto, etc), and Environment.'
   },
   {
     id: 'faq11',
