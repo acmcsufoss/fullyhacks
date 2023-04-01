@@ -24,7 +24,7 @@ const AnnouncementForm: React.FC = () => {
     content: ''
   })
   const [isLoading, setLoading] = useState(false)
-  const handleInfoChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleInfoChange = (event: any) => {
     const { name, value } = event.target
     setAnnouncement((prev) => ({
       ...prev,
@@ -65,7 +65,7 @@ const AnnouncementForm: React.FC = () => {
       />
       <p className="error-msg">{errors.title?.message}</p>
       <p className="mb-2 font-bold">Announcement Content:</p>
-      <input
+      <textarea
         {...register('content')}
         name="content"
         value={newAnnouncement.content}
@@ -73,7 +73,6 @@ const AnnouncementForm: React.FC = () => {
           errors.content ? 'error-form' : ''
         }`}
         onChange={handleInfoChange}
-        type="text"
         placeholder="Fully #456"
       />
       <p className="error-msg">{errors.content?.message}</p>

@@ -54,7 +54,11 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
       discordId: true
     }
   })
-  const announcements = await prisma.announcement.findMany()
+  const announcements = await prisma.announcement.findMany({
+    orderBy: {
+      submittedAt: 'desc'
+    }
+  })
   return {
     props: {
       user: JSON.parse(JSON.stringify(User)),
