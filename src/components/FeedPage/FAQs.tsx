@@ -121,6 +121,16 @@ const FAQs = () => {
           )
         })}
       </div>
+      <p className="my-2 text-center">
+        More questions? Reach out to us in
+        <a
+          target={'_blank'}
+          href="https://discord.gg/XKNZxHEnJj"
+          className="font-bold">
+          {' our Discord server '}
+        </a>
+        and we&apos;ll get back to you ASAP!
+      </p>
     </section>
   )
 }
