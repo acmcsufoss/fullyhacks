@@ -266,7 +266,7 @@ export const FeedSideBar: React.FC<FeedSideBarProps> = ({ setLocation }) => {
       {!isOpen && (
         <AiOutlineMenu
           onClick={() => setOpen(true)}
-          className="ml-4 mt-4 md:hidden cursor-pointer text-purple_main"
+          className="absolute top-4 left-0 md:hidden cursor-pointer text-purple_main"
           size={20}
         />
       )}
