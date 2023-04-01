@@ -97,3 +97,15 @@ export interface fullyPacksType {
   github: string
   description: string | JSX.Element
 }
+
+export interface eventsType {
+  id: string
+  name: string
+  date: number
+  startTime: number
+  timeString: string
+  location: string
+  endTime: number
+  row: number
+  type: string
+}
