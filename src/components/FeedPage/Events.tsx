@@ -51,7 +51,7 @@ const events: eventsType[] = [
     name: 'Pizza dinner',
     type: 'food',
     date: 0,
-    timeString: '6:00 - 5:30',
+    timeString: '6:00 - 7:00',
     location: 'TBA',
     startTime: 5,
     endTime: 6,

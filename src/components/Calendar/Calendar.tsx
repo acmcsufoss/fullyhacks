@@ -49,8 +49,19 @@ const Event: React.FC<EventProps> = ({ event }) => {
             : 'bg-blue_300'
         }`}></p>
       <div style={{ left: left, top: top }} className="text-sm absolute">
-        <p>{event.name}</p>
-        <div className="mb-2 flex gap-2">
+        <p className="font-bold">{event.name}</p>
+        <div
+          className={`font-semibold flex mb-2 gap-2 ${
+            event.type == 'event'
+              ? 'text-sky_300'
+              : event.type == 'workshop'
+              ? 'text-pink_300'
+              : event.type == 'food'
+              ? 'text-orange-500'
+              : event.type == 'ctf'
+              ? 'text-purple-600'
+              : 'text-blue_300'
+          }`}>
           <p className="">{event.timeString} |</p>
           <p className="">{event.location}</p>
         </div>
@@ -105,20 +116,20 @@ const Calendar: React.FC<CalendarProps> = ({ events }) => {
       <div className="border-b-2 py-2 flex flex-wrap items-center gap-4 md:gap-8">
         <p>All events</p>
         <div className="flex items-center gap-2">
-          <p className="w-[1rem] bg-sky_100 p-2 rounded-[50%]"></p>
-          <p className="text-sky_100 font-bold">Main event</p>
+          <p className="w-[1rem] bg-sky_300 p-2 rounded-[50%]"></p>
+          <p className="text-sky_300 font-bold">Main event</p>
         </div>
         <div className="flex items-center gap-2">
-          <p className="w-[1rem] bg-pink_100 p-2 rounded-[50%]"></p>
-          <p className="text-pink_100 font-bold">Workshops</p>
+          <p className="w-[1rem] bg-pink_300 p-2 rounded-[50%]"></p>
+          <p className="text-pink_300 font-bold">Workshops</p>
         </div>
         <div className="flex items-center gap-2">
-          <p className="w-[1rem] bg-orange_300 p-2 rounded-[50%]"></p>
-          <p className="text-orange_300 font-bold">Food</p>
+          <p className="w-[1rem] bg-orange-400 p-2 rounded-[50%]"></p>
+          <p className="text-orange-400 font-bold">Food</p>
         </div>
         <div className="flex items-center gap-2">
-          <p className="w-[1rem] bg-purple_300 p-2 rounded-[50%]"></p>
-          <p className="text-purple_300 font-bold">CTF</p>
+          <p className="w-[1rem] bg-purple-500 p-2 rounded-[50%]"></p>
+          <p className="text-purple-500 font-bold">CTF</p>
         </div>
         <div className="flex items-center gap-2">
           <p className="w-[1rem] bg-blue_300 p-2 rounded-[50%]"></p>
