@@ -15,7 +15,7 @@ const MainFeed: React.FC<MainFeedProps> = (props) => {
     (user) => user.bio !== null && user.application.approved == true
   )
   return (
-    <section className="flex items-start flex-col w-full grow md:mr-10 mt-10 overflow-x-auto">
+    <section className="flex items-start flex-col w-full grow md:mr-10 mr-[2rem] mt-10 overflow-x-auto">
       {currentUser?.bio == null && <FeedPopUp />}
       {filteredFeedUsers.map((user: feedUsers) => {
         return (
