@@ -42,7 +42,7 @@ const faqs: FAQType[] = [
     id: 'faq2',
     question: ' What are the four tracks that Fullyhacks offers?',
     answer:
-      'Fullyhacks offers four tracks, including education, security, new front-tier, and environment.'
+      'Fullyhacks offers four tracks, including Education, Security, New Frontiers (AI/ML, Web3.0, Crypto, etc), and Environment.'
   },
   {
     id: 'faq11',
@@ -57,15 +57,15 @@ const faqs: FAQType[] = [
   },
   {
     id: 'faq13',
-    question: "What's Fullypacks? Do I have to use it?",
+    question: "What are Fullypacks? Do I have to use them?",
     answer:
-      "No, you're not required to use it to build your project. Fullypacks is our beginner-friendly template to help you kickstart your project if you don't know where to start."
+      "No, you're not required to use one to build your project. Fullypacks are our beginner-friendly templates to help you kickstart your project if you don't know where to start."
   },
   {
     id: 'faq14',
     question: 'How do teams work? What if I dont have a team?',
     answer:
-      'Teams are size of 1-4. If you would like team up with others we will have a team forming event at 4:00pm April 8th.'
+      'Teams are size of 1-4. If you would like team up with others, we will have a team forming event at 4:00pm April 8th.'
   },
   {
     id: 'faq15',
