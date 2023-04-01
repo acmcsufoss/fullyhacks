@@ -112,7 +112,7 @@ const Calendar: React.FC<CalendarProps> = ({ events }) => {
     }
   })
   return (
-    <section className="p-4 w-[70%] rounded-lg backdrop-filter backdrop-blur-md bg-opacity-25 border border-gray-300 border-opacity-25 shadow-xl text-purple_main font-semibold">
+    <section className="p-4 w-[70%] mb-12 rounded-lg backdrop-filter backdrop-blur-md bg-opacity-25 border border-gray-300 border-opacity-25 shadow-xl text-purple_main font-semibold">
       <div className="border-b-2 py-2 flex flex-wrap items-center gap-4 md:gap-8">
         <p>All events</p>
         <div className="flex items-center gap-2">
