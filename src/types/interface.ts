@@ -109,3 +109,10 @@ export interface eventsType {
   row: number
   type: string
 }
+
+export interface tracksType {
+  id: string
+  name: string
+  icon?: JSX.Element
+  description: string
+}

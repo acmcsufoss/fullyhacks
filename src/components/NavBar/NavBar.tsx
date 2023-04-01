@@ -237,7 +237,7 @@ export const FeedSideBar: React.FC<FeedSideBarProps> = ({ setLocation }) => {
     },
     {
       id: 'feed07',
-      name: 'Prizes',
+      name: 'Tracks & Prizes',
       icon: <HiOutlineTrophy size={28} />
     },
     {

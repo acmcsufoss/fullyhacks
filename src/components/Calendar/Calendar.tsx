@@ -100,7 +100,6 @@ const Event: React.FC<EventProps> = ({ event }) => {
 
 const Calendar: React.FC<CalendarProps> = ({ events }) => {
   const hoursArray = Array.from({ length: 30 }, (_, i) => {
-    console.log(i)
     const hour = (i % 12) + 1
     const period = i < 12 ? 'pm' : i > 22 ? 'pm' : 'am'
     const name = i === 11 ? '12am' : `${hour}${period}`
