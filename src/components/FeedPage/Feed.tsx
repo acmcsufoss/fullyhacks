@@ -26,7 +26,7 @@ const Feed: React.FC<FeedProps> = (props) => {
         <Announcements announcements={announcements} />
       ) : currentLocation == 'Events' ? (
         <Events />
-      ) : currentLocation == 'Prizes' ? (
+      ) : currentLocation == 'Tracks & Prizes' ? (
         <Prizes />
       ) : currentLocation == 'FullyPacks' ? (
         <FullyPacks />

@@ -72,7 +72,7 @@ interface feedProps {
 
 const feed = ({ user, feedUsers, announcements }: feedProps) => {
   return (
-    <section>
+    <section className="font-rubik">
       <FeedNavBar />
       <Feed
         feedUsers={feedUsers}

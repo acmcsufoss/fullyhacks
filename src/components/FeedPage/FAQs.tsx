@@ -42,31 +42,7 @@ const faqs: FAQType[] = [
     id: 'faq2',
     question: ' What are the four tracks that Fullyhacks offers?',
     answer:
-      'Fullyhacks offers four tracks, including education, cybersecurity, new front-tier, and environment.'
-  },
-  {
-    id: 'faq3',
-    question: 'What is the education track?',
-    answer:
-      'The education track involves educational content and resources for individuals interested in learning about technology, programming, and hacking.'
-  },
-  {
-    id: 'faq4',
-    question: 'What is the cybersecurity track?',
-    answer:
-      'The cybersecurity track is focused on providing information and resources related to cybersecurity, including cybersecurity threats, mitigation strategies, and best practices.'
-  },
-  {
-    id: 'faq5',
-    question: 'What is the new front-tier track?',
-    answer:
-      'The new front-tier track covers new and emerging technologies, such as blockchain, artificial intelligence, and the Internet of Things.'
-  },
-  {
-    id: 'faq6',
-    question: 'What is the environment track?',
-    answer:
-      "The environment track is focused on technology's impact on the environment, including topics such as sustainability, green technology, and eco-friendly practices."
+      'Fullyhacks offers four tracks, including education, security, new front-tier, and environment.'
   },
   {
     id: 'faq11',
