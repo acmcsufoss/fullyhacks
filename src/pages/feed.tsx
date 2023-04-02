@@ -43,6 +43,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
       isAdmin: true,
       application: {
         select: {
+          name: true,
           major: true,
           approved: true,
           github: true,
