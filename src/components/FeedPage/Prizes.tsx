@@ -109,7 +109,7 @@ const Prizes = () => {
         </div>
         <p className="md:text-md md:w-[60%]">
           Hackers have to build their projects around one of these 4 tracks
-          including education, cybersecurity, new front-tier, and environment.
+          including Education, Cybersecurity, New Frontiers, and Environment.
         </p>
       </div>
       <div className="mt-10 flex flex-wrap gap-8">
