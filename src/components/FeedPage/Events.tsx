@@ -59,7 +59,7 @@ const events: eventsType[] = [
   },
   {
     id: 'workshop1',
-    name: 'React (Daniel)',
+    name: 'Next.js - React (Daniel)',
     type: 'workshop',
     date: 0,
     timeString: '7:00 - 8:00',
