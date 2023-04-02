@@ -57,7 +57,7 @@ const faqs: FAQType[] = [
   },
   {
     id: 'faq13',
-    question: "What are Fullypacks? Do I have to use them?",
+    question: 'What are Fullypacks? Do I have to use them?',
     answer:
       "No, you're not required to use one to build your project. Fullypacks are our beginner-friendly templates to help you kickstart your project if you don't know where to start."
   },

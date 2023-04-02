@@ -63,6 +63,16 @@ const mobileDev: fullyPacksType[] = [
   }
 ]
 
+const dataScience: fullyPacksType[] = [
+  {
+    id: 'ds01',
+    name: 'Analyze universities around the world',
+    github: 'https://github.com/acmcsufoss/fullypack_data_science',
+    description:
+      'This is a simple Data Science project analyzing a universities dataset using Google Colab, Python, Pandas, Matplotlib'
+  }
+]
+
 const discordBot: fullyPacksType[] = [
   {
     id: 'bot01',
@@ -110,6 +120,14 @@ const FullyPacks = () => {
         <p className="text-lg font-semibold">Mobile Development</p>
         <div className="mt-4 gap-10 grid md:grid-cols-3 justify-start">
           {mobileDev.map((fullypack: fullyPacksType) => {
+            return <FullyPack key={fullypack.id} fullypack={fullypack} />
+          })}
+        </div>
+      </div>
+      <div className="my-10">
+        <p className="text-lg font-semibold">Data Science</p>
+        <div className="mt-4 gap-10 grid md:grid-cols-3 justify-start">
+          {dataScience.map((fullypack: fullyPacksType) => {
             return <FullyPack key={fullypack.id} fullypack={fullypack} />
           })}
         </div>
