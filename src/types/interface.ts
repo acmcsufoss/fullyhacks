@@ -94,7 +94,8 @@ export interface sponsorGiftType {
 export interface fullyPacksType {
   id: string
   name: string
-  github: string
+  github?: string
+  link?: string
   description: string | JSX.Element
 }
 
