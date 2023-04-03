@@ -79,13 +79,13 @@ const subCategory: tracksType[] = [
   {
     id: 'sub2',
     team: 1,
-    name: 'Best .XYZ domain (1 team)',
+    name: 'Best .XYZ domain',
     description: '15$ Starbucks giftcard'
   },
   {
     id: 'sub3',
     team: 5,
-    name: 'Best use of Digital Ocean (5 teams)',
+    name: 'Best use of Digital Ocean',
     description: '$400 in Digital Ocean credits for each team'
   }
 ]
