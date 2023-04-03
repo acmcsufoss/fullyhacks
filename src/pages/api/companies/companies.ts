@@ -54,5 +54,11 @@ export const companies: companyType[] = [
     name: 'Celsius',
     href: 'https://www.celsius.com/',
     image: '/celsius.png'
+  },
+  {
+    id: 'co10',
+    name: 'Digital Ocean',
+    href: 'https://www.digitalocean.com/',
+    image: '/digitalocean.png'
   }
 ]

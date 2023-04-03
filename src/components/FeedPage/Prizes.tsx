@@ -40,26 +40,31 @@ const mainCategory: tracksType[] = [
   {
     id: 'cat1',
     name: 'Best Beginner Project',
+    team: 1,
     description: 'Mystery keyboard'
   },
   {
     id: 'cat2',
     name: 'Most Complicated Project',
+    team: 1,
     description: 'Logitech G G305 LIGHTSPEED'
   },
   {
     id: 'cat3',
     name: 'Best UI/UX Project',
+    team: 1,
     description: '3 months Discord Nitro'
   },
   {
     id: 'cat4',
     name: 'Best AI/ML Project',
+    team: 1,
     description: 'JBL GO2 - Waterproof Ultra-Portable Bluetooth Speaker'
   },
   {
     id: 'cat5',
     name: 'Best Mobile App',
+    team: 1,
     description: 'Anker Portable Charger'
   }
 ]
@@ -67,13 +72,21 @@ const subCategory: tracksType[] = [
   {
     id: 'sub1',
     name: 'Best use of Wolfram',
+    team: 6,
     description:
       '1 year of Wolfram|One Personal Edition + 1 year of Wolfram|Alpha Pro (375$ value)'
   },
   {
     id: 'sub2',
-    name: 'Best .XYZ domain',
+    team: 1,
+    name: 'Best .XYZ domain (1 team)',
     description: '15$ Starbucks giftcard'
+  },
+  {
+    id: 'sub3',
+    team: 5,
+    name: 'Best use of Digital Ocean (5 teams)',
+    description: '$400 in Digital Ocean credits for each team'
   }
 ]
 
@@ -89,7 +102,13 @@ const Card: React.FC<TrackProps> = ({ track }) => {
           <p>{track.name}</p>
           <p>{track.icon}</p>
         </div>
-        <p className="mt-4 md:text-md">{track.description}</p>
+        <p className="mt-4 md:text-md">
+          {track.team && (
+            <p className="font-semibold mb-4">Total: {track.team} team(s)</p>
+          )}
+
+          {track.description}
+        </p>
       </div>
     </div>
   )

@@ -14,6 +14,19 @@ const balsamiqAccess = (
     and enter promo code: <span className="font-bold"> BQRFHMA040823 </span>
   </p>
 )
+const digitalOceanAccess = (
+  <div className="">
+    <p>
+      $50, 30-day free trial for all attendees using
+      <a
+        target={'_blank'}
+        className="font-semibold"
+        href="https://try.digitalocean.com/student-developers/?source=student_hackathon&utm_medium=events&utm_campaign=DevRel_Student_Hackathons">
+        {' this link'}
+      </a>
+    </p>
+  </div>
+)
 const xyzAccess = (
   <div>
     <p>Search and register a .xyz domain </p>
@@ -48,6 +61,13 @@ const sponsorGifts: sponsorGiftType[] = [
     content:
       '90-day extended trial promo code for Balsamiq Cloud so you can do collaborative design on the browser',
     access: balsamiqAccess
+  },
+  {
+    id: 'gift7',
+    company: 'Digital Ocean',
+    content:
+      "DigitalOcean provides virtual servers (also known as VPS or droplets) that you can rent to run your website or application. These servers are hosted in the cloud, so you don't need to worry about managing physical hardware. You can choose from different server configurations to fit your needs, and DigitalOcean makes it easy to manage your servers through a user-friendly web interface. They also offer additional services like cloud storage and load balancing to help you build and scale your infrastructure.",
+    access: digitalOceanAccess
   },
   {
     id: 'gift3',
