@@ -1,6 +1,6 @@
 import { fullyPacksType } from '@/types/interface'
 import React from 'react'
-import { BsGithub } from 'react-icons/bs'
+import { BsGithub, BsLink } from 'react-icons/bs'
 
 const flaskDescription = (
   <>
@@ -54,6 +54,16 @@ const webDev: fullyPacksType[] = [
   }
 ]
 
+const backendDev: fullyPacksType[] = [
+  {
+    id: 'backend01',
+    name: 'Free Database Providers',
+    link: 'https://fullyhacks.notion.site/Free-Database-Providers-857f6fa883c5458f899f97a3f5e18f1c',
+    description:
+      'A compiled list of database hosting providers, along with details about their free usage tiers and any associated limitations or conditions.'
+  }
+]
+
 const mobileDev: fullyPacksType[] = [
   {
     id: 'mobile01',
@@ -91,12 +101,26 @@ const FullyPack: React.FC<FullyPackProps> = ({ fullypack }) => {
     <div className="flex flex-col items-start bg-sky-100 p-4 rounded-lg">
       <p className="text-lg font-semibold">{fullypack.name}</p>
       <div className="mb-4">{fullypack.description}</div>
-      <button className="flex gap-2 items-center mt-auto font-semibold bg-[rgb(52,11,103)] text-white rounded-lg p-2">
-        <a target={'_blank'} href={fullypack.github}>
-          Github link
-        </a>
-        <BsGithub size={28} />
-      </button>
+      {'github' in fullypack ? (
+        <button className="flex gap-2 items-center mt-auto font-semibold bg-[rgb(52,11,103)] text-white rounded-lg p-2">
+          <a target={'_blank'} href={fullypack.github}>
+            Github link
+          </a>
+          <BsGithub size={28} />
+        </button>
+      ) : (
+        <></>
+      )}
+      {'link' in fullypack ? (
+        <button className="flex gap-2 items-center mt-auto font-semibold bg-[rgb(52,11,103)] text-white rounded-lg p-2">
+          <a target={'_blank'} href={fullypack.link}>
+            Link
+          </a>
+          <BsLink size={28} />
+        </button>
+      ) : (
+        <></>
+      )}
     </div>
   )
 }
@@ -112,6 +136,14 @@ const FullyPacks = () => {
         <p className="text-lg font-semibold">Web Development</p>
         <div className="mt-4 gap-10 grid md:grid-cols-3 justify-start">
           {webDev.map((fullypack: fullyPacksType) => {
+            return <FullyPack key={fullypack.id} fullypack={fullypack} />
+          })}
+        </div>
+      </div>
+      <div className="mt-10">
+        <p className="text-lg font-semibold">Backend Development</p>
+        <div className="mt-4 gap-10 grid md:grid-cols-3 justify-start">
+          {backendDev.map((fullypack: fullyPacksType) => {
             return <FullyPack key={fullypack.id} fullypack={fullypack} />
           })}
         </div>
