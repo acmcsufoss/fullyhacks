@@ -8,7 +8,7 @@ const events: eventsType[] = [
     type: 'event',
     date: 0,
     timeString: '1:00 - 3:00',
-    location: 'In front of TSU',
+    location: 'TBA',
     startTime: 0,
     endTime: 2,
     row: 0.5
@@ -19,7 +19,7 @@ const events: eventsType[] = [
     type: 'event',
     date: 0,
     timeString: '3:00 - 4:00',
-    location: 'TSU Theater',
+    location: 'TBA',
     startTime: 2,
     endTime: 3,
     row: 1.5
@@ -228,7 +228,7 @@ const events: eventsType[] = [
     type: 'event',
     date: 1,
     timeString: '6:00',
-    location: 'TSU Theater',
+    location: 'TBA',
     startTime: 29,
     endTime: 29,
     row: 2
