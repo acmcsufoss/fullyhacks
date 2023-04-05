@@ -10,7 +10,7 @@ import AnnouncementForm from '../Admin/Announcements/AnnouncementForm'
 const schema = yup
   .object({
     bio: yup.string().max(100),
-    discordId: yup.string().max(20)
+    discordId: yup.string().max(50)
   })
   .test({
     name: 'at-least-one-required',

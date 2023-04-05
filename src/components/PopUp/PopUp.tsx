@@ -45,7 +45,7 @@ export default PopUp
 
 const schema = yup.object({
   bio: yup.string().min(5).max(100).required(),
-  discord: yup.string().max(20)
+  discord: yup.string().max(50)
 })
 type FormData = yup.InferType<typeof schema>
 
