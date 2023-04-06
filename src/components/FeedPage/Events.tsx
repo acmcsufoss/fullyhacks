@@ -83,11 +83,11 @@ const events: eventsType[] = [
     id: 'ctf',
     name: 'CTF Begins',
     type: 'ctf',
-    timeString: '8:00 - 12:00',
+    timeString: '8:00 - 4:00',
     location: 'TBA',
     date: 0,
     startTime: 7,
-    endTime: 11,
+    endTime: 27,
     row: 6.5
   },
   {
