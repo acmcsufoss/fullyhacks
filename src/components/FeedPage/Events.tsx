@@ -179,17 +179,6 @@ const events: eventsType[] = [
     row: 1
   },
   {
-    id: 'workshop7',
-    name: 'Team Brainstorming (Jacob)',
-    type: 'workshop',
-    date: 1,
-    timeString: '12:00 - 1:00',
-    location: 'TBA',
-    startTime: 23,
-    endTime: 24,
-    row: 2.5
-  },
-  {
     id: 'workshop8',
     name: 'Project Deployment (TBA)',
     type: 'workshop',
