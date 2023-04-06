@@ -27,4 +27,7 @@ const options = {
   }
   // adapter: PrismaAdapter(prisma),
 }
-export default (req, res) => NextAuth(req, res, options)
+export default async function auth(req, res) {
+  res.setHeader('Cache-Control', 'no-store, max-age=0')
+  return NextAuth(req, res, options)
+}
