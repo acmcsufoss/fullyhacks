@@ -7,7 +7,6 @@ import { useState } from 'react'
 import { BsGithub } from 'react-icons/bs'
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
-  context.res.setHeader('Cache-Control', 'public, s-maxage=31536000')
   // Check if user is authenticated
   const session = await getSession(context)
   // If user already signed in, move them to application page
