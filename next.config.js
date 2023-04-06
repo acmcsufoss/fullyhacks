@@ -13,6 +13,11 @@ const nextConfig = {
         destination:
           'https://drive.google.com/file/d/13A98PnQGzv51LNBmOatM3Q3Jrby-A4cp/view?usp=share_link',
         permanent: true
+      },
+      {
+        source: '/teamforming',
+        destination: 'https://forms.gle/nox2oKFJdyyeAvQt9',
+        permanent: true
       }
     ]
   }
