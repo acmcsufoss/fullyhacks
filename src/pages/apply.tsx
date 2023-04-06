@@ -11,6 +11,7 @@ import { useRouter } from 'next/router'
 import ApplyAuth from '@/components/AuthWrapper/ApplyAuth'
 import { prisma } from 'db'
 export async function getServerSideProps(context: GetServerSidePropsContext) {
+  context.res.setHeader('Cache-Control', 'public, s-maxage=31536000')
   // Check if user is authenticated
   const session = await getSession(context)
   // If user already signed in, move them to application page

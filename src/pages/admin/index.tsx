@@ -7,6 +7,7 @@ import { GetServerSidePropsContext } from 'next'
 import { getSession } from 'next-auth/react'
 import React, { useState } from 'react'
 export async function getServerSideProps(context: GetServerSidePropsContext) {
+  context.res.setHeader('Cache-Control', 'public, s-maxage=31536000')
   // Check if user is authenticated
   const session = await getSession(context)
   // If user not signed in, move to signin

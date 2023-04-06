@@ -4,10 +4,7 @@ import { GetServerSideProps, InferGetServerSidePropsType } from 'next'
 import Head from 'next/head'
 
 export const getServerSideProps: GetServerSideProps = async ({ res }) => {
-  res.setHeader(
-    'Cache-Control',
-    'public, s-maxage=10, stale-while-revalidate=59'
-  )
+  res.setHeader('Cache-Control', 'public, s-maxage=31536000')
   const company = axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/companies`)
   const team = axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/team`)
   const faq = axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/faqs`)
