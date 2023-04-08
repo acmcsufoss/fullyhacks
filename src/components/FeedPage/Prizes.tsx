@@ -41,13 +41,13 @@ const mainCategory: tracksType[] = [
     id: 'cat1',
     name: 'Best Beginner Project',
     team: 1,
-    description: 'Mystery keyboard'
+    description: 'Red Dragon S107 Keyboard'
   },
   {
     id: 'cat2',
     name: 'Most Complicated Project',
     team: 1,
-    description: 'Logitech G G305 LIGHTSPEED'
+    description: 'Red Dragon M711 Mouse'
   },
   {
     id: 'cat3',
@@ -59,13 +59,13 @@ const mainCategory: tracksType[] = [
     id: 'cat4',
     name: 'Best AI/ML Project',
     team: 1,
-    description: 'JBL GO2 - Waterproof Ultra-Portable Bluetooth Speaker'
+    description: 'JBL GO3 - Waterproof Ultra-Portable Bluetooth Speaker'
   },
   {
     id: 'cat5',
     name: 'Best Mobile App',
     team: 1,
-    description: 'Anker Portable Charger'
+    description: 'Belkin 3-PORT 10k USBA+C Bank'
   }
 ]
 const subCategory: tracksType[] = [
