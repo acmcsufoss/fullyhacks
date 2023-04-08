@@ -26,7 +26,7 @@ const CountDown = () => {
 
   setInterval(() => {
     // Set the date for April 8th
-    const targetDate = new Date('2023-04-08T00:00:00')
+    const targetDate = new Date('2023-04-08T13:00:00')
     const currentDate = new Date()
     const timeRemaining = targetDate.getTime() - currentDate.getTime()
     const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24))
