@@ -8,7 +8,7 @@ const events: eventsType[] = [
     type: 'event',
     date: 0,
     timeString: '1:00 - 3:00',
-    location: 'TBA',
+    location: 'SGMH-1502',
     startTime: 0,
     endTime: 2,
     row: 0.5
@@ -19,7 +19,7 @@ const events: eventsType[] = [
     type: 'event',
     date: 0,
     timeString: '3:00 - 4:00',
-    location: 'TBA',
+    location: 'SGMH-1502',
     startTime: 2,
     endTime: 3,
     row: 1.5
@@ -30,7 +30,7 @@ const events: eventsType[] = [
     type: 'event',
     date: 0,
     timeString: '4:00',
-    location: 'TBA',
+    location: 'CS-300,408,200,202',
     startTime: 3,
     endTime: 3,
     row: 0.5
@@ -41,7 +41,7 @@ const events: eventsType[] = [
     type: 'event',
     date: 0,
     timeString: '4:10 - 5:30',
-    location: 'TBA',
+    location: 'ECS Quad',
     startTime: 3.1,
     endTime: 4.5,
     row: 2.5
@@ -51,9 +51,9 @@ const events: eventsType[] = [
     name: 'Pizza dinner',
     type: 'food',
     date: 0,
-    timeString: '6:00 - 7:00',
-    location: 'TBA',
-    startTime: 5,
+    timeString: '5:30 - 7:00',
+    location: 'CS-300',
+    startTime: 4.5,
     endTime: 6,
     row: 1.5
   },
@@ -63,7 +63,7 @@ const events: eventsType[] = [
     type: 'workshop',
     date: 0,
     timeString: '7:00 - 8:00',
-    location: 'TBA',
+    location: 'CS-101',
     startTime: 6,
     endTime: 7,
     row: 2.5
@@ -73,7 +73,7 @@ const events: eventsType[] = [
     name: 'Svelte (Karni)',
     type: 'workshop',
     timeString: '7:00 - 8:00',
-    location: 'TBA',
+    location: 'CS-102',
     date: 0,
     startTime: 6,
     endTime: 7,
@@ -84,7 +84,7 @@ const events: eventsType[] = [
     name: 'CTF Begins',
     type: 'ctf',
     timeString: '8:00 - 4:00',
-    location: 'TBA',
+    location: 'CS-202',
     date: 0,
     startTime: 7,
     endTime: 27,
@@ -95,7 +95,7 @@ const events: eventsType[] = [
     name: 'Mobile Dev (Emily)',
     type: 'workshop',
     timeString: '8:00 - 9:00',
-    location: 'TBA',
+    location: 'CS-101',
     date: 0,
     startTime: 7,
     endTime: 8,
@@ -106,7 +106,7 @@ const events: eventsType[] = [
     name: 'AI/ML (Justin)',
     type: 'workshop',
     timeString: '8:00 - 9:00',
-    location: 'TBA',
+    location: 'CS-102',
     date: 0,
     startTime: 7,
     endTime: 8,
@@ -118,7 +118,7 @@ const events: eventsType[] = [
     type: 'workshop',
     date: 0,
     timeString: '9:00 - 10:00',
-    location: 'TBA',
+    location: 'CS-101',
     startTime: 8,
     endTime: 9,
     row: 2.5
@@ -129,7 +129,7 @@ const events: eventsType[] = [
     type: 'workshop',
     date: 0,
     timeString: '9:00 - 10:00',
-    location: 'TBA',
+    location: 'CS-102',
     startTime: 8,
     endTime: 9,
     row: 3.5
@@ -140,7 +140,7 @@ const events: eventsType[] = [
     type: 'fun',
     date: 0,
     timeString: '11:00 - 12:00',
-    location: 'TBA',
+    location: 'CS-300',
     startTime: 10,
     endTime: 11,
     row: 5
@@ -151,7 +151,7 @@ const events: eventsType[] = [
     type: 'fun',
     date: 0,
     timeString: '12:00',
-    location: 'TBA',
+    location: 'CS-300',
     startTime: 11,
     endTime: 11,
     row: 4.5
@@ -162,7 +162,7 @@ const events: eventsType[] = [
     type: 'food',
     date: 1,
     timeString: '9:00 - 10:00',
-    location: 'TBA',
+    location: 'CS-300',
     startTime: 20,
     endTime: 21,
     row: 2.5
@@ -173,18 +173,18 @@ const events: eventsType[] = [
     type: 'event',
     date: 1,
     timeString: '10:00 - 12:00',
-    location: 'TBA',
+    location: 'ECS Quad',
     startTime: 21,
     endTime: 23,
     row: 1
   },
   {
     id: 'workshop8',
-    name: 'Project Deployment (TBA)',
+    name: 'Project Deployment (Angel, Ethan, Oscar)',
     type: 'workshop',
     date: 1,
     timeString: '2:00 - 3:00',
-    location: 'TBA',
+    location: 'CS-101',
     startTime: 25,
     endTime: 26,
     row: 2
@@ -195,7 +195,7 @@ const events: eventsType[] = [
     type: 'event',
     date: 1,
     timeString: '4:00',
-    location: 'TBA',
+    location: '',
     startTime: 27,
     endTime: 27,
     row: 0.5
@@ -205,10 +205,10 @@ const events: eventsType[] = [
     name: 'Judging & Project Expo',
     type: 'event',
     date: 1,
-    timeString: '4:00 - 6:00',
-    location: 'TBA',
+    timeString: '4:00 - 5:00',
+    location: 'CS-300,408,200,202',
     startTime: 27,
-    endTime: 29,
+    endTime: 28,
     row: 1.25
   },
   {
@@ -216,10 +216,10 @@ const events: eventsType[] = [
     name: 'Closing ceremony & Announce winners',
     type: 'event',
     date: 1,
-    timeString: '6:00',
-    location: 'TBA',
-    startTime: 29,
-    endTime: 29,
+    timeString: '5:30',
+    location: 'SGMH-1502',
+    startTime: 28.5,
+    endTime: 28.5,
     row: 2
   }
 ]
