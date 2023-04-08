@@ -41,13 +41,13 @@ const mainCategory: tracksType[] = [
     id: 'cat1',
     name: 'Best Beginner Project',
     team: 1,
-    description: 'Red Dragon S107 Keyboard'
+    description: 'Red Dragon M711 Mouse'
   },
   {
     id: 'cat2',
     name: 'Most Complicated Project',
     team: 1,
-    description: 'Red Dragon M711 Mouse'
+    description: 'Red Dragon S107 Combo (Keyboard, Mousepad, Mouse)'
   },
   {
     id: 'cat3',
@@ -102,13 +102,13 @@ const Card: React.FC<TrackProps> = ({ track }) => {
           <p>{track.name}</p>
           <p>{track.icon}</p>
         </div>
-        <p className="mt-4 md:text-md">
+        <div className="mt-4 md:text-md">
           {track.team && (
             <p className="font-semibold mb-4">Total: {track.team} team(s)</p>
           )}
 
           {track.description}
-        </p>
+        </div>
       </div>
     </div>
   )
