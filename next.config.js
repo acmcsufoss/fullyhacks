@@ -38,13 +38,20 @@ const nextConfig = {
       },
       {
         source: '/database',
-        destination: 'https://docs.google.com/presentation/d/1OqpEj1DLr1mXsgsVFHPi_jfSvnNgP33Cm5HhWyJIDM0/edit?usp=sharing',
+        destination:
+          'https://docs.google.com/presentation/d/1OqpEj1DLr1mXsgsVFHPi_jfSvnNgP33Cm5HhWyJIDM0/edit?usp=sharing',
         permanent: true
       },
       {
         source: '/mobiledev',
         destination:
           'https://docs.google.com/presentation/d/14KNA1VjsvGRGFQsj8Yi7p0aFqW-nejssvCfwXHkbPYE/edit?usp=sharing',
+        permanent: true
+      },
+      {
+        source: '/gamedev',
+        destination:
+          'https://docs.google.com/presentation/d/1T0Z_PI4K8Nx2luvf53JASdabdERHq3_j/edit?usp=sharing&ouid=103653330096966712953&rtpof=true&sd=true',
         permanent: true
       }
     ]
