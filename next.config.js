@@ -37,6 +37,11 @@ const nextConfig = {
         permanent: true
       },
       {
+        source: '/database',
+        destination: 'https://docs.google.com/presentation/d/1OqpEj1DLr1mXsgsVFHPi_jfSvnNgP33Cm5HhWyJIDM0/edit?usp=sharing',
+        permanent: true
+      },
+      {
         source: '/mobiledev',
         destination:
           'https://docs.google.com/presentation/d/14KNA1VjsvGRGFQsj8Yi7p0aFqW-nejssvCfwXHkbPYE/edit?usp=sharing',
