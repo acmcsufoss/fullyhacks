@@ -11,6 +11,7 @@ import Partners from './Partners/Partners'
 import Sponsors from './Sponsors/Sponsors'
 import Team from './Team/Team'
 
+import Image from 'next/image'
 interface LandingPageProps {
   companyData: companyType[]
   faqData: FAQType[]
@@ -29,17 +30,25 @@ const LandingPage: React.FC<LandingPageProps> = (props) => {
         <p className="font-normal text-lg">April 8th - 9th</p>
       </section>
       <CountDown />
-      <div className="flex items-center mt-12 gap-8 text-md font-medium">
+
+      <div className="relative flex items-center mt-24 gap-8 text-md font-medium">
+        <div className="absolute -right-2 -top-[170%]  ">
+          <Image src="/cat.svg" width={100} height={100} />
+        </div>
+
         <Link href="/signin" className="">
-          <p className="cursor-pointer z-[11] mx-0 apply-btn">Apply</p>
+          <button className="cursor-pointer z-[11] mx-0 apply-btn">
+            Apply
+          </button>
         </Link>
         <a
           target="_blank"
           href="https://drive.google.com/file/d/1_JJoRMsqY2n5EUpNk4GFdhJInvi8GEp2/view?usp=share_link"
-          className="z-[11] font-normal">
+          className="z-[11] font-normal sponsor-btn">
           Sponsor Us!
         </a>
       </div>
+
       <section>
         <div
           id="about"

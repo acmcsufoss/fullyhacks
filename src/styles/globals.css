@@ -5,8 +5,17 @@
 
 @layer components {
   .apply-btn {
-    @apply bg-sky_300 hover:bg-[#36558F] hover:ease-in-out hover:duration-200 text-white py-1 px-6 rounded-lg mx-8 ml-12;
+    @apply hover:bg-[#FC61FF]/[.2]  hover:ease-in-out hover:duration-200;
+    @apply relative py-1 px-8 rounded-lg mx-8 ml-12 border border-solid border-[#FF42F7] text-[#FC61FF] [text-shadow:_0_0_10px_#FC61FF];
+    @apply after:content-[''] after:absolute after:top-12 after:left-2 after:w-full after:h-[5px] after:bg-[#FF42F7] after:opacity-[.7] after:blur-sm after:skew-x-[30deg];
   }
+
+  .sponsor-btn {
+    @apply hover:bg-[#8CEAFF]/[.2]  hover:ease-in-out hover:duration-200;
+    @apply relative py-1 px-8 rounded-lg border border-solid border-[#8CEAFF] text-[#8CEAFF] [text-shadow:_0_0_10px_#8CEAFF];
+    @apply after:content-[''] after:absolute after:top-12 after:left-2 after:w-full after:h-[5px] after:bg-[#8CEAFF] after:opacity-[.7] after:blur-sm after:skew-x-[30deg];
+  }
+
   .form-input {
     @apply border-2 border-purple_300 p-2 bg-body_bg mt-2 mb-4;
   }
