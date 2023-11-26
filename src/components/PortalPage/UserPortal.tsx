@@ -49,8 +49,8 @@ const UserPortal: React.FC<UserProps> = ({ user }) => {
                 application.status == 'approved'
                   ? 'bg-green-300'
                   : application.status == 'rejected'
-                  ? 'bg-red-400'
-                  : 'bg-gray-300'
+                    ? 'bg-red-400'
+                    : 'bg-gray-300'
               }`}>
               {application.status}
             </span>

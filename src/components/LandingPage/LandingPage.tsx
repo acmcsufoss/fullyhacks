@@ -24,11 +24,10 @@ const LandingPage: React.FC<LandingPageProps> = (props) => {
       <NavBarLanding />
       <section className="mt-20 text-center text-purple_main z-[2]">
         <h1 className="text-xxl">
-          FullyHacks <span className="text-orange_300">2023</span>
+          FullyHacks <span className="text-turquoise_300">2024</span>
         </h1>
         <p className="font-normal text-lg">April 8th - 9th</p>
       </section>
-      <Bubbles />
       <CountDown />
       <div className="flex items-center mt-12 gap-8 text-md font-medium">
         <Link href="/signin" className="">

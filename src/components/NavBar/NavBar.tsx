@@ -61,20 +61,17 @@ export const NavBarLanding: React.FC = () => {
   ])
 
   return (
-    <nav className="z-[30] rounded-lg backdrop-filter backdrop-blur-md bg-opacity-25 border border-gray-300 border-opacity-25 shadow-xl fixed bg-body_bg navbar text-purple_main font-semibold text-lg lg:pl-8 lg:pt-2 lg:grid lg:grid-cols-4">
+    <nav className="z-[30] navbar text-white font-semibold text-lg lg:pl-8 lg:pt-2 lg:grid lg:grid-cols-4">
       <div className="navbar-start">
-        <>
+        <Link href="/" className="hidden lg:flex gap-2 items-center">
           <img
             src="/logo.svg"
             alt="Fully logo"
-            width={36}
-            height={36}
+            width={240}
+            height={240}
             className="lg:inline-flex hidden"
           />
-          <Link href="/" className="hidden lg:flex gap-2 items-center">
-            <p className="lg:inline-flex ml-2 cursor-pointer hidden"> FH </p>
-          </Link>
-        </>
+        </Link>
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
             <svg
