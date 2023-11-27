@@ -37,3 +37,21 @@
     scrollbar-width: none; /* Firefox */
   }
 }
+
+@layer base {
+  @font-face {
+    font-family: Ohm;
+    font-weight: 600;
+    src: url(/fonts/ohm/OHM-Bold.woff) format('woff');
+  }
+  @font-face {
+    font-family: Ohm;
+    font-weight: 400;
+    src: url(/fonts/ohm/OHM-Light.woff) format('woff');
+  }
+  @font-face {
+    font-family: Ohm;
+    font-weight: 500;
+    src: url(/fonts/ohm/OHM-Medium.woff) format('woff');
+  }
+}
