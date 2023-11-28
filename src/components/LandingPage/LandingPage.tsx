@@ -35,7 +35,7 @@ const LandingPage: React.FC<LandingPageProps> = (props) => {
           />
         </h1>
         <p className="font-normal text-[1rem] md:text-lg">
-          TSU PAVILION: MARCH 10 - MARCH 11
+          TSU PAVILION: FEB 17 - FEB 18
         </p>
       </section>
       <CountDown />
