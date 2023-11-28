@@ -53,7 +53,8 @@ module.exports = {
         xxl: '3.5rem'
       },
       fontFamily: {
-        rubik: ['Rubik']
+        rubik: ['Rubik'],
+        ohm: ['Ohm']
       },
       colors: {
         sky_100: '#ABE1FF',
@@ -68,12 +69,12 @@ module.exports = {
         pink_100: '#FFABCE',
         orange_300: '#FFC985',
         orange_100: '#FFEDCC',
-        turquoise_300: '#49FFF4',
+        turquoise_300: '#30D7E1',
         purple_gradient_1: '#340B67',
         purple_gradient_2: '#0C091A'
       },
       textColor: {
-        purple_main: '#D8B9FF',
+        purple_main: '#EB6EFF',
         purple_main_hover: '#b49fcc'
       },
       backgroundColor: {
