@@ -14,9 +14,6 @@ const SignArea: React.FC<SignAreaProps> = (props) => {
         zIndex: 0,
         display: 'grid',
         gridTemplateAreas: 'stack'
-        // gridTemplateColumns: '1fr',
-        // gridTemplateRows: '1fr',
-        // gap: '0px 0px'
       }}>
       <div style={{ gridArea: 'stack', minWidth: '100%' }}>
         {props.children}
