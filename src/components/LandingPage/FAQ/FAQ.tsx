@@ -29,7 +29,7 @@ export const FAQDropDown: React.FC<FAQDropDownProps> = (props) => {
       onClick={toggleOpen}>
       <input type="checkbox" className={mounted ? 'hidden' : ''} />
       <div
-        className={`flex justify-between items-center w-full text-white bg-transparent border-2 border-[#D936BF] collapse-title hover:ease-in-out hover:duration-200 hover:bg-purple_hover hover:text-white rounded-box transition-all duration-500 ease-in-out ${
+        className={`flex justify-between items-center w-full text-white bg-transparent border-2 border-pink_200 collapse-title hover:ease-in-out hover:duration-200 hover:bg-purple_hover hover:text-white rounded-box transition-all duration-500 ease-in-out ${
           opened ? 'rounded-b-none' : ''
         }`}>
         <p className="leading-9 normal-case text-start text-md md:text-lg">
@@ -43,7 +43,7 @@ export const FAQDropDown: React.FC<FAQDropDownProps> = (props) => {
         </div>
       </div>
       <div
-        className={`collapse-content overflow-hidden border-none shadow-[#D935BF] shadow-lg border-[#D936BF] transition-all duration-500 w-full bg-transparent ease-in-out ${
+        className={`collapse-content overflow-hidden bg-[#0C1B3A] shadow-pink_200 shadow-lg border-pink_200 border-solid transition-[max-height] duration-500 w-full ease-in-out ${
           opened ? 'max-h-screen' : 'max-h-0'
         }`}>
         <p className="my-4 text-white md:text-md">{answer}</p>
@@ -58,9 +58,9 @@ const FAQ: React.FC<FAQProps> = (props) => {
     <>
       <img
         src="/cat3.svg"
-        className="absolute z-10 w-32 top-6 left-3 md:w-64"
+        className="absolute z-10 w-28 top-[5.75rem] left-1 md:w-64 md:top-6 md:left-2"
       />
-      <p className="mb-4 text-xl text-[#FFD8FD] [text-shadow:_0_0_10px_#B479FF] font-medium font-ohm mt-14 md:text-[5rem]">
+      <p className="mb-4 text-xxl text-[#B479FF] [text-shadow:_0_0_10px_#FFD8FD] font-medium font-ohm mt-14 md:text-[5rem]">
         FAQ
       </p>
       <div className="flex flex-col items-center">
