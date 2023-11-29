@@ -1,5 +1,6 @@
 import { FAQType } from '@/types/interface'
 import React, { useEffect, useState } from 'react'
+import { FaChevronDown } from 'react-icons/fa'
 
 interface FAQProps {
   faqs: FAQType[]
@@ -24,19 +25,28 @@ export const FAQDropDown: React.FC<FAQDropDownProps> = (props) => {
   }
   return (
     <a
-      className="collapse border border-purple_hover rounded-box"
+      className="border collapse border-purple_hover rounded-box"
       onClick={toggleOpen}>
       <input type="checkbox" className={mounted ? 'hidden' : ''} />
-      <div className="collapse-title w-full bg-purple_300 hover:ease-in-out hover:duration-200 hover:bg-purple_hover hover:text-white text-purple_main border-none rounded-box rounded-b-none">
-        <p className="text-start leading-9 normal-case mr-auto text-md md:text-lg m-1">
+      <div
+        className={`flex justify-between items-center w-full text-white bg-transparent border-2 border-[#D936BF] collapse-title hover:ease-in-out hover:duration-200 hover:bg-purple_hover hover:text-white rounded-box transition-all duration-500 ease-in-out ${
+          opened ? 'rounded-b-none' : ''
+        }`}>
+        <p className="leading-9 normal-case text-start text-md md:text-lg">
           {question}
         </p>
+        <div
+          className={`transition-all duration-500 ${
+            opened ? 'rotate-180' : ''
+          }`}>
+          <FaChevronDown size={24} />
+        </div>
       </div>
       <div
-        className={`collapse-content overflow-hidden transition-all duration-500 w-full bg-body_bg ease-in-out ${
+        className={`collapse-content overflow-hidden border-none shadow-[#D935BF] shadow-lg border-[#D936BF] transition-all duration-500 w-full bg-transparent ease-in-out ${
           opened ? 'max-h-screen' : 'max-h-0'
         }`}>
-        <p className="my-4 md:text-md">{answer}</p>
+        <p className="my-4 text-white md:text-md">{answer}</p>
       </div>
     </a>
   )
@@ -46,8 +56,12 @@ const FAQ: React.FC<FAQProps> = (props) => {
   const { faqs } = props
   return (
     <>
-      <p className="mt-14 text-xl font-medium md:text-xxl mb-4">
-        Frequently Asked Questions
+      <img
+        src="/cat3.svg"
+        className="absolute z-10 w-32 top-6 left-3 md:w-64"
+      />
+      <p className="mb-4 text-xl text-[#FFD8FD] [text-shadow:_0_0_10px_#B479FF] font-medium font-ohm mt-14 md:text-[5rem]">
+        FAQ
       </p>
       <div className="flex flex-col items-center">
         {faqs.map((faq: FAQType) => {
