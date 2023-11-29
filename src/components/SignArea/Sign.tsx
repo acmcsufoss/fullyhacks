@@ -43,6 +43,7 @@ const Sign: React.FC<SignProps> = (props) => {
           textShadow: `0 0 10px ${props.borderColor}`,
           fontSize: '2.5rem',
           fontFamily: 'Ohm, Rubik, sans-serif',
+          fontWeight: 700,
           pointerEvents: 'none',
           userSelect: 'none'
         }}>
