@@ -5,15 +5,15 @@ export const SIGNS: SignProps[] = [
     textContent: 'Welcome',
     borderColor: '#4F96B9',
     parallaxSpeed: 10,
-    cssTop: '24vh',
-    cssLeft: '2vw'
+    top: '24vh',
+    left: '2vw'
   },
   {
     textContent: '完全に',
     borderColor: '#932B8E',
     parallaxSpeed: 20,
-    cssTop: '40vh',
-    cssRight: '10vw'
+    top: '40vh',
+    right: '10vw'
   }
   // TODO: Add more signs according to the Figma.
 ]

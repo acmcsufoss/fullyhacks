@@ -1,4 +1,5 @@
 import React from 'react'
+import Script from 'next/script'
 import Sign, { type SignProps } from './Sign'
 
 export interface SignAreaProps {
@@ -8,16 +9,8 @@ export interface SignAreaProps {
 
 const SignArea: React.FC<SignAreaProps> = (props) => {
   return (
-    <div
-      style={{
-        position: 'relative',
-        zIndex: 0,
-        display: 'grid',
-        gridTemplateAreas: 'stack'
-      }}>
-      <div style={{ gridArea: 'stack', minWidth: '100%' }}>
-        {props.children}
-      </div>
+    <div className="neon-sign-area">
+      <div className="neon-sign-area-content">{props.children}</div>
       {props.signs.map((sign) => (
         <Sign {...sign} key={sign.textContent + sign.borderColor} />
       ))}

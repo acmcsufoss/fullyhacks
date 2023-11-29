@@ -56,7 +56,51 @@
   }
 }
 
-@keyframes parallax {
+.neon-sign-area {
+  position: relative;
+  z-index: 0;
+  display: grid;
+  grid-template-areas: 'stack';
+}
+
+.neon-sign-area-content {
+  grid-area: 'stack';
+}
+
+.neon-sign {
+  opacity: 0.5;
+  position: absolute;
+  grid-area: 'stack';
+  animation: parallax-effect linear;
+  animation-timeline: scroll();
+  border-radius: 0.5rem;
+  outline: 2px solid #fff;
+  box-shadow:
+    0 0 25px 4px var(--border-color),
+    0 0 25px 4px var(--border-color) inset;
+  padding: 0.5rem;
+  z-index: var(--z-index);
+  top: var(--css-top);
+  right: var(--css-right);
+  bottom: var(--css-bottom);
+  left: var(--css-left);
+}
+
+.neon-sign span {
+  color: transparent;
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  text-transform: uppercase;
+  text-shadow: 0 0 10px var(--border-color);
+  -webkit-text-stroke: 2px white;
+  font-size: 2.5rem;
+  font-family: Rubik, sans-serif;
+  font-weight: 700;
+  pointer-events: none;
+  user-select: none;
+}
+
+@keyframes parallax-effect {
   to {
     transform: translateY(calc(var(--parallax-speed) * 200px));
   }
