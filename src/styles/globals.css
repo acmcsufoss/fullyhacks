@@ -55,3 +55,24 @@
     src: url(/fonts/ohm/OHM-Medium.woff) format('woff');
   }
 }
+
+@keyframes parallax {
+  to {
+    transform: translateY(calc(var(--parallax-speed) * 200px));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  @keyframes parallax {
+    to {
+      transform: translateY(0);
+    }
+  }
+}
+
+/* TODO: Think of something better for neon sign in mobile dimensions. */
+@media (max-width: 720px) {
+  .neon-sign {
+    display: none;
+  }
+}

@@ -44,13 +44,11 @@ export default function Home({
         <meta property="og:image" content="/fullyhacks_logo.png" />
         <link rel="shortcut icon" href="/favicon.ico" />
       </Head>
-      <main className="relative flex flex-col items-center font-rubik font-semibold">
-        <LandingPage
-          companyData={companyData}
-          faqData={faqData}
-          teamData={teamData}
-        />
-      </main>
+      <LandingPage
+        companyData={companyData}
+        faqData={faqData}
+        teamData={teamData}
+      />
     </>
   )
 }
