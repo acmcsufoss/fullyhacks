@@ -36,13 +36,14 @@ const Sign: React.FC<SignProps> = (props) => {
       }>
       <span
         style={{
-          color: '#fff',
+          color: 'transparent',
           writingMode: 'vertical-rl',
           textOrientation: 'upright',
           textTransform: 'uppercase',
           textShadow: `0 0 10px ${props.borderColor}`,
+          WebkitTextStroke: '2px white',
           fontSize: '2.5rem',
-          fontFamily: 'Ohm, Rubik, sans-serif',
+          fontFamily: 'Rubik, sans-serif',
           fontWeight: 700,
           pointerEvents: 'none',
           userSelect: 'none'
