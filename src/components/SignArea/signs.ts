@@ -12,6 +12,7 @@ export const SIGNS: SignProps[] = [
     textContent: '優待',
     borderColor: '#932B8E',
     parallaxSpeed: 60,
+    flickerDelay: 0.5,
     top: '18vh',
     left: '8vw'
   },
@@ -19,6 +20,7 @@ export const SIGNS: SignProps[] = [
     textContent: 'Hacks',
     borderColor: '#9581AA',
     parallaxSpeed: 55,
+    flickerDelay: 1,
     top: '26vh',
     left: '9vw'
   },
@@ -26,6 +28,7 @@ export const SIGNS: SignProps[] = [
     textContent: 'たたき切る',
     borderColor: '#7A9FFF',
     parallaxSpeed: 20,
+    flickerDelay: 1.5,
     top: '55vh',
     left: '3vw'
   },
@@ -33,6 +36,7 @@ export const SIGNS: SignProps[] = [
     textContent: '優待',
     borderColor: '#9581AA',
     parallaxSpeed: 30,
+    flickerDelay: 2,
     top: '57vh',
     left: '11vw'
   },
@@ -40,6 +44,7 @@ export const SIGNS: SignProps[] = [
     textContent: 'Fully',
     borderColor: '#6CCAFF',
     parallaxSpeed: 42,
+    flickerDelay: 2.5,
     top: '65vh',
     left: '7vw'
   },
@@ -47,6 +52,7 @@ export const SIGNS: SignProps[] = [
     textContent: 'ACM',
     borderColor: '#FC61FF',
     parallaxSpeed: 54,
+    flickerDelay: 3,
     top: '61vh',
     left: '-2vw'
   },
@@ -62,6 +68,7 @@ export const SIGNS: SignProps[] = [
     textContent: '優待',
     borderColor: '#932B8E',
     parallaxSpeed: 60,
+    flickerDelay: 0.5,
     top: '18vh',
     right: '8vw'
   },
@@ -69,6 +76,7 @@ export const SIGNS: SignProps[] = [
     textContent: 'Hacks',
     borderColor: '#9581AA',
     parallaxSpeed: 55,
+    flickerDelay: 1,
     top: '26vh',
     right: '9vw'
   },
@@ -76,6 +84,7 @@ export const SIGNS: SignProps[] = [
     textContent: 'たたき切る',
     borderColor: '#7A9FFF',
     parallaxSpeed: 20,
+    flickerDelay: 1.5,
     top: '55vh',
     right: '3vw'
   },
@@ -83,6 +92,7 @@ export const SIGNS: SignProps[] = [
     textContent: '優待',
     borderColor: '#9581AA',
     parallaxSpeed: 30,
+    flickerDelay: 2,
     top: '57vh',
     right: '11vw'
   },
@@ -90,6 +100,7 @@ export const SIGNS: SignProps[] = [
     textContent: 'Fully',
     borderColor: '#6CCAFF',
     parallaxSpeed: 42,
+    flickerDelay: 2.5,
     top: '65vh',
     right: '7vw'
   },
@@ -97,6 +108,7 @@ export const SIGNS: SignProps[] = [
     textContent: 'ACM',
     borderColor: '#FC61FF',
     parallaxSpeed: 54,
+    flickerDelay: 3,
     top: '61vh',
     right: '-2vw'
   }
