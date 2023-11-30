@@ -1,6 +1,7 @@
 import type { SignProps } from './Sign'
 
 export const SIGNS: SignProps[] = [
+  // Left side.
   {
     textContent: 'Welcome',
     borderColor: '#4F96B9',
@@ -29,7 +30,7 @@ export const SIGNS: SignProps[] = [
     borderColor: '#7A9FFF',
     parallaxSpeed: 20,
     flickerDelay: 1.5,
-    top: '55vh',
+    top: '50vh',
     left: '3vw'
   },
   {
@@ -37,7 +38,7 @@ export const SIGNS: SignProps[] = [
     borderColor: '#9581AA',
     parallaxSpeed: 30,
     flickerDelay: 2,
-    top: '57vh',
+    top: '52vh',
     left: '11vw'
   },
   {
@@ -45,7 +46,7 @@ export const SIGNS: SignProps[] = [
     borderColor: '#6CCAFF',
     parallaxSpeed: 42,
     flickerDelay: 2.5,
-    top: '65vh',
+    top: '60vh',
     left: '7vw'
   },
   {
@@ -53,63 +54,71 @@ export const SIGNS: SignProps[] = [
     borderColor: '#FC61FF',
     parallaxSpeed: 54,
     flickerDelay: 3,
-    top: '61vh',
+    top: '56vh',
     left: '-2vw'
   },
-  // TODO: Edit positions of the following signs.
+  // Right side.
   {
-    textContent: 'Welcome',
-    borderColor: '#4F96B9',
+    textContent: 'ACM',
+    borderColor: '#FC61FF',
     parallaxSpeed: 50,
     top: '15vh',
     right: '2vw'
   },
   {
-    textContent: '優待',
-    borderColor: '#932B8E',
+    textContent: 'たたき切る',
+    borderColor: '#9EAEFF',
     parallaxSpeed: 60,
     flickerDelay: 0.5,
     top: '18vh',
     right: '8vw'
   },
   {
-    textContent: 'Hacks',
-    borderColor: '#9581AA',
+    textContent: 'Fully',
+    borderColor: '#6CCAFF',
     parallaxSpeed: 55,
     flickerDelay: 1,
-    top: '26vh',
+    top: '36vh',
     right: '9vw'
   },
   {
-    textContent: 'たたき切る',
-    borderColor: '#7A9FFF',
+    textContent: 'Hacks',
+    borderColor: '#9581AA',
     parallaxSpeed: 20,
     flickerDelay: 1.5,
-    top: '55vh',
+    top: '39vh',
     right: '3vw'
   },
   {
-    textContent: '優待',
-    borderColor: '#9581AA',
+    textContent: 'ACM',
+    borderColor: '#FC61FF',
     parallaxSpeed: 30,
     flickerDelay: 2,
     top: '57vh',
-    right: '11vw'
+    right: '5vw'
+  },
+  {
+    textContent: '優待',
+    borderColor: '#9EAEFF',
+    parallaxSpeed: 22,
+    flickerDelay: 0.5,
+    top: '65vh',
+    right: '12vw'
   },
   {
     textContent: 'Fully',
     borderColor: '#6CCAFF',
     parallaxSpeed: 42,
     flickerDelay: 2.5,
-    top: '65vh',
+    top: '70vh',
     right: '7vw'
   },
   {
     textContent: 'ACM',
-    borderColor: '#FC61FF',
+    borderColor: '#9EAEFF',
     parallaxSpeed: 54,
     flickerDelay: 3,
-    top: '61vh',
-    right: '-2vw'
+    top: '72vh',
+    right: '2vw'
   }
 ]

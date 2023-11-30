@@ -101,7 +101,7 @@
   text-transform: uppercase;
   text-shadow: 0 0 10px var(--border-color);
   -webkit-text-stroke: 2px white;
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-family: Rubik, sans-serif;
   font-weight: 700;
   pointer-events: none;
