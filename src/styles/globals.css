@@ -86,6 +86,10 @@
   left: var(--css-left);
 }
 
+.neon-sign:hover {
+  opacity: 1;
+}
+
 .neon-sign span {
   color: transparent;
   writing-mode: vertical-rl;
