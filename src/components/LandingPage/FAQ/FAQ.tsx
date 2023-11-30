@@ -41,7 +41,7 @@ export const FAQDropDown: React.FC<FAQDropDownProps> = (props) => {
       </div>
       <div
         className={`collapse-content overflow-hidden bg-[#0C1B3A] shadow-pink_200 shadow-lg border-pink_200 border-solid transition-[max-height] duration-500 w-full ease-in-out ${
-          opened ? 'max-h-screen' : 'max-h-0'
+          opened ? 'max-h-screen border-t-2' : 'max-h-0'
         }`}>
         <p className="my-4 text-white md:text-md">{answer}</p>
       </div>
