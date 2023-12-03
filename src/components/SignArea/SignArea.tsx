@@ -1,5 +1,4 @@
 import React from 'react'
-import Script from 'next/script'
 import Sign, { type SignProps } from './Sign'
 
 export interface SignAreaProps {
