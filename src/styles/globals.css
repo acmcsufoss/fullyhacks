@@ -55,3 +55,124 @@
     src: url(/fonts/ohm/OHM-Medium.woff) format('woff');
   }
 }
+
+.neon-sign-area {
+  position: relative;
+  z-index: 0;
+  display: grid;
+  grid-template-areas: 'stack';
+}
+
+.neon-sign-area-content {
+  grid-area: 'stack';
+}
+
+.neon-sign {
+  opacity: 0.5;
+  width: auto;
+  position: absolute;
+  grid-area: 'stack';
+  animation: parallax-effect linear;
+  animation-timeline: scroll();
+  border-radius: 0.5rem;
+  outline: 2px solid #fff;
+  box-shadow:
+    0 0 25px 4px var(--border-color),
+    0 0 25px 4px var(--border-color) inset;
+  padding: 0.5rem;
+  z-index: var(--z-index);
+  top: var(--css-top);
+  right: var(--css-right);
+  bottom: var(--css-bottom);
+  left: var(--css-left);
+}
+
+.neon-sign:hover {
+  opacity: 1;
+}
+
+.neon-sign:hover span {
+  animation: none;
+}
+
+.neon-sign span {
+  color: transparent;
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  text-transform: uppercase;
+  text-shadow: 0 0 10px var(--border-color);
+  -webkit-text-stroke: 2px white;
+  font-size: 2rem;
+  font-family: Rubik, sans-serif;
+  font-weight: 700;
+  pointer-events: none;
+  user-select: none;
+  animation: flicker 5s infinite var(--flicker-delay, 0s);
+}
+
+@keyframes flicker {
+  0% {
+    opacity: 0.1;
+  }
+
+  2% {
+    opacity: 1;
+  }
+
+  8% {
+    opacity: 0.1;
+  }
+
+  9% {
+    opacity: 1;
+  }
+
+  12% {
+    opacity: 0.1;
+  }
+  20% {
+    opacity: 1;
+  }
+  25% {
+    opacity: 0.3;
+  }
+  30% {
+    opacity: 1;
+  }
+
+  70% {
+    opacity: 0.7;
+  }
+  72% {
+    opacity: 0.2;
+  }
+
+  77% {
+    opacity: 0.9;
+  }
+  100% {
+    opacity: 0.9;
+  }
+}
+
+@keyframes parallax-effect {
+  to {
+    opacity: 0;
+    transform: translateY(calc(var(--parallax-speed) * 100px));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  @keyframes parallax {
+    to {
+      transform: translateY(0);
+    }
+  }
+}
+
+/* TODO: Think of something better for neon sign in mobile dimensions. */
+@media (max-width: 720px) {
+  .neon-sign {
+    display: none;
+  }
+}
