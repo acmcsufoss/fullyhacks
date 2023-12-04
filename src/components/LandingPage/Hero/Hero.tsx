@@ -13,6 +13,7 @@ const Hero: React.FC = () => {
           <img
             src="/cat3.svg"
             className="w-[72px] md:w-[100px] absolute top-[-18%] md:top-[-20%] left-1/2"
+            alt="neon cat"
           />
         </h1>
         <p className="font-normal text-[1rem] md:text-lg">

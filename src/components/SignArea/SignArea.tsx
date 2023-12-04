@@ -18,7 +18,7 @@ const SignArea: React.FC<SignAreaProps> = (props) => {
       </div>
       {/* https://github.com/flackr/scroll-timeline#readme */}
       <Script
-        strategy="beforeInteractive"
+        strategy="lazyOnload"
         src="https://flackr.github.io/scroll-timeline/dist/scroll-timeline.js"
       />
     </>

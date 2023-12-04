@@ -1,6 +1,8 @@
-import { companyType, FAQType, TeamType } from '@/types/interface'
-import Link from 'next/link'
 import React from 'react'
+import Link from 'next/link'
+import Image from 'next/image'
+import { companyType, FAQType, TeamType } from '@/types/interface'
+import { SignArea, SIGNS } from '@/components/SignArea'
 import { LandingFooter } from '../Footer/Footer'
 import About from './About/About'
 import CountDown from './CountDown/CountDown'
@@ -9,8 +11,6 @@ import Partners from './Partners/Partners'
 import Sponsors from './Sponsors/Sponsors'
 import Team from './Team/Team'
 import Hero from './Hero/Hero'
-import { SignArea, SIGNS } from '@/components/SignArea'
-import Image from 'next/image'
 
 interface LandingPageProps {
   companyData: companyType[]
