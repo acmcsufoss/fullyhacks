@@ -82,6 +82,9 @@ module.exports = {
       },
       screens: {
         md: '700px'
+      },
+      fontFamily: {
+        rubik: ['Rubik', 'sans-serif']
       }
     }
   },
