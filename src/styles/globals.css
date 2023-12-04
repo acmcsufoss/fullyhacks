@@ -69,6 +69,7 @@
 
 .neon-sign {
   opacity: 0.5;
+  width: auto;
   position: absolute;
   grid-area: 'stack';
   animation: parallax-effect linear;
@@ -79,7 +80,6 @@
     0 0 25px 4px var(--border-color),
     0 0 25px 4px var(--border-color) inset;
   padding: 0.5rem;
-  
   z-index: var(--z-index);
   top: var(--css-top);
   right: var(--css-right);
