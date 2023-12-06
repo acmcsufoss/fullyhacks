@@ -20,22 +20,21 @@ export default function App({
       />
     )
   }
+
   return (
-    <>
-      <QueryClientProvider client={queryClient}>
-        <AuthProvider session={pageProps.session}>
-          <section className="scroll-smooth bg-gradient-to-b from-purple_gradient_1 to-purple_gradient_2 w-[100vw] h-[100vh] flex flex-col overflow-scroll overflow-x-hidden">
-            <NextNProgress
-              transformCSS={(css) => {
-                return <style>{css}</style>
-              }}
-            />
-            <Hydrate state={pageProps.dehydratedState}>
-              <Component {...pageProps} />
-            </Hydrate>
-          </section>
-        </AuthProvider>
-      </QueryClientProvider>
-    </>
+    <QueryClientProvider client={queryClient}>
+      <AuthProvider session={pageProps.session}>
+        <section className="scroll-smooth bg-gradient-to-b from-purple_gradient_1 to-purple_gradient_2 w-[100vw] h-[100vh] flex flex-col overflow-scroll overflow-x-hidden">
+          <NextNProgress
+            transformCSS={(css) => {
+              return <style>{css}</style>
+            }}
+          />
+          <Hydrate state={pageProps.dehydratedState}>
+            <Component {...pageProps} />
+          </Hydrate>
+        </section>
+      </AuthProvider>
+    </QueryClientProvider>
   )
 }

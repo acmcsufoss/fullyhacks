@@ -66,6 +66,7 @@ module.exports = {
         pink_700: '#B438DF',
         pink_400: '#FF8F8F',
         pink_300: '#DF389C',
+        pink_200: '#D936BF',
         pink_100: '#FFABCE',
         orange_300: '#FFC985',
         orange_100: '#FFEDCC',
