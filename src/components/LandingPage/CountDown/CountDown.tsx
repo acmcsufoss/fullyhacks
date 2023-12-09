@@ -25,8 +25,8 @@ const CountDown = () => {
   })
 
   setInterval(() => {
-    // Set the date for April 8th
-    const targetDate = new Date('2023-04-08T13:00:00')
+    // Set the date for February 23rd
+    const targetDate = new Date('2024-02-23T13:00:00')
     const currentDate = new Date()
     const timeRemaining = targetDate.getTime() - currentDate.getTime()
     const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24))
@@ -38,32 +38,33 @@ const CountDown = () => {
     dispatch({ type: 'count', payload: { days, hours, minutes, seconds } })
   }, 1000)
   return (
-    <div className="z-[11] grid lg:grid-flow-col md:grid-flow-col gap-10 text-center auto-cols-max font-rubik mt-12">
-      <div className="flex flex-col text-blue_300">
-        <div className="flex items-center">
-          <span className="countdown text-5xl">
+    <div className="z-[11] grid lg:grid-flow-col md:grid-flow-col gap-10 text-center auto-cols-max font-ohm font-medium mt-12">
+      <div className="flex flex-col items-center justify-center text-blue_neon bg-blue_dark rounded-xl p-3 py-7">
+          <span className="countdown text-6xl" >
             <span style={{ '--value': time.days } as CSSProperties}></span>
           </span>
-        </div>
-        Days
       </div>
-      <div className="flex flex-col text-purple_500">
-        <span className="countdown text-5xl">
+      <span className="colon text-7xl">:</span>
+      <div className="flex flex-col items-center justify-center text-blue_neon bg-blue_dark rounded-xl p-3">
+        <span className="countdown text-6xl">
           <span style={{ '--value': time.hours } as CSSProperties}></span>
         </span>
-        Hours
       </div>
-      <div className="flex flex-col text-pink_700">
-        <span className="countdown text-5xl">
+      <span className="colon text-7xl">:</span>
+      <div className="flex flex-col items-center justify-center text-blue_neon bg-blue_dark rounded-xl p-3">
+        <div className="flex items-center">
+        <span className="countdown text-6xl">
           <span style={{ '--value': time.minutes } as CSSProperties}></span>
         </span>
-        Mins
+        </div>
       </div>
-      <div className="flex flex-col text-pink_300">
-        <span className="countdown text-5xl">
+      <span className="colon text-7xl">:</span>
+      <div className="flex flex-col items-center justify-center text-blue_neon bg-blue_dark rounded-xl p-3">
+        <div className="flex items-center">
+        <span className="countdown text-6xl">
           <span style={{ '--value': time.seconds } as CSSProperties}></span>
         </span>
-        Secs
+        </div>
       </div>
     </div>
   )
