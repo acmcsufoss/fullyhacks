@@ -2,7 +2,7 @@ import { MenuType } from '@/types/interface'
 import { signOut } from 'next-auth/react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { IoArrowBackSharp } from 'react-icons/io5'
 import { BiHomeAlt, BiCalendarEvent, BiUserCircle } from 'react-icons/bi'
 import { SlEnergy } from 'react-icons/sl'
@@ -41,41 +41,17 @@ export const NavBarLanding: React.FC = () => {
     },
     {
       id: 'portal',
-      name: 'Portal',
+      name: 'User Portal',
       href: '/portal',
       mobile: 24,
       desktop: 24
     }
   ])
 
-  const [isMobileMenuOpen, setMobileMenuOpen] = useState(false)
-
-  const toggleMobileMenu = () => {
-    setMobileMenuOpen(!isMobileMenuOpen)
-  }
-
-  // Use useEffect to check the window width on mount and resize
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth >= 831) {
-        // Close the mobile menu if the screen width is greater than or equal to 831px
-        setMobileMenuOpen(false)
-      }
-    }
-
-    // Attach the event listener
-    window.addEventListener('resize', handleResize)
-
-    // Cleanup the event listener on component unmount
-    return () => {
-      window.removeEventListener('resize', handleResize)
-    }
-  }, [])
-
   return (
-    <nav className="z-[30] navbar text-white text-center font-rubik font-semibold text-2xl lg:pl-8 lg:pt-2 lg:grid lg:grid-cols-3">
-      <div className="navbar-start lg:col-span-2 flex items-center">
-        <Link href="/" className="flex gap-2 items-center">
+    <nav className="z-[30] navbar text-white font-semibold text-lg lg:pl-8 lg:pt-2 lg:grid lg:grid-cols-4">
+      <div className="navbar-start">
+        <Link href="/" className="hidden lg:flex gap-2 items-center">
           <img
             src="/logo.svg"
             alt="Fully logo"
@@ -84,67 +60,77 @@ export const NavBarLanding: React.FC = () => {
             className="lg:inline-flex hidden"
           />
         </Link>
+        <div className="dropdown">
+          <label tabIndex={0} className="btn btn-ghost lg:hidden">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-5 w-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M4 6h16M4 12h8m-8 6h16"
+              />
+            </svg>
+          </label>
+          <ul
+            tabIndex={0}
+            className="z-[3] ml-4 menu menu-compact dropdown-content mt-3 p-2 shadow bg-purple_300 rounded-box w-52 text-[1rem]">
+            {menuList.map((item) => {
+              return (
+                <div key={item.id} className="flex gap-4 my-2">
+                  <Link
+                    key={item.id}
+                    href={item.href}
+                    className="flex gap-2 items-center m-2">
+                    <p className="cursor-pointer"> {item.name} </p>
+                  </Link>
+                </div>
+              )
+            })}
+          </ul>
+        </div>
       </div>
-      <div className="navbar-center hidden xl:flex lg:col-span-1 lg:justify-end pr-8 mt-2">
-        <ul className="menu menu-horizontal w-[100%] flex items-center justify-end space-x-4 absolute top-10 right-8">
-          {menuList.map((item, index) => (
-            <React.Fragment key={item.id}>
-              <Link href={item.href} className="flex items-center">
-                <p className="cursor-pointer hover:ease-in-out hover:duration-200 hover:text-purple_main_hover">
-                  {item.name}
-                </p>
-              </Link>
-              {index < menuList.length - 1 && (
-                <span
-                  className="mx-2"
-                  style={{
-                    width: '2px',
-                    backgroundColor: '#E149A9',
-                    display: 'inline-block',
-                    height: '1em'
-                  }}></span>
-              )}
-            </React.Fragment>
-          ))}
+      <div className="navbar-center hidden xl:flex lg:col-span-3 mr-36 mb-20">
+        <ul className="menu menu-horizontal w-[100%] flex justify-end items-center">
+        {menuList.map((item, index) => {
+  return (
+    <div key={item.id} style={{ marginRight: '-40px' }} className="flex my-2">
+      {/* Placeholder div or remove entirely */}
+      <div
+        style={{ width: item.desktop, height: item.desktop }}
+        className="ml-12"
+      />
+      <Link
+        key={item.id}
+        id={item.id}
+        href={item.href}
+        className="flex items-center"
+      >
+        <p className="cursor-pointer hover:ease-in-out hover:duration-200 hover:text-purple_main_hover font-rubik">
+          {item.name}
+        </p>
+      </Link>
+      {index < menuList.length - 1 && (
+        <span className="ml-7"
+        style={{ borderLeft: '4px solid #E149A9', height: '32px' }}
+        ></span>
+      )}    </div>
+  );
+})}
+
         </ul>
       </div>
-      {/* Mobile Menu */}
-      <div className="lg:hidden flex items-center justify-between mt-2">
-        <div className="flex items-center gap-2">
-          <Link href="/" className="flex items-center">
-            <img
-              src="/logo.svg"
-              alt="Fully logo"
-              width={120}
-              height={120}
-              className="absolute top-4 left-4"
-            />
+      <div className="navbar-end lg:hidden">
+        <>
+          <img src="/logo.svg" alt="Fully logo" width={36} height={36} />
+          <Link href="/" className="flex gap-2 items-center mr-4">
+            <p className="ml-2"> FH </p>
           </Link>
-          <AiOutlineMenu
-            onClick={toggleMobileMenu}
-            className="cursor-pointer text-purple_main absolute top-4 right-4"
-            size={20}
-          />
-        </div>
-        {isMobileMenuOpen && (
-          <div className="absolute top-14 right-4 text-white text-2xl bg-gray-800 bg-opacity-75">
-            <AiOutlineClose
-              onClick={toggleMobileMenu}
-              size={20}
-              className="cursor-pointer"
-            />
-            <ul className="border-b-2 p-2">
-              {menuList.map((item) => (
-                <button
-                  key={item.id}
-                  onClick={() => router.push(item.href)}
-                  className="w-full flex my-4 p-2 rounded-lg items-center">
-                  {item.name}
-                </button>
-              ))}
-            </ul>
-          </div>
-        )}
+        </>
       </div>
     </nav>
   )
