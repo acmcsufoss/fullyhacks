@@ -11,7 +11,6 @@ export interface MenuType {
   id: string
   name: string
   href: string
-  logo: string
   mobile: number
   desktop: number
 }
