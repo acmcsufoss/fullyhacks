@@ -22,15 +22,6 @@ export const NavBarLanding: React.FC = () => {
       id: 'about',
       name: 'About',
       href: '#about',
-      logo: '/laptop.svg',
-      mobile: 24,
-      desktop: 24
-    },
-    {
-      id: 'sponsor',
-      name: 'Sponsors',
-      href: '#sponsors',
-      logo: '/confetti.svg',
       mobile: 24,
       desktop: 24
     },
@@ -38,15 +29,13 @@ export const NavBarLanding: React.FC = () => {
       id: 'faq',
       name: 'FAQ',
       href: '#faq',
-      logo: '/thinking.svg',
       mobile: 24,
       desktop: 24
     },
     {
-      id: 'team',
-      name: 'Team',
-      href: '#team',
-      logo: '/handshake.svg',
+      id: 'sponsor',
+      name: 'Sponsors',
+      href: '#sponsors',
       mobile: 24,
       desktop: 24
     },
@@ -54,7 +43,6 @@ export const NavBarLanding: React.FC = () => {
       id: 'portal',
       name: 'User Portal',
       href: '/portal',
-      logo: '/portal.svg',
       mobile: 24,
       desktop: 24
     }
@@ -94,12 +82,6 @@ export const NavBarLanding: React.FC = () => {
             {menuList.map((item) => {
               return (
                 <div key={item.id} className="flex gap-4 my-2">
-                  <img
-                    src={item.logo}
-                    alt={item.logo + '"s logo'}
-                    width={item.mobile}
-                    height={item.mobile}
-                  />
                   <Link
                     key={item.id}
                     href={item.href}
@@ -112,38 +94,39 @@ export const NavBarLanding: React.FC = () => {
           </ul>
         </div>
       </div>
-      <div className="navbar-center hidden xl:flex lg:col-span-3">
+      <div className="navbar-center hidden xl:flex lg:col-span-3 mr-36 mb-20">
         <ul className="menu menu-horizontal w-[100%] flex justify-end items-center">
-          {menuList.map((item) => {
-            return (
-              <div key={item.id} className="flex">
-                <img
-                  src={item.logo}
-                  alt={item.logo + '"s logo'}
-                  width={item.desktop}
-                  height={item.desktop}
-                  className="mx-4 ml-12"
-                />
-                <Link
-                  key={item.id}
-                  id={item.id}
-                  href={item.href}
-                  className="flex items-center">
-                  <p className="cursor-pointer hover:ease-in-out hover:duration-200 hover:text-purple_main_hover">
-                    {item.name}
-                  </p>
-                </Link>
-              </div>
-            )
-          })}
+        {menuList.map((item, index) => {
+  return (
+    <div key={item.id} style={{ marginRight: '-40px' }} className="flex my-2">
+      {/* Placeholder div or remove entirely */}
+      <div
+        style={{ width: item.desktop, height: item.desktop }}
+        className="ml-12"
+      />
+      <Link
+        key={item.id}
+        id={item.id}
+        href={item.href}
+        className="flex items-center"
+      >
+        <p className="cursor-pointer hover:ease-in-out hover:duration-200 hover:text-purple_main_hover font-rubik">
+          {item.name}
+        </p>
+      </Link>
+      {index < menuList.length - 1 && (
+        <span className="ml-7"
+        style={{ borderLeft: '4px solid #E149A9', height: '32px' }}
+        ></span>
+      )}    </div>
+  );
+})}
+
         </ul>
       </div>
       <div className="navbar-end lg:hidden">
         <>
           <img src="/logo.svg" alt="Fully logo" width={36} height={36} />
-          <Link href="/" className="flex gap-2 items-center mr-4">
-            <p className="ml-2"> FH </p>
-          </Link>
         </>
       </div>
     </nav>
