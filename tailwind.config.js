@@ -87,7 +87,8 @@ module.exports = {
         md: '700px'
       },
       fontFamily: {
-        rubik: ['Rubik', 'sans-serif']
+        rubik: ['Rubik', 'sans-serif'],
+        ohm: ['Ohm']
       }
     }
   },
