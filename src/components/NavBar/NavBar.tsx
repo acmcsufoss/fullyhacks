@@ -96,37 +96,32 @@ export const NavBarLanding: React.FC = () => {
       </div>
       <div className="navbar-center hidden xl:flex lg:col-span-3 mr-36 mb-20">
         <ul className="menu menu-horizontal w-[100%] flex justify-end items-center">
-          {menuList.map((item, index) => {
-            return (
-              <div
-                key={item.id}
-                style={{ marginRight: '-40px' }}
-                className="flex my-2">
-                {/* Placeholder div or remove entirely */}
-                <div
-                  style={{ width: item.desktop, height: item.desktop }}
-                  className="ml-12"
-                />
-                <Link
-                  key={item.id}
-                  id={item.id}
-                  href={item.href}
-                  className="flex items-center">
-                  <p className="cursor-pointer hover:ease-in-out hover:duration-200 hover:text-purple_main_hover font-rubik">
-                    {item.name}
-                  </p>
-                </Link>
-                {index < menuList.length - 1 && (
-                  <span
-                    className="ml-7"
-                    style={{
-                      borderLeft: '4px solid #E149A9',
-                      height: '32px'
-                    }}></span>
-                )}{' '}
-              </div>
-            )
-          })}
+        {menuList.map((item, index) => {
+  return (
+    <div key={item.id} style={{ marginRight: '-40px' }} className="flex my-2">
+      {/* Placeholder div or remove entirely */}
+      <div
+        style={{ width: item.desktop, height: item.desktop }}
+        className="ml-12"
+      />
+      <Link
+        key={item.id}
+        id={item.id}
+        href={item.href}
+        className="flex items-center"
+      >
+        <p className="cursor-pointer hover:ease-in-out hover:duration-200 hover:text-purple_main_hover font-rubik">
+          {item.name}
+        </p>
+      </Link>
+      {index < menuList.length - 1 && (
+        <span className="ml-7"
+        style={{ borderLeft: '4px solid #E149A9', height: '32px' }}
+        ></span>
+      )}    </div>
+  );
+})}
+
         </ul>
       </div>
       <div className="navbar-end lg:hidden">
