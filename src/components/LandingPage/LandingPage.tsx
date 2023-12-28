@@ -69,7 +69,7 @@ const LandingPage: React.FC<LandingPageProps> = (props) => {
             <Team team={teamData} />
           </div>
         </section>
-        <div className="w-[100vw] my-12 relative font-normal font-rubik text-purple_main flex flex-col items-center justify-start overflow-hidden md:text-md md:mt-40">
+        <div className="w-[100vw] mb-40 relative font-normal font-rubik text-purple_main flex flex-col items-center justify-start overflow-hidden md:text-md md:mt-32 md:mb-24">
           <LandingFooter />
         </div>
       </main>
