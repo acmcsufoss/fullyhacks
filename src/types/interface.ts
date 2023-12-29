@@ -20,6 +20,7 @@ export interface TeamType {
   name: string
   image: string
   role: string
+  tag?: string
   href: string
 }
 

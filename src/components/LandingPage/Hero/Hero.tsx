@@ -17,7 +17,7 @@ const Hero: React.FC = () => {
           />
         </h1>
         <p className="font-normal text-[1rem] md:text-lg">
-          TSU PAVILION: <time dateTime="2023-02-17">FEB 24</time> -{' '}
+          CS BUILDING: <time dateTime="2023-02-17">FEB 24</time> -{' '}
           <time dateTime="2023-02-18">FEB 25</time>
         </p>
       </section>

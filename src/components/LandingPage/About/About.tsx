@@ -14,7 +14,7 @@ const About: React.FC = () => {
         </h2>
         <p className="md:mt-4">
           <span className="font-semibold text-[#00ABF5]">
-            24-hour hackaton{' '}
+            24-hour hackathon{' '}
           </span>
           for beginners and first-time hackers. This year, our hackathon will be
           held on
