@@ -30,16 +30,16 @@ export default function Home({
   return (
     <>
       <Head>
-        <title>FullyHacks 2023</title>
+        <title>FullyHacks 4</title>
         <meta
           name="description"
-          content="Welcome to FullyHacks 2023"
+          content="Welcome to FullyHacks 2024"
           key="desc"
         />
-        <meta property="og:title" content="FullyHacks 2023" />
+        <meta property="og:title" content="FullyHacks 2024" />
         <meta
           property="og:description"
-          content="Welcome to FullyHacks 2023, CSUF's largest 24-hour hackathon"
+          content="Welcome to FullyHacks 2024, CSUF's largest 24-hour hackathon"
         />
         <meta property="og:image" content="/fullyhacks_logo.png" />
         <link rel="shortcut icon" href="/favicon.ico" />
