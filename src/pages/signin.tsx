@@ -59,7 +59,7 @@ const signin: NextPage = () => {
       />
       <div className="relative mt-10 flex flex-col justify-center items-center mx-4">
         <div className="text-center font-normal">
-          <p className="font-ohm mt-14 text-[3rem] md:text-[4rem] font-bold [text-shadow:_0_0_10px_#FF49ED] ">
+          <p className="font-ohm mt-14 text-[3rem] md:text-[4rem] font-bold [text-shadow:_0_0_10px_#FF49ED]">
             Welcome to FullyHacks!
           </p>
           <p>Let&apos;s sign in and start your application</p>

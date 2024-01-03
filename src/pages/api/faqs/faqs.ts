@@ -10,8 +10,7 @@ export const faqs: FAQType[] = [
   {
     id: 'faq2',
     question: 'When is FullyHacks?',
-    answer:
-      'Feb 24th to Feb 25th. The hackathon will be 100% in-person.'
+    answer: 'Feb 24th to Feb 25th. The hackathon will be 100% in-person.'
   },
   {
     id: 'faq3',
