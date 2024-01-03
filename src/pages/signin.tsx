@@ -1,4 +1,4 @@
-import Bubbles from '@/components/Bubble/Bubbles'
+import Flower from '@/components/Flower/Flower'
 import { GenericNavBar } from '@/components/NavBar/NavBar'
 import PopUp from '@/components/PopUp/PopUp'
 import { GetServerSidePropsContext, NextPage } from 'next'
@@ -26,28 +26,46 @@ import { BsGithub } from 'react-icons/bs'
 const signin: NextPage = () => {
   const [isClicked, setClick] = useState(false)
   return (
-    <section className="text-purple_main text-md font-rubik">
+    <section className="text-purple_main bg-[#0B062B] min-h-screen text-md font-rubik">
       <GenericNavBar />
+      <Flower
+        top="top-[20em] hidden md:block"
+        left="left-48"
+        width="w-36"
+        height="h-36"
+      />
+      <Flower
+        top="top-[6em] hidden md:block"
+        left="left-12"
+        width="w-36"
+        height="h-36"
+      />
+      <Flower
+        top="top-[6em] hidden md:block"
+        left="right-[4em]"
+        width="w-36"
+        height="h-36"
+      />
+      <Flower
+        top="top-[22em] hidden md:block"
+        left="right-[10em]"
+        width="w-36"
+        height="h-36"
+      />
       <PopUp
         title="Before you continue"
-        content="FullyHacks only open to CSUF students 18 years old or older 🐘"
+        content="FullyHacks only open to college students 18 years old or older 🐘"
         action="I understand"
       />
       <div className="relative mt-10 flex flex-col justify-center items-center mx-4">
-        <Bubbles />
-        <img
-          className="animate-float motion-reduce:animate-none w-48 md:w-[260px]"
-          src="/tuffy_rocket.svg"
-          alt="Tuffy Rocket"
-        />
         <div className="text-center font-normal">
-          <p className="mt-14 text-lg md:text-xl font-semibold">
+          <p className="font-ohm mt-14 text-[3rem] md:text-[4rem] font-bold [text-shadow:_0_0_10px_#FF49ED] ">
             Welcome to FullyHacks!
           </p>
           <p>Let&apos;s sign in and start your application</p>
         </div>
         <button
-          className="flex items-center rounded-md mt-12 p-4 bg-purple_300 text-[1.15rem] font-semibold font-mont"
+          className="flex text-white items-center rounded-md mt-12 p-4 bg-[#AF5B98] hover:bg-[#8f467b] hover:transition-all hover:duration-300 text-[1.15rem] font-semibold font-mont"
           onClick={() => {
             setClick(true)
             signIn('github', {
