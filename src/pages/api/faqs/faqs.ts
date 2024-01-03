@@ -5,19 +5,25 @@ export const faqs: FAQType[] = [
     id: 'faq1',
     question: 'What is FullyHacks?',
     answer:
-      'FullyHacks is a FREE 24-hour hackathon hosted by ACM at California State University Fullerton, marking the first in-person event held on campus. Join us for a day of innovation, collaboration, and creative problem-solving as we bring together students from various backgrounds to tackle real-world challenges using cutting-edge technology.'
+      'FullyHacks is a FREE 24-hour hackathon hosted by ACM at California State University Fullerton. Join us for a day of innovation, collaboration, and creative problem-solving as we bring together students from various backgrounds to tackle real-world challenges using cutting-edge technology.'
   },
   {
     id: 'faq2',
     question: 'When is FullyHacks?',
     answer:
-      'April 8th to April 9th. The hackathon will be 100% in-person and gathering at ECS Quad.'
+      'Feb 24th to Feb 25th. The hackathon will be 100% in-person.'
   },
   {
     id: 'faq3',
     question: 'Who can particpate?',
     answer:
-      'Only CSUF students with a valid CSUF student email (@csu.fullerton.edu) can participate in FullyHacks and must be 18 years old or older by April 8th, 2023.'
+      'US College students who are 18 or above with a valid student email. We welcome people of all backgrounds and experience levels.'
+  },
+  {
+    id: 'faq10',
+    question: 'Will there be travel reimbursements?',
+    answer:
+      'Unfortunately, we will not be able to provide travel reimbursements.'
   },
   {
     id: 'faq4',
@@ -45,24 +51,12 @@ export const faqs: FAQType[] = [
   {
     id: 'faq7',
     question: 'When are applications due?',
-    answer: 'Before 23:59 April 1st, 2023'
-  },
-  {
-    id: 'faq8',
-    question: "I'm not a CSUF student, can I attend?",
-    answer:
-      'Unfortunately, due to restricted timeline, only CSUF students may attend FullyHacks'
-  },
-  {
-    id: 'faq9',
-    question: "I'm a CSUF student but I'm under 18, can I attend?",
-    answer:
-      'Unfortunately, due to the overnight factor, only 18 or above CSUF students may attend'
+    answer: 'Before 23:59 Feb 10th, 2024'
   },
   {
     id: 'faq10',
     question: 'When will I know my application status?',
     answer:
-      'All applications will be reviewed on a rolling basis until April 1st, you can check application status in your user portal'
+      'All applications will be reviewed on a rolling basis until Feb 10th, you can check application status in your user portal'
   }
 ]
