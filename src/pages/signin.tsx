@@ -6,22 +6,22 @@ import { getSession, signIn } from 'next-auth/react'
 import { useState } from 'react'
 import { BsGithub } from 'react-icons/bs'
 
-// export async function getServerSideProps(context: GetServerSidePropsContext) {
-//   // Check if user is authenticated
-//   const session = await getSession(context)
-//   // If user already signed in, move them to application page
-//   if (session) {
-//     return {
-//       redirect: {
-//         destination: '/apply',
-//         permanent: false
-//       }
-//     }
-//   }
-//   return {
-//     props: {}
-//   }
-// }
+export async function getServerSideProps(context: GetServerSidePropsContext) {
+  // Check if user is authenticated
+  const session = await getSession(context)
+  // If user already signed in, move them to application page
+  if (session) {
+    return {
+      redirect: {
+        destination: '/apply',
+        permanent: false
+      }
+    }
+  }
+  return {
+    props: {}
+  }
+}
 
 const signin: NextPage = () => {
   const [isClicked, setClick] = useState(false)
