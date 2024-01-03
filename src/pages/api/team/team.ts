@@ -176,5 +176,13 @@ export const team: TeamType[] = [
     role: 'Operation Officer',
     tag: 'Operation',
     href: '/'
+  },
+  {
+    id: 'team16',
+    name: 'Matt',
+    image: '/matt.webp',
+    role: 'Operation Officer',
+    tag: 'Operation',
+    href: '/'
   }
 ]

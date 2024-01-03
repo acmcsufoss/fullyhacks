@@ -82,6 +82,9 @@ const signin: NextPage = () => {
             </>
           )}
         </button>
+        <p className="mt-6 text-[1rem] text-center">
+          Note: We use Github to keep track of your submission
+        </p>
       </div>
     </section>
   )
