@@ -1,21 +1,30 @@
 import { TeamType } from '@/types/interface'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { FaChevronDown } from 'react-icons/fa'
 
 interface TeamProps {
   team: TeamType[]
 }
 
 const Team: React.FC<TeamProps> = ({ team }) => {
+  const [showMore, setShowMore] = useState(false)
+
+  const toggleMore = () => {
+    setShowMore(!showMore)
+  }
+
   return (
-    <div className="md:ml-[6rem] font-rubik">
-      <p className="mt-10 text-xl font-medium md:text-[5rem] text-[#0BB6FF] [text-shadow:_-3px_0_4px_#FF0BF5] font-ohm">
+    <div className="font-rubik">
+      <h2 className="mt-10 text-xl text-center md:text-start font-medium md:text-[5rem] text-[#0BB6FF] [text-shadow:_-3px_0_4px_#FF0BF5] font-ohm">
         Our Team
-      </p>
-      <p className="mt-4 font-light">
+      </h2>
+      <p className="mt-4 text-center md:text-start font-light">
         The amazing people who make FullyHacks possible
       </p>
       <section className="grid grid-cols-2 md:grid-cols-4 text-center gap-10 my-10">
-        {team.map((people: TeamType) => {
+        {team.map((people: TeamType, i) => {
+          if (!showMore && i >= 16) return
+
           return (
             <div className="flex flex-col items-center" key={people.id}>
               <a target="_blank" href={people.href}>
@@ -28,14 +37,14 @@ const Team: React.FC<TeamProps> = ({ team }) => {
                         people.tag == 'Design'
                           ? 'bg-[#FB3E3E]'
                           : people.tag == 'Marketing'
-                            ? 'bg-[#1447FF]'
-                            : people.tag == 'Operation'
-                              ? 'bg-[#56FF71]'
-                              : people.tag == 'Web'
-                                ? 'bg-[#EE9292]'
-                                : people.tag == 'Finance'
-                                  ? 'bg-[#FCFF60]'
-                                  : 'bg-[#C614E4]'
+                          ? 'bg-[#1447FF]'
+                          : people.tag == 'Operation'
+                          ? 'bg-[#56FF71]'
+                          : people.tag == 'Web'
+                          ? 'bg-[#EE9292]'
+                          : people.tag == 'Finance'
+                          ? 'bg-[#FCFF60]'
+                          : 'bg-[#C614E4]'
                       } p-1 object-cover h-20 w-20 md:h-28 md:w-28`}
                     />
                   </div>
@@ -49,6 +58,17 @@ const Team: React.FC<TeamProps> = ({ team }) => {
           )
         })}
       </section>
+      <div
+        onClick={toggleMore}
+        className="flex items-center justify-between p-4 text-white border-2 border-pink_200 rounded-box transition-all duration-500 cursor-pointer hover:bg-purple_hover">
+        <span>Show {showMore ? 'Less' : 'More'}</span>
+        <div
+          className={`transition-all duration-500 ${
+            showMore ? 'rotate-180' : ''
+          }`}>
+          <FaChevronDown size={24} />
+        </div>
+      </div>
     </div>
   )
 }
