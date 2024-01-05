@@ -1,30 +1,60 @@
 import { TeamType } from '@/types/interface'
 import React, { useEffect, useState } from 'react'
-import { FaChevronDown } from 'react-icons/fa'
+
+const teamTags = [
+  'All',
+  'Director',
+  'Web',
+  'Design',
+  'Marketing',
+  'Finance',
+  'Operation'
+]
 
 interface TeamProps {
   team: TeamType[]
 }
 
 const Team: React.FC<TeamProps> = ({ team }) => {
-  const [showMore, setShowMore] = useState(false)
+  const [filteredTeam, setFilteredTeam] = useState(team)
+  const [filteredTag, setFilteredTag] = useState('')
 
-  const toggleMore = () => {
-    setShowMore(!showMore)
+  const handleTeamFiltering = (tag: string) => {
+    if (tag === 'All') {
+      setFilteredTeam(team)
+      return
+    }
+
+    setFilteredTag(tag)
+    const newFilteredTeam = team.filter((people) => people.tag === tag)
+    console.log(newFilteredTeam)
+    setFilteredTeam(newFilteredTeam)
   }
 
   return (
     <div className="font-rubik">
-      <h2 className="mt-10 text-xl text-center md:text-start font-medium md:text-[5rem] text-[#0BB6FF] [text-shadow:_-3px_0_4px_#FF0BF5] font-ohm">
+      <h2 className="mt-10 text-xxl text-center md:text-start font-medium md:text-[5rem] text-[#0BB6FF] [text-shadow:_-3px_0_4px_#FF0BF5] font-ohm">
         Our Team
       </h2>
-      <p className="mt-4 text-center md:text-start font-light">
+      <p className="mt-2 text-center md:text-start font-light">
         The amazing people who make FullyHacks possible
       </p>
-      <section className="grid grid-cols-2 md:grid-cols-4 text-center gap-10 my-10">
-        {team.map((people: TeamType, i) => {
-          if (!showMore && i >= 16) return
 
+      <div className="flex mt-4 items-center justify-center gap-4 flex-wrap">
+        {teamTags.map((tag, i) => {
+          return (
+            <div
+              key={'tag' + (i + 1)}
+              onClick={() => handleTeamFiltering(tag)}
+              className="flex items-center justify-between px-4 py-2 text-white border-2 border-pink_200 rounded-box transition-all duration-500 cursor-pointer hover:bg-purple_hover">
+              <span>{tag}</span>
+            </div>
+          )
+        })}
+      </div>
+
+      <section className="grid grid-cols-2 md:grid-cols-4 text-center gap-10 my-10">
+        {filteredTeam.map((people: TeamType) => {
           return (
             <div className="flex flex-col items-center" key={people.id}>
               <a target="_blank" href={people.href}>
@@ -58,17 +88,6 @@ const Team: React.FC<TeamProps> = ({ team }) => {
           )
         })}
       </section>
-      <div
-        onClick={toggleMore}
-        className="flex items-center justify-between p-4 text-white border-2 border-pink_200 rounded-box transition-all duration-500 cursor-pointer hover:bg-purple_hover">
-        <span>Show {showMore ? 'Less' : 'More'}</span>
-        <div
-          className={`transition-all duration-500 ${
-            showMore ? 'rotate-180' : ''
-          }`}>
-          <FaChevronDown size={24} />
-        </div>
-      </div>
     </div>
   )
 }
