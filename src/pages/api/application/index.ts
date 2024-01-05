@@ -18,6 +18,7 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
         email,
         pronouns,
         github,
+        school,
         phone,
         major,
         gradYear,
@@ -47,6 +48,7 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
         data: {
           name: name as any,
           email: email as any,
+          school: school as any,
           major: major as any,
           food: food as any,
           class: gradYear as any,

@@ -31,6 +31,7 @@ model Application {
   phone       String
   degree      String
   pronouns    String
+  school      String
   approved    Boolean  @default(false)
   rejected    Boolean  @default(false)
   skillLevel  Int

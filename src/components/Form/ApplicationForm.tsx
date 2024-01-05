@@ -5,11 +5,14 @@ import * as yup from 'yup'
 import axios from 'axios'
 import Loading from '../Loading/Loading'
 import { useRouter } from 'next/router'
+import SchoolSuggestion from './SchoolSuggestion'
+import { University, usUniveristies } from './usuni'
 
 interface ApplicationState {
   name: string
   email: string
   pronouns: string
+  school: string
   phone: string
   major: string
   gradYear: string
@@ -29,7 +32,10 @@ const schema = yup
     email: yup
       .string()
       .email('Invalid email format')
-      .matches(/@csu.fullerton.edu$/, 'Must be CSUF student email'),
+      //Matches any .edu email
+      .matches(/^[a-zA-Z0-9._%+-]+@([a-zA-Z0-9-]+\.)+(edu)$/, {
+        message: 'Must be a .edu email'
+      }),
     phone: yup
       .string()
       .matches(
@@ -37,6 +43,7 @@ const schema = yup
         'Invalid phone number format'
       ),
     major: yup.string().min(2),
+    school: yup.string().min(4),
     gradYear: yup
       .number()
       .typeError('Must be number')
@@ -69,6 +76,7 @@ const initialState: ApplicationState = {
   name: '',
   email: '',
   pronouns: 'she/her',
+  school: '',
   phone: '',
   major: '',
   gradYear: '2023',
@@ -99,6 +107,8 @@ const reducer = (
       return state
     case 'SET_NAME':
       return { ...state, name: action.payload }
+    case 'SET_SCHOOL':
+      return { ...state, school: action.payload }
     case 'SET_EMAIL':
       return { ...state, email: action.payload }
     case 'SET_PRONOUNS':
@@ -130,6 +140,7 @@ interface ApplicationProps {
 
 const ApplicationForm: React.FC<ApplicationProps> = (props) => {
   const { url } = props
+  const usUni: University[] = usUniveristies
   const {
     register,
     handleSubmit,
@@ -191,6 +202,7 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
       setLoading(false)
     } catch (error) {
       console.log(error)
+      setLoading(false)
     }
   }
   return (
@@ -214,7 +226,7 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
             placeholder="John Doe"
           />
           <p className="error-msg">{errors.name?.message}</p>
-          <p>CSUF email</p>
+          <p>School email</p>
           <input
             {...register('email')}
             name="email"
@@ -231,6 +243,14 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
             placeholder="jdoe@csu.fullerton.edu"
           />
           <p className="error-msg">{errors.email?.message}</p>
+          <p>School</p>
+          <SchoolSuggestion
+            register={register}
+            errors={errors}
+            dispatch={dispatch}
+            application={application}
+          />
+          <p className="error-msg">{errors.school?.message}</p>
           <p>Github</p>
           <input
             className="form-input"
@@ -344,7 +364,9 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
               {...register('response')}
               value={application.response}
               name="response"
-              className={`form-input ${errors.response ? 'error-form' : ''}`}
+              className={`h-[300px] form-input ${
+                errors.response ? 'error-form' : ''
+              }`}
               onChange={(e) => {
                 dispatch({ type: 'SET_RESPONSE', payload: e.target.value })
                 dispatch({

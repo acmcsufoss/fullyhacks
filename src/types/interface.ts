@@ -36,6 +36,7 @@ export interface ApplicationType {
   email: string
   major: string
   food: string
+  school: string
   github: string
   class: number
   phone: string
