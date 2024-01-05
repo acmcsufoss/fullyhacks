@@ -1,6 +1,7 @@
-import { University, usUniveristies } from '@/components/Form/usuni'
+import uniJson from '@/components/Form/usuni.json'
+import { University } from '@/types/interface'
 import { bool, InferType, number, object, string } from 'yup'
-const usUni: University[] = usUniveristies
+const usUni: University[] = uniJson.usUniveristies
 export const applicationSchema = object({
   name: string(),
   email: string()

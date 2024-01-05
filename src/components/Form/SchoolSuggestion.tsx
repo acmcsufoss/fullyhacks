@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { AiOutlineSearch } from 'react-icons/ai'
-import { University, usUniveristies } from './usuni'
+import uniJson from './usuni.json'
+import { University } from '@/types/interface'
 
 interface SchoolSuggestionProps {
   register: any
@@ -17,7 +18,7 @@ const SchoolSuggestion: React.FC<SchoolSuggestionProps> = ({
 }) => {
   const [search, setSearch] = useState<string>('')
   const [filteredSchool, setfilteredSchool] = useState<University[]>([])
-  const universites: University[] = usUniveristies
+  const universites: University[] = uniJson.usUniveristies
   const handleChange = (e: any) => {
     setSearch(e.target.value)
     setfilteredSchool(

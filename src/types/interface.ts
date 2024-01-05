@@ -119,3 +119,7 @@ export interface tracksType {
   icon?: JSX.Element
   description: string
 }
+
+export interface University {
+  institution: string
+}

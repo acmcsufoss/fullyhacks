@@ -6,7 +6,8 @@ import axios from 'axios'
 import Loading from '../Loading/Loading'
 import { useRouter } from 'next/router'
 import SchoolSuggestion from './SchoolSuggestion'
-import { University, usUniveristies } from './usuni'
+import uniJson from './usuni.json' 
+import { University } from '@/types/interface'
 
 interface ApplicationState {
   name: string
@@ -140,7 +141,7 @@ interface ApplicationProps {
 
 const ApplicationForm: React.FC<ApplicationProps> = (props) => {
   const { url } = props
-  const usUni: University[] = usUniveristies
+  const usUni: University[] = uniJson.usUniveristies
   const {
     register,
     handleSubmit,
