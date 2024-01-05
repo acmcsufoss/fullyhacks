@@ -60,7 +60,7 @@ const apply: NextPage = ({
             </p>
             <button
               onClick={() => router.push('/portal')}
-              className="p-2 bg-purple_300 rounded-md mt-10 hover:bg-purple_hover hover:text-white hover:duration-200 hover:ease-in-out">
+              className="bg-[#E149A9] hover:bg-[#b63487] hover:duration-200 hover:ease-in-out text-white p-2 bg-purple_main rounded-md mt-10">
               Go to User Portal
             </button>
           </div>

@@ -77,6 +77,7 @@ export interface User {
   id: string
   name: string
   email: string
+  school: string
   discordId?: string
   bio?: string
   emailVerified?: Date

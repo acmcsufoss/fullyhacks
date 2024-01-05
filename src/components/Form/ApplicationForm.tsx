@@ -6,7 +6,7 @@ import axios from 'axios'
 import Loading from '../Loading/Loading'
 import { useRouter } from 'next/router'
 import SchoolSuggestion from './SchoolSuggestion'
-import uniJson from './usuni.json' 
+import uniJson from './usuni.json'
 import { University } from '@/types/interface'
 
 interface ApplicationState {
