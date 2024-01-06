@@ -60,6 +60,7 @@ export interface feedUsers {
   isAdmin: boolean
   discordId: string
   bio: string
+  school: string
   application: ApplicationType
 }
 

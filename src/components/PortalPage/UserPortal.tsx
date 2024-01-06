@@ -21,13 +21,11 @@ const UserPortal: React.FC<UserProps> = ({ user }) => {
 
   return (
     <div className="text-white  flex flex-col items-center justify-center relative mx-4 md:mx-48 font-rubik">
-      <p className="text-[4rem] [text-shadow:_0_0_10px_#FF49ED] font-ohm text-purple_main">
-        User Portal
-      </p>
-      <div className="w-[720px] bg-[#100D21] md:text-md mt-10 p-6 rounded-lg backdrop-filter backdrop-blur-md bg-opacity-25 border-2 border-[#E149A9]">
+      <p className="text-[4rem] neon-text">User Portal</p>
+      <div className="w-[720px] bg-[#100D21] md:text-md mt-10 p-6 rounded-lg backdrop-filter backdrop-blur-md bg-opacity-25 border-2 border-purple_main">
         <div className="flex gap-4">
           <img
-            className="border-2 border-[#E149A9] z-[30] w-24 h-24 rounded-md md:w-48 md:h-48"
+            className="border-2 border-purple_main z-[30] w-24 h-24 rounded-md md:w-48 md:h-48"
             src={`${user.image}`}
             alt="Github's pfp"
           />
@@ -70,7 +68,7 @@ const UserPortal: React.FC<UserProps> = ({ user }) => {
       {application.status == 'approved' && (
         <button
           onClick={() => router.push('/feed')}
-          className="hover:bg-[#b63487] hover:duration-200 hover:ease-in-out text-white flex items-center gap-4 bg-[#E149A9] p-2 font-semibold mt-8 rounded-lg md:text-md">
+          className="hover:bg-[#b63487] hover:duration-200 hover:ease-in-out text-white flex items-center gap-4 bg-purple_main p-2 font-semibold mt-8 rounded-lg md:text-md">
           Continue to Feed
           <BsArrowRight size={24} />
         </button>
