@@ -5,7 +5,7 @@ interface ApplyAuthProps {
 const ApplyAuth: React.FC<ApplyAuthProps> = ({ children }) => {
   // Application from March 13rd to April 1st
   const options = { timeZone: 'America/Los_Angeles' }
-  const openDate = new Date('2024-01-02T00:00:00.000-07:00').toLocaleString(
+  const openDate = new Date('2024-01-12T00:00:00.000-07:00').toLocaleString(
     'en-US',
     options
   )
