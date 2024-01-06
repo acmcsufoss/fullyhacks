@@ -51,7 +51,7 @@ const SchoolSuggestion: React.FC<SchoolSuggestionProps> = ({
               setSearch(item.institution)
               dispatch({
                 type: 'SAVE_DRAFT',
-                payload: { name: 'name', value: item.institution }
+                payload: { name: 'school', value: item.institution }
               })
               dispatch({ type: 'SET_SCHOOL', payload: item.institution })
               setfilteredSchool([])

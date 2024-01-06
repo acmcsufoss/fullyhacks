@@ -6,9 +6,12 @@ export const applicationSchema = object({
   name: string(),
   email: string()
     .email('Invalid email format')
+    //Matches any .edu email
     .matches(/^[a-zA-Z0-9._%+-]+@([a-zA-Z0-9-]+\.)+(edu)$/, {
-      message: 'Must be a .edu email'
+      message: 'Must be a .edu email',
+      excludeEmptyString: true
     }),
+  preferredEmail: string().email('Invalid email format').required(),
   phone: string().matches(
     /^\D?(\d{3})\D?\D?(\d{3})\D?(\d{4})$/,
     'Invalid phone number format'

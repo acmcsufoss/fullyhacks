@@ -33,7 +33,8 @@ export interface FAQType {
 export interface ApplicationType {
   id: string
   name: string
-  email: string
+  email?: string
+  preferredEmail: string
   major: string
   food: string
   school: string

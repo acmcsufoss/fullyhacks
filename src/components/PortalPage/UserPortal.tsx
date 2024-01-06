@@ -42,7 +42,10 @@ const UserPortal: React.FC<UserProps> = ({ user }) => {
               <span className="font-normal"> {application.github} </span>
             </p>
             <p className="">Email:</p>
-            <span className="font-normal break-all"> {application.email} </span>
+            <span className="font-normal break-all">
+              {' '}
+              {application.preferredEmail}{' '}
+            </span>
           </div>
         </div>
         <div className="mt-4 font-semibold md:mt-8">

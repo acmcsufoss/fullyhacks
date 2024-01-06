@@ -11,7 +11,8 @@ import { University } from '@/types/interface'
 
 interface ApplicationState {
   name: string
-  email: string
+  email?: string
+  preferredEmail: string
   pronouns: string
   school: string
   phone: string
@@ -35,8 +36,10 @@ const schema = yup
       .email('Invalid email format')
       //Matches any .edu email
       .matches(/^[a-zA-Z0-9._%+-]+@([a-zA-Z0-9-]+\.)+(edu)$/, {
-        message: 'Must be a .edu email'
+        message: 'Must be a .edu email',
+        excludeEmptyString: true
       }),
+    preferredEmail: yup.string().email('Invalid email format').required(),
     phone: yup
       .string()
       .matches(
@@ -76,6 +79,7 @@ type FormData = yup.InferType<typeof schema>
 const initialState: ApplicationState = {
   name: '',
   email: '',
+  preferredEmail: '',
   pronouns: 'she/her',
   school: '',
   phone: '',
@@ -112,6 +116,8 @@ const reducer = (
       return { ...state, school: action.payload }
     case 'SET_EMAIL':
       return { ...state, email: action.payload }
+    case 'SET_PREFERRED_EMAIL':
+      return { ...state, preferredEmail: action.payload }
     case 'SET_PRONOUNS':
       return { ...state, pronouns: action.payload }
     case 'SET_PHONE':
@@ -227,7 +233,7 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
             placeholder="John Doe"
           />
           <p className="error-msg">{errors.name?.message}</p>
-          <p>School email</p>
+          <p>School email (optional)</p>
           <input
             {...register('email')}
             name="email"
@@ -244,6 +250,25 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
             placeholder="jdoe@csu.fullerton.edu"
           />
           <p className="error-msg">{errors.email?.message}</p>
+          <p>Preferred email</p>
+          <input
+            {...register('preferredEmail')}
+            name="preferredEmail"
+            value={application.preferredEmail}
+            onChange={(e) => {
+              dispatch({
+                type: 'SAVE_DRAFT',
+                payload: { name: 'preferredEmail', value: e.target.value }
+              })
+              dispatch({ type: 'SET_PREFERRED_EMAIL', payload: e.target.value })
+            }}
+            className={`form-input ${
+              errors.preferredEmail ? 'error-form' : ''
+            }`}
+            type="text"
+            placeholder="john-doe@gmail.com"
+          />
+          <p className="error-msg">{errors.preferredEmail?.message}</p>
           <p>School</p>
           <SchoolSuggestion
             register={register}
