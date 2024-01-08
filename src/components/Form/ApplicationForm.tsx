@@ -433,6 +433,16 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
             placeholder="non-diary,..."
           />
           <div className="mt-4 flex items-center gap-4">
+            <p>
+              Because of limitations imposed by CSUF, we are legally not allowed
+              to host minors (those under 18) for Fullyhacks 2024. By checking
+              the box, you affirm that you are and will be 18 years or older by
+              February 24th, 2024.{' '}
+            </p>
+            <p className="text-red-600">
+              We will be checking ID. If you are a minor, you won't be allowed
+              to attend.
+            </p>
             <input
               {...register('over18')}
               name="over18"
@@ -442,7 +452,7 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
               type="checkbox"
               className="bg-purple_300 checkbox"
             />
-            <p>I&apos;m 18 or older by April 8th, 2023</p>
+            <p>I&apos;m 18 or older by February 24th, 2024</p>
           </div>
           <p className="error-msg">{errors.over18?.message}</p>
           <div className="mt-4 flex items-center gap-4">
