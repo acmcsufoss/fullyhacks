@@ -262,9 +262,8 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
               })
               dispatch({ type: 'SET_PREFERRED_EMAIL', payload: e.target.value })
             }}
-            className={`form-input ${
-              errors.preferredEmail ? 'error-form' : ''
-            }`}
+            className={`form-input ${errors.preferredEmail ? 'error-form' : ''
+              }`}
             type="text"
             placeholder="john-doe@gmail.com"
           />
@@ -390,9 +389,8 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
               {...register('response')}
               value={application.response}
               name="response"
-              className={`h-[300px] form-input ${
-                errors.response ? 'error-form' : ''
-              }`}
+              className={`h-[300px] form-input ${errors.response ? 'error-form' : ''
+                }`}
               onChange={(e) => {
                 dispatch({ type: 'SET_RESPONSE', payload: e.target.value })
                 dispatch({
@@ -432,7 +430,7 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
             type="text"
             placeholder="non-diary,..."
           />
-          <div className="mt-4 flex items-center gap-4">
+          <div className="mt-4 flex flex-col gap-4">
             <p>
               Because of limitations imposed by CSUF, we are legally not allowed
               to host minors (those under 18) for Fullyhacks 2024. By checking
@@ -443,6 +441,8 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
               We will be checking ID. If you are a minor, you won't be allowed
               to attend.
             </p>
+          </div>
+          <div className="mt-4 flex items-center gap-4">
             <input
               {...register('over18')}
               name="over18"
