@@ -32,11 +32,11 @@ const Team: React.FC<TeamProps> = ({ team }) => {
   }
 
   return (
-    <div className="font-rubik">
-      <h2 className="mt-10 text-xxl text-center md:text-start font-medium md:text-[5rem] text-[#0BB6FF] [text-shadow:_-3px_0_4px_#FF0BF5] font-ohm">
+    <div className="font-rubik md:w-[900px]">
+      <h2 className="mt-10 text-xxl text-center font-medium md:text-[5rem] text-[#0BB6FF] [text-shadow:_-3px_0_4px_#FF0BF5] font-ohm">
         Our Team
       </h2>
-      <p className="mt-2 text-center md:text-start font-light">
+      <p className="mt-2 text-center font-light">
         The amazing people who make FullyHacks possible
       </p>
 
@@ -67,14 +67,14 @@ const Team: React.FC<TeamProps> = ({ team }) => {
                         people.tag == 'Design'
                           ? 'bg-[#FB3E3E]'
                           : people.tag == 'Marketing'
-                          ? 'bg-[#1447FF]'
-                          : people.tag == 'Operation'
-                          ? 'bg-[#56FF71]'
-                          : people.tag == 'Web'
-                          ? 'bg-[#EE9292]'
-                          : people.tag == 'Finance'
-                          ? 'bg-[#FCFF60]'
-                          : 'bg-[#C614E4]'
+                            ? 'bg-[#1447FF]'
+                            : people.tag == 'Operation'
+                              ? 'bg-[#56FF71]'
+                              : people.tag == 'Web'
+                                ? 'bg-[#EE9292]'
+                                : people.tag == 'Finance'
+                                  ? 'bg-[#FCFF60]'
+                                  : 'bg-[#C614E4]'
                       } p-1 object-cover h-20 w-20 md:h-28 md:w-28`}
                     />
                   </div>

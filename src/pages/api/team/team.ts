@@ -50,12 +50,20 @@ export const team: TeamType[] = [
     href: '/'
   },
   {
-    id: 'team100',
-    name: 'Kristine',
+    id: 'teamboushra',
+    name: 'Boushra',
     image: '/tuffy_rocket.svg',
+    role: 'Web Officer',
+    tag: 'Web',
+    href: 'https://www.linkedin.com/in/boushra-bettir-428038260/'
+  },
+  {
+    id: 'team100',
+    name: 'Kristen',
+    image: '/kristen.webp',
     role: 'Design Lead',
     tag: 'Design',
-    href: 'https://www.linkedin.com/in/kvergara123/'
+    href: 'https://www.linkedin.com/in/kristenportillo/'
   },
   {
     id: 'team3',
@@ -84,10 +92,10 @@ export const team: TeamType[] = [
   {
     id: 'team32',
     name: 'Sama',
-    image: '/tuffy_rocket.svg',
+    image: '/sama.webp',
     role: 'Design Officer',
     tag: 'Design',
-    href: '/'
+    href: 'https://www.linkedin.com/in/sama-ahmedd/'
   },
   {
     id: 'team33',
@@ -108,7 +116,7 @@ export const team: TeamType[] = [
   {
     id: 'team14',
     name: 'Brian',
-    image: '/tuffy_rocket.svg',
+    image: '/brian.webp',
     role: 'Marketing Outreach Lead',
     tag: 'Marketing',
     href: 'https://www.linkedin.com/in/brian-milian/'
@@ -116,7 +124,7 @@ export const team: TeamType[] = [
   {
     id: 'team144',
     name: 'Max',
-    image: '/tuffy_rocket.svg',
+    image: '/max.webp',
     role: 'Marketing Outreach Officer',
     tag: 'Marketing',
     href: '/'
@@ -132,10 +140,10 @@ export const team: TeamType[] = [
   {
     id: 'team142',
     name: 'Hiba',
-    image: '/tuffy_rocket.svg',
+    image: '/hiba.webp',
     role: 'Marketing Outreach Officer',
     tag: 'Marketing',
-    href: '/'
+    href: 'https://www.linkedin.com/in/hibamughal'
   },
   {
     id: 'team69',
@@ -176,5 +184,29 @@ export const team: TeamType[] = [
     role: 'Operation Officer',
     tag: 'Operation',
     href: '/'
+  },
+  {
+    id: 'teammatt',
+    name: 'Matt',
+    image: '/matt.webp',
+    role: 'Operation Officer',
+    tag: 'Operation',
+    href: '/'
+  },
+  {
+    id: 'teamdemi',
+    name: 'Demi',
+    image: '/demi.webp',
+    role: 'Operation Officer',
+    tag: 'Operation',
+    href: 'https://github.com/demihungry'
+  },
+  {
+    id: 'teamashley',
+    name: 'Ashley',
+    image: '/ashleyc.webp',
+    role: 'Operation Officer',
+    tag: 'Operation',
+    href: 'http://linkedin.com/in/ashley-chan12'
   }
 ]
