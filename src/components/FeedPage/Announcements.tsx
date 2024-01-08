@@ -22,7 +22,7 @@ const Announcement: React.FC<AnnouncementProps> = ({ announcement }) => {
 const Announcements: React.FC<AnnouncementsProps> = ({ announcements }) => {
   return (
     <div className="mt-14 mx-10 w-full text-purple_main">
-      <p className="text-xl font-semibold">Announcements</p>
+      <p className="text-[4rem] text-[#EF4DB3] neon-text">Announcements</p>
       <p className="font-light md:text-md">
         Official announcements from Fullyhacks team
       </p>

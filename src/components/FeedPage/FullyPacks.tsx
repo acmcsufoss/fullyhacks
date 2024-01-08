@@ -128,7 +128,7 @@ const FullyPack: React.FC<FullyPackProps> = ({ fullypack }) => {
 const FullyPacks = () => {
   return (
     <section className="mt-14 mx-10 w-full text-purple_main">
-      <p className="text-xl font-semibold">FullyPacks</p>
+      <p className="text-[4rem] text-[#EF4DB3] neon-text">FullyPacks</p>
       <p className="font-light md:text-md">
         Beginner-friendly templates for participants
       </p>

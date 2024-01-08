@@ -1,3 +1,4 @@
+import Flower from '@/components/Flower/Flower'
 import { AuthNavBar } from '@/components/NavBar/NavBar'
 import UserPortal from '@/components/PortalPage/UserPortal'
 import { prisma } from 'db'
@@ -41,10 +42,34 @@ const portal = ({
   user
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   return (
-    <>
+    <div className="bg-[#0B062B]">
       <AuthNavBar />
+      <Flower
+        top="top-[30em] hidden md:block"
+        left="left-48"
+        width="w-36"
+        height="h-36"
+      />
+      <Flower
+        top="top-[16em] hidden md:block"
+        left="left-12"
+        width="w-36"
+        height="h-36"
+      />
+      <Flower
+        top="top-[16em] hidden md:block"
+        left="right-[4em]"
+        width="w-36"
+        height="h-36"
+      />
+      <Flower
+        top="top-[28em] hidden md:block"
+        left="right-[18em]"
+        width="w-36"
+        height="h-36"
+      />
       <UserPortal user={user} />
-    </>
+    </div>
   )
 }
 

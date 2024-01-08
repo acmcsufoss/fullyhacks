@@ -41,6 +41,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
         select: {
           name: true,
           major: true,
+          school: true,
           approved: true,
           github: true,
           class: true
@@ -73,7 +74,7 @@ interface feedProps {
 
 const feed = ({ user, feedUsers, announcements }: feedProps) => {
   return (
-    <section className="font-rubik">
+    <section className="font-rubik bg-purple_dark">
       <FeedNavBar />
       <Feed
         feedUsers={feedUsers}

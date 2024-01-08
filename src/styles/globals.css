@@ -15,6 +15,16 @@
     @apply relative py-1 px-8 rounded-lg border border-solid border-[#8CEAFF] text-[#8CEAFF] [text-shadow:_0_0_10px_#8CEAFF];
     @apply after:content-[''] after:absolute after:top-12 after:left-2 after:w-full after:h-[5px] after:bg-[#8CEAFF] after:opacity-[.7] after:blur-sm after:skew-x-[30deg];
   }
+  .neon-text {
+    @apply [text-shadow:_0_0_10px_#FF49ED] font-ohm text-purple_main;
+  }
+  .purple-btn {
+    @apply hover:bg-[#b63487] hover:duration-200 hover:ease-in-out text-white p-2 bg-purple_main rounded-md;
+  }
+
+  .feed-popup {
+    @apply bg-purple_dark text-white [box-shadow:_0_0_10px_#E149A9];
+  }
 
   .form-input {
     @apply border-2 border-purple_300 p-2 bg-body_bg mt-2 mb-4;

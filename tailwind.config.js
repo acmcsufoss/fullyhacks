@@ -62,6 +62,8 @@ module.exports = {
         blue_300: '#385DDF',
         blue_neon: '#DDE2FF',
         blue_dark: '#20225f',
+        purple_main: '#E149A9',
+        purple_dark: '#0D0A22',
         purple_300: '#9EA8FF',
         purple_hover: '#3b3561',
         purple_500: '#4F38DF',

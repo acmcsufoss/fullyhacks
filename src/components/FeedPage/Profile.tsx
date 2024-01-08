@@ -86,7 +86,7 @@ const Profile: React.FC<ProfileProps> = ({ currentUser }) => {
 
   return (
     <section className="overflow-x-auto mt-14 mx-10">
-      <p className="mb-10 text-purple_main md:text-lg font-bold">
+      <p className="mb-10 text-[4rem] text-[#EF4DB3] neon-text">
         {currentUser.name}&apos;s Profile
       </p>
       <form

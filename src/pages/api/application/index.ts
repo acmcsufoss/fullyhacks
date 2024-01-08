@@ -16,8 +16,10 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
       const {
         name,
         email,
+        preferredEmail,
         pronouns,
         github,
+        school,
         phone,
         major,
         gradYear,
@@ -42,25 +44,50 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
           .status(403)
           .json({ message: "You've already submitted an application!" })
       }
-      // submit
-      await prisma.application.create({
-        data: {
-          name: name as any,
-          email: email as any,
-          major: major as any,
-          food: food as any,
-          class: gradYear as any,
-          phone: phone as any,
-          github: github as any,
-          degree: education as any,
-          pronouns: pronouns as any,
-          skillLevel: skill as any,
-          response: response as any,
-          userId: user?.id as any,
-          applied: true,
-          requirement: true
-        }
-      })
+      if (email !== '') {
+        // submit
+        await prisma.application.create({
+          data: {
+            name: name as any,
+            email: email as any,
+            preferredEmail: preferredEmail as any,
+            school: school as any,
+            major: major as any,
+            food: food as any,
+            class: gradYear as any,
+            phone: phone as any,
+            github: github as any,
+            degree: education as any,
+            pronouns: pronouns as any,
+            skillLevel: skill as any,
+            response: response as any,
+            userId: user?.id as any,
+            applied: true,
+            requirement: true
+          }
+        })
+      } else {
+        // submit
+        await prisma.application.create({
+          data: {
+            name: name as any,
+            preferredEmail: preferredEmail as any,
+            school: school as any,
+            major: major as any,
+            food: food as any,
+            class: gradYear as any,
+            phone: phone as any,
+            github: github as any,
+            degree: education as any,
+            pronouns: pronouns as any,
+            skillLevel: skill as any,
+            response: response as any,
+            userId: user?.id as any,
+            applied: true,
+            requirement: true
+          }
+        })
+      }
       res.status(200).json(req.body)
     } catch (e) {
       res.status(500).json(e)
