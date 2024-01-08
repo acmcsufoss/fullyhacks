@@ -28,7 +28,7 @@ export const team: TeamType[] = [
   {
     id: 'team20',
     name: 'Tomas',
-    image: '/tuffy_rocket.svg',
+    image: '/tomas_oh.jpg',
     role: 'Web Officer',
     tag: 'Web',
     href: 'https://github.com/tomasohCHOM'
