@@ -36,7 +36,7 @@ export const team: TeamType[] = [
   {
     id: 'team21',
     name: 'Elzie',
-    image: '/tuffy_rocket.svg',
+    image: '/elzie.webp',
     role: 'Web Officer',
     tag: 'Web',
     href: '/'
