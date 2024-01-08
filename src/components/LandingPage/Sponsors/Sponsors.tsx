@@ -11,7 +11,11 @@ const SponsorBalloon: React.FC<SponsorBalloonProps> = (props) => {
   return (
     <div className="w-52 md:w-72 relative animate-float motion-reduce:animate-none">
       <img src="/sponsor_balloon.svg" alt="Sponsor Balloon" />
-      <a className="text-center" target="_blank" href={company.href} title={company.name}>
+      <a
+        className="text-center"
+        target="_blank"
+        href={company.href}
+        title={company.name}>
         <img
           className="absolute z-20 w-32 md:w-48 top-0 bottom-14 md:bottom-20 left-0 right-0 m-auto"
           src={company.image}
