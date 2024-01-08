@@ -5,11 +5,11 @@ interface ApplyAuthProps {
 const ApplyAuth: React.FC<ApplyAuthProps> = ({ children }) => {
   // Application from March 13rd to April 1st
   const options = { timeZone: 'America/Los_Angeles' }
-  const openDate = new Date('2023-03-13T00:00:00.000-07:00').toLocaleString(
+  const openDate = new Date('2024-01-10T00:00:00.000-07:00').toLocaleString(
     'en-US',
     options
   )
-  const closeDate = new Date('2023-04-01T23:59:59.999-07:00').toLocaleString(
+  const closeDate = new Date('2024-02-25T23:59:59.999-07:00').toLocaleString(
     'en-US',
     options
   )
@@ -22,18 +22,13 @@ const ApplyAuth: React.FC<ApplyAuthProps> = ({ children }) => {
       {applicationOpen ? (
         children
       ) : (
-        <div className="text-purple_main flex-col font-rubik font-semibold text-lg text-center md:text-xl mt-10 flex items-center justify-center">
-          {now < openDate && (
-            <p>Application will open on March 14th, stay tuned.</p>
+        <div className="[text-shadow:_0_0_10px_#FF49ED] flex-col font-rubik font-semibold text-lg text-center md:text-[2.5rem] mt-10 flex items-center justify-center">
+          {new Date(now) < new Date(openDate) && (
+            <p>Application will open on January 10th, stay tuned.</p>
           )}
-          {now >= closeDate && (
+          {new Date(now) >= new Date(closeDate) && (
             <p>Application has closed, we&apos;ll see you next year 🐘.</p>
           )}
-          <img
-            className="animate-float motion-reduce:animate-none h-36 w-36 md:h-52 md:w-52"
-            src="/tuffy_rocket.svg"
-            alt="tuffy rocket"
-          />
         </div>
       )}
     </>

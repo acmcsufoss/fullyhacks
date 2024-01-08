@@ -23,15 +23,15 @@ const PopUp: React.FC<PopUpProps> = (props) => {
         checked={isChecked}
         className="modal-toggle"
       />
-      <div className="modal">
-        <div className="modal-box bg-white">
+      <div className="modal text-white">
+        <div className="modal-box bg-[#AF5B98]">
           <h3 className="font-bold text-lg">{title}</h3>
           <p className="py-4">{content}</p>
           <div className="modal-action">
             <label
               htmlFor="my-modal"
               onClick={() => setCheck(false)}
-              className="normal-case btn bg-orange_100 border-none text-purple_main hover:bg-orange-200 hover:ease-in-out hover:duration-200">
+              className="normal-case btn bg-[#230D41] hover:bg-[#8f467b] hover:transition-all hover:duration-300 border-none text-white">
               {action}
             </label>
           </div>

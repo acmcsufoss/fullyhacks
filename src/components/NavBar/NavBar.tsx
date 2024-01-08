@@ -141,23 +141,20 @@ export const NavBarLanding: React.FC = () => {
 export const GenericNavBar = () => {
   const router = useRouter()
   return (
-    <nav className="flex items-center text-purple_main bg-orange_100">
+    <nav className="flex items-center justify-center text-purple_main">
       <img
         onClick={() => router.push('/')}
         alt="nav bar logo"
         src="/logo.svg"
-        className="cursor-pointer my-4 ml-2 w-12 h-12 md:w-16 md:h-16"
+        className="cursor-pointer ml-4 w-24 h-24 md:w-32 md:h-32"
       />
-      <div className="mr-4 ml-auto flex gap-4 items-center">
-        <button
-          onClick={() => router.push('/')}
-          className="font-semibold text-sm md:text-md">
-          Back to home
+      <div
+        onClick={() => router.push('/')}
+        className="cursor-pointer mr-4 p-2 ml-auto flex gap-4 items-center bg-[#E149A9] text-white rounded-xl hover:bg-pink-500 hover:transition-all hover:duration-300">
+        <button className="font-semibold text-sm md:text-md">
+          Back to Home
         </button>
-        <IoArrowBackSharp
-          onClick={() => router.push('/')}
-          className="cursor-pointer scale-x-[-1] w-8 h-8"
-        />
+        <IoArrowBackSharp className="cursor-pointer scale-x-[-1] w-8 h-8" />
       </div>
     </nav>
   )
@@ -166,15 +163,17 @@ export const GenericNavBar = () => {
 export const AuthNavBar = () => {
   const router = useRouter()
   return (
-    <nav className="flex items-center text-purple_main bg-orange_100">
+    <nav className="flex items-center text-purple_main">
       <img
         onClick={() => router.push('/')}
         alt="nav bar logo"
         src="/logo.svg"
-        className="cursor-pointer my-4 ml-2 w-12 h-12 md:w-16 md:h-16"
+        className="cursor-pointer my-4 ml-2 w-24 h-24 md:w-32 md:h-32"
       />
-      <div className="mr-4 ml-auto text-md">
-        <button onClick={() => signOut()}> Sign out</button>
+      <div
+        onClick={() => signOut()}
+        className="cursor-pointer p-2 mr-4 ml-auto text-md bg-[#E149A9] text-white rounded-xl hover:bg-pink-500 hover:transition-all hover:duration-300">
+        <button> Sign out</button>
       </div>
     </nav>
   )

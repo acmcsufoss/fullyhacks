@@ -30,7 +30,7 @@ export default function Home({
   return (
     <>
       <Head>
-        <title>FullyHacks 4</title>
+        <title>FullyHacks 2024</title>
         <meta
           name="description"
           content="Welcome to FullyHacks 2024"
