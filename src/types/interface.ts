@@ -33,9 +33,11 @@ export interface FAQType {
 export interface ApplicationType {
   id: string
   name: string
-  email: string
+  email?: string
+  preferredEmail: string
   major: string
   food: string
+  school: string
   github: string
   class: number
   phone: string
@@ -59,6 +61,7 @@ export interface feedUsers {
   isAdmin: boolean
   discordId: string
   bio: string
+  school: string
   application: ApplicationType
 }
 
@@ -76,6 +79,7 @@ export interface User {
   id: string
   name: string
   email: string
+  school: string
   discordId?: string
   bio?: string
   emailVerified?: Date
@@ -117,4 +121,8 @@ export interface tracksType {
   team?: number
   icon?: JSX.Element
   description: string
+}
+
+export interface University {
+  institution: string
 }

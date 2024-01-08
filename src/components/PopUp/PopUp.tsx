@@ -23,15 +23,15 @@ const PopUp: React.FC<PopUpProps> = (props) => {
         checked={isChecked}
         className="modal-toggle"
       />
-      <div className="modal">
-        <div className="modal-box bg-white">
+      <div className="modal text-white">
+        <div className="modal-box bg-[#AF5B98]">
           <h3 className="font-bold text-lg">{title}</h3>
           <p className="py-4">{content}</p>
           <div className="modal-action">
             <label
               htmlFor="my-modal"
               onClick={() => setCheck(false)}
-              className="normal-case btn bg-orange_100 border-none text-purple_main hover:bg-orange-200 hover:ease-in-out hover:duration-200">
+              className="normal-case btn bg-[#230D41] hover:bg-[#8f467b] hover:transition-all hover:duration-300 border-none text-white">
               {action}
             </label>
           </div>
@@ -86,11 +86,11 @@ export const FeedPopUp: React.FC = (props) => {
             className="modal-toggle"
           />
           <div className="modal">
-            <div className="modal-box bg-white">
-              <h3 className="font-bold text-lg text-purple_main">
+            <div className="modal-box feed-popup">
+              <h3 className="font-bold text-lg">
                 Welcome to The Feed 🐘 (beta version)
               </h3>
-              <p className="py-4 text-purple_main font-normal">
+              <p className="py-4 font-normal">
                 Where you meet other participants and explore other cool things
                 about FullyHacks to be best prepared 🎉
               </p>
@@ -99,7 +99,7 @@ export const FeedPopUp: React.FC = (props) => {
                 <label
                   htmlFor="my-modal"
                   onClick={() => goNextStep()}
-                  className="normal-case btn bg-sky-100 border-none text-purple_main hover:bg-sky-200 hover:ease-in-out hover:duration-200">
+                  className="normal-case purple-btn">
                   Continue
                 </label>
               </div>
@@ -116,11 +116,11 @@ export const FeedPopUp: React.FC = (props) => {
             className="modal-toggle"
           />
           <div className="modal">
-            <div className="modal-box bg-white">
-              <h3 className="font-bold text-lg text-purple_main">
+            <div className="modal-box feed-popup">
+              <h3 className="font-bold text-lg">
                 Let&apos;s introduce yourself 🤩
               </h3>
-              <p className="py-4 text-purple_main font-normal">
+              <p className="py-4 font-normal">
                 Fill out these fields so other participants can see how cool you
                 are, it&apos;s a great chance to networking before the event,
                 you&apos;ll be able to update these information in your profile
@@ -128,14 +128,14 @@ export const FeedPopUp: React.FC = (props) => {
               </p>
               <form
                 onSubmit={handleSubmit(updateUserProfile)}
-                className="text-purple_main w-full flex flex-col"
+                className="w-full flex flex-col"
                 action="">
                 <p className="mb-2 font-bold">Your bio:</p>
                 <input
                   {...register('bio')}
                   name="bio"
                   onChange={(e) => setBio(e.target.value)}
-                  className={`bg-white rounded-md form-input ${
+                  className={`bg-white text-black rounded-md form-input ${
                     errors.bio ? 'error-form' : ''
                   }`}
                   type="text"
@@ -146,7 +146,7 @@ export const FeedPopUp: React.FC = (props) => {
                 <input
                   {...register('discord')}
                   name="discord"
-                  className={`bg-white rounded-md form-input ${
+                  className={`bg-white rounded-md form-input text-black ${
                     errors.discord ? 'error-form' : ''
                   }`}
                   onChange={(e) => setDiscordId(e.target.value)}
@@ -155,15 +155,11 @@ export const FeedPopUp: React.FC = (props) => {
                 />
                 <p className="error-msg">{errors.discord?.message}</p>
                 {isLoading ? (
-                  <button
-                    type="submit"
-                    className="mt-4 self-end normal-case btn bg-sky-100 border-none text-purple_main hover:bg-sky-200 hover:ease-in-out hover:duration-200">
+                  <button type="submit" className="mt-4 self-end purple-btn">
                     <Loading isLoading={isLoading} />
                   </button>
                 ) : (
-                  <button
-                    type="submit"
-                    className="mt-4 self-end normal-case btn bg-sky-100 border-none text-purple_main hover:bg-sky-200 hover:ease-in-out hover:duration-200">
+                  <button type="submit" className="mt-4 self-end purple-btn">
                     Submit
                   </button>
                 )}

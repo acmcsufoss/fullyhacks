@@ -87,7 +87,7 @@ const Applications: React.FC<ApplicationsProps> = (props) => {
         <option value="all">All</option>
         <option value="approved">Approved</option>
         <option value="rejected">Rejected</option>
-        <option value="none">Not Done</option>
+        <option value="submitted">Not Done</option>
       </select>
       <p>Refresh page if you want the filter has the most recent update lol</p>
       <div className="stats stats-vertical lg:stats-horizontal shadow my-8">

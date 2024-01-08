@@ -141,23 +141,20 @@ export const NavBarLanding: React.FC = () => {
 export const GenericNavBar = () => {
   const router = useRouter()
   return (
-    <nav className="flex items-center text-purple_main bg-orange_100">
+    <nav className="flex items-center justify-center text-purple_main">
       <img
         onClick={() => router.push('/')}
         alt="nav bar logo"
         src="/logo.svg"
-        className="cursor-pointer my-4 ml-2 w-12 h-12 md:w-16 md:h-16"
+        className="cursor-pointer ml-4 w-24 h-24 md:w-32 md:h-32"
       />
-      <div className="mr-4 ml-auto flex gap-4 items-center">
-        <button
-          onClick={() => router.push('/')}
-          className="font-semibold text-sm md:text-md">
-          Back to home
+      <div
+        onClick={() => router.push('/')}
+        className="cursor-pointer mr-4 p-2 ml-auto flex gap-4 items-center bg-purple_main text-white rounded-xl hover:bg-pink-500 hover:transition-all hover:duration-300">
+        <button className="font-semibold text-sm md:text-md">
+          Back to Home
         </button>
-        <IoArrowBackSharp
-          onClick={() => router.push('/')}
-          className="cursor-pointer scale-x-[-1] w-8 h-8"
-        />
+        <IoArrowBackSharp className="cursor-pointer scale-x-[-1] w-8 h-8" />
       </div>
     </nav>
   )
@@ -166,15 +163,17 @@ export const GenericNavBar = () => {
 export const AuthNavBar = () => {
   const router = useRouter()
   return (
-    <nav className="flex items-center text-purple_main bg-orange_100">
+    <nav className="flex items-center text-purple_main">
       <img
         onClick={() => router.push('/')}
         alt="nav bar logo"
         src="/logo.svg"
-        className="cursor-pointer my-4 ml-2 w-12 h-12 md:w-16 md:h-16"
+        className="cursor-pointer my-4 ml-2 w-24 h-24 md:w-32 md:h-32"
       />
-      <div className="mr-4 ml-auto text-md">
-        <button onClick={() => signOut()}> Sign out</button>
+      <div
+        onClick={() => signOut()}
+        className="cursor-pointer p-2 mr-4 ml-auto text-md bg-[#E149A9] text-white rounded-xl hover:bg-pink-500 hover:transition-all hover:duration-300">
+        <button> Sign out</button>
       </div>
     </nav>
   )
@@ -183,14 +182,14 @@ export const AuthNavBar = () => {
 export const FeedNavBar = () => {
   const router = useRouter()
   return (
-    <nav className="flex items-center text-purple_main bg-body_bg border-b-2">
+    <nav className="flex items-center text-purple_main">
       <img
         onClick={() => router.push('/')}
         alt="nav bar logo"
         src="/logo.svg"
-        className="cursor-pointer my-4 ml-4 md:ml-10 w-8 h-8 md:w-10 md:h-10"
+        className="cursor-pointer my-4 ml-4 md:ml-10 w-16 h-16 md:w-20 md:h-20"
       />
-      <div className="mr-4 md:mr-10 ml-auto text-md">
+      <div className="mr-4 md:mr-10 ml-auto text-md text-white">
         <button onClick={() => signOut()}> Sign out</button>
       </div>
     </nav>
@@ -251,12 +250,12 @@ export const FeedSideBar: React.FC<FeedSideBarProps> = ({ setLocation }) => {
       {!isOpen && (
         <AiOutlineMenu
           onClick={() => setOpen(true)}
-          className="absolute top-4 left-0 md:hidden cursor-pointer text-purple_main"
+          className="absolute top-4 left-0 md:hidden cursor-pointer text-[#EF4DB3]"
           size={20}
         />
       )}
       {isOpen && (
-        <div className="md:hidden text-sm mt-4 mx-4 font-rubik text-purple_main font-semibold basis-1/6">
+        <div className="md:hidden text-sm mt-4 mx-4 font-rubik text-[#EF4DB3] font-semibold basis-1/6">
           <AiOutlineClose
             onClick={() => setOpen(false)}
             size={20}
@@ -271,7 +270,9 @@ export const FeedSideBar: React.FC<FeedSideBarProps> = ({ setLocation }) => {
                     setLocation(item.name), setIdx(idx)
                   }}
                   className={`w-full flex my-4 p-2 rounded-lg items-center ${
-                    currIdx == idx ? 'bg-sky-100 text-sky-400' : ''
+                    currIdx == idx
+                      ? 'text-white bg-[rgba(255,136,229,0.4)]'
+                      : ''
                   }`}>
                   {item.icon}
                   <li className="ml-4">{item.name}</li>
@@ -297,7 +298,7 @@ export const FeedSideBar: React.FC<FeedSideBarProps> = ({ setLocation }) => {
                   setLocation(item.name), setIdx(idx)
                 }}
                 className={`w-full flex my-4 p-2 rounded-lg items-center ${
-                  currIdx == idx ? 'bg-sky-100 text-sky-400' : ''
+                  currIdx == idx ? 'text-white bg-[rgba(255,136,229,0.4)]' : ''
                 }`}>
                 {item.icon}
                 <li className="ml-4">{item.name}</li>

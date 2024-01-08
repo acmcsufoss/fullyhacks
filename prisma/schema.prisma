@@ -23,7 +23,8 @@ model Announcement {
 model Application {
   id          String   @id @default(auto()) @map("_id") @db.ObjectId
   name        String
-  email       String
+  email       String?
+  preferredEmail String
   major       String
   food        String
   github      String
@@ -31,6 +32,7 @@ model Application {
   phone       String
   degree      String
   pronouns    String
+  school      String
   approved    Boolean  @default(false)
   rejected    Boolean  @default(false)
   skillLevel  Int
@@ -39,7 +41,7 @@ model Application {
   userId      String   @unique
   user        User     @relation(fields: [userId], references: [id])
   applied     Boolean  @default(false)
-  status      String   @default("none")
+  status      String   @default("submitted")
   requirement Boolean  @default(false)
   response    String
 }

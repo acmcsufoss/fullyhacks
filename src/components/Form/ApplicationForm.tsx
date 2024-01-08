@@ -5,11 +5,16 @@ import * as yup from 'yup'
 import axios from 'axios'
 import Loading from '../Loading/Loading'
 import { useRouter } from 'next/router'
+import SchoolSuggestion from './SchoolSuggestion'
+import uniJson from './usuni.json'
+import { University } from '@/types/interface'
 
 interface ApplicationState {
   name: string
-  email: string
+  email?: string
+  preferredEmail: string
   pronouns: string
+  school: string
   phone: string
   major: string
   gradYear: string
@@ -29,7 +34,12 @@ const schema = yup
     email: yup
       .string()
       .email('Invalid email format')
-      .matches(/@csu.fullerton.edu$/, 'Must be CSUF student email'),
+      //Matches any .edu email
+      .matches(/^[a-zA-Z0-9._%+-]+@([a-zA-Z0-9-]+\.)+(edu)$/, {
+        message: 'Must be a .edu email',
+        excludeEmptyString: true
+      }),
+    preferredEmail: yup.string().email('Invalid email format').required(),
     phone: yup
       .string()
       .matches(
@@ -37,6 +47,7 @@ const schema = yup
         'Invalid phone number format'
       ),
     major: yup.string().min(2),
+    school: yup.string().min(4),
     gradYear: yup
       .number()
       .typeError('Must be number')
@@ -68,7 +79,9 @@ type FormData = yup.InferType<typeof schema>
 const initialState: ApplicationState = {
   name: '',
   email: '',
+  preferredEmail: '',
   pronouns: 'she/her',
+  school: '',
   phone: '',
   major: '',
   gradYear: '2023',
@@ -99,8 +112,12 @@ const reducer = (
       return state
     case 'SET_NAME':
       return { ...state, name: action.payload }
+    case 'SET_SCHOOL':
+      return { ...state, school: action.payload }
     case 'SET_EMAIL':
       return { ...state, email: action.payload }
+    case 'SET_PREFERRED_EMAIL':
+      return { ...state, preferredEmail: action.payload }
     case 'SET_PRONOUNS':
       return { ...state, pronouns: action.payload }
     case 'SET_PHONE':
@@ -130,6 +147,7 @@ interface ApplicationProps {
 
 const ApplicationForm: React.FC<ApplicationProps> = (props) => {
   const { url } = props
+  const usUni: University[] = uniJson.usUniveristies
   const {
     register,
     handleSubmit,
@@ -191,6 +209,7 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
       setLoading(false)
     } catch (error) {
       console.log(error)
+      setLoading(false)
     }
   }
   return (
@@ -214,7 +233,7 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
             placeholder="John Doe"
           />
           <p className="error-msg">{errors.name?.message}</p>
-          <p>CSUF email</p>
+          <p>School email (optional)</p>
           <input
             {...register('email')}
             name="email"
@@ -231,6 +250,32 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
             placeholder="jdoe@csu.fullerton.edu"
           />
           <p className="error-msg">{errors.email?.message}</p>
+          <p>Preferred email</p>
+          <input
+            {...register('preferredEmail')}
+            name="preferredEmail"
+            value={application.preferredEmail}
+            onChange={(e) => {
+              dispatch({
+                type: 'SAVE_DRAFT',
+                payload: { name: 'preferredEmail', value: e.target.value }
+              })
+              dispatch({ type: 'SET_PREFERRED_EMAIL', payload: e.target.value })
+            }}
+            className={`form-input ${errors.preferredEmail ? 'error-form' : ''
+              }`}
+            type="text"
+            placeholder="john-doe@gmail.com"
+          />
+          <p className="error-msg">{errors.preferredEmail?.message}</p>
+          <p>School</p>
+          <SchoolSuggestion
+            register={register}
+            errors={errors}
+            dispatch={dispatch}
+            application={application}
+          />
+          <p className="error-msg">{errors.school?.message}</p>
           <p>Github</p>
           <input
             className="form-input"
@@ -344,7 +389,8 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
               {...register('response')}
               value={application.response}
               name="response"
-              className={`form-input ${errors.response ? 'error-form' : ''}`}
+              className={`h-[300px] form-input ${errors.response ? 'error-form' : ''
+                }`}
               onChange={(e) => {
                 dispatch({ type: 'SET_RESPONSE', payload: e.target.value })
                 dispatch({
@@ -384,6 +430,18 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
             type="text"
             placeholder="non-diary,..."
           />
+          <div className="mt-4 flex flex-col gap-4">
+            <p>
+              Because of limitations imposed by CSUF, we are legally not allowed
+              to host minors (those under 18) for Fullyhacks 2024. By checking
+              the box, you affirm that you are and will be 18 years or older by
+              February 24th, 2024.{' '}
+            </p>
+            <p className="text-red-600">
+              We will be checking ID. If you are a minor, you won't be allowed
+              to attend.
+            </p>
+          </div>
           <div className="mt-4 flex items-center gap-4">
             <input
               {...register('over18')}
@@ -394,7 +452,7 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
               type="checkbox"
               className="bg-purple_300 checkbox"
             />
-            <p>I&apos;m 18 or older by April 8th, 2023</p>
+            <p>I&apos;m 18 or older by February 24th, 2024</p>
           </div>
           <p className="error-msg">{errors.over18?.message}</p>
           <div className="mt-4 flex items-center gap-4">

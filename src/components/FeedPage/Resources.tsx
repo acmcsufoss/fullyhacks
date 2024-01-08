@@ -99,7 +99,7 @@ const sponsorGifts: sponsorGiftType[] = [
 const Resources = () => {
   return (
     <section className="mt-14 mx-10 w-full text-purple_main">
-      <div className="md:text-xl font-semibold">Fully Gifts</div>
+      <div className="text-[4rem] text-[#EF4DB3] neon-text">Fully Gifts</div>
       <div className="font-light md:text-md">
         Cool gifts from our great sponsors
       </div>

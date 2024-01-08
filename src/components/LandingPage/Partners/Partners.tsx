@@ -5,13 +5,15 @@ const Partners: React.FC = () => {
   return (
     <>
       <img
-        src="/partners.svg"
-        alt="partners"
-        className="motion-reduce:animate-none animate-float z-[2] relative w-[58%] md:w-[300px]"
+        className="z-[2] relative w-[58%] md:w-[300px] mt-24"
+        src="/acm_blue_logo.svg"
+        alt="ACM Logo"
       />
       <div className="mb-auto flex flex-col md:ml-[6rem]">
-        <p className="mt-14 text-xl font-medium md:text-xxl">Our Mission</p>
-        <p className="mt-4">
+        <p className="mt-14 text-xxl text-center font-medium md:text-[5rem] text-[#0BB6FF] [text-shadow:_-3px_0_4px_#FF0BF5] font-ohm">
+          Our Mission
+        </p>
+        <p className="mt-4 text-center text-white">
           ACM is the largest computer science community at{' '}
           <span className="font-semibold"> CSUF </span>. We aim to build a
           foundation for future industry leaders by developing their technical,
