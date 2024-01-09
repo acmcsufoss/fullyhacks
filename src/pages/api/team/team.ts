@@ -44,7 +44,7 @@ export const team: TeamType[] = [
   {
     id: 'team22',
     name: 'Jeremiah',
-    image: '/tuffy_rocket.svg',
+    image: '/jeremiah.webp',
     role: 'Web Officer',
     tag: 'Web',
     href: '/'
@@ -52,7 +52,7 @@ export const team: TeamType[] = [
   {
     id: 'teamboushra',
     name: 'Boushra',
-    image: '/tuffy_rocket.svg',
+    image: '/boushra.webp',
     role: 'Web Officer',
     tag: 'Web',
     href: 'https://www.linkedin.com/in/boushra-bettir-428038260/'

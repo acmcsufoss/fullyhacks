@@ -115,7 +115,7 @@ const Team: React.FC<TeamProps> = ({ team }) => {
           {carouselIndex > 0 && (
             <button
               onClick={() => setCarouselIndex(carouselIndex - 1)}
-              className="absolute top-16 md:top-72 -left-3 md:-left-6 lg:-left-12 flex items-center justify-between p-4 text-white border-2 border-pink_200 rounded-full transition-all duration-500 cursor-pointer hover:bg-purple_hover">
+              className="absolute top-[26rem] md:top-96 -left-3 md:-left-6 lg:-left-12 flex items-center justify-between p-4 text-white border-2 border-pink_200 rounded-full transition-all duration-500 cursor-pointer hover:bg-purple_hover">
               <FaChevronLeft className="w-2 h-2 md:w-4 md:h-4" />
             </button>
           )}
@@ -123,14 +123,14 @@ const Team: React.FC<TeamProps> = ({ team }) => {
           {carouselIndex < allTeam.length - 1 && (
             <button
               onClick={() => setCarouselIndex(carouselIndex + 1)}
-              className="absolute top-16 md:top-72 -right-3 md:-right-6 lg:-right-12 flex items-center justify-between p-4 text-white border-2 border-pink_200 rounded-full transition-all duration-500 cursor-pointer hover:bg-purple_hover">
+              className="absolute top-[26rem] md:top-96 -right-3 md:-right-6 lg:-right-12 flex items-center justify-between p-4 text-white border-2 border-pink_200 rounded-full transition-all duration-500 cursor-pointer hover:bg-purple_hover">
               <FaChevronRight className="w-2 h-2 md:w-4 md:h-4" />
             </button>
           )}
         </>
       )}
 
-      <section className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 text-center gap-10 my-10">
+      <section className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 text-center gap-4 md:gap-7 lg:gap-10 my-10">
         {isCarousel
           ? allTeam.map((group: TeamType[], i) => {
               return group.map((people: TeamType) => {
