@@ -1,16 +1,15 @@
-import Bubble from '@/components/Bubble/Bubble'
 import React from 'react'
 
 const Partners: React.FC = () => {
   return (
     <>
-      <img
-        className="z-[2] relative w-[58%] md:w-[300px] mt-24"
-        src="/acm_blue_logo.svg"
-        alt="ACM Logo"
-      />
-      <div className="mb-auto flex flex-col md:ml-[6rem]">
-        <p className="mt-14 text-xxl text-center font-medium md:text-[5rem] text-[#0BB6FF] [text-shadow:_-3px_0_4px_#FF0BF5] font-ohm">
+      <a
+        className="block z-[2] relative w-[58%] md:w-[40%] mt-24"
+        href="https://acmcsuf.com/">
+        <img src="/acm_blue_logo.svg" alt="ACM Logo" />
+      </a>
+      <div className="mb-auto flex flex-col md:w-[80vw] lg:w-[80vw] md:mt-14">
+        <p className="text-xxl text-center font-medium md:text-[5rem] text-[#0BB6FF] [text-shadow:_-3px_0_4px_#FF0BF5] font-ohm">
           Our Mission
         </p>
         <p className="mt-4 text-center text-white">
