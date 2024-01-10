@@ -39,7 +39,7 @@ export const team: TeamType[] = [
     image: '/elzie.webp',
     role: 'Web Officer',
     tag: 'Web',
-    href: '/'
+    href: 'https://www.linkedin.com/in/elizabeth-mazuca-063b1713b'
   },
   {
     id: 'team22',
@@ -47,7 +47,7 @@ export const team: TeamType[] = [
     image: '/jeremiah.webp',
     role: 'Web Officer',
     tag: 'Web',
-    href: '/'
+    href: 'https://www.linkedin.com/in/jeremiahherring/'
   },
   {
     id: 'teamboushra',
