@@ -14,7 +14,7 @@ export const faqs: FAQType[] = [
   },
   {
     id: 'faq3',
-    question: 'Who can particpate?',
+    question: 'Who can participate?',
     answer:
       'US College students who are 18 or above with a valid student email. We welcome people of all backgrounds and experience levels.'
   },
