@@ -55,7 +55,7 @@ const LandingPage: React.FC<LandingPageProps> = (props) => {
             className="font-normal font-rubik text-purple_main mt-8 flex flex-col items-center justify-center md:text-md max-w-[1048px] md:mt-40">
             <Sponsors companies={companyData} />
           </div>
-          <div className="mx-4 relative font-normal font-rubik text-purple_main flex flex-col items-center justify-center md:flex-row md:mx-8 md:text-md md:mt-40 max-w-[1048px]">
+          <div className="mx-4 relative font-normal font-rubik text-purple_main flex flex-col items-center justify-center gap-16 md:gap-6 lg:gap-16 md:flex-row md:justify-start md:mx-8 md:text-md md:mt-40 max-w-[1048px]">
             <Partners />
           </div>
           <div
