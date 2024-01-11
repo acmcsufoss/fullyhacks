@@ -28,7 +28,7 @@ export const team: TeamType[] = [
   {
     id: 'team20',
     name: 'Tomas',
-    image: '/tuffy_rocket.svg',
+    image: '/tomas_oh.jpg',
     role: 'Web Officer',
     tag: 'Web',
     href: 'https://github.com/tomasohCHOM'
@@ -36,23 +36,23 @@ export const team: TeamType[] = [
   {
     id: 'team21',
     name: 'Elzie',
-    image: '/tuffy_rocket.svg',
+    image: '/elzie.webp',
     role: 'Web Officer',
     tag: 'Web',
-    href: '/'
+    href: 'https://www.linkedin.com/in/elizabeth-mazuca-063b1713b'
   },
   {
     id: 'team22',
     name: 'Jeremiah',
-    image: '/tuffy_rocket.svg',
+    image: '/jeremiah.webp',
     role: 'Web Officer',
     tag: 'Web',
-    href: '/'
+    href: 'https://www.linkedin.com/in/jeremiahherring/'
   },
   {
     id: 'teamboushra',
     name: 'Boushra',
-    image: '/tuffy_rocket.svg',
+    image: '/boushra.webp',
     role: 'Web Officer',
     tag: 'Web',
     href: 'https://www.linkedin.com/in/boushra-bettir-428038260/'
