@@ -66,15 +66,22 @@ const apply: NextPage = ({
           </div>
         </>
       ) : (
-        <>
-          <ApplyAuth>
-            <div className="font-rubik text-purple_main mt-10 flex flex-col items-center">
-              <p className="text-lg font-semibold md:text-xl">My Application</p>
-              <p className="text-purple_300">Draft will be saved</p>
+        <ApplyAuth>
+          <div className="flex items-center justify-center">
+            <div className="font-rubik text-[#FF35EB] mt-10 flex flex-col items-center bg-blue_rgba w-[50%] rounded-lg border-8 border-blue_border_rgba [box-shadow:_0_0_32px_#618AA8]">
+              <p className="text-[#FF35EB] text-lg font-semibold md:text-[3rem]">
+                MY APPLICATION
+              </p>
+              <p className="text-white md:text-[1.5rem] font-light">
+                Draft will be saved
+              </p>
+              <p className="mt-4 font-semibold text-white text-[1.25rem]">
+                *Application due by Saturday, February 10th*
+              </p>
               <ApplicationForm url={user?.image} />
             </div>
-          </ApplyAuth>
-        </>
+          </div>
+        </ApplyAuth>
       )}
     </section>
   )

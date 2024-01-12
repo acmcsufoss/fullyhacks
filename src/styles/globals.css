@@ -27,7 +27,7 @@
   }
 
   .form-input {
-    @apply border-2 border-purple_300 p-2 bg-body_bg mt-2 mb-4;
+    @apply border-2 text-[#FFC7EA] rounded-md border-[#FF49ED] [box-shadow:_0_0_10px_#FFC7EA] p-2 bg-black/30 mt-2 mb-4;
   }
   .error-msg {
     @apply text-red-600 mb-2;

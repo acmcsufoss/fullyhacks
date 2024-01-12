@@ -34,19 +34,19 @@ const SchoolSuggestion: React.FC<SchoolSuggestionProps> = ({
   }
   return (
     <div className="">
-      <div className="mt-4 p-1 bg-white flex items-center w-full">
+      <div className="mt-4 form-input flex items-center w-full">
         <input
           {...register('school')}
           type="text"
           name="school"
-          className={`bg-white outline-none w-full text-black ${
+          className={`outline-none bg-transparent w-full ${
             errors.email ? 'error-form' : ''
           }`}
           placeholder="Search school"
           value={search}
           onChange={handleChange}
         />
-        <AiOutlineSearch size={24} color="black" className="" />
+        <AiOutlineSearch size={24} color="#FFC7EA" className="" />
       </div>
       <div className="mt-4 rounded-md max-h-[400px] overflow-scroll">
         {filteredSchool.map((item: University, index) => (

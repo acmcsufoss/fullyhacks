@@ -30,5 +30,17 @@ export const companies: companyType[] = [
     name: 'StickerGiant',
     href: 'https://www.stickergiant.com/',
     image: '/stickergiant.png'
+  },
+  {
+    id: 'co6',
+    name: 'StickerMule',
+    href: 'https://www.stickermule.com/',
+    image: '/stickermule.png'
+  },
+  {
+    id: 'co7',
+    name: 'Balsamiq',
+    href: 'https://balsamiq.com/wireframes/',
+    image: '/balsamiq.png'
   }
 ]

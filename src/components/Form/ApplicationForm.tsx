@@ -262,8 +262,9 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
               })
               dispatch({ type: 'SET_PREFERRED_EMAIL', payload: e.target.value })
             }}
-            className={`form-input ${errors.preferredEmail ? 'error-form' : ''
-              }`}
+            className={`form-input ${
+              errors.preferredEmail ? 'error-form' : ''
+            }`}
             type="text"
             placeholder="john-doe@gmail.com"
           />
@@ -389,8 +390,9 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
               {...register('response')}
               value={application.response}
               name="response"
-              className={`h-[300px] form-input ${errors.response ? 'error-form' : ''
-                }`}
+              className={`h-[300px] form-input ${
+                errors.response ? 'error-form' : ''
+              }`}
               onChange={(e) => {
                 dispatch({ type: 'SET_RESPONSE', payload: e.target.value })
                 dispatch({
@@ -438,8 +440,8 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
               February 24th, 2024.{' '}
             </p>
             <p className="text-red-600">
-              We will be checking School ID. If you are a minor, you won't be allowed
-              to attend.
+              We will be checking School ID. If you are a minor, you won't be
+              allowed to attend.
             </p>
           </div>
           <div className="mt-4 flex items-center gap-4">
@@ -450,7 +452,7 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
                 dispatch({ type: 'SET_AGREE', payload: e.target.checked })
               }}
               type="checkbox"
-              className="bg-purple_300 checkbox"
+              className="bg-[#F587FF] checkbox"
             />
             <p>I&apos;m 18 or older by February 24th, 2024</p>
           </div>
@@ -463,7 +465,7 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
                 dispatch({ type: 'SET_AGREE', payload: e.target.checked })
               }}
               type="checkbox"
-              className="bg-purple_300 checkbox"
+              className="bg-[#F587FF] checkbox"
             />
             <p>
               I agree to
@@ -474,11 +476,11 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
           </div>
           <p className="error-msg">{errors.waiver?.message}</p>
           {isLoading ? (
-            <button className="mt-8 w-[100px] flex justify-center mr-auto p-2 bg-purple_300 hover:bg-purple_hover hover:text-white hover:ease-in-out hover:duration-200 rounded-md font-semibold">
+            <button className="mt-8 w-[100px] flex justify-center mr-auto p-2 bg-[#E149A9] hover:bg-[#ac307e] hover:ease-in-out hover:duration-200 rounded-md font-semibold">
               <Loading isLoading={isLoading} />
             </button>
           ) : (
-            <button className="mt-8 w-[100px] mr-auto p-2 bg-purple_300 hover:bg-purple_hover hover:text-white hover:ease-in-out hover:duration-200 rounded-md font-semibold">
+            <button className="mt-8 w-[100px] text-white mr-auto p-2 bg-[#E149A9] hover:bg-[#ac307e] hover:ease-in-out hover:duration-200 rounded-md font-semibold">
               Submit
             </button>
           )}

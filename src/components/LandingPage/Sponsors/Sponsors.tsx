@@ -17,7 +17,7 @@ const SponsorBalloon: React.FC<SponsorBalloonProps> = (props) => {
         href={company.href}
         title={company.name}>
         <img
-          className="absolute z-20 w-32 md:w-48 top-0 bottom-14 md:bottom-20 left-0 right-0 m-auto"
+          className="absolute z-20 w-24 md:w-32 top-0 bottom-14 md:bottom-20 left-0 right-0 m-auto"
           src={company.image}
           alt={company.name}
         />

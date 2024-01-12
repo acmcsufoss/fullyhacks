@@ -58,7 +58,7 @@ const signin: NextPage = () => {
         action="I understand"
       />
       <div className="relative mt-10 flex flex-col justify-center items-center mx-4">
-        <div className='bg-blue_rgba flex rounded-lg flex-col items-center p-4 mb-16 border-4 border-[#373DCB]'>
+        <div className="bg-blue_rgba flex rounded-lg flex-col items-center p-4 mb-16 border-4 border-[#373DCB]">
           <div className="text-white text-center font-normal flex flex-col items-center">
             <img src="signin.svg" alt="Sign In" className="w-[320px]" />
             <p className=" mt-14 text-[2rem] md:text-[3rem] font-bold">

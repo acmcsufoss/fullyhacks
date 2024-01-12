@@ -22,9 +22,14 @@ const ApplyAuth: React.FC<ApplyAuthProps> = ({ children }) => {
       {applicationOpen ? (
         children
       ) : (
-        <div className="[text-shadow:_0_0_10px_#FF49ED] flex-col font-rubik font-semibold text-lg text-center md:text-[2.5rem] mt-10 flex items-center justify-center">
+        <div className="text-white flex-col font-rubik font-semibold text-lg text-center md:text-[2.5rem] mt-10 flex items-center justify-center">
           {new Date(now) < new Date(openDate) && (
-            <p>Application will open on January 12th, stay tuned.</p>
+            <div className="flex flex-col text-center items-center gap-12">
+              <p className="w-[80%]">
+                Application will open on January 12th, see you soon!.
+              </p>
+              <img src="byecat.svg" alt="bye cat" className="w-[300px]" />
+            </div>
           )}
           {new Date(now) >= new Date(closeDate) && (
             <p>Application has closed, we&apos;ll see you next year 🐘.</p>

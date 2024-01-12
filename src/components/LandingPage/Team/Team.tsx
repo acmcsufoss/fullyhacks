@@ -47,14 +47,14 @@ const TeamMember: React.FC<TeamMemberProps> = ({ member }) => {
                 member.tag == 'Design'
                   ? 'bg-[#FB3E3E]'
                   : member.tag == 'Marketing'
-                  ? 'bg-[rgb(20,71,255)]'
-                  : member.tag == 'Operation'
-                  ? 'bg-[#56FF71]'
-                  : member.tag == 'Web'
-                  ? 'bg-[#EE9292]'
-                  : member.tag == 'Finance'
-                  ? 'bg-[#FCFF60]'
-                  : 'bg-[#C614E4]'
+                    ? 'bg-[rgb(20,71,255)]'
+                    : member.tag == 'Operation'
+                      ? 'bg-[#56FF71]'
+                      : member.tag == 'Web'
+                        ? 'bg-[#EE9292]'
+                        : member.tag == 'Finance'
+                          ? 'bg-[#FCFF60]'
+                          : 'bg-[#C614E4]'
               } p-1 object-cover h-20 w-20 md:h-28 md:w-28`}
             />
           </div>
