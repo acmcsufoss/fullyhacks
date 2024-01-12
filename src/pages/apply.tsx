@@ -66,7 +66,6 @@ const apply: NextPage = ({
           </div>
         </>
       ) : (
-        <ApplyAuth>
           <div className="flex items-center justify-center">
             <div className="font-rubik text-[#FF35EB] mt-10 flex flex-col items-center bg-blue_rgba w-[50%] rounded-lg border-8 border-blue_border_rgba [box-shadow:_0_0_32px_#618AA8]">
               <p className="text-[#FF35EB] text-lg font-semibold md:text-[3rem]">
@@ -81,7 +80,6 @@ const apply: NextPage = ({
               <ApplicationForm url={user?.image} />
             </div>
           </div>
-        </ApplyAuth>
       )}
     </section>
   )
