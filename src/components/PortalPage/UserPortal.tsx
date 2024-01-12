@@ -2,7 +2,6 @@ import { ApplicationType, User } from '@/types/interface'
 import { useRouter } from 'next/router'
 import React from 'react'
 import { BsArrowRight } from 'react-icons/bs'
-import Bubble from '../Bubble/Bubble'
 
 interface UserProps {
   user: User
@@ -20,7 +19,7 @@ const UserPortal: React.FC<UserProps> = ({ user }) => {
   const formattedDate = date.toLocaleDateString('en-US', option)
 
   return (
-    <div className="text-white  flex flex-col items-center justify-center relative mx-4 md:mx-48 font-rubik">
+    <div className="text-white flex flex-col items-center justify-center relative mx-4 md:mx-48 font-rubik">
       <p className="text-[4rem] neon-text">User Portal</p>
       <div className="w-[720px] bg-[#100D21] md:text-md mt-10 p-6 rounded-lg backdrop-filter backdrop-blur-md bg-opacity-25 border-2 border-purple_main">
         <div className="flex gap-4">

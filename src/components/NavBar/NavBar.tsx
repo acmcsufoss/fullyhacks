@@ -168,7 +168,7 @@ export const AuthNavBar = () => {
         onClick={() => router.push('/')}
         alt="nav bar logo"
         src="/logo.svg"
-        className="cursor-pointer my-4 ml-2 w-24 h-24 md:w-32 md:h-32"
+        className="cursor-pointer ml-2 w-24 h-24 md:w-32 md:h-32"
       />
       <div
         onClick={() => signOut()}

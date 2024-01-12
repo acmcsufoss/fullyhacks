@@ -428,7 +428,7 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
             }}
             className="form-input"
             type="text"
-            placeholder="non-diary,..."
+            placeholder="non-dairy,..."
           />
           <div className="mt-4 flex flex-col gap-4">
             <p>
@@ -438,7 +438,7 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
               February 24th, 2024.{' '}
             </p>
             <p className="text-red-600">
-              We will be checking ID. If you are a minor, you won't be allowed
+              We will be checking School ID. If you are a minor, you won't be allowed
               to attend.
             </p>
           </div>
