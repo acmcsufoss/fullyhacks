@@ -27,6 +27,10 @@ const SchoolSuggestion: React.FC<SchoolSuggestionProps> = ({
       )
     )
     dispatch({ type: 'SET_SCHOOL', payload: e.target.value })
+    dispatch({
+      type: 'SAVE_DRAFT',
+      payload: { name: 'school', value: e.target.value }
+    })
   }
   return (
     <div className="">

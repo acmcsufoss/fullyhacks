@@ -58,33 +58,36 @@ const signin: NextPage = () => {
         action="I understand"
       />
       <div className="relative mt-10 flex flex-col justify-center items-center mx-4">
-        <div className="text-center font-normal">
-          <p className="font-ohm mt-14 text-[3rem] md:text-[4rem] font-bold [text-shadow:_0_0_10px_#FF49ED]">
-            Welcome to FullyHacks!
+        <div className='bg-blue_rgba flex rounded-lg flex-col items-center p-4 mb-16 border-4 border-[#373DCB]'>
+          <div className="text-white text-center font-normal flex flex-col items-center">
+            <img src="signin.svg" alt="Sign In" className="w-[320px]" />
+            <p className=" mt-14 text-[2rem] md:text-[3rem] font-bold">
+              Welcome to FullyHacks!
+            </p>
+            <p>Let&apos;s sign in and start your application</p>
+          </div>
+          <button
+            className="flex text-white items-center rounded-md mt-12 p-4 bg-[#E149A9] hover:bg-[#8f467b] hover:transition-all hover:duration-300 text-[1.15rem] font-semibold font-mont"
+            onClick={() => {
+              setClick(true)
+              signIn('github', {
+                redirect: false,
+                callbackUrl: 'https://fullyhacks.acmcsuf.com/apply'
+              })
+            }}>
+            {isClicked ? (
+              'Loading...'
+            ) : (
+              <>
+                Sign In with Github
+                <BsGithub size={24} className="ml-4" />
+              </>
+            )}
+          </button>
+          <p className="mt-6 text-[1rem] text-center">
+            Note: We use Github to keep track of your submission
           </p>
-          <p>Let&apos;s sign in and start your application</p>
         </div>
-        <button
-          className="flex text-white items-center rounded-md mt-12 p-4 bg-[#AF5B98] hover:bg-[#8f467b] hover:transition-all hover:duration-300 text-[1.15rem] font-semibold font-mont"
-          onClick={() => {
-            setClick(true)
-            signIn('github', {
-              redirect: false,
-              callbackUrl: 'https://fullyhacks.acmcsuf.com/apply'
-            })
-          }}>
-          {isClicked ? (
-            'Loading...'
-          ) : (
-            <>
-              Sign In with Github
-              <BsGithub size={24} className="ml-4" />
-            </>
-          )}
-        </button>
-        <p className="mt-6 text-[1rem] text-center">
-          Note: We use Github to keep track of your submission
-        </p>
       </div>
     </section>
   )
