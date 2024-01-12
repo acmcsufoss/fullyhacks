@@ -204,7 +204,7 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
         skill: parseInt(application.skill),
         github: githubLogin
       }
-      await axios.post('/api/applicationss', newApplication)
+      await axios.post('/api/application', newApplication)
       router.push('/portal')
       setLoading(false)
     } catch (error) {
