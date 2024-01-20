@@ -29,8 +29,11 @@
   .form-input {
     @apply border-2 text-[#FFC7EA] rounded-md border-[#FF49ED] [box-shadow:_0_0_10px_#FFC7EA] p-2 bg-black/30 mt-2 mb-4;
   }
+  .form-option {
+    @apply bg-black/80;
+  }
   .error-msg {
-    @apply text-red-600 mb-2;
+    @apply text-red-600 font-medium mb-2;
   }
   .error-form {
     @apply border-2 border-red-600 animate-shake p-2;
@@ -86,8 +89,7 @@
   animation-timeline: scroll();
   border-radius: 0.5rem;
   outline: 2px solid #fff;
-  box-shadow:
-    0 0 25px 4px var(--border-color),
+  box-shadow: 0 0 25px 4px var(--border-color),
     0 0 25px 4px var(--border-color) inset;
   padding: 0.5rem;
   z-index: var(--z-index);
