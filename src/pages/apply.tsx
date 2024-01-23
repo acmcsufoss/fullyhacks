@@ -8,7 +8,6 @@ import {
 } from 'next'
 import { getSession } from 'next-auth/react'
 import { useRouter } from 'next/router'
-import ApplyAuth from '@/components/AuthWrapper/ApplyAuth'
 import { prisma } from 'db'
 import Flower from '@/components/Flower/Flower'
 
@@ -53,52 +52,54 @@ const apply: NextPage = ({
   const router = useRouter()
   return (
     <>
-      <Flower
-        width="w-32"
-        height="h-32"
-        left="left-5"
-        top="top-[12rem]"
-        noMotion={true}
-        flowerType={1}
-      />
-
-      <Flower
-        width="w-52"
-        height="h-52"
-        left="left-10"
-        top="top-[20rem]"
-        noMotion={true}
-        flowerType={3}
-      />
-
-      <Flower
-        width="w-24"
-        height="h-24"
-        left="left-12"
-        top="top-[28rem]"
-        noMotion={true}
-        flowerType={3}
-      />
-
-      {/* <Flower
-        width="w-32"
-        height="w-32"
-        left="left-5"
-        top="top-[12rem]"
-        noMotion={true}
-        flowerType={2}
-      />
-
-      <Flower
-        width="w-32"
-        height="w-32"
-        left="left-5"
-        top="top-[12rem]"
-        noMotion={true}
-        flowerType={2}
-      /> */}
-
       <section>
+        <Flower
+          width="w-24 md:w-32"
+          height="h-24 md:w-32"
+          left="left-5"
+          top="top-[12rem]"
+          noMotion={true}
+          flowerType={1}
+        />
+
+        <Flower
+          width="w-36 md:w-52"
+          height="w-36 md:h-52"
+          left="left-8 md:left-10"
+          top="top-[30rem] md:top-[20rem]"
+          noMotion={true}
+          flowerType={3}
+        />
+
+        <Flower
+          width="w-16 md:w-24"
+          height="w-16 md:h-24"
+          left="left-6 md:left-12"
+          top="top-[32rem] md:top-[28rem]"
+          noMotion={true}
+          flowerType={3}
+        />
+
+        <Flower
+          width="w-16 md:w-24"
+          height="w-16 md:h-24"
+          left=""
+          right="right-[2rem] md:right-[4rem]"
+          top="top-[7rem]"
+          noMotion={true}
+          flowerType={2}
+        />
+
+        <Flower
+          width="w-28 md:w-52"
+          height="w-28 md:h-52"
+          left=""
+          right="right-[3rem] md:right-[6rem]"
+          top="top-[12rem]"
+          noMotion={true}
+          flowerType={4}
+        />
+
         <AuthNavBar />
         {application?.applied ? (
           <>
