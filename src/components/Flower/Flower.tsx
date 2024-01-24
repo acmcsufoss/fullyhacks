@@ -7,6 +7,9 @@ interface FlowerProps {
   left?: string
   width: string
   height: string
+  isFixed?: boolean
+  noMotion?: boolean
+  flowerType?: number
 }
 
 const Flower: React.FC<FlowerProps> = (props) => {
@@ -16,13 +19,18 @@ const Flower: React.FC<FlowerProps> = (props) => {
     top = 'top-0',
     right = 'right-0',
     bottom = 'bottom-0',
-    left = 'left-0'
+    left = 'left-0',
+    isFixed = false,
+    noMotion = false,
+    flowerType = 1
   } = props
   return (
     <img
-      src="flower.svg"
-      className={`motion-reduce:animate-none animate-float absolute ${top} ${right} ${bottom} ${left} rounded-full ${width} ${height}`}
-      alt="flower svg"></img>
+      src={`flower${flowerType}.svg`}
+      className={`motion-reduce:animate-none rounded-full ${width} ${height} ${top} ${right} ${bottom} ${left} ${
+        noMotion ? 'animate-none' : 'animate-float'
+      } ${isFixed ? 'fixed' : 'absolute'}`}
+      alt={`flower ${flowerType} svg`}></img>
   )
 }
 

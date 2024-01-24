@@ -214,9 +214,9 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
   }
   return (
     <>
-      <form className="md:w-[600px]" onSubmit={handleSubmit(onSubmit)}>
+      <form className="md:w-full" onSubmit={handleSubmit(onSubmit)}>
         <div className="my-10 flex flex-col">
-          <p>Full name</p>
+          <p className="font-medium">Full name</p>
           <input
             {...register('name')}
             name="name"
@@ -233,7 +233,7 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
             placeholder="John Doe"
           />
           <p className="error-msg">{errors.name?.message}</p>
-          <p>School email (optional)</p>
+          <p className="font-medium">School email (optional)</p>
           <input
             {...register('email')}
             name="email"
@@ -250,7 +250,7 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
             placeholder="jdoe@csu.fullerton.edu"
           />
           <p className="error-msg">{errors.email?.message}</p>
-          <p>Preferred email</p>
+          <p className="font-medium">Preferred email</p>
           <input
             {...register('preferredEmail')}
             name="preferredEmail"
@@ -269,7 +269,7 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
             placeholder="john-doe@gmail.com"
           />
           <p className="error-msg">{errors.preferredEmail?.message}</p>
-          <p>School</p>
+          <p className="font-medium">School</p>
           <SchoolSuggestion
             register={register}
             errors={errors}
@@ -277,14 +277,14 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
             application={application}
           />
           <p className="error-msg">{errors.school?.message}</p>
-          <p>Github</p>
+          <p className="font-medium">Github</p>
           <input
             className="form-input"
             disabled
             type="text"
             value={githubLogin}
           />
-          <p>Pronouns</p>
+          <p className="font-medium">Pronouns</p>
           <select
             onChange={(e) => {
               dispatch({ type: 'SET_PRONOUNS', payload: e.target.value })
@@ -296,12 +296,20 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
             name="pronouns"
             value={application.pronouns}
             className="form-input">
-            <option value="she/her">she/her</option>
-            <option value="he/him">he/him</option>
-            <option value="they/them">they/them</option>
-            <option value="other">other</option>
+            <option className="form-option" value="she/her">
+              she/her
+            </option>
+            <option className="form-option" value="he/him">
+              he/him
+            </option>
+            <option className="form-option" value="they/them">
+              they/them
+            </option>
+            <option className="form-option" value="other">
+              other
+            </option>
           </select>
-          <p>Phone number</p>
+          <p className="font-medium">Phone number</p>
           <input
             {...register('phone')}
             name="phone"
@@ -318,7 +326,7 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
             placeholder="000-111-2222"
           />
           <p className="error-msg">{errors.phone?.message}</p>
-          <p>Major</p>
+          <p className="font-medium">Major</p>
           <input
             {...register('major')}
             name="major"
@@ -335,7 +343,7 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
             placeholder="Computer Science"
           />
           <p className="error-msg">{errors.major?.message}</p>
-          <p>Graduation year</p>
+          <p className="font-medium">Graduation year</p>
           <input
             {...register('gradYear')}
             name="gradYear"
@@ -352,7 +360,7 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
             placeholder="2025"
           />
           <p className="error-msg">{errors.gradYear?.message}</p>
-          <p>Education level</p>
+          <p className="font-medium">Education level</p>
           <select
             onChange={(e) => {
               dispatch({ type: 'SET_EDUCATION', payload: e.target.value })
@@ -364,10 +372,14 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
             value={application.education}
             name="education"
             className="form-input">
-            <option value="Bachelor">Bachelor</option>
-            <option value="Master">Master</option>
+            <option className="form-option" value="Bachelor">
+              Bachelor
+            </option>
+            <option className="form-option" value="Master">
+              Master
+            </option>
           </select>
-          <p>Skill level</p>
+          <p className="font-medium">Skill level</p>
           <select
             name="skill"
             value={application.skill}
@@ -379,18 +391,26 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
               })
             }}
             className="form-input">
-            <option value={1}>No experience</option>
-            <option value={2}>Beginner</option>
-            <option value={3}>Intermediate</option>
-            <option value={4}>Master</option>
+            <option className="form-option" value={1}>
+              No experience
+            </option>
+            <option className="form-option" value={2}>
+              Beginner
+            </option>
+            <option className="form-option" value={3}>
+              Intermediate
+            </option>
+            <option className="form-option" value={4}>
+              Master
+            </option>
           </select>
-          <p>Why do you want to attend FullyHacks?</p>
+          <p className="font-medium">Why do you want to attend FullyHacks?</p>
           <div className="flex flex-col relative">
             <textarea
               {...register('response')}
               value={application.response}
               name="response"
-              className={`h-[300px] form-input ${
+              className={`h-[300px] form-input resize-none ${
                 errors.response ? 'error-form' : ''
               }`}
               onChange={(e) => {
@@ -402,10 +422,10 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
               }}
               placeholder="50-500 words"
             />
-            <p className="absolute bottom-6 right-4">{wordCount} words</p>
+            <p className="absolute bottom-8 right-4">{wordCount} words</p>
             <p className="error-msg">{errors.response?.message}</p>
           </div>
-          <p>Food choice</p>
+          <p className="font-medium">Food choice</p>
           <select
             name="food"
             value={application.food}
@@ -413,12 +433,20 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
               dispatch({ type: 'SET_FOOD', payload: e.target.value })
             }}
             className="form-input">
-            <option value="vegan">Vegan</option>
-            <option value="non-veg">Non-veg</option>
-            <option value="vegetarian">Vegetarian</option>
-            <option value="other">Other</option>
+            <option className="form-option" value="vegan">
+              Vegan
+            </option>
+            <option className="form-option" value="non-veg">
+              Non-veg
+            </option>
+            <option className="form-option" value="vegetarian">
+              Vegetarian
+            </option>
+            <option className="form-option" value="other">
+              Other
+            </option>
           </select>
-          <p>
+          <p className="font-medium">
             If you choose <span className="font-semibold">other</span>, please
             specify or N/A
           </p>
@@ -439,7 +467,7 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
               the box, you affirm that you are and will be 18 years or older by
               February 24th, 2024.{' '}
             </p>
-            <p className="text-red-600">
+            <p className="text-white font-medium">
               We will be checking School ID. If you are a minor, you won't be
               allowed to attend.
             </p>
@@ -454,7 +482,9 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
               type="checkbox"
               className="bg-[#F587FF] checkbox"
             />
-            <p>I&apos;m 18 or older by February 24th, 2024</p>
+            <p className="font-medium">
+              I&apos;m 18 or older by February 24th, 2024
+            </p>
           </div>
           <p className="error-msg">{errors.over18?.message}</p>
           <div className="mt-4 flex items-center gap-4">
@@ -467,7 +497,7 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
               type="checkbox"
               className="bg-[#F587FF] checkbox"
             />
-            <p>
+            <p className="font-medium">
               I agree to
               <a className="font-semibold" target="_blank" href="/waiver">
                 {' the terms of the waiver'}
@@ -480,7 +510,7 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
               <Loading isLoading={isLoading} />
             </button>
           ) : (
-            <button className="mt-8 w-[100px] text-white mr-auto p-2 bg-[#E149A9] hover:bg-[#ac307e] hover:ease-in-out hover:duration-200 rounded-md font-semibold">
+            <button className="mt-8 w-[100px] text-white md:text-md mr-auto p-2 bg-[#E149A9] hover:bg-[#ac307e] hover:ease-in-out hover:duration-200 rounded-md font-semibold">
               Submit
             </button>
           )}
