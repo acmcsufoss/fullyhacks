@@ -40,7 +40,7 @@ export const companies: companyType[] = [
   {
     id: 'co6',
     name: 'StickerMule',
-    href: 'https://www.stickermule.com/',
+    href: 'https://www.stickermule.com/uses/laptop-stickers?utm_source=referral_us&utm_medium=sponsorships_us&utm_campaign=FullyHacks_2024',
     image: '/stickermule.png'
   },
   {
