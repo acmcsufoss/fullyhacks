@@ -20,6 +20,12 @@ export const companies: companyType[] = [
     image: '/google.png'
   },
   {
+    id: 'co8',
+    name: 'Postman',
+    href: 'https://bit.ly/api-expert-training',
+    image: '/postman.png'
+  },
+  {
     id: 'co4',
     name: 'Wolfram',
     href: 'https://www.wolfram.com/language/',
