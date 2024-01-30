@@ -19,10 +19,10 @@ const UserPortal: React.FC<UserProps> = ({ user }) => {
   const formattedDate = date.toLocaleDateString('en-US', option)
 
   return (
-    <div className="text-white flex flex-col items-center justify-center relative mx-4 md:mx-48 font-rubik">
+    <div className="text-white flex flex-col items-center justify-center relative mx-4 font-rubik">
       <p className="text-[4rem] neon-text">User Portal</p>
-      <div className="w-[720px] bg-[#100D21] md:text-md mt-10 p-6 rounded-lg backdrop-filter backdrop-blur-md bg-opacity-25 border-2 border-purple_main">
-        <div className="flex gap-4">
+      <div className="w-[min(400px,_90wv)] md:w-[500px] lg:w-[720px] bg-[#100D21] md:text-md mt-10 p-6 rounded-lg backdrop-filter backdrop-blur-md bg-opacity-25 border-2 border-purple_main">
+        <div className="flex flex-col items-center lg:flex-row lg:items-start gap-4">
           <img
             className="border-2 border-purple_main z-[30] w-24 h-24 rounded-md md:w-48 md:h-48"
             src={`${user.image}`}
@@ -55,8 +55,8 @@ const UserPortal: React.FC<UserProps> = ({ user }) => {
                 application.status == 'approved'
                   ? 'bg-green-500'
                   : application.status == 'rejected'
-                    ? 'bg-red-600'
-                    : 'bg-gray-500'
+                  ? 'bg-red-600'
+                  : 'bg-gray-500'
               }`}>
               {application.status}
             </span>
