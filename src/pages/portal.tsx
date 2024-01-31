@@ -42,29 +42,29 @@ const portal = ({
   user
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   return (
-    <div className="bg-[#0B062B]">
+    <div className="bg-[#0B062B] pb-12">
       <AuthNavBar />
       <Flower
-        top="top-[30em] hidden md:block"
+        top="top-[24em] hidden md:block"
         left="left-48"
         width="w-36"
         height="h-36"
       />
       <Flower
-        top="top-[16em] hidden md:block"
+        top="top-[12em] hidden md:block"
         left="left-12"
         width="w-36"
         height="h-36"
       />
       <Flower
-        top="top-[16em] hidden md:block"
+        top="top-[12em] hidden md:block"
         left="right-[4em]"
         width="w-36"
         height="h-36"
       />
       <Flower
-        top="top-[28em] hidden md:block"
-        left="right-[18em]"
+        top="top-[22em] hidden md:block"
+        left="right-[10em]"
         width="w-36"
         height="h-36"
       />

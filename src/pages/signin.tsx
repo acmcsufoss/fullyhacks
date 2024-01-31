@@ -26,7 +26,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
 const signin: NextPage = () => {
   const [isClicked, setClick] = useState(false)
   return (
-    <section className="text-purple_main bg-[#0B062B] min-h-screen text-md font-rubik">
+    <section className="text-purple_main bg-[#0B062B] text-md font-rubik">
       <GenericNavBar />
       <Flower
         top="top-[20em] hidden md:block"
