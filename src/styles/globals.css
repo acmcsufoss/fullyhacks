@@ -25,7 +25,9 @@
   .feed-popup {
     @apply bg-purple_dark text-white [box-shadow:_0_0_10px_#E149A9];
   }
-
+  .feed-form-input {
+    @apply border-2 border-[#1E2D79] bg-[#0E0E30] bg-opacity-70 outline-none focus:border-[#414f94] active:border-[#414f94] p-4 w-[min(30rem,_100%)];
+  }
   .form-input {
     @apply border-2 text-[#FFC7EA] rounded-md border-[#FF49ED] [box-shadow:_0_0_10px_#FFC7EA] p-2 bg-black/30 mt-2 mb-4;
   }
@@ -89,8 +91,7 @@
   animation-timeline: scroll();
   border-radius: 0.5rem;
   outline: 2px solid #fff;
-  box-shadow:
-    0 0 25px 4px var(--border-color),
+  box-shadow: 0 0 25px 4px var(--border-color),
     0 0 25px 4px var(--border-color) inset;
   padding: 0.5rem;
   z-index: var(--z-index);

@@ -53,27 +53,29 @@ const AnnouncementForm: React.FC = () => {
       onSubmit={handleSubmit(postAnnouncement)}
       className="text-purple_main w-full flex flex-col items-start mb-10"
       action="">
-      <p className="mb-2 font-bold">Announcement Title:</p>
+      <p className="mb-2 font-bold">ANNOUNCEMENT TITLE:</p>
       <input
         {...register('title')}
         name="title"
         value={newAnnouncement.title}
         onChange={handleInfoChange}
-        className={`rounded-md form-input ${errors.title ? 'error-form' : ''}`}
+        className={`rounded-md feed-form-input ${
+          errors.title ? 'error-form' : ''
+        }`}
         type="text"
         placeholder="Your announcement title"
       />
       <p className="error-msg">{errors.title?.message}</p>
-      <p className="mb-2 font-bold">Announcement Content:</p>
+      <p className="mb-2 font-bold">ANNOUNCEMENT CONTENT:</p>
       <textarea
         {...register('content')}
         name="content"
         value={newAnnouncement.content}
-        className={`rounded-md form-input ${
+        className={`rounded-md feed-form-input h-52 ${
           errors.content ? 'error-form' : ''
         }`}
         onChange={handleInfoChange}
-        placeholder="Fully #456"
+        placeholder="Type your announcement here"
       />
       <p className="error-msg">{errors.content?.message}</p>
       {isLoading ? (
@@ -84,8 +86,8 @@ const AnnouncementForm: React.FC = () => {
         <>
           <button
             type="submit"
-            className="mt-4 self-start normal-case btn bg-sky-100 border-none text-purple_main hover:bg-sky-200 hover:ease-in-out hover:duration-200">
-            Post
+            className="mt-4 self-start normal-case btn bg-[#46C8E5] border-none text-[#1E2D79] hover:bg-sky-200 hover:ease-in-out hover:duration-200">
+            POST
           </button>
         </>
       )}
