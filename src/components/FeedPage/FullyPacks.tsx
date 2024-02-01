@@ -1,7 +1,6 @@
 import { fullyPacksType } from '@/types/interface'
 import React from 'react'
 import { BsGithub, BsLink } from 'react-icons/bs'
-
 const flaskDescription = (
   <>
     <p>
@@ -9,7 +8,7 @@ const flaskDescription = (
       allows you to create web applications using the Python programming
       language.
     </p>
-    <p>
+    <p className="mt-4">
       In simple terms, Flask provides you with tools and features that make it
       easier to build web applications.
     </p>
@@ -98,11 +97,11 @@ interface FullyPackProps {
 }
 const FullyPack: React.FC<FullyPackProps> = ({ fullypack }) => {
   return (
-    <div className="flex flex-col items-start bg-sky-100 p-4 rounded-lg">
-      <p className="text-lg font-semibold">{fullypack.name}</p>
-      <div className="mb-4">{fullypack.description}</div>
+    <div className="flex flex-col items-start bg-purple_card p-4 rounded-lg">
+      <p className="pack-names">{fullypack.name}</p>
+      <div className="mb-4 pack-description">{fullypack.description}</div>
       {'github' in fullypack ? (
-        <button className="flex gap-2 items-center mt-auto font-semibold bg-[rgb(52,11,103)] text-white rounded-lg p-2">
+        <button className="flex gap-2 items-center mt-auto font-semibold bg-cyan text-purple_card rounded-lg p-2">
           <a target={'_blank'} href={fullypack.github}>
             Github link
           </a>
@@ -128,12 +127,10 @@ const FullyPack: React.FC<FullyPackProps> = ({ fullypack }) => {
 const FullyPacks = () => {
   return (
     <section className="mt-14 mx-10 w-full text-purple_main">
-      <p className="text-[4rem] text-[#EF4DB3] neon-text">FullyPacks</p>
-      <p className="font-light md:text-md">
-        Beginner-friendly templates for participants
-      </p>
+      <p className="fullypacks-title">FullyPacks</p>
+      <p className="template">Beginner-friendly templates for participants</p>
       <div className="mt-10">
-        <p className="text-lg font-semibold">Web Development</p>
+        <p className="web-development">Web Development</p>
         <div className="mt-4 gap-10 grid md:grid-cols-3 justify-start">
           {webDev.map((fullypack: fullyPacksType) => {
             return <FullyPack key={fullypack.id} fullypack={fullypack} />

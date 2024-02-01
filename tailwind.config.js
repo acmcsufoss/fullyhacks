@@ -78,7 +78,12 @@ module.exports = {
         orange_100: '#FFEDCC',
         turquoise_300: '#30D7E1',
         purple_gradient_1: '#340B67',
-        purple_gradient_2: '#0C091A'
+        purple_gradient_2: '#0C091A',
+        blue_purple: '#002AFF',
+        beige: '#D9D9D9',
+        white: '#FFF',
+        purple_card: '#1E2D79',
+        cyan: '#46C8E5'
       },
       textColor: {
         purple_main: '#EB6EFF',
