@@ -86,7 +86,7 @@ const Profile: React.FC<ProfileProps> = ({ currentUser }) => {
 
   return (
     <section className="overflow-x-auto mt-14 mx-10">
-      <p className="mb-10 text-[4rem] text-[#002AFF] font-medium neon-text">
+      <p className="mb-10 text-[4rem] text-[#526cea] font-medium neon-text">
         {currentUser.name}&apos;s Profile
       </p>
       <form
@@ -138,7 +138,7 @@ const Profile: React.FC<ProfileProps> = ({ currentUser }) => {
       </form>
       {currentUser.isAdmin && (
         <>
-          <p className="mb-4 text-[4rem] text-[#002AFF] font-medium neon-text">
+          <p className="mb-4 text-[4rem] text-[#526cea] font-medium neon-text">
             ADMIN ONLY: Announcement Form
           </p>
           <AnnouncementForm />
