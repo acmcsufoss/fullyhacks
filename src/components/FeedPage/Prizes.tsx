@@ -96,18 +96,18 @@ interface TrackProps {
 
 const Card: React.FC<TrackProps> = ({ track }) => {
   return (
-    <div className="w-[260px] h-[260px] cursor-pointer md:w-[320px] md:h-[320px] flex flex-col items-center justify-center p-4 rounded-lg backdrop-filter backdrop-blur-md bg-opacity-25 border border-gray-300 border-opacity-25 shadow-xl hover:bg-[rgb(52,11,103)] duration-200 ease-in-out hover:text-white">
+    <div className="w-[260px] h-[260px] cursor-pointer md:w-[320px] md:h-[320px] flex flex-col items-center justify-center p-4 rounded-lg backdrop-filter backdrop-blur-md bg-purple_card border border-gray-300 border-opacity-25 shadow-xl hover:bg-[rgb(52,11,103)] duration-200 ease-in-out hover:text-white">
       <div className="px-10 flex flex-col">
-        <div className="text-lg flex gap-4 items-center font-bold">
+        <div className="text-white font-rubik text-lg text-center font-bold leading-normal">
           <p>{track.name}</p>
-          <p>{track.icon}</p>
         </div>
         <div className="mt-4 md:text-md">
           {track.team && (
-            <p className="font-semibold mb-4">Total: {track.team} team(s)</p>
+            <p className="mb-4 text-white font-rubik text-20 font-normal leading-7">Total: {track.team} team(s)</p>
           )}
-
+          <p className="mb-4 text-white font-rubik text-20 font-normal leading-7">
           {track.description}
+          </p>
         </div>
       </div>
     </div>
@@ -117,16 +117,15 @@ const Card: React.FC<TrackProps> = ({ track }) => {
 const Prizes = () => {
   return (
     <section className="my-14 mx-10 w-full text-purple_main">
-      <p className="text-[4rem] text-[#EF4DB3] neon-text">Tracks & Prizes</p>
-      <p className="font-light md:text-md">
+      <p className="feed-title">Tracks & Prizes</p>
+      <p className="text-white font-rubik text-27 font-normal leading-normal">
         Find all details about tracks, prize categories here
       </p>
       <div className="mt-10">
         <div className="flex items-center gap-4 mb-4">
-          <p className="text-lg font-semibold">Tracks</p>
-          <BsMap size={28} />
+          <p className="text-purple-500 font-rubik text-lg font-bold leading-normal">TRACKS</p>
         </div>
-        <p className="md:text-md md:w-[60%]">
+        <p className="text-white font-rubik text-27 font-normal leading-normal">
           Hackers have to build their projects around one of these 4 tracks
           including Education, Cybersecurity, New Frontiers, and Environment.
         </p>
@@ -138,17 +137,16 @@ const Prizes = () => {
       </div>
       <div className="mt-14">
         <div className="flex items-center gap-4 mb-4">
-          <p className="text-lg font-semibold">Prizes</p>
-          <BsGift size={28} />
+          <p className="text-purple-500 font-rubik text-lg font-bold leading-normal">PRIZES</p>
         </div>
-        <p className="md:text-md md:w-[60%]">
+        <p className="text-white font-rubik text-27 font-normal leading-normal">
           Each team has to sign up for 1 category in order to be considered for
           the corresponding prize. Sign up will begin during the hackathon team
           forming event
         </p>
       </div>
       <div className="mt-10">
-        <p className="text-md font-semibold">Main Category</p>
+        <p className="text-purple-500 font-rubik text-lg font-bold leading-normal">MAIN CATEGORY</p>
         <div className="mt-10 flex flex-wrap gap-8">
           {mainCategory.map((category: tracksType) => {
             return <Card key={category.id} track={category} />
@@ -156,8 +154,8 @@ const Prizes = () => {
         </div>
       </div>
       <div className="mt-10">
-        <p className="text-md font-semibold">Sub Category</p>
-        <p className="md:text-md md:w-[60%]">
+        <p className="text-purple-500 font-rubik text-lg font-bold leading-normal">SUB CATEGORY</p>
+        <p className="text-white font-rubik text-27 font-normal leading-normal">
           You can choose a sub category along with your project
         </p>
         <div className="mt-10 flex flex-wrap gap-8">
