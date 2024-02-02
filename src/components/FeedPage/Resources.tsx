@@ -98,15 +98,17 @@ const sponsorGifts: sponsorGiftType[] = [
 
 const Resources = () => {
   return (
-    <section className="mt-14 mx-10 w-full text-purple_main">
-      <div className="text-[4rem] text-[#EF4DB3] neon-text">Fully Gifts</div>
+    <section className="mt-14 mx-10 w-full text-white">
+      <div className="feed-title">Fully Gifts</div>
       <div className="font-light md:text-md">
         Cool gifts from our great sponsors
       </div>
-      <div className="my-10 justify-center grid md:grid-cols-3 gap-8">
+      <div className="my-10 justify-center grid lg:grid-cols-3 gap-8">
         {sponsorGifts.map((gift: sponsorGiftType) => {
           return (
-            <div key={gift.id} className="bg-sky-100 p-4 rounded-xl">
+            <div
+              key={gift.id}
+              className="p-4 md:p-6 rounded-xl bg-purple_card bg-opacity-30 hover:bg-opacity-100 transition">
               <p className="font-bold text-lg">{gift.company}</p>
               <p>{gift.content}</p>
               <p className="my-2 text-md font-semibold">How to access:</p>
