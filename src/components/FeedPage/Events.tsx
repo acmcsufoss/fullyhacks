@@ -227,8 +227,8 @@ const events: eventsType[] = [
 const Events: React.FC = () => {
   return (
     <section className="mt-14 mx-10 w-full text-purple_main">
-      <p className="text-[4rem] text-[#EF4DB3] neon-text">Events</p>
-      <p className="font-light md:text-md">
+      <p className="feed-title">Events</p>
+      <p className="text-white md:text-md">
         Fullyhacks timeline for your reference
       </p>
       <div className="mt-10">

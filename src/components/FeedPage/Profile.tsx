@@ -85,15 +85,13 @@ const Profile: React.FC<ProfileProps> = ({ currentUser }) => {
   }
 
   return (
-    <section className="overflow-x-auto mt-14 mx-10">
-      <p className="mb-10 text-[4rem] text-[#526cea] font-medium neon-text">
-        {currentUser.name}&apos;s Profile
-      </p>
+    <section className="overflow-x-auto w-full mt-14 mx-10">
+      <p className="feed-title mb-10">{currentUser.name}&apos;s Profile</p>
       <form
         onSubmit={handleSubmit(updateUserProfile)}
-        className="text-purple_main w-full flex flex-col items-start"
+        className="text-white w-full flex flex-col items-start"
         action="">
-        <p className="mb-2 font-bold">YOUR BIO:</p>
+        <p className="mb-2 text-purple_main font-bold">YOUR BIO:</p>
         <textarea
           {...register('bio')}
           name="bio"
@@ -105,7 +103,7 @@ const Profile: React.FC<ProfileProps> = ({ currentUser }) => {
           placeholder="Hi, I loveee web development, add me on Discord to talk more :)"
         />
         <p className="error-msg">{errors.bio?.message}</p>
-        <p className="mb-2 font-bold">DISCORD ID:</p>
+        <p className="mb-2 text-purple_main font-bold">DISCORD ID:</p>
         <input
           {...register('discordId')}
           name="discordId"
@@ -138,7 +136,7 @@ const Profile: React.FC<ProfileProps> = ({ currentUser }) => {
       </form>
       {currentUser.isAdmin && (
         <>
-          <p className="mb-4 text-[4rem] text-[#526cea] font-medium neon-text">
+          <p className="feed-title-white mb-10">
             ADMIN ONLY: Announcement Form
           </p>
           <AnnouncementForm />

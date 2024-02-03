@@ -103,10 +103,12 @@ const Card: React.FC<TrackProps> = ({ track }) => {
         </div>
         <div className="mt-4 md:text-md">
           {track.team && (
-            <p className="mb-4 text-white font-rubik text-20 font-normal leading-7">Total: {track.team} team(s)</p>
+            <p className="mb-4 text-white font-rubik text-20 font-normal leading-7">
+              Total: {track.team} team(s)
+            </p>
           )}
           <p className="mb-4 text-white font-rubik text-20 font-normal leading-7">
-          {track.description}
+            {track.description}
           </p>
         </div>
       </div>
@@ -118,14 +120,16 @@ const Prizes = () => {
   return (
     <section className="my-14 mx-10 w-full text-purple_main">
       <p className="feed-title">Tracks & Prizes</p>
-      <p className="text-white font-rubik text-27 font-normal leading-normal">
+      <p className="text-white md:text-md">
         Find all details about tracks, prize categories here
       </p>
       <div className="mt-10">
         <div className="flex items-center gap-4 mb-4">
-          <p className="text-purple-500 font-rubik text-lg font-bold leading-normal">TRACKS</p>
+          <p className="text-purple-500 font-rubik text-lg font-bold leading-normal">
+            TRACKS
+          </p>
         </div>
-        <p className="text-white font-rubik text-27 font-normal leading-normal">
+        <p className="text-white font-rubik font-normal md:text-md">
           Hackers have to build their projects around one of these 4 tracks
           including Education, Cybersecurity, New Frontiers, and Environment.
         </p>
@@ -137,16 +141,20 @@ const Prizes = () => {
       </div>
       <div className="mt-14">
         <div className="flex items-center gap-4 mb-4">
-          <p className="text-purple-500 font-rubik text-lg font-bold leading-normal">PRIZES</p>
+          <p className="text-purple-500 font-rubik text-lg font-bold leading-normal">
+            PRIZES
+          </p>
         </div>
-        <p className="text-white font-rubik text-27 font-normal leading-normal">
+        <p className="text-white font-rubik font-normal leading-normal md:text-md">
           Each team has to sign up for 1 category in order to be considered for
           the corresponding prize. Sign up will begin during the hackathon team
           forming event
         </p>
       </div>
       <div className="mt-10">
-        <p className="text-purple-500 font-rubik text-lg font-bold leading-normal">MAIN CATEGORY</p>
+        <p className="text-purple-500 font-rubik text-lg font-bold leading-normal">
+          MAIN CATEGORY
+        </p>
         <div className="mt-10 flex flex-wrap gap-8">
           {mainCategory.map((category: tracksType) => {
             return <Card key={category.id} track={category} />
@@ -154,8 +162,10 @@ const Prizes = () => {
         </div>
       </div>
       <div className="mt-10">
-        <p className="text-purple-500 font-rubik text-lg font-bold leading-normal">SUB CATEGORY</p>
-        <p className="text-white font-rubik text-27 font-normal leading-normal">
+        <p className="text-purple-500 font-rubik text-lg font-bold leading-normal">
+          SUB CATEGORY
+        </p>
+        <p className="text-white font-rubik font-normal leading-normal md:text-md">
           You can choose a sub category along with your project
         </p>
         <div className="mt-10 flex flex-wrap gap-8">

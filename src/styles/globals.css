@@ -203,3 +203,15 @@
   font-weight: 400;
   line-height: normal;
 }
+
+.feed-title-white {
+  color: #d9d9d9;
+  text-shadow: 0px 0px 8px #2400ff;
+  -webkit-text-stroke-width: 0;
+  -webkit-text-stroke-color: #ffffff;
+  font-family: 'Train One';
+  font-size: 49px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}

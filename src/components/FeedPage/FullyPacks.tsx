@@ -132,13 +132,11 @@ const FullyPacks = () => {
   return (
     <section className="mt-14 mx-10 w-full text-purple_main">
       <p className="feed-title">FullyPacks</p>
-      <p className="text-white font-rubik text-27 font-normal leading-normal">
+      <p className="text-white md:text-md">
         Beginner-friendly templates for participants
       </p>
       <div className="mt-10">
-        <p className="text-purple-500 font-rubik text-25 font-bold leading-normal">
-          Web Development
-        </p>
+        <p className="text-purple-500 text-md font-bold">Web Development</p>
         <div className="mt-4 gap-10 grid md:grid-cols-3 justify-start">
           {webDev.map((fullypack: fullyPacksType) => {
             return <FullyPack key={fullypack.id} fullypack={fullypack} />
@@ -146,9 +144,7 @@ const FullyPacks = () => {
         </div>
       </div>
       <div className="mt-10">
-        <p className="text-purple-500 font-rubik text-25 font-bold leading-normal">
-          Backend Development
-        </p>
+        <p className="text-purple-500 text-md font-bold">Backend Development</p>
         <div className="mt-4 gap-10 grid md:grid-cols-3 justify-start">
           {backendDev.map((fullypack: fullyPacksType) => {
             return <FullyPack key={fullypack.id} fullypack={fullypack} />
@@ -156,9 +152,7 @@ const FullyPacks = () => {
         </div>
       </div>
       <div className="mt-10">
-        <p className="text-purple-500 font-rubik text-25 font-bold leading-normal">
-          Mobile Development
-        </p>
+        <p className="text-purple-500 text-md font-bold">Mobile Development</p>
         <div className="mt-4 gap-10 grid md:grid-cols-3 justify-start">
           {mobileDev.map((fullypack: fullyPacksType) => {
             return <FullyPack key={fullypack.id} fullypack={fullypack} />
@@ -166,9 +160,7 @@ const FullyPacks = () => {
         </div>
       </div>
       <div className="my-10">
-        <p className="text-purple-500 font-rubik text-25 font-bold leading-normal">
-          Data Science
-        </p>
+        <p className="text-purple-500 text-md font-bold">Data Science</p>
         <div className="mt-4 gap-10 grid md:grid-cols-3 justify-start">
           {dataScience.map((fullypack: fullyPacksType) => {
             return <FullyPack key={fullypack.id} fullypack={fullypack} />
@@ -176,9 +168,7 @@ const FullyPacks = () => {
         </div>
       </div>
       <div className="my-10">
-        <p className="text-purple-500 font-rubik text-25 font-bold leading-normal">
-          Discord Bot
-        </p>
+        <p className="text-purple-500 text-md font-bold">Discord Bot</p>
         <div className="mt-4 gap-10 grid md:grid-cols-3 justify-start">
           {discordBot.map((fullypack: fullyPacksType) => {
             return <FullyPack key={fullypack.id} fullypack={fullypack} />

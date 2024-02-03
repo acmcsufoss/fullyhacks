@@ -90,11 +90,9 @@ const faqs: FAQType[] = [
 const FAQs = () => {
   return (
     <section className="mt-14 mx-10 w-full text-purple_main">
-      <p className="text-[4rem] text-[#EF4DB3] neon-text">
-        Frequently Asked Questions
-      </p>
-      <p className="font-light md:text-md">
-        Answering all your questions for Fullyhacks 2023
+      <p className="feed-title">Frequently Asked Questions</p>
+      <p className="text-white md:text-md">
+        Answering all your questions for Fullyhacks 2024
       </p>
       <div className="flex flex-col items-center">
         {faqs.map((faq: FAQType) => {

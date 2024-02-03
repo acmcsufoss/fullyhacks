@@ -18,7 +18,7 @@ const Feed: React.FC<FeedProps> = (props) => {
   const { feedUsers, currentUser, announcements } = props
   const [currentLocation, setLocation] = useState('Home')
   return (
-    <section className="relative flex w-full mx-4">
+    <section className="relative flex w-full mx-4 mb-8">
       <FeedSideBar setLocation={setLocation} />
       {currentLocation == 'Home' ? (
         <MainFeed feedUsers={feedUsers} currentUser={currentUser} />
