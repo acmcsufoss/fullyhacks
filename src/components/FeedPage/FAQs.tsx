@@ -89,9 +89,9 @@ const faqs: FAQType[] = [
 
 const FAQs = () => {
   return (
-    <section className="mt-14 mx-10 w-full text-purple_main">
+    <section className="mt-14 mx-10 w-full text-white">
       <p className="feed-title">Frequently Asked Questions</p>
-      <p className="text-white md:text-md">
+      <p className="md:text-md">
         Answering all your questions for Fullyhacks 2024
       </p>
       <div className="flex flex-col items-center">

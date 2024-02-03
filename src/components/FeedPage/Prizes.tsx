@@ -118,9 +118,9 @@ const Card: React.FC<TrackProps> = ({ track }) => {
 
 const Prizes = () => {
   return (
-    <section className="my-14 mx-10 w-full text-purple_main">
+    <section className="my-14 mx-10 w-full text-white">
       <p className="feed-title">Tracks & Prizes</p>
-      <p className="text-white md:text-md">
+      <p className="md:text-md">
         Find all details about tracks, prize categories here
       </p>
       <div className="mt-10">
@@ -145,7 +145,7 @@ const Prizes = () => {
             PRIZES
           </p>
         </div>
-        <p className="text-white font-rubik font-normal leading-normal md:text-md">
+        <p className="font-rubik font-normal leading-normal md:text-md">
           Each team has to sign up for 1 category in order to be considered for
           the corresponding prize. Sign up will begin during the hackathon team
           forming event
@@ -165,7 +165,7 @@ const Prizes = () => {
         <p className="text-purple-500 font-rubik text-lg font-bold leading-normal">
           SUB CATEGORY
         </p>
-        <p className="text-white font-rubik font-normal leading-normal md:text-md">
+        <p className="font-rubik font-normal leading-normal md:text-md">
           You can choose a sub category along with your project
         </p>
         <div className="mt-10 flex flex-wrap gap-8">

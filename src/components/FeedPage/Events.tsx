@@ -226,11 +226,9 @@ const events: eventsType[] = [
 
 const Events: React.FC = () => {
   return (
-    <section className="mt-14 mx-10 w-full text-purple_main">
+    <section className="mt-14 mx-10 w-full text-white">
       <p className="feed-title">Events</p>
-      <p className="text-white md:text-md">
-        Fullyhacks timeline for your reference
-      </p>
+      <p className="md:text-md">Fullyhacks timeline for your reference</p>
       <div className="mt-10">
         <Calendar events={events} />
       </div>

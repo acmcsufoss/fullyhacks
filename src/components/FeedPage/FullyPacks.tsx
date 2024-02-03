@@ -130,11 +130,9 @@ const FullyPack: React.FC<FullyPackProps> = ({ fullypack }) => {
 
 const FullyPacks = () => {
   return (
-    <section className="mt-14 mx-10 w-full text-purple_main">
+    <section className="mt-14 mx-10 w-full text-white">
       <p className="feed-title">FullyPacks</p>
-      <p className="text-white md:text-md">
-        Beginner-friendly templates for participants
-      </p>
+      <p className="md:text-md">Beginner-friendly templates for participants</p>
       <div className="mt-10">
         <p className="text-purple-500 text-md font-bold">Web Development</p>
         <div className="mt-4 gap-10 grid md:grid-cols-3 justify-start">

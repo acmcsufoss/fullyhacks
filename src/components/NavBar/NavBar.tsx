@@ -261,7 +261,7 @@ export const FeedSideBar: React.FC<FeedSideBarProps> = ({ setLocation }) => {
             size={20}
             className="cursor-pointer"
           />
-          <ul className="border-b-2 p-2">
+          <ul className="border-b-2 border-[#EF4DB3] p-2">
             {feedItems.map((item, idx) => {
               return (
                 <button
