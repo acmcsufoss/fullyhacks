@@ -100,15 +100,16 @@ const Resources = () => {
   return (
     <section className="mt-14 mx-10 w-full text-white">
       <div className="feed-title">Fully Gifts</div>
-      <div className="font-light md:text-md">
-        Cool gifts from our great sponsors
-      </div>
+      <div className="md:text-md">Cool gifts from our great sponsors</div>
+
       <div className="my-10 justify-center grid lg:grid-cols-3 gap-8">
-        {sponsorGifts.map((gift: sponsorGiftType) => {
+        {sponsorGifts.map((gift: sponsorGiftType, i) => {
           return (
             <div
               key={gift.id}
-              className="p-4 md:p-6 rounded-xl bg-purple_card bg-opacity-30 hover:bg-opacity-100 transition">
+              className={`p-4 md:p-6 rounded-xl bg-purple_card ${
+                i % 2 === 0 ? 'bg-opacity-30' : ''
+              }`}>
               <p className="font-bold text-lg">{gift.company}</p>
               <p>{gift.content}</p>
               <p className="my-2 text-md font-semibold">How to access:</p>
