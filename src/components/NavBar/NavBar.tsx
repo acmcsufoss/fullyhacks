@@ -261,7 +261,7 @@ export const FeedSideBar: React.FC<FeedSideBarProps> = ({ setLocation }) => {
             size={20}
             className="cursor-pointer"
           />
-          <ul className="border-b-2 p-2">
+          <ul className="border-b-2 border-[#EF4DB3] p-2">
             {feedItems.map((item, idx) => {
               return (
                 <button
@@ -275,7 +275,7 @@ export const FeedSideBar: React.FC<FeedSideBarProps> = ({ setLocation }) => {
                       : ''
                   }`}>
                   {item.icon}
-                  <li className="ml-4">{item.name}</li>
+                  <li className="ml-4 text-white">{item.name}</li>
                 </button>
               )
             })}
@@ -288,7 +288,7 @@ export const FeedSideBar: React.FC<FeedSideBarProps> = ({ setLocation }) => {
           </div>
         </div>
       )}
-      <div className="hidden md:block text-sm mt-12 mx-4 md:mx-10 font-rubik text-purple_main font-semibold md:text-md basis-1/5">
+      <div className="hidden md:block text-sm mt-12 mx-4 md:mx-10 font-rubik text-[#EF4DB3] font-semibold md:text-md basis-1/5">
         <ul className="border-b-2 p-2">
           {feedItems.map((item, idx) => {
             return (
@@ -301,14 +301,17 @@ export const FeedSideBar: React.FC<FeedSideBarProps> = ({ setLocation }) => {
                   currIdx == idx ? 'text-white bg-[rgba(255,136,229,0.4)]' : ''
                 }`}>
                 {item.icon}
-                <li className="ml-4">{item.name}</li>
+                <li className="ml-4 text-white">{item.name}</li>
               </button>
             )
           })}
         </ul>
         <div className="flex items-center text-center mt-4 gap-4">
           <BsDiscord size={28} />
-          <a target={'_blank'} href="https://discord.gg/XKNZxHEnJj">
+          <a
+            target={'_blank'}
+            href="https://discord.gg/XKNZxHEnJj"
+            className="text-white">
             Discord Server
           </a>
         </div>

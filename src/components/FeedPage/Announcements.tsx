@@ -21,10 +21,10 @@ const Announcement: React.FC<AnnouncementProps> = ({ announcement }) => {
 
 const Announcements: React.FC<AnnouncementsProps> = ({ announcements }) => {
   return (
-    <div className="mt-14 mx-10 w-full text-purple_main">
-      <p className="text-[4rem] text-[#EF4DB3] neon-text">Announcements</p>
-      <p className="font-light md:text-md">
-        Official announcements from Fullyhacks team
+    <div className="mt-14 mx-10 w-full text-white">
+      <p className="feed-title">Announcements</p>
+      <p className="md:text-md">
+        Official announcements from the Fullyhacks team
       </p>
       {announcements.map((announcement: announcementsType) => {
         return (
