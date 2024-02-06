@@ -50,12 +50,6 @@ const faqs: FAQType[] = [
     answer: 'Sleeping bag, laptop, chargers, snacks & drinks, hygiene items,...'
   },
   {
-    id: 'faqctf',
-    question: "What's CTF?",
-    answer:
-      "CTF stands for Capture The Flag. It's a type of cybersecurity competition where participants solve a series of challenges to find hidden 'flags.' These flags are strings of text that are usually hidden in the challenge's solution. We have CTF during Fullyhacks as an along side event, you're not required to participate but you'll get a small prize if you win"
-  },
-  {
     id: 'faq12',
     question: 'How do I prepare for the hackathon?',
     answer:
