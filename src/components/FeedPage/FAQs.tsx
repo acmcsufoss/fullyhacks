@@ -6,25 +6,37 @@ const faqs: FAQType[] = [
     id: 'faq0',
     question: 'When should I arrive?',
     answer:
-      'The check-in will start from 1pm to 3pm on April 8th in Mihaylo room 1502.'
+      'The check-in will start from 1pm to 3pm on Feb 24th in Mihaylo room 1502.'
   },
   {
     id: 'faq1/2',
     question: 'When will the hackathon start?',
     answer:
-      "The hackathon will officially start at 4pm April 8th. After the opening ceremony, we'll go back to CS buildings"
+      "The hackathon will officially start at 4pm Feb 24th. After the opening ceremony, we'll go back to CS buildings"
   },
   {
     id: 'faq01',
     question: 'When will the hackathon end?',
     answer:
-      'The hackathon ends at 4pm April 9th, closing ceremony will be at 5:30pm.'
+      'The hackathon ends at 4pm Feb 25th, closing ceremony will be at 6pm.'
+  },
+  {
+    id: 'faq17',
+    question: 'Can I leave during the hackathon?',
+    answer:
+      'Yes, you can leave then come back, make sure to check-in when you come back'
+  },
+  {
+    id: 'faq18',
+    question: 'Where is the information room?',
+    answer:
+      'Information room is in CS110A, you can come to check-in or ask questions'
   },
   {
     id: 'faq02',
     question: 'Where do I park my vehicles?',
     answer:
-      "There is no charge for parking at CSUF on Saturday and Sunday, we'd recommend Lot A for overnight parking."
+      "There is no charge for parking at CSUF on Saturday and Sunday, we'd recommend Lot A, Eastside for overnight parking."
   },
   {
     id: 'faq03',
@@ -37,12 +49,6 @@ const faqs: FAQType[] = [
     question: 'Does Fullyhacks have just one theme or multiple themes?',
     answer:
       'Fullyhacks has multiple themes that are divided into four different tracks.'
-  },
-  {
-    id: 'faq2',
-    question: ' What are the four tracks that Fullyhacks offers?',
-    answer:
-      'Fullyhacks offers four tracks, including Education, Security, New Frontiers (AI/ML, Web3.0, Crypto, etc), and Environment.'
   },
   {
     id: 'faq11',
