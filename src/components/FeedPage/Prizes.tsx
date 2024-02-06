@@ -1,24 +1,24 @@
 import React from 'react'
-import { BsShield, BsMap, BsGift } from 'react-icons/bs'
-import { SlGraduation } from 'react-icons/sl'
+import { BsShield, BsMap, BsGift, BsMusicPlayer } from 'react-icons/bs'
 import { CgSmartphoneChip } from 'react-icons/cg'
 import { MdOutlineRecycling } from 'react-icons/md'
 import { tracksType } from '@/types/interface'
+import { TbAccessible } from 'react-icons/tb'
 
 const tracks: tracksType[] = [
   {
     id: 'track1',
-    name: 'Education',
-    icon: <SlGraduation size={38} />,
+    name: 'Entertainment',
+    icon: <BsMusicPlayer size={38} />,
     description:
-      'How can we improve the education system and make education accessible to everyone?'
+      'Developing engaging and innovative entertainment solutions, including games, interactive media, and digital experiences.'
   },
   {
     id: 'track2',
-    name: 'Security',
-    icon: <BsShield size={38} />,
+    name: 'Accessibility',
+    icon: <TbAccessible size={38} />,
     description:
-      'How can we protect our data, identify online threats, build a more secure internet?'
+      'Improving user experience through inclusive design, assistive technologies, and compliance with accessibility standards.'
   },
   {
     id: 'track3',
@@ -29,10 +29,10 @@ const tracks: tracksType[] = [
   },
   {
     id: 'track4',
-    name: 'Environment',
+    name: 'Sustainability',
     icon: <MdOutlineRecycling size={38} />,
     description:
-      'What can we build to help our environment, make Earth a greener and better place'
+      'Tackling challenges like renewable energy, waste reduction, and green technology to promote a more sustainable future'
   }
 ]
 
@@ -75,18 +75,6 @@ const subCategory: tracksType[] = [
     team: 6,
     description:
       '1 year of Wolfram|One Personal Edition + 1 year of Wolfram|Alpha Pro (375$ value)'
-  },
-  {
-    id: 'sub2',
-    team: 1,
-    name: 'Best .XYZ domain',
-    description: '15$ Starbucks giftcard'
-  },
-  {
-    id: 'sub3',
-    team: 5,
-    name: 'Best use of Digital Ocean',
-    description: '$400 in Digital Ocean credits for each team'
   }
 ]
 
@@ -98,8 +86,9 @@ const Card: React.FC<TrackProps> = ({ track }) => {
   return (
     <div className="w-[260px] h-[260px] cursor-pointer md:w-[320px] md:h-[320px] flex flex-col items-center justify-center p-4 rounded-lg backdrop-filter backdrop-blur-md bg-purple_card border border-gray-300 border-opacity-25 shadow-xl hover:bg-[rgb(52,11,103)] duration-200 ease-in-out hover:text-white">
       <div className="px-10 flex flex-col">
-        <div className="text-white font-rubik text-lg text-center font-bold leading-normal">
+        <div className="text-lg flex gap-4 items-center font-bold">
           <p>{track.name}</p>
+          <p>{track.icon}</p>
         </div>
         <div className="mt-4 md:text-md">
           {track.team && (

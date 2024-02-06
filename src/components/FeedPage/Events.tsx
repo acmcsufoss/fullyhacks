@@ -1,6 +1,6 @@
 import { eventsType } from '@/types/interface'
 import React from 'react'
-import Calendar from '../Calendar/Calendar'
+import Calendar, { EventLabel } from '../Calendar/Calendar'
 const events: eventsType[] = [
   {
     id: 'event1',
@@ -30,17 +30,17 @@ const events: eventsType[] = [
     type: 'event',
     date: 0,
     timeString: '4:00',
-    location: 'CS-300,408,200,202',
+    location: 'CS102A,102B,104,110B,200,300',
     startTime: 3,
     endTime: 3,
     row: 0.5
   },
   {
     id: 'event4',
-    name: 'Team forming',
+    name: 'Team Building',
     type: 'event',
     date: 0,
-    timeString: '4:10 - 5:30',
+    timeString: '4:10 - 5:00',
     location: 'ECS Quad',
     startTime: 3.1,
     endTime: 4.5,
@@ -48,54 +48,43 @@ const events: eventsType[] = [
   },
   {
     id: 'food1',
-    name: 'Pizza dinner',
+    name: 'Dinner',
     type: 'food',
     date: 0,
     timeString: '5:30 - 7:00',
-    location: 'CS-300',
+    location: 'CS-104',
     startTime: 4.5,
     endTime: 6,
     row: 1.5
   },
   {
     id: 'workshop1',
-    name: 'Next.js - React (Daniel)',
+    name: 'Postman (Lillian)',
     type: 'workshop',
     date: 0,
-    timeString: '7:00 - 8:00',
-    location: 'CS-102B',
-    startTime: 6,
-    endTime: 7,
+    timeString: '6:00 - 7:00',
+    location: 'CS-102A',
+    startTime: 5,
+    endTime: 6,
     row: 2.5
   },
   {
     id: 'workshop2',
-    name: 'Svelte (Karni)',
+    name: 'Svelte Frontend (Diamond)',
     type: 'workshop',
-    timeString: '7:00 - 8:00',
-    location: 'CS-110A',
+    timeString: '6:00 - 7:00',
+    location: 'CS-102B',
     date: 0,
-    startTime: 6,
-    endTime: 7,
+    startTime: 5,
+    endTime: 6,
     row: 3.5
-  },
-  {
-    id: 'ctf',
-    name: 'CTF Begins',
-    type: 'ctf',
-    timeString: '8:00 - 4:00',
-    location: 'CS-202',
-    date: 0,
-    startTime: 7,
-    endTime: 27,
-    row: 6.5
   },
   {
     id: 'workshop3',
     name: 'Mobile Dev (Emily)',
     type: 'workshop',
     timeString: '8:00 - 9:00',
-    location: 'CS-102B',
+    location: 'CS-102A',
     date: 0,
     startTime: 7,
     endTime: 8,
@@ -103,10 +92,10 @@ const events: eventsType[] = [
   },
   {
     id: 'workshop4',
-    name: 'AI/ML (Justin)',
+    name: 'Guide to your first internship (Daniel)',
     type: 'workshop',
     timeString: '8:00 - 9:00',
-    location: 'CS-110A',
+    location: 'CS-102B',
     date: 0,
     startTime: 7,
     endTime: 8,
@@ -114,51 +103,62 @@ const events: eventsType[] = [
   },
   {
     id: 'workshop5',
-    name: 'Game Dev (Steph)',
+    name: 'From Concept to Project (Kylr)',
     type: 'workshop',
     date: 0,
-    timeString: '9:00 - 10:00',
-    location: 'CS-102B',
-    startTime: 8,
-    endTime: 9,
+    timeString: '10:00 - 11:00',
+    location: 'CS-102A',
+    startTime: 9,
+    endTime: 10,
     row: 2.5
   },
   {
     id: 'workshop6',
-    name: 'Database (Oscar)',
+    name: 'Intro to Python (Pillow, Joel)',
     type: 'workshop',
     date: 0,
-    timeString: '9:00 - 10:00',
-    location: 'CS-110A',
-    startTime: 8,
-    endTime: 9,
+    timeString: '10:00 - 11:00',
+    location: 'CS-102B',
+    startTime: 9,
+    endTime: 10,
     row: 3.5
   },
   {
-    id: 'fun1',
-    name: 'Team building',
-    type: 'fun',
+    id: 'workshop7',
+    name: 'Build web with FastAPI + HTMX',
+    type: 'workshop',
     date: 0,
-    timeString: '11:00 - 12:00',
-    location: 'CS-300',
-    startTime: 10,
-    endTime: 11,
-    row: 5
+    timeString: '12:00 - 1:00',
+    location: 'CS-102A',
+    startTime: 11,
+    endTime: 12,
+    row: 5.5
+  },
+  {
+    id: 'workshop8',
+    name: 'SQLite Database (Diamond)',
+    type: 'workshop',
+    date: 0,
+    timeString: '12:00 - 1:00',
+    location: 'CS-102B',
+    startTime: 11,
+    endTime: 12,
+    row: 4.5
   },
   {
     id: 'fun2',
     name: 'Movie Night',
     type: 'fun',
     date: 0,
-    timeString: '12:00',
-    location: 'CS-300',
-    startTime: 11,
-    endTime: 11,
-    row: 4.5
+    timeString: '1:00',
+    location: 'CS-110B',
+    startTime: 12,
+    endTime: 13,
+    row: 1.5
   },
   {
     id: 'food2',
-    name: 'Donut breakfast',
+    name: 'Breakfast',
     type: 'food',
     date: 1,
     timeString: '9:00 - 10:00',
@@ -169,7 +169,7 @@ const events: eventsType[] = [
   },
   {
     id: 'event5',
-    name: 'Networking event',
+    name: 'Touching grass event',
     type: 'event',
     date: 1,
     timeString: '10:00 - 12:00',
@@ -177,17 +177,6 @@ const events: eventsType[] = [
     startTime: 21,
     endTime: 23,
     row: 1
-  },
-  {
-    id: 'workshop8',
-    name: 'Project Deployment (Angel, Ethan, Oscar)',
-    type: 'workshop',
-    date: 1,
-    timeString: '2:00 - 3:00',
-    location: 'CS-102A',
-    startTime: 25,
-    endTime: 26,
-    row: 2
   },
   {
     id: 'event6',
@@ -205,10 +194,10 @@ const events: eventsType[] = [
     name: 'Judging & Project Expo',
     type: 'event',
     date: 1,
-    timeString: '4:00 - 5:00',
-    location: 'CS-300,408,200,202',
+    timeString: '4:00 - 6:00',
+    location: 'CS-104',
     startTime: 27,
-    endTime: 28,
+    endTime: 29,
     row: 1.25
   },
   {
@@ -216,21 +205,47 @@ const events: eventsType[] = [
     name: 'Closing ceremony & Announce winners',
     type: 'event',
     date: 1,
-    timeString: '5:30',
+    timeString: '6:00',
     location: 'SGMH-1502',
-    startTime: 28.5,
-    endTime: 28.5,
+    startTime: 29,
+    endTime: 29,
     row: 2
   }
 ]
 
 const Events: React.FC = () => {
   return (
-    <section className="mt-14 mx-10 w-full text-white">
+    <section className="mt-14 mx-10 w-full text-white bg-purple_dark min-h-screen">
       <p className="feed-title">Events</p>
       <p className="md:text-md">Fullyhacks timeline for your reference</p>
       <div className="mt-10">
-        <Calendar events={events} />
+        <div className="md:hidden flex flex-col gap-4 mb-6">
+          <div className="flex flex-row gap-4 text-[0.85rem] mb-4">
+            <EventLabel />
+          </div>
+          {events.map((event: eventsType) => {
+            return (
+              <div className="relative rounded-md bg-purple_card text-white p-2">
+                <p
+                  className={`absolute right-4 top-4 rounded-[50%] w-4 h-4 ${
+                    event.type == 'event'
+                      ? 'bg-sky_300'
+                      : event.type == 'workshop'
+                        ? 'bg-pink_300'
+                        : event.type == 'food'
+                          ? 'bg-orange_300'
+                          : 'bg-blue_300'
+                  }`}></p>
+                <p className="font-bold text-lg"> {event.name}</p>
+                <p> {event.timeString}</p>
+                <p> {event.location} </p>
+              </div>
+            )
+          })}
+        </div>
+        <div className="hidden md:block">
+          <Calendar events={events} />
+        </div>
       </div>
     </section>
   )

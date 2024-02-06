@@ -44,9 +44,7 @@ const Event: React.FC<EventProps> = ({ event }) => {
               ? 'bg-pink_300'
               : event.type == 'food'
                 ? 'bg-orange-500'
-                : event.type == 'ctf'
-                  ? 'bg-purple-700'
-                  : 'bg-blue_300'
+                : 'bg-blue_300'
         }`}></p>
       <div style={{ left: left, top: top }} className="text-sm absolute">
         <p className="font-bold">{event.name}</p>
@@ -58,9 +56,7 @@ const Event: React.FC<EventProps> = ({ event }) => {
                 ? 'text-pink_300'
                 : event.type == 'food'
                   ? 'text-orange-500'
-                  : event.type == 'ctf'
-                    ? 'text-purple-600'
-                    : 'text-blue_300'
+                  : 'text-blue_300'
           }`}>
           <p className="">{event.timeString} |</p>
           <p className="">{event.location}</p>
@@ -75,9 +71,7 @@ const Event: React.FC<EventProps> = ({ event }) => {
                 ? 'bg-pink_100'
                 : event.type == 'food'
                   ? 'bg-orange_300'
-                  : event.type == 'ctf'
-                    ? 'bg-purple_300'
-                    : 'bg-blue_300'
+                  : 'bg-blue_300'
           }`}></p>
       </div>
       {/* end bar */}
@@ -90,10 +84,31 @@ const Event: React.FC<EventProps> = ({ event }) => {
               ? 'bg-pink_300'
               : event.type == 'food'
                 ? 'bg-orange-500'
-                : event.type == 'ctf'
-                  ? 'bg-purple-700'
-                  : 'bg-blue-700'
+                : 'bg-blue-700'
         }`}></p>
+    </>
+  )
+}
+
+export const EventLabel: React.FC = () => {
+  return (
+    <>
+      <div className="flex items-center gap-2">
+        <p className="w-[1rem] bg-sky_300 p-2 rounded-[50%]"></p>
+        <p className="text-sky_300 font-bold">Main event</p>
+      </div>
+      <div className="flex items-center gap-2">
+        <p className="w-[1rem] bg-pink_300 p-2 rounded-[50%]"></p>
+        <p className="text-pink_300 font-bold">Workshops</p>
+      </div>
+      <div className="flex items-center gap-2">
+        <p className="w-[1rem] bg-orange-400 p-2 rounded-[50%]"></p>
+        <p className="text-orange-400 font-bold">Food</p>
+      </div>
+      <div className="flex items-center gap-2">
+        <p className="w-[1rem] bg-blue_300 p-2 rounded-[50%]"></p>
+        <p className="text-blue_300 font-bold">Fun</p>
+      </div>
     </>
   )
 }
@@ -114,26 +129,7 @@ const Calendar: React.FC<CalendarProps> = ({ events }) => {
     <section className="p-4 w-[70%] mb-12 rounded-lg backdrop-filter backdrop-blur-md bg-opacity-25 border border-gray-300 border-opacity-25 shadow-xl text-purple_main font-semibold">
       <div className="border-b-2 py-2 flex flex-wrap items-center gap-4 md:gap-8">
         <p>All events</p>
-        <div className="flex items-center gap-2">
-          <p className="w-[1rem] bg-sky_300 p-2 rounded-[50%]"></p>
-          <p className="text-sky_300 font-bold">Main event</p>
-        </div>
-        <div className="flex items-center gap-2">
-          <p className="w-[1rem] bg-pink_300 p-2 rounded-[50%]"></p>
-          <p className="text-pink_300 font-bold">Workshops</p>
-        </div>
-        <div className="flex items-center gap-2">
-          <p className="w-[1rem] bg-orange-400 p-2 rounded-[50%]"></p>
-          <p className="text-orange-400 font-bold">Food</p>
-        </div>
-        <div className="flex items-center gap-2">
-          <p className="w-[1rem] bg-purple-500 p-2 rounded-[50%]"></p>
-          <p className="text-purple-500 font-bold">CTF</p>
-        </div>
-        <div className="flex items-center gap-2">
-          <p className="w-[1rem] bg-blue_300 p-2 rounded-[50%]"></p>
-          <p className="text-blue_300 font-bold">Fun</p>
-        </div>
+        <EventLabel />
       </div>
       <div className="overflow-x-scroll gap-10 w-full">
         <div className="ml-8 mt-8 font-normal relative h-[600px] md:h-[800px] w-[3200px]">
