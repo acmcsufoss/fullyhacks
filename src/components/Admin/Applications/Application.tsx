@@ -27,6 +27,12 @@ export const Application: React.FC<ApplicationProps> = (props) => {
       <td className="whitespace-normal col-span-3 text-sm font-medium leading-5">
         {application.name}
       </td>
+      <td className="whitespace-normal text-sm font-medium leading-5">
+        {application.preferredEmail}
+      </td>
+      <td className="whitespace-normal text-sm font-medium leading-5">
+        {application.school}
+      </td>
       <td className="whitespace-normal break-all text-sm font-medium leading-5">
         {application.major}
       </td>

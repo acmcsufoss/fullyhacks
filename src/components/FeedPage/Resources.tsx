@@ -103,7 +103,8 @@ const Resources = () => {
       <div className="md:text-md">Cool gifts from our great sponsors</div>
 
       <div className="my-10 justify-center grid lg:grid-cols-3 gap-8">
-        {sponsorGifts.map((gift: sponsorGiftType, i) => {
+        COMING SOON...
+        {/* {sponsorGifts.map((gift: sponsorGiftType, i) => {
           return (
             <div
               key={gift.id}
@@ -116,7 +117,7 @@ const Resources = () => {
               <div>{gift.access}</div>
             </div>
           )
-        })}
+        })} */}
       </div>
     </section>
   )

@@ -145,9 +145,10 @@ const Prizes = () => {
           MAIN CATEGORY
         </p>
         <div className="mt-10 flex flex-wrap gap-8">
-          {mainCategory.map((category: tracksType) => {
+          COMING SOON...
+          {/* {mainCategory.map((category: tracksType) => {
             return <Card key={category.id} track={category} />
-          })}
+          })} */}
         </div>
       </div>
       <div className="mt-10">
@@ -158,9 +159,10 @@ const Prizes = () => {
           You can choose a sub category along with your project
         </p>
         <div className="mt-10 flex flex-wrap gap-8">
-          {subCategory.map((category: tracksType) => {
+          COMING SOON...
+          {/* {subCategory.map((category: tracksType) => {
             return <Card key={category.id} track={category} />
-          })}
+          })} */}
         </div>
       </div>
     </section>

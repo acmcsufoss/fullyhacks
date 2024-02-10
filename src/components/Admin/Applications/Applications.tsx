@@ -116,6 +116,8 @@ const Applications: React.FC<ApplicationsProps> = (props) => {
             <tr>
               <th>#</th>
               <th>Name</th>
+              <th>Email</th>
+              <th>School</th>
               <th>Major</th>
               <th>Food</th>
               <th>Class</th>

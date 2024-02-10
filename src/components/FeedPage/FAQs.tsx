@@ -71,7 +71,7 @@ const faqs: FAQType[] = [
     id: 'faq14',
     question: 'How do teams work? What if I dont have a team?',
     answer:
-      'Teams are size of 1-4. If you would like team up with others, we will have a team forming event at 4:00pm April 8th.'
+      'Teams are size of 1-4. If you would like team up with others, we will have a team forming event after opening ceremony'
   },
   {
     id: 'faq15',

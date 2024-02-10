@@ -87,9 +87,7 @@ export const FeedPopUp: React.FC = (props) => {
           />
           <div className="modal">
             <div className="modal-box feed-popup">
-              <h3 className="font-bold text-lg">
-                Welcome to The Feed 🐘 (beta version)
-              </h3>
+              <h3 className="font-bold text-lg">Welcome to The Feed 🐘</h3>
               <p className="py-4 font-normal">
                 Where you meet other participants and explore other cool things
                 about FullyHacks to be best prepared 🎉
