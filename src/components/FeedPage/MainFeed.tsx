@@ -15,7 +15,7 @@ const MainFeed: React.FC<MainFeedProps> = (props) => {
     (user) => user.bio !== null && user.application.approved == true
   )
   return (
-    <section className="flex items-start flex-col w-full grow md:mx-10 mr-[2rem] mt-14 overflow-x-auto">
+    <section className="flex items-start flex-col w-full grow md:mx-10 mr-[2rem] mt-14 overflow-x-hidden">
       {currentUser?.bio == null && <FeedPopUp />}
       <p className="feed-title">Homepage</p>
       {filteredFeedUsers.map((user: feedUsers) => {
@@ -40,7 +40,6 @@ const MainFeed: React.FC<MainFeedProps> = (props) => {
             <div className="flex flex-col w-full">
               <div className="mb-2 gap-1 flex items-start flex-col md:flex-row md:tems-center">
                 <p className="font-semibold mr-4 text-[#66D4EC]">
-                  {' '}
                   {user.application.name}
                 </p>
                 <a
@@ -63,7 +62,7 @@ const MainFeed: React.FC<MainFeedProps> = (props) => {
                   )}
                 </div>
               </div>
-              <div className="flex items-center gap-4 my-2 text-sm text-black">
+              <div className="flex flex-wrap items-center gap-4 my-2 text-sm text-black">
                 {user.isAdmin && (
                   <p className="bg-[#FCC14F] px-4 rounded-xl">Admin</p>
                 )}
