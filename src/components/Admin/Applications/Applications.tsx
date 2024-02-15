@@ -87,6 +87,7 @@ const Applications: React.FC<ApplicationsProps> = (props) => {
         <option value="all">All</option>
         <option value="approved">Approved</option>
         <option value="rejected">Rejected</option>
+        <option value="waitlisted">Waitlisted</option>
         <option value="submitted">Not Done</option>
       </select>
       <p>Refresh page if you want the filter has the most recent update lol</p>

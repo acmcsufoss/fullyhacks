@@ -238,12 +238,12 @@ export const FeedSideBar: React.FC<FeedSideBarProps> = ({ setLocation }) => {
       id: 'feed08',
       name: 'FAQs',
       icon: <AiOutlineQuestionCircle size={28} />
-    },
-    {
-      id: 'feed06',
-      name: 'Profile',
-      icon: <BiUserCircle size={28} />
     }
+    // {
+    //   id: 'feed06',
+    //   name: 'Profile',
+    //   icon: <BiUserCircle size={28} />
+    // }
   ]
   return (
     <>

@@ -45,6 +45,7 @@ export interface ApplicationType {
   pronouns: string
   approved: boolean
   rejected: boolean
+  waitlisted?: boolean
   skillLevel: number
   submittedAt: Date
   updatedAt: Date

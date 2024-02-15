@@ -32,8 +32,6 @@ const Feed: React.FC<FeedProps> = (props) => {
         <FullyPacks />
       ) : currentLocation == 'FAQs' ? (
         <FAQs />
-      ) : currentLocation == 'Profile' ? (
-        <Profile currentUser={currentUser} />
       ) : currentLocation == 'Resources' ? (
         <Resources />
       ) : (
