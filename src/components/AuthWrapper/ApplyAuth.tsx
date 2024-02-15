@@ -9,7 +9,7 @@ const ApplyAuth: React.FC<ApplyAuthProps> = ({ children }) => {
     'en-US',
     options
   )
-  const closeDate = new Date('2024-02-25T23:59:59.999-07:00').toLocaleString(
+  const closeDate = new Date('2024-02-13T23:59:59.999-07:00').toLocaleString(
     'en-US',
     options
   )

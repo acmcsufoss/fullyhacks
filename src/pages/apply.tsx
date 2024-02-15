@@ -10,6 +10,7 @@ import { getSession } from 'next-auth/react'
 import { useRouter } from 'next/router'
 import { prisma } from 'db'
 import Flower from '@/components/Flower/Flower'
+import ApplyAuth from '@/components/AuthWrapper/ApplyAuth'
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
   // Check if user is authenticated
@@ -115,6 +116,7 @@ const apply: NextPage = ({
             </div>
           </>
         ) : (
+          <ApplyAuth>
           <div className="flex items-center justify-center">
             <div className="z-10 font-rubik text-[#FF35EB] mt-10 mb-32 flex flex-col items-center bg-blue_rgba w-[min(50rem,_90vw)] p-8 rounded-lg border-8 border-blue_border_rgba [box-shadow:_0_0_32px_#618AA8]">
               <p className="text-[#FF35EB] text-lg font-semibold md:text-[3rem]">
@@ -129,6 +131,7 @@ const apply: NextPage = ({
               <ApplicationForm url={user?.image} />
             </div>
           </div>
+          </ApplyAuth>
         )}
       </section>
     </>
