@@ -81,7 +81,7 @@ const events: eventsType[] = [
   },
   {
     id: 'workshop3',
-    name: 'Mobile Dev (Emily)',
+    name: 'Android Development (Emily)',
     type: 'workshop',
     timeString: '8:00 - 9:00',
     location: 'CS-102A',
@@ -100,6 +100,17 @@ const events: eventsType[] = [
     startTime: 7,
     endTime: 8,
     row: 5.5
+  },
+  {
+    id: 'workshop4',
+    name: 'IOS Development with SwiftUI (Daniel)',
+    type: 'workshop',
+    timeString: '9:00 - 10:00',
+    location: 'CS-102B',
+    date: 0,
+    startTime: 8,
+    endTime: 9,
+    row: 6.5
   },
   {
     id: 'workshop5',
