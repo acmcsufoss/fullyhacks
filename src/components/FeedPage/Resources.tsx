@@ -11,43 +11,31 @@ const balsamiqAccess = (
       {' '}
       this website{' '}
     </a>
-    and enter promo code: <span className="font-bold"> BQRFHMA040823 </span>
+    and enter promo code: <span className="font-bold"> BQHACK60 </span>
   </p>
 )
-const digitalOceanAccess = (
-  <div className="">
-    <p>
-      $50, 30-day free trial for all attendees using
-      <a
-        target={'_blank'}
-        className="font-semibold"
-        href="https://try.digitalocean.com/student-developers/?source=student_hackathon&utm_medium=events&utm_campaign=DevRel_Student_Hackathons">
-        {' this link'}
-      </a>
-    </p>
-  </div>
-)
-const xyzAccess = (
-  <div>
-    <p>Search and register a .xyz domain </p>
-    <a className="font-bold" target={'_blank'} href="https://gen.xyz/register">
-      on this website
-    </a>
-    <p>
-      During checkout, apply the promo code:{' '}
-      <span className="font-bold">FHK23</span> to get it at 0.00$
-    </p>
-  </div>
-)
+
 const echo3DAccess = (
   <a
     className="font-semibold"
     target={'_blank'}
-    href="https://console.echo3d.com/#/auth/register-promo?code=April2023echo572">
+    href="https://console.echo3d.com/#/auth/register-promo?code=Feb2024echo551">
     Register here
   </a>
 )
 const sponsorGifts: sponsorGiftType[] = [
+  {
+    id: 'gift0',
+    company: 'StickerMule',
+    content: 'Free Fullyhacks stickers',
+    access: 'Grab it during event'
+  },
+  {
+    id: 'gift5',
+    company: 'StickerGiant',
+    content: 'Free Fullyhacks stickers',
+    access: 'Grab it during event'
+  },
   {
     id: 'gift1',
     company: 'Wolfram',
@@ -59,40 +47,15 @@ const sponsorGifts: sponsorGiftType[] = [
     id: 'gift2',
     company: 'Balsamiq',
     content:
-      '90-day extended trial promo code for Balsamiq Cloud so you can do collaborative design on the browser',
+      '60-day extended trial promo code for Balsamiq Cloud so you can do collaborative design on the browser',
     access: balsamiqAccess
-  },
-  {
-    id: 'gift7',
-    company: 'Digital Ocean',
-    content:
-      "DigitalOcean provides virtual servers (also known as VPS or droplets) that you can rent to run your website or application. These servers are hosted in the cloud, so you don't need to worry about managing physical hardware. You can choose from different server configurations to fit your needs, and DigitalOcean makes it easy to manage your servers through a user-friendly web interface. They also offer additional services like cloud storage and load balancing to help you build and scale your infrastructure.",
-    access: digitalOceanAccess
-  },
-  {
-    id: 'gift3',
-    company: '.XYZ',
-    content: 'Free .xyz domains for 1st year',
-    access: xyzAccess
   },
   {
     id: 'gift4',
     company: 'echo3D',
     content:
-      'echo3D is a cloud platform for 3D asset management that provides tools and cloud infrastructure to help developers quickly build and deploy 3D/AR/VR games, apps, and content. Participants will get 1-month FREE ACCESS to their premium plan of the echo3D platform ($99 value)',
+      'cho3D is a 3D asset management platform that enables developers to manage, update, and stream 3D content to real-time apps and games. For 1-month FREE access to our Pro tier',
     access: echo3DAccess
-  },
-  {
-    id: 'gift5',
-    company: 'Prisma',
-    content: 'Free Prisma stickers',
-    access: 'Grab it during event'
-  },
-  {
-    id: 'gift6',
-    company: 'Celsius',
-    content: 'Free Celsius drinks',
-    access: 'Grab it during event'
   }
 ]
 
@@ -103,8 +66,7 @@ const Resources = () => {
       <div className="md:text-md">Cool gifts from our great sponsors</div>
 
       <div className="my-10 justify-center grid lg:grid-cols-3 gap-8">
-        COMING SOON...
-        {/* {sponsorGifts.map((gift: sponsorGiftType, i) => {
+        {sponsorGifts.map((gift: sponsorGiftType, i) => {
           return (
             <div
               key={gift.id}
@@ -117,7 +79,7 @@ const Resources = () => {
               <div>{gift.access}</div>
             </div>
           )
-        })} */}
+        })}
       </div>
     </section>
   )

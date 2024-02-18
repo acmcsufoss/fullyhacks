@@ -1,8 +1,10 @@
-import { eventsType } from '@/types/interface'
+import { eventLabel, eventsType } from '@/types/interface'
 import React from 'react'
 
 interface CalendarProps {
   events: eventsType[]
+  filteredEvent: eventsType[]
+  setFilteredEvent?: any
 }
 interface TimeProps {
   time: string
@@ -89,31 +91,72 @@ const Event: React.FC<EventProps> = ({ event }) => {
     </>
   )
 }
-
-export const EventLabel: React.FC = () => {
+interface EventLableProps {
+  setFilteredEvent?: any
+  events?: eventsType[]
+}
+export const EventLabel: React.FC<EventLableProps> = ({
+  events,
+  setFilteredEvent
+}) => {
+  const eventLabels: eventLabel[] = [
+    {
+      id: 'e1',
+      name: 'Main event',
+      type: 'event',
+      borderStyle: 'w-[1rem] bg-sky_300 p-2 rounded-[50%]',
+      textStyle: 'text-sky_300 font-bold'
+    },
+    {
+      id: 'e2',
+      name: 'Workshops',
+      type: 'workshop',
+      borderStyle: 'w-[1rem] bg-pink_300 p-2 rounded-[50%]',
+      textStyle: 'text-pink_300 font-bold'
+    },
+    {
+      id: 'e3',
+      name: 'Food',
+      type: 'food',
+      borderStyle: 'w-[1rem] bg-orange-400 p-2 rounded-[50%]',
+      textStyle: 'text-orange-400 font-bold'
+    },
+    {
+      id: 'e4',
+      name: 'Fun',
+      type: 'fun',
+      borderStyle: 'w-[1rem] bg-blue_300 p-2 rounded-[50%]',
+      textStyle: 'text-blue_300 font-bold'
+    }
+  ]
+  const handleFilter = (name: string) => {
+    let filtered = events?.filter((e: eventsType) => e.type == name)
+    if (filtered !== undefined) {
+      setFilteredEvent(filtered)
+    }
+  }
   return (
     <>
-      <div className="flex items-center gap-2">
-        <p className="w-[1rem] bg-sky_300 p-2 rounded-[50%]"></p>
-        <p className="text-sky_300 font-bold">Main event</p>
-      </div>
-      <div className="flex items-center gap-2">
-        <p className="w-[1rem] bg-pink_300 p-2 rounded-[50%]"></p>
-        <p className="text-pink_300 font-bold">Workshops</p>
-      </div>
-      <div className="flex items-center gap-2">
-        <p className="w-[1rem] bg-orange-400 p-2 rounded-[50%]"></p>
-        <p className="text-orange-400 font-bold">Food</p>
-      </div>
-      <div className="flex items-center gap-2">
-        <p className="w-[1rem] bg-blue_300 p-2 rounded-[50%]"></p>
-        <p className="text-blue_300 font-bold">Fun</p>
-      </div>
+      {eventLabels.map((event: eventLabel) => {
+        return (
+          <div
+            key={event.id}
+            className="cursor-pointer flex items-center gap-2"
+            onClick={() => handleFilter(event.type)}>
+            <p className={event.borderStyle}></p>
+            <p className={event.textStyle}>{event.name}</p>
+          </div>
+        )
+      })}
     </>
   )
 }
 
-const Calendar: React.FC<CalendarProps> = ({ events }) => {
+const Calendar: React.FC<CalendarProps> = ({
+  events,
+  filteredEvent,
+  setFilteredEvent
+}) => {
   const hoursArray = Array.from({ length: 30 }, (_, i) => {
     const hour = (i % 12) + 1
     const period = i < 12 ? 'pm' : i > 22 ? 'pm' : 'am'
@@ -125,11 +168,16 @@ const Calendar: React.FC<CalendarProps> = ({ events }) => {
       value: value * 100
     }
   })
+  const setAllEvent = () => {
+    setFilteredEvent(events)
+  }
   return (
     <section className="p-4 w-[70%] mb-12 rounded-lg backdrop-filter backdrop-blur-md bg-opacity-25 border border-gray-300 border-opacity-25 shadow-xl text-purple_main font-semibold">
       <div className="border-b-2 py-2 flex flex-wrap items-center gap-4 md:gap-8">
-        <p>All events</p>
-        <EventLabel />
+        <p className="cursor-pointer" onClick={setAllEvent}>
+          All events
+        </p>
+        <EventLabel events={events} setFilteredEvent={setFilteredEvent} />
       </div>
       <div className="overflow-x-scroll gap-10 w-full">
         <div className="ml-8 mt-8 font-normal relative h-[600px] md:h-[800px] w-[3200px]">
@@ -140,7 +188,7 @@ const Calendar: React.FC<CalendarProps> = ({ events }) => {
               <TimeStamp key={hour.id} time={hour.name} value={hour.value} />
             )
           })}
-          {events.map((event: eventsType) => {
+          {filteredEvent.map((event: eventsType) => {
             return <Event key={event.id} event={event} />
           })}
         </div>

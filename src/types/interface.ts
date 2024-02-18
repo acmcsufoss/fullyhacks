@@ -127,3 +127,11 @@ export interface tracksType {
 export interface University {
   institution: string
 }
+
+export interface eventLabel {
+  id: string
+  name: string
+  type: string
+  borderStyle: string
+  textStyle: string
+}
