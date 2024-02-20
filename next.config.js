@@ -11,47 +11,18 @@ const nextConfig = {
       {
         source: '/waiver',
         destination:
-          'https://drive.google.com/file/d/13A98PnQGzv51LNBmOatM3Q3Jrby-A4cp/view?usp=share_link',
-        permanent: true
-      },
-      {
-        source: '/teamforming',
-        destination: 'https://forms.gle/nox2oKFJdyyeAvQt9',
+          'https://drive.google.com/file/d/1Zpdzz3XeXahzEaPOyO60rNnXZNPjySCr/view?usp=sharing',
         permanent: true
       },
       {
         source: '/projectform',
-        destination: 'https://forms.gle/s6qTwJbf7TDHs3dT9',
+        destination: 'https://forms.gle/bzpwPR4JYy8EQDt88',
         permanent: true
       },
       {
         source: '/opening',
         destination:
-          'https://www.canva.com/design/DAFe5xstJ38/mJqwCHRVGnmUnHcGI7GbyA/view?utm_content=DAFe5xstJ38&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink',
-        permanent: true
-      },
-      {
-        source: '/nextjs',
-        destination:
-          'https://www.canva.com/design/DAFfUTCnxRM/dOmLiwmTcAK6OZAuy84QZw/view?utm_content=DAFfUTCnxRM&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink',
-        permanent: true
-      },
-      {
-        source: '/database',
-        destination:
-          'https://docs.google.com/presentation/d/1OqpEj1DLr1mXsgsVFHPi_jfSvnNgP33Cm5HhWyJIDM0/edit?usp=sharing',
-        permanent: true
-      },
-      {
-        source: '/mobiledev',
-        destination:
-          'https://docs.google.com/presentation/d/14KNA1VjsvGRGFQsj8Yi7p0aFqW-nejssvCfwXHkbPYE/edit?usp=sharing',
-        permanent: true
-      },
-      {
-        source: '/gamedev',
-        destination:
-          'https://docs.google.com/presentation/d/1T0Z_PI4K8Nx2luvf53JASdabdERHq3_j/edit?usp=sharing&ouid=103653330096966712953&rtpof=true&sd=true',
+          'https://www.canva.com/design/DAF9OpZ4hEo/3jeYaPwIgiz2k-B86x3uVA/edit?utm_content=DAF9OpZ4hEo&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton',
         permanent: true
       }
     ]

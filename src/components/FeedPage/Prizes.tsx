@@ -84,13 +84,13 @@ const subCategory: tracksType[] = [
   {
     id: 'sub4',
     name: 'Cool Game Project',
-    team: 10,
+    team: 2,
     description: 'Steam key for Grounded by Obsidian'
   },
   {
     id: 'sub3',
     name: 'Best use of Wolfram',
-    team: 6,
+    team: 7,
     description:
       '1 year of Wolfram|One Personal Edition + 1 year of Wolfram|Alpha Pro (375$ value)'
   },
