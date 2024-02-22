@@ -85,7 +85,7 @@ const Profile: React.FC<ProfileProps> = ({ currentUser }) => {
   }
 
   return (
-    <section className="overflow-x-auto w-full mt-14 mx-10">
+    <section className="overflow-x-auto w-full mt-14 mr-8">
       <p className="feed-title mb-10">{currentUser.name}&apos;s Profile</p>
       <form
         onSubmit={handleSubmit(updateUserProfile)}

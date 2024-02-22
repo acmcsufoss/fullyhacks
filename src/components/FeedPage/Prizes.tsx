@@ -109,9 +109,9 @@ interface TrackProps {
 
 const Card: React.FC<TrackProps> = ({ track }) => {
   return (
-    <div className="w-[260px] h-[260px] cursor-pointer md:w-[320px] md:h-[320px] flex flex-col items-center justify-center p-4 rounded-lg backdrop-filter backdrop-blur-md bg-purple_card border border-gray-300 border-opacity-25 shadow-xl hover:bg-[rgb(52,11,103)] duration-200 ease-in-out hover:text-white">
-      <div className="px-10 flex flex-col">
-        <div className="text-lg flex gap-4 items-center font-bold">
+    <div className="cursor-pointer max-w-xs md:max-w-sm h-[300px] md:h-[350px] flex flex-col p-6 md:p-8 rounded-lg backdrop-filter backdrop-blur-md bg-purple_card border border-gray-300 border-opacity-25 shadow-xl hover:bg-[rgb(52,11,103)] duration-200 ease-in-out hover:text-white">
+      <div className="flex flex-col">
+        <div className="text-lg flex gap-4 font-bold">
           <p>{track.name}</p>
           <p>{track.icon}</p>
         </div>
@@ -132,7 +132,7 @@ const Card: React.FC<TrackProps> = ({ track }) => {
 
 const Prizes = () => {
   return (
-    <section className="my-14 mx-10 w-full text-white">
+    <section className="my-14 mr-8 w-full text-white">
       <p className="feed-title">Tracks & Prizes</p>
       <p className="md:text-md">
         Find all details about tracks, prize categories here
@@ -147,7 +147,7 @@ const Prizes = () => {
           Hackers have to build their projects around one of these 4 tracks
         </p>
       </div>
-      <div className="mt-10 flex flex-wrap gap-8">
+      <div className="mt-10 grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
         {tracks.map((track: tracksType) => {
           return <Card key={track.id} track={track} />
         })}
@@ -168,7 +168,7 @@ const Prizes = () => {
         <p className="text-purple-500 font-rubik text-lg font-bold leading-normal">
           MAIN CATEGORY
         </p>
-        <div className="mt-10 flex flex-wrap gap-8">
+        <div className="mt-10 grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
           {mainCategory.map((category: tracksType) => {
             return <Card key={category.id} track={category} />
           })}
@@ -181,7 +181,7 @@ const Prizes = () => {
         <p className="font-rubik font-normal leading-normal md:text-md">
           You can choose ONE sub category along with your project
         </p>
-        <div className="mt-10 flex flex-wrap gap-8">
+        <div className="mt-10 grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
           {subCategory.map((category: tracksType) => {
             return <Card key={category.id} track={category} />
           })}

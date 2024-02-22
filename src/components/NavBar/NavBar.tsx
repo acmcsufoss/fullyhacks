@@ -250,44 +250,53 @@ export const FeedSideBar: React.FC<FeedSideBarProps> = ({ setLocation }) => {
       {!isOpen && (
         <AiOutlineMenu
           onClick={() => setOpen(true)}
-          className="absolute top-4 left-0 md:hidden cursor-pointer text-[#EF4DB3]"
+          className="fixed top-[5rem] left-4 z-20 md:hidden cursor-pointer text-[#EF4DB3]"
           size={20}
         />
       )}
-      {isOpen && (
-        <div className="md:hidden text-sm mt-4 mx-4 font-rubik text-[#EF4DB3] font-semibold basis-1/6">
-          <AiOutlineClose
-            onClick={() => setOpen(false)}
-            size={20}
-            className="cursor-pointer"
-          />
-          <ul className="border-b-2 border-[#EF4DB3] p-2">
-            {feedItems.map((item, idx) => {
-              return (
-                <button
-                  key={item.id}
-                  onClick={() => {
-                    setLocation(item.name), setIdx(idx)
-                  }}
-                  className={`w-full flex my-4 p-2 rounded-lg items-center ${
-                    currIdx == idx
-                      ? 'text-white bg-[rgba(255,136,229,0.4)]'
-                      : ''
-                  }`}>
-                  {item.icon}
-                  <li className="ml-4 text-white">{item.name}</li>
-                </button>
-              )
-            })}
-          </ul>
-          <div className="flex items-center text-center mt-4 gap-4">
-            <BsDiscord size={28} />
-            <a target={'_blank'} href="https://discord.gg/XKNZxHEnJj">
-              Discord Server
-            </a>
-          </div>
+
+      {/* For mobile */}
+      <div
+        className={`md:hidden fixed left-0 top-0 w-screen h-screen z-20 pointer-events-none bg-purple_dark/40 ${
+          isOpen ? 'block' : 'hidden'
+        }`}
+      />
+
+      <div
+        className={`md:hidden fixed top-0 transition-all duration-200 ease-in ${
+          isOpen ? 'left-0' : '-left-80'
+        } bg-purple_dark z-30 text-sm p-8 h-screen font-rubik text-[#EF4DB3] font-semibold basis-1/6`}>
+        <AiOutlineClose
+          onClick={() => setOpen(false)}
+          size={20}
+          className="cursor-pointer"
+        />
+        <ul className="border-b-2 border-[#EF4DB3] p-2">
+          {feedItems.map((item, idx) => {
+            return (
+              <button
+                key={item.id}
+                onClick={() => {
+                  setLocation(item.name), setIdx(idx), setOpen(false)
+                }}
+                className={`w-full flex my-2 p-2 rounded-lg items-center ${
+                  currIdx == idx ? 'text-white bg-[rgba(255,136,229,0.4)]' : ''
+                }`}>
+                {item.icon}
+                <li className="ml-4 text-white">{item.name}</li>
+              </button>
+            )
+          })}
+        </ul>
+        <div className="flex items-center text-center mt-4 gap-4">
+          <BsDiscord size={28} />
+          <a target={'_blank'} href="https://discord.gg/XKNZxHEnJj">
+            Discord Server
+          </a>
         </div>
-      )}
+      </div>
+
+      {/* For desktop */}
       <div className="hidden md:block text-sm mt-12 mx-4 md:mx-10 font-rubik text-[#EF4DB3] font-semibold md:text-md basis-1/5">
         <ul className="border-b-2 p-2">
           {feedItems.map((item, idx) => {

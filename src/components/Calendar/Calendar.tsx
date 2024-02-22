@@ -43,10 +43,10 @@ const Event: React.FC<EventProps> = ({ event }) => {
           event.type == 'event'
             ? 'bg-sky_300'
             : event.type == 'workshop'
-              ? 'bg-pink_300'
-              : event.type == 'food'
-                ? 'bg-orange-500'
-                : 'bg-blue_300'
+            ? 'bg-pink_300'
+            : event.type == 'food'
+            ? 'bg-orange-500'
+            : 'bg-blue_300'
         }`}></p>
       <div style={{ left: left, top: top }} className="text-sm absolute">
         <p className="font-bold">{event.name}</p>
@@ -55,10 +55,10 @@ const Event: React.FC<EventProps> = ({ event }) => {
             event.type == 'event'
               ? 'text-sky_300'
               : event.type == 'workshop'
-                ? 'text-pink_300'
-                : event.type == 'food'
-                  ? 'text-orange-500'
-                  : 'text-blue_300'
+              ? 'text-pink_300'
+              : event.type == 'food'
+              ? 'text-orange-500'
+              : 'text-blue_300'
           }`}>
           <p className="">{event.timeString} |</p>
           <p className="">{event.location}</p>
@@ -70,10 +70,10 @@ const Event: React.FC<EventProps> = ({ event }) => {
             event.type == 'event'
               ? 'bg-sky_100'
               : event.type == 'workshop'
-                ? 'bg-pink_100'
-                : event.type == 'food'
-                  ? 'bg-orange_300'
-                  : 'bg-blue_300'
+              ? 'bg-pink_100'
+              : event.type == 'food'
+              ? 'bg-orange_300'
+              : 'bg-blue_300'
           }`}></p>
       </div>
       {/* end bar */}
@@ -83,10 +83,10 @@ const Event: React.FC<EventProps> = ({ event }) => {
           event.type == 'event'
             ? 'bg-sky_300'
             : event.type == 'workshop'
-              ? 'bg-pink_300'
-              : event.type == 'food'
-                ? 'bg-orange-500'
-                : 'bg-blue-700'
+            ? 'bg-pink_300'
+            : event.type == 'food'
+            ? 'bg-orange-500'
+            : 'bg-blue-700'
         }`}></p>
     </>
   )
@@ -102,39 +102,51 @@ export const EventLabel: React.FC<EventLableProps> = ({
   const eventLabels: eventLabel[] = [
     {
       id: 'e1',
+      name: 'All',
+      type: 'all',
+      borderStyle: 'w-[1rem] bg-white p-2 rounded-[50%]',
+      textStyle: 'text-white font-bold'
+    },
+    {
+      id: 'e2',
       name: 'Main event',
       type: 'event',
       borderStyle: 'w-[1rem] bg-sky_300 p-2 rounded-[50%]',
       textStyle: 'text-sky_300 font-bold'
     },
     {
-      id: 'e2',
+      id: 'e3',
       name: 'Workshops',
       type: 'workshop',
       borderStyle: 'w-[1rem] bg-pink_300 p-2 rounded-[50%]',
       textStyle: 'text-pink_300 font-bold'
     },
     {
-      id: 'e3',
+      id: 'e4',
       name: 'Food',
       type: 'food',
       borderStyle: 'w-[1rem] bg-orange-400 p-2 rounded-[50%]',
       textStyle: 'text-orange-400 font-bold'
     },
     {
-      id: 'e4',
+      id: 'e5',
       name: 'Fun',
       type: 'fun',
       borderStyle: 'w-[1rem] bg-blue_300 p-2 rounded-[50%]',
       textStyle: 'text-blue_300 font-bold'
     }
   ]
+
   const handleFilter = (name: string) => {
-    let filtered = events?.filter((e: eventsType) => e.type == name)
+    let filtered = events?.filter(
+      (e: eventsType) => name === 'all' || e.type === name
+    )
+
     if (filtered !== undefined) {
       setFilteredEvent(filtered)
     }
   }
+
   return (
     <>
       {eventLabels.map((event: eventLabel) => {

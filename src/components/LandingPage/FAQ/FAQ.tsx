@@ -28,8 +28,8 @@ export const FAQDropDown: React.FC<FAQDropDownProps> = (props) => {
       className="border-2 collapse border-pink_200 rounded-box"
       onClick={toggleOpen}>
       <input type="checkbox" className={mounted ? 'hidden' : ''} />
-      <div className="flex items-center justify-between w-full text-white transition-all duration-500 ease-in-out bg-[#0C1B3A] bg-opacity-50 border-pink_200 rounded-b-none collapse-title hover:ease-in-out hover:duration-200 hover:bg-purple_hover hover:text-white rounded-box">
-        <p className="leading-9 normal-case text-start text-md md:text-lg">
+      <div className="flex items-center justify-between text-sm md:text-md lg:text-lg p-2 px-4 md:p-4 w-full text-white transition-all duration-500 ease-in-out bg-[#0C1B3A] bg-opacity-50 border-pink_200 rounded-b-none collapse-title hover:ease-in-out hover:duration-200 hover:bg-purple_hover hover:text-white rounded-box">
+        <p className="leading-9 normal-case text-start text-[1rem] md:text-md lg:text-lg">
           {question}
         </p>
         <div

@@ -293,30 +293,32 @@ const events: eventsType[] = [
 const Events: React.FC = () => {
   const [filteredEvent, setFilteredEvent] = useState<eventsType[]>(events)
   return (
-    <section className="mt-14 mx-10 w-full text-white bg-purple_dark min-h-screen">
+    <section className="mt-14 mr-8 w-full text-white bg-purple_dark min-h-screen">
       <p className="feed-title">Events</p>
       <p className="md:text-md">Fullyhacks timeline for your reference</p>
       <p className="md:text-sm text-white/60 mt-4">Click the label to filter</p>
       <div className="mt-10">
         {/* For mobile */}
         <div className="md:hidden flex flex-col gap-4 mb-6">
-          <div className="flex flex-row gap-4 text-[0.85rem] mb-4">
+          <div className="flex flex-row flex-wrap gap-4 text-[0.85rem] mb-4">
             <EventLabel events={events} setFilteredEvent={setFilteredEvent} />
           </div>
           {filteredEvent.map((event: eventsType) => {
             return (
-              <div className="relative rounded-md bg-purple_card text-white p-2">
-                <p
-                  className={`absolute right-4 top-4 rounded-[50%] w-4 h-4 ${
-                    event.type == 'event'
-                      ? 'bg-sky_300'
-                      : event.type == 'workshop'
+              <div className="relative rounded-md bg-purple_card text-white p-4">
+                <div className="flex flex-row items-center justify-between">
+                  <p className="font-bold text-lg">{event.name}</p>
+                  <p
+                    className={`rounded-[50%] w-4 h-4 ${
+                      event.type == 'event'
+                        ? 'bg-sky_300'
+                        : event.type == 'workshop'
                         ? 'bg-pink_300'
                         : event.type == 'food'
-                          ? 'bg-orange-400'
-                          : 'bg-blue_300'
-                  }`}></p>
-                <p className="font-bold text-lg"> {event.name}</p>
+                        ? 'bg-orange-400'
+                        : 'bg-blue_300'
+                    }`}></p>
+                </div>
                 <p> {event.timeString}</p>
                 <p> {event.location} </p>
               </div>
