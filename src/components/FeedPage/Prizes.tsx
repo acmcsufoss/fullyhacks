@@ -132,7 +132,7 @@ const Card: React.FC<TrackProps> = ({ track }) => {
 
 const Prizes = () => {
   return (
-    <section className="my-14 mx-10 w-full text-white">
+    <section className="my-14 mr-8 w-full text-white">
       <p className="feed-title">Tracks & Prizes</p>
       <p className="md:text-md">
         Find all details about tracks, prize categories here

@@ -61,7 +61,7 @@ const sponsorGifts: sponsorGiftType[] = [
 
 const Resources = () => {
   return (
-    <section className="mt-14 mx-10 w-full text-white">
+    <section className="mt-14 mr-8 w-full text-white">
       <div className="feed-title">Fully Gifts</div>
       <div className="md:text-md">Cool gifts from our great sponsors</div>
 
