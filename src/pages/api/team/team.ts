@@ -180,7 +180,7 @@ export const team: TeamType[] = [
   {
     id: 'team16',
     name: 'Cyril',
-    image: '/cyril.jpg',
+    image: '/cyril.webp',
     role: 'Operation Officer',
     tag: 'Operation',
     href: '/'
@@ -216,5 +216,21 @@ export const team: TeamType[] = [
     role: 'Operation Officer',
     tag: 'Operation',
     href: 'https://github.com/emilykrohn'
+  },
+  {
+    id: 'teamkelsey',
+    name: 'Kelsey',
+    image: '/kelsey.webp',
+    role: 'Operation Officer',
+    tag: 'Operation',
+    href: 'https://www.linkedin.com/in/kelsey-tang-392514287'
+  },
+  {
+    id: 'teamgabe',
+    name: 'Gabe',
+    image: '/gabe.webp',
+    role: 'Operation Officer',
+    tag: 'Operation',
+    href: 'https://github.com/GabrieliusGintalas'
   }
 ]

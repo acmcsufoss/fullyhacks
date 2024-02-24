@@ -51,7 +51,7 @@ const AnnouncementForm: React.FC = () => {
   return (
     <form
       onSubmit={handleSubmit(postAnnouncement)}
-      className="text-purple_main w-full flex flex-col items-start mb-10"
+      className="text-purple_main mb-10 flex w-full flex-col items-start"
       action="">
       <p className="mb-2 font-bold">ANNOUNCEMENT TITLE:</p>
       <input
@@ -59,7 +59,7 @@ const AnnouncementForm: React.FC = () => {
         name="title"
         value={newAnnouncement.title}
         onChange={handleInfoChange}
-        className={`rounded-md feed-form-input ${
+        className={`feed-form-input rounded-md ${
           errors.title ? 'error-form' : ''
         }`}
         type="text"
@@ -71,7 +71,7 @@ const AnnouncementForm: React.FC = () => {
         {...register('content')}
         name="content"
         value={newAnnouncement.content}
-        className={`rounded-md feed-form-input h-52 ${
+        className={`feed-form-input h-52 rounded-md ${
           errors.content ? 'error-form' : ''
         }`}
         onChange={handleInfoChange}
@@ -79,14 +79,14 @@ const AnnouncementForm: React.FC = () => {
       />
       <p className="error-msg">{errors.content?.message}</p>
       {isLoading ? (
-        <button className="mt-4 self-start normal-case btn bg-sky-100 border-none text-purple_main hover:bg-sky-200 hover:ease-in-out hover:duration-200">
+        <button className="btn text-purple_main mt-4 self-start border-none bg-sky-100 normal-case hover:bg-sky-200 hover:duration-200 hover:ease-in-out">
           <Loading isLoading={isLoading} />
         </button>
       ) : (
         <>
           <button
             type="submit"
-            className="mt-4 self-start normal-case btn bg-[#46C8E5] border-none text-[#1E2D79] hover:bg-sky-200 hover:ease-in-out hover:duration-200">
+            className="btn mt-4 self-start border-none bg-[#46C8E5] normal-case text-[#1E2D79] hover:bg-sky-200 hover:duration-200 hover:ease-in-out">
             POST
           </button>
         </>

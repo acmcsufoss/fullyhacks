@@ -43,10 +43,10 @@ const Event: React.FC<EventProps> = ({ event }) => {
           event.type == 'event'
             ? 'bg-sky_300'
             : event.type == 'workshop'
-            ? 'bg-pink_300'
-            : event.type == 'food'
-            ? 'bg-orange-500'
-            : 'bg-blue_300'
+              ? 'bg-pink_300'
+              : event.type == 'food'
+                ? 'bg-orange-500'
+                : 'bg-blue_300'
         }`}></p>
       <div style={{ left: left, top: top }} className="text-sm absolute">
         <p className="font-bold">{event.name}</p>
@@ -55,10 +55,10 @@ const Event: React.FC<EventProps> = ({ event }) => {
             event.type == 'event'
               ? 'text-sky_300'
               : event.type == 'workshop'
-              ? 'text-pink_300'
-              : event.type == 'food'
-              ? 'text-orange-500'
-              : 'text-blue_300'
+                ? 'text-pink_300'
+                : event.type == 'food'
+                  ? 'text-orange-500'
+                  : 'text-blue_300'
           }`}>
           <p className="">{event.timeString} |</p>
           <p className="">{event.location}</p>
@@ -70,10 +70,10 @@ const Event: React.FC<EventProps> = ({ event }) => {
             event.type == 'event'
               ? 'bg-sky_100'
               : event.type == 'workshop'
-              ? 'bg-pink_100'
-              : event.type == 'food'
-              ? 'bg-orange_300'
-              : 'bg-blue_300'
+                ? 'bg-pink_100'
+                : event.type == 'food'
+                  ? 'bg-orange_300'
+                  : 'bg-blue_300'
           }`}></p>
       </div>
       {/* end bar */}
@@ -83,10 +83,10 @@ const Event: React.FC<EventProps> = ({ event }) => {
           event.type == 'event'
             ? 'bg-sky_300'
             : event.type == 'workshop'
-            ? 'bg-pink_300'
-            : event.type == 'food'
-            ? 'bg-orange-500'
-            : 'bg-blue-700'
+              ? 'bg-pink_300'
+              : event.type == 'food'
+                ? 'bg-orange-500'
+                : 'bg-blue-700'
         }`}></p>
     </>
   )

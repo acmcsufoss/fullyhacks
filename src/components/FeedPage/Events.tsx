@@ -313,10 +313,10 @@ const Events: React.FC = () => {
                       event.type == 'event'
                         ? 'bg-sky_300'
                         : event.type == 'workshop'
-                        ? 'bg-pink_300'
-                        : event.type == 'food'
-                        ? 'bg-orange-400'
-                        : 'bg-blue_300'
+                          ? 'bg-pink_300'
+                          : event.type == 'food'
+                            ? 'bg-orange-400'
+                            : 'bg-blue_300'
                     }`}></p>
                 </div>
                 <p> {event.timeString}</p>
