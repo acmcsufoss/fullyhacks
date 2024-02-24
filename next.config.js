@@ -54,6 +54,18 @@ const nextConfig = {
         destination:
           'https://docs.google.com/presentation/d/1-zB-HKooFSi0vnWJlnby0HaYlHnuj5KoyMPAQvwL_AE/edit?usp=sharing',
         permanent: true
+      },
+      {
+        source: '/sveltekit',
+        destination:
+          'https://docs.google.com/presentation/d/1X7AQ1yP7b-QU9oV_0dQn43bYQYVwaB2l_5ZsGi4Yhe0/edit?usp=sharing',
+        permanent: true
+      },
+      {
+        source: '/concepttoproject',
+        destination:
+          'https://docs.google.com/presentation/d/1UZz9EG6FlJisbmFXSl8cjGB4QqlpWJxXt1FoHcBxm74/edit?usp=sharing',
+        permanent: true
       }
     ]
   }
