@@ -34,7 +34,7 @@ const nextConfig = {
       {
         source: '/introtopython',
         destination:
-          'https://docs.google.com/presentation/d/14KNA1VjsvGRGFQsj8Yi7p0aFqW-nejssvCfwXHkbPYE/edit#slide=id.p',
+          'https://docs.google.com/presentation/d/1VRpyLBAA4Uhsz6oTms5B6er51ncSDJa3la1Sx_zLr3c/edit#slide=id.ga073618e60_0_16',
         permanent: true
       },
       {
