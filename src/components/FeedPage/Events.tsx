@@ -84,9 +84,9 @@ const events: eventsType[] = [
     name: 'Dinner',
     type: 'food',
     date: 0,
-    timeString: '7:00 - 8:30',
+    timeString: '6:00 - 8:30',
     location: 'CS-104',
-    startTime: 6,
+    startTime: 5,
     endTime: 7.5,
     row: 1.5
   },
@@ -173,7 +173,7 @@ const events: eventsType[] = [
     type: 'event',
     date: 0,
     timeString: '11:30',
-    location: 'CS110B, CS200',
+    location: 'CS110B, CS209',
     startTime: 11.5,
     endTime: 11.5,
     row: 0.5
@@ -293,23 +293,23 @@ const events: eventsType[] = [
 const Events: React.FC = () => {
   const [filteredEvent, setFilteredEvent] = useState<eventsType[]>(events)
   return (
-    <section className="mt-14 mr-8 w-full text-white bg-purple_dark min-h-screen">
+    <section className="bg-purple_dark mr-8 mt-14 min-h-screen w-full text-white">
       <p className="feed-title">Events</p>
       <p className="md:text-md">Fullyhacks timeline for your reference</p>
-      <p className="md:text-sm text-white/60 mt-4">Click the label to filter</p>
+      <p className="mt-4 text-white/60 md:text-sm">Click the label to filter</p>
       <div className="mt-10">
         {/* For mobile */}
-        <div className="md:hidden flex flex-col gap-4 mb-6">
-          <div className="flex flex-row flex-wrap gap-4 text-[0.85rem] mb-4">
+        <div className="mb-6 flex flex-col gap-4 md:hidden">
+          <div className="mb-4 flex flex-row flex-wrap gap-4 text-[0.85rem]">
             <EventLabel events={events} setFilteredEvent={setFilteredEvent} />
           </div>
           {filteredEvent.map((event: eventsType) => {
             return (
-              <div className="relative rounded-md bg-purple_card text-white p-4">
+              <div className="bg-purple_card relative rounded-md p-4 text-white">
                 <div className="flex flex-row items-center justify-between">
-                  <p className="font-bold text-lg">{event.name}</p>
+                  <p className="text-lg font-bold">{event.name}</p>
                   <p
-                    className={`rounded-[50%] w-4 h-4 ${
+                    className={`h-4 w-4 rounded-[50%] ${
                       event.type == 'event'
                         ? 'bg-sky_300'
                         : event.type == 'workshop'
