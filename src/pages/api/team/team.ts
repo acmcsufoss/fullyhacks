@@ -232,5 +232,21 @@ export const team: TeamType[] = [
     role: 'Operation Officer',
     tag: 'Operation',
     href: 'https://github.com/GabrieliusGintalas'
+  },
+  {
+    id: 'teamnate',
+    name: 'Nate',
+    image: '/nate.webp',
+    role: 'Operation Officer',
+    tag: 'Operation',
+    href: 'https://github.com/NateGries1'
+  },
+  {
+    id: 'teamalex',
+    name: 'Alex',
+    image: '/alex.jpg',
+    role: 'Operation Officer',
+    tag: 'Operation',
+    href: 'https://www.linkedin.com/in/a1exanderk/'
   }
 ]
