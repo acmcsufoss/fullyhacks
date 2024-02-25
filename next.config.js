@@ -70,7 +70,7 @@ const nextConfig = {
       {
         source: '/guidetointernship',
         destination:
-          'https://docs.google.com/presentation/d/1UZz9EG6FlJisbmFXSl8cjGB4QqlpWJxXt1FoHcBxm74/edit?usp=sharing',
+          'https://www.canva.com/design/DAF9mD1iGY4/XSx5RXLVWaSx18EygQoYtw/view?utm_content=DAF9mD1iGY4&utm_campaign=designshare&utm_medium=link&utm_source=editor',
         permanent: true
       }
     ]
