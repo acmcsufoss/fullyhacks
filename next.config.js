@@ -26,6 +26,12 @@ const nextConfig = {
         permanent: true
       },
       {
+        source: '/closing',
+        destination:
+          'https://www.canva.com/design/DAF91HzUYYc/jOyTkWDEJc1yFxMTCZwTEg/view?utm_content=DAF91HzUYYc&utm_campaign=designshare&utm_medium=link&utm_source=editor',
+        permanent: true
+      },
+      {
         source: '/androiddev',
         destination:
           'https://docs.google.com/presentation/d/14KNA1VjsvGRGFQsj8Yi7p0aFqW-nejssvCfwXHkbPYE/edit#slide=id.p',
