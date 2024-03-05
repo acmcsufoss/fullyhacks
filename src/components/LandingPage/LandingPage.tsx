@@ -47,7 +47,7 @@ const LandingPage: React.FC<LandingPageProps> = (props) => {
         <section>
           <div
             id="about"
-            className="mx-4 relative font-normal font-rubik text-purple_main mt-40 flex flex-col items-center justify-center md:flex-row md:mx-8 md:text-md max-w-[1048px]">
+            className="relative font-normal font-rubik text-purple_main mt-40 flex flex-col items-center justify-center md:flex-row md:text-md max-w-[1048px]">
             <About />
           </div>
           <div
@@ -55,17 +55,17 @@ const LandingPage: React.FC<LandingPageProps> = (props) => {
             className="font-normal font-rubik text-purple_main mt-8 flex flex-col items-center justify-center md:text-md max-w-[1048px] md:mt-40">
             <Sponsors companies={companyData} />
           </div>
-          <div className="mx-4 relative font-normal font-rubik text-purple_main flex flex-col items-center justify-center gap-16 md:gap-6 lg:gap-16 md:flex-row md:justify-start md:mx-8 md:text-md md:mt-40 max-w-[1048px]">
+          <div className="mx-4 relative font-normal font-rubik text-purple_main flex flex-col items-center justify-center gap-16 md:gap-6 lg:gap-16 md:flex-row md:justify-start md:text-md md:mt-40 max-w-[1048px]">
             <Partners />
           </div>
           <div
             id="faq"
-            className="mx-4 relative font-normal font-rubik text-purple_main flex flex-col items-center justify-center md:mx-8 md:text-md md:mt-40 max-w-[1048px]">
+            className="mx-4 md:mx-0 relative font-normal font-rubik text-purple_main flex flex-col items-center justify-center md:text-md md:mt-40 max-w-[1048px]">
             <FAQ faqs={faqData} />
           </div>
           <div
             id="team"
-            className="mx-4 font-normal font-rubik text-purple_main mt-8 flex flex-col items-center justify-center md:mx-8 md:text-md max-w-[1048px] md:mt-40">
+            className="mx-4 md:mx-0 font-normal font-rubik text-purple_main mt-8 flex flex-col items-center justify-center md:text-md max-w-[1048px] md:mt-40">
             <Team team={teamData} />
           </div>
         </section>

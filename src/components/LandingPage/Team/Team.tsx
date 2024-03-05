@@ -20,6 +20,15 @@ interface TeamMemberProps {
   member: TeamType
 }
 
+enum TeamMemberTagColor {
+  'Director' = '#C614E4',
+  'Web' = '#EE9292',
+  'Design' = '#FB3E3E',
+  'Marketing' = 'rgb(20,71,255)',
+  'Finance' = '#FCFF60',
+  'Operation' = '#56FF71'
+}
+
 const listToMatrix = (list: TeamType[], n: number = 8) => {
   // separate the all list into groups of n elements
   let matrix: TeamType[][] = []
@@ -43,19 +52,11 @@ const TeamMember: React.FC<TeamMemberProps> = ({ member }) => {
             <img
               src={member.image}
               alt={member.name}
-              className={`cursor-pointer rounded-[50%] ${
-                member.tag == 'Design'
-                  ? 'bg-[#FB3E3E]'
-                  : member.tag == 'Marketing'
-                    ? 'bg-[rgb(20,71,255)]'
-                    : member.tag == 'Operation'
-                      ? 'bg-[#56FF71]'
-                      : member.tag == 'Web'
-                        ? 'bg-[#EE9292]'
-                        : member.tag == 'Finance'
-                          ? 'bg-[#FCFF60]'
-                          : 'bg-[#C614E4]'
-              } p-1 object-cover h-20 w-20 md:h-28 md:w-28`}
+              className={`cursor-pointer rounded-[50%] bg-[${
+                TeamMemberTagColor[
+                  member.tag as keyof typeof TeamMemberTagColor
+                ]
+              }] p-1 object-cover h-20 w-20 md:h-28 md:w-28`}
             />
           </div>
         </div>
@@ -75,12 +76,15 @@ const Team: React.FC<TeamProps> = ({ team }) => {
   const [isCarousel, setIsCarousel] = useState(true)
   const allTeam = listToMatrix(team)
 
+  // Handle all team filtering options
   const handleTeamFiltering = (tag: string) => {
     setFilteredTag(tag)
     if (tag === 'All') {
       setIsCarousel(true)
       return
     }
+    // If anything other than "All" tag, set the filterted team to that
+    // tag and no carousel
     const newFilteredTeam = team.filter((people) => people.tag === tag)
     setFilteredTeam(newFilteredTeam)
     setIsCarousel(false)
@@ -110,6 +114,7 @@ const Team: React.FC<TeamProps> = ({ team }) => {
         })}
       </div>
 
+      {/* If displaying all organizers, create carousel */}
       {(filteredTag === 'All' || filteredTag === '') && (
         <>
           {carouselIndex > 0 && (
