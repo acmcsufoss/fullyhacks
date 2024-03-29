@@ -21,12 +21,12 @@ interface TeamMemberProps {
 }
 
 enum TeamMemberTagColor {
-  'Director' = '#C614E4',
-  'Web' = '#EE9292',
-  'Design' = '#FB3E3E',
-  'Marketing' = 'rgb(20,71,255)',
-  'Finance' = '#FCFF60',
-  'Operation' = '#56FF71'
+  'Director' = 'bg-[#C614E4]',
+  'Web' = 'bg-[#EE9292]',
+  'Design' = 'bg-[#FB3E3E]',
+  'Marketing' = 'bg-[rgb(20,71,255)]',
+  'Finance' = 'bg-[#FCFF60]',
+  'Operation' = 'bg-[#56FF71]'
 }
 
 const listToMatrix = (list: TeamType[], n: number = 8) => {
@@ -44,6 +44,9 @@ const listToMatrix = (list: TeamType[], n: number = 8) => {
 }
 
 const TeamMember: React.FC<TeamMemberProps> = ({ member }) => {
+  const memberTag = member.tag as keyof typeof TeamMemberTagColor
+  const color = TeamMemberTagColor[memberTag]
+
   return (
     <div className="flex flex-col items-center">
       <a target="_blank" href={member.href}>
@@ -52,11 +55,7 @@ const TeamMember: React.FC<TeamMemberProps> = ({ member }) => {
             <img
               src={member.image}
               alt={member.name}
-              className={`cursor-pointer rounded-[50%] bg-[${
-                TeamMemberTagColor[
-                  member.tag as keyof typeof TeamMemberTagColor
-                ]
-              }] p-1 object-cover h-20 w-20 md:h-28 md:w-28`}
+              className={`cursor-pointer rounded-[50%] ${color} p-1 object-cover h-20 w-20 md:h-28 md:w-28`}
             />
           </div>
         </div>
