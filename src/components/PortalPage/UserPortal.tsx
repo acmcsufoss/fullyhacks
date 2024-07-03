@@ -2,7 +2,6 @@ import { ApplicationType, User } from '@/types/interface'
 import { useRouter } from 'next/router'
 import React from 'react'
 import { BsArrowRight } from 'react-icons/bs'
-import QrCodeMapping from './mappings.json'
 
 interface UserProps {
   user: User
@@ -77,15 +76,6 @@ const UserPortal: React.FC<UserProps> = ({ user }) => {
             <BsArrowRight size={24} />
           </button>
           <p className="mb-4 text-lg">Food QR Code</p>
-          {Object.entries(QrCodeMapping).map(([qrcode, email]) => {
-            return (
-              <>
-                {application.preferredEmail == email && (
-                  <img src={`/qrcodes/${qrcode}.png`}></img>
-                )}
-              </>
-            )
-          })}
         </>
       )}
     </div>
