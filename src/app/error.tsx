@@ -1,8 +1,10 @@
+'use client'
+
 import { AuthNavBar } from '@/components/NavBar/NavBar'
 import Link from 'next/link'
 import React from 'react'
 
-const error = () => {
+export default function Error() {
   return (
     <div className="">
       <AuthNavBar />
@@ -23,5 +25,3 @@ const error = () => {
     </div>
   )
 }
-
-export default error

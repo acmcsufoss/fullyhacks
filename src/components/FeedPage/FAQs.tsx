@@ -1,6 +1,6 @@
 import { FAQType } from '@/types/interface'
 import React from 'react'
-import { FAQDropDown } from '../LandingPage/FAQ/FAQ'
+import { FAQDropDown } from '../LandingPage/FAQ'
 const faqs: FAQType[] = [
   {
     id: 'faq0',

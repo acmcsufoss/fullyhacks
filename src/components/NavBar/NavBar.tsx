@@ -1,7 +1,7 @@
 import { MenuType } from '@/types/interface'
 import { signOut } from 'next-auth/react'
 import Link from 'next/link'
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/navigation'
 import React, { useState } from 'react'
 import { IoArrowBackSharp } from 'react-icons/io5'
 import { BiHomeAlt, BiCalendarEvent, BiUserCircle } from 'react-icons/bi'
@@ -16,7 +16,6 @@ import { HiOutlineSpeakerphone } from 'react-icons/hi'
 import { HiOutlineTrophy } from 'react-icons/hi2'
 
 export const NavBarLanding: React.FC = () => {
-  const router = useRouter()
   const [menuList, setMenu] = useState<MenuType[]>([
     {
       id: 'about',
