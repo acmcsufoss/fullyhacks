@@ -13,7 +13,8 @@ export const metadata: Metadata = {
   },
   icons: {
     shortcut: '/favicon.ico'
-  }
+  },
+  metadataBase: new URL(process.env.NEXT_PUBLIC_API_URL!)
 }
 
 export default function RootLayout({
