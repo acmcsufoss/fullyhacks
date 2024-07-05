@@ -1,6 +1,5 @@
-import { NextApiRequest, NextApiResponse } from 'next'
 import NextAuth from 'next-auth/next'
-import { prisma } from '../../../../db'
+import { prisma } from '../../../../../db'
 import GitHubProvider from 'next-auth/providers/github'
 import { PrismaAdapter } from '@next-auth/prisma-adapter'
 import { AuthOptions } from 'next-auth'
@@ -27,9 +26,10 @@ export const authOptions: AuthOptions = {
     error: '/auth/error', // Error code passed in query string as ?error=
     verifyRequest: '/auth/verify-request', // (used for check email message)
     newUser: '/' // New users will be directed here on first sign in (leave the property out if not of interest)
-  }
+  },
+  secret: process.env.NEXT_AUTH_JWT_SECRET
 }
 
-export default async function auth(req: NextApiRequest, res: NextApiResponse) {
-  return await NextAuth(req, res, authOptions)
-}
+const handler = NextAuth(authOptions)
+
+export { handler as GET, handler as POST }

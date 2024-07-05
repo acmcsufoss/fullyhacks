@@ -1,23 +1,14 @@
+import AuthButton from '@/components/AuthWrapper/AuthButton'
 import Flower from '@/components/Flower/Flower'
 import { GenericNavBar } from '@/components/NavBar/NavBar'
 import PopUp from '@/components/PopUp/PopUp'
-import { getSession, signIn } from 'next-auth/react'
+import { getSession } from 'next-auth/react'
 import { redirect } from 'next/navigation'
-import { useState } from 'react'
-import { BsGithub } from 'react-icons/bs'
 
 export default async function SignIn() {
   const session = await getSession()
   if (session) {
     redirect('/')
-  }
-
-  async function handleSignIn() {
-    'use server'
-    await signIn('github', {
-      redirect: false,
-      callbackUrl: 'https://fullyhacks.acmcsuf.com/apply'
-    })
   }
 
   return (
@@ -61,14 +52,7 @@ export default async function SignIn() {
             </p>
             <p>Let&apos;s sign in and start your application</p>
           </div>
-          <form action={handleSignIn}>
-            <button className="flex text-white items-center rounded-md mt-12 p-4 bg-[#E149A9] hover:bg-[#8f467b] hover:transition-all hover:duration-300 text-[1.15rem] font-semibold font-mont">
-              <>
-                Sign In with Github
-                <BsGithub size={24} className="ml-4" />
-              </>
-            </button>
-          </form>
+          <AuthButton />
           <p className="mt-6 text-[1rem] text-center">
             Note: We use Github to keep track of your submission
           </p>

@@ -1,21 +1,16 @@
 import Flower from '@/components/Flower/Flower'
 import { AuthNavBar } from '@/components/NavBar/NavBar'
 import UserPortal from '@/components/PortalPage/UserPortal'
-import { prisma } from 'db'
-import { GetServerSidePropsContext, InferGetServerSidePropsType } from 'next'
 import { getSession } from 'next-auth/react'
+import { redirect } from 'next/navigation'
+import { prisma } from 'db'
 import React from 'react'
-export async function getServerSideProps(context: GetServerSidePropsContext) {
-  // Check if user is authenticated
-  const session = await getSession(context)
-  // If user signed out, back to homepage
+
+export default async function PortalPage() {
+  // Check if the user signed in
+  const session = await getSession()
   if (!session) {
-    return {
-      redirect: {
-        destination: '/signin',
-        permanent: false
-      }
-    }
+    redirect('/signin')
   }
   const User = await prisma.user.findUnique({
     where: { email: session?.user?.email as any },
@@ -24,23 +19,10 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
     }
   })
   if (!User?.application?.applied) {
-    return {
-      redirect: {
-        destination: '/apply',
-        permanent: false
-      }
-    }
+    redirect('/apply')
   }
-  return {
-    props: {
-      user: JSON.parse(JSON.stringify(User))
-    }
-  }
-}
+  const user = JSON.parse(JSON.stringify(User))
 
-const portal = ({
-  user
-}: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   return (
     <div className="bg-[#0B062B] pb-12">
       <AuthNavBar />
@@ -72,5 +54,3 @@ const portal = ({
     </div>
   )
 }
-
-export default portal

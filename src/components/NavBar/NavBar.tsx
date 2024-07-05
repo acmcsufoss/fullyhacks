@@ -1,10 +1,12 @@
+'use client'
+
 import { MenuType } from '@/types/interface'
 import { signOut } from 'next-auth/react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import React, { useState } from 'react'
 import { IoArrowBackSharp } from 'react-icons/io5'
-import { BiHomeAlt, BiCalendarEvent, BiUserCircle } from 'react-icons/bi'
+import { BiHomeAlt, BiCalendarEvent } from 'react-icons/bi'
 import { SlEnergy } from 'react-icons/sl'
 import { BsDiscord, BsLightbulb } from 'react-icons/bs'
 import {
