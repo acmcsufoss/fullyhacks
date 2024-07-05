@@ -1,56 +1,26 @@
-import { AuthNavBar } from '@/components/NavBar/NavBar'
-import dynamic from 'next/dynamic'
-import {
-  GetServerSideProps,
-  GetServerSidePropsContext,
-  InferGetServerSidePropsType,
-  NextPage
-} from 'next'
-import { getSession } from 'next-auth/react'
-import { useRouter } from 'next/router'
-import { prisma } from 'db'
-import Flower from '@/components/Flower/Flower'
 import ApplyAuth from '@/components/AuthWrapper/ApplyAuth'
+import Flower from '@/components/Flower/Flower'
+import ApplicationForm from '@/components/Form/ApplicationForm'
+import { AuthNavBar } from '@/components/NavBar/NavBar'
+import { prisma } from 'db'
+import { getSession } from 'next-auth/react'
+import Link from 'next/link'
+import { redirect } from 'next/navigation'
 
-export async function getServerSideProps(context: GetServerSidePropsContext) {
-  // Check if user is authenticated
-  const session = await getSession(context)
-  // If user already signed in, move them to application page
+export default async function ApplyPage() {
+  const session = await getSession()
   if (!session) {
-    return {
-      redirect: {
-        destination: '/signin',
-        permanent: false
-      }
-    }
+    redirect('/signin')
   }
-  const { user } = session
   const User = await prisma.user.findUnique({
     where: { email: session?.user?.email as any },
     select: {
       application: true
     }
   })
-  return {
-    props: {
-      user: JSON.parse(JSON.stringify(user)),
-      application: JSON.parse(JSON.stringify(User?.application))
-    }
-  }
-}
+  const user = JSON.parse(JSON.stringify(session.user))
+  const application = JSON.parse(JSON.stringify(User?.application))
 
-const ApplicationForm = dynamic(
-  () => import('../components/Form/ApplicationForm'),
-  {
-    ssr: false
-  }
-)
-
-const apply: NextPage = ({
-  user,
-  application
-}: InferGetServerSidePropsType<GetServerSideProps>) => {
-  const router = useRouter()
   return (
     <>
       <section>
@@ -108,11 +78,9 @@ const apply: NextPage = ({
               <p className="text-lg font-semibold md:text-xl">
                 You&apos;ve already submitted an application
               </p>
-              <button
-                onClick={() => router.push('/portal')}
-                className="purple-btn mt-10">
+              <Link href="/poral" className="purple-btn mt-10">
                 Go to User Portal
-              </button>
+              </Link>
             </div>
           </>
         ) : (
@@ -137,5 +105,3 @@ const apply: NextPage = ({
     </>
   )
 }
-
-export default apply

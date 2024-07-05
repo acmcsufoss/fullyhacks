@@ -1,21 +1,15 @@
 import Feed from '@/components/FeedPage/Feed'
 import { FeedNavBar } from '@/components/NavBar/NavBar'
-import { announcementsType, feedUsers, User } from '@/types/interface'
 import { prisma } from 'db'
-import { GetServerSidePropsContext } from 'next'
 import { getSession } from 'next-auth/react'
+import { redirect } from 'next/navigation'
 
-export async function getServerSideProps(context: GetServerSidePropsContext) {
+export default async function FeedPage() {
   // Check if user is authenticated
-  const session = await getSession(context)
-  // If user signed out, back to homepage
+  const session = await getSession()
+  // If user signed out, back to sign in page
   if (!session) {
-    return {
-      redirect: {
-        destination: '/signin',
-        permanent: false
-      }
-    }
+    redirect('/signin')
   }
   const User = await prisma.user.findUnique({
     where: { email: session?.user?.email as any },
@@ -25,15 +19,10 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
   })
   // Only approved applicants have access to the feed
   if (User?.application?.status !== 'approved') {
-    return {
-      redirect: {
-        destination: '/apply',
-        permanent: false
-      }
-    }
+    redirect('/apply')
   }
   // Fetch all applicants discord and bio for feed
-  const feedUsers = await prisma.user.findMany({
+  const FeedUsers = await prisma.user.findMany({
     select: {
       id: true,
       isAdmin: true,
@@ -52,27 +41,15 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
       discordId: true
     }
   })
-  const announcements = await prisma.announcement.findMany({
+  const Announcements = await prisma.announcement.findMany({
     orderBy: {
       submittedAt: 'desc'
     }
   })
-  return {
-    props: {
-      user: JSON.parse(JSON.stringify(User)),
-      feedUsers: JSON.parse(JSON.stringify(feedUsers)),
-      announcements: JSON.parse(JSON.stringify(announcements))
-    }
-  }
-}
+  const user = JSON.parse(JSON.stringify(User))
+  const feedUsers = JSON.parse(JSON.stringify(FeedUsers))
+  const announcements = JSON.parse(JSON.stringify(Announcements))
 
-interface feedProps {
-  user: User
-  feedUsers: feedUsers[]
-  announcements: announcementsType[]
-}
-
-const feed = ({ user, feedUsers, announcements }: feedProps) => {
   return (
     <section className="font-rubik bg-purple_dark">
       <FeedNavBar />
@@ -84,5 +61,3 @@ const feed = ({ user, feedUsers, announcements }: feedProps) => {
     </section>
   )
 }
-
-export default feed
