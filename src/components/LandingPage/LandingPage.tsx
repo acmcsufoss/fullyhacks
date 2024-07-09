@@ -1,27 +1,27 @@
-'use client'
+"use client";
 
-import React from 'react'
-import Link from 'next/link'
-import Image from 'next/image'
-import { companyType, FAQType, TeamType } from '@/types/interface'
-import { SignArea, SIGNS } from '@/components/SignArea'
-import { LandingFooter } from '@/components/Footer/Footer'
-import About from '@/components/LandingPage/About'
-import CountDown from '@/components/LandingPage/CountDown'
-import FAQ from '@/components/LandingPage/FAQ'
-import Partners from '@/components/LandingPage/Partners'
-import Sponsors from '@/components/LandingPage/Sponsors'
-import Team from '@/components/LandingPage/Team'
-import Hero from '@/components/LandingPage/Hero'
+import React from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { companyType, FAQType, TeamType } from "@/types/interface";
+import { SignArea, SIGNS } from "@/components/SignArea";
+import { LandingFooter } from "@/components/Footer/Footer";
+import About from "@/components/LandingPage/About";
+import CountDown from "@/components/LandingPage/CountDown";
+import FAQ from "@/components/LandingPage/FAQ";
+import Partners from "@/components/LandingPage/Partners";
+import Sponsors from "@/components/LandingPage/Sponsors";
+import Team from "@/components/LandingPage/Team";
+import Hero from "@/components/LandingPage/Hero";
 
 interface LandingPageProps {
-  companyData: companyType[]
-  faqData: FAQType[]
-  teamData: TeamType[]
+  companyData: companyType[];
+  faqData: FAQType[];
+  teamData: TeamType[];
 }
 
 const LandingPage: React.FC<LandingPageProps> = (props) => {
-  const { companyData, faqData, teamData } = props
+  const { companyData, faqData, teamData } = props;
   return (
     <SignArea signs={SIGNS}>
       <main className="relative flex flex-col items-center font-rubik font-semibold">
@@ -81,7 +81,7 @@ const LandingPage: React.FC<LandingPageProps> = (props) => {
         </div>
       </main>
     </SignArea>
-  )
-}
+  );
+};
 
-export default LandingPage
+export default LandingPage;

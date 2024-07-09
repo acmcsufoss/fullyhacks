@@ -1,28 +1,28 @@
-'use client'
+"use client";
 
-import Link from 'next/link'
-import Flower from '@/components/Flower/Flower'
-import { AuthNavBar } from '@/components/NavBar/NavBar'
-import ApplyAuth from '@/components/AuthWrapper/ApplyAuth'
-import ApplicationForm from '@/components/Form/ApplicationForm'
-import { redirect } from 'next/navigation'
-import { authOptions } from '../api/auth/[...nextauth]/route'
-import { getServerSession } from 'next-auth'
-import { prisma } from 'db'
+import Link from "next/link";
+import Flower from "@/components/Flower/Flower";
+import { AuthNavBar } from "@/components/NavBar/NavBar";
+import ApplyAuth from "@/components/AuthWrapper/ApplyAuth";
+import ApplicationForm from "@/components/Form/ApplicationForm";
+import { redirect } from "next/navigation";
+import { authOptions } from "../api/auth/[...nextauth]/route";
+import { getServerSession } from "next-auth";
+import { prisma } from "db";
 
 export default async function ApplyPage() {
-  const session = await getServerSession(authOptions)
+  const session = await getServerSession(authOptions);
   if (!session) {
-    redirect('/signin')
+    redirect("/signin");
   }
   const User = await prisma.user.findUnique({
     where: { email: session?.user?.email as any },
     select: {
       application: true
     }
-  })
-  const user = JSON.parse(JSON.stringify(session.user))
-  const application = JSON.parse(JSON.stringify(User?.application))
+  });
+  const user = JSON.parse(JSON.stringify(session.user));
+  const application = JSON.parse(JSON.stringify(User?.application));
 
   return (
     <>
@@ -106,5 +106,5 @@ export default async function ApplyPage() {
         )}
       </section>
     </>
-  )
+  );
 }

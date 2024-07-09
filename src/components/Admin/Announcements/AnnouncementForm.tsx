@@ -1,53 +1,53 @@
-import React, { useState } from 'react'
-import { yupResolver } from '@hookform/resolvers/yup'
-import axios from 'axios'
-import { useForm } from 'react-hook-form'
-import * as yup from 'yup'
-import Loading from '../../Loading/Loading'
+import React, { useState } from "react";
+import { yupResolver } from "@hookform/resolvers/yup";
+import axios from "axios";
+import { useForm } from "react-hook-form";
+import * as yup from "yup";
+import Loading from "../../Loading/Loading";
 
 const schema = yup
   .object({
     title: yup.string().min(5).max(50),
     content: yup.string().min(5)
   })
-  .required()
+  .required();
 
-type FormData = yup.InferType<typeof schema>
+type FormData = yup.InferType<typeof schema>;
 const AnnouncementForm: React.FC = () => {
   const {
     register,
     handleSubmit,
     formState: { errors }
-  } = useForm<FormData>({ resolver: yupResolver(schema) })
+  } = useForm<FormData>({ resolver: yupResolver(schema) });
   const [newAnnouncement, setAnnouncement] = useState({
-    title: '',
-    content: ''
-  })
-  const [isLoading, setLoading] = useState(false)
+    title: "",
+    content: ""
+  });
+  const [isLoading, setLoading] = useState(false);
   const handleInfoChange = (event: any) => {
-    const { name, value } = event.target
+    const { name, value } = event.target;
     setAnnouncement((prev) => ({
       ...prev,
       [name]: value
-    }))
-  }
+    }));
+  };
   const postAnnouncement = async () => {
     try {
       const data = {
         ...newAnnouncement
-      }
-      setLoading(true)
-      await axios.post('/api/announcement', data)
-      setLoading(false)
+      };
+      setLoading(true);
+      await axios.post("/api/announcement", data);
+      setLoading(false);
       setAnnouncement({
-        title: '',
-        content: ''
-      })
+        title: "",
+        content: ""
+      });
     } catch (e) {
-      console.log(e)
-      setLoading(false)
+      console.log(e);
+      setLoading(false);
     }
-  }
+  };
   return (
     <form
       onSubmit={handleSubmit(postAnnouncement)}
@@ -55,12 +55,12 @@ const AnnouncementForm: React.FC = () => {
       action="">
       <p className="mb-2 font-bold">ANNOUNCEMENT TITLE:</p>
       <input
-        {...register('title')}
+        {...register("title")}
         name="title"
         value={newAnnouncement.title}
         onChange={handleInfoChange}
         className={`feed-form-input rounded-md ${
-          errors.title ? 'error-form' : ''
+          errors.title ? "error-form" : ""
         }`}
         type="text"
         placeholder="Your announcement title"
@@ -68,11 +68,11 @@ const AnnouncementForm: React.FC = () => {
       <p className="error-msg">{errors.title?.message}</p>
       <p className="mb-2 font-bold">ANNOUNCEMENT CONTENT:</p>
       <textarea
-        {...register('content')}
+        {...register("content")}
         name="content"
         value={newAnnouncement.content}
         className={`feed-form-input h-52 rounded-md ${
-          errors.content ? 'error-form' : ''
+          errors.content ? "error-form" : ""
         }`}
         onChange={handleInfoChange}
         placeholder="Type your announcement here"
@@ -92,7 +92,7 @@ const AnnouncementForm: React.FC = () => {
         </>
       )}
     </form>
-  )
-}
+  );
+};
 
-export default AnnouncementForm
+export default AnnouncementForm;

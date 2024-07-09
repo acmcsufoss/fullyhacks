@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Train+One&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Train+One&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -58,17 +58,17 @@
   @font-face {
     font-family: Ohm;
     font-weight: 600;
-    src: url(/fonts/ohm/OHM-Bold.woff) format('woff');
+    src: url(/fonts/ohm/OHM-Bold.woff) format("woff");
   }
   @font-face {
     font-family: Ohm;
     font-weight: 400;
-    src: url(/fonts/ohm/OHM-Light.woff) format('woff');
+    src: url(/fonts/ohm/OHM-Light.woff) format("woff");
   }
   @font-face {
     font-family: Ohm;
     font-weight: 500;
-    src: url(/fonts/ohm/OHM-Medium.woff) format('woff');
+    src: url(/fonts/ohm/OHM-Medium.woff) format("woff");
   }
 }
 
@@ -76,18 +76,18 @@
   position: relative;
   z-index: 0;
   display: grid;
-  grid-template-areas: 'stack';
+  grid-template-areas: "stack";
 }
 
 .neon-sign-area-content {
-  grid-area: 'stack';
+  grid-area: "stack";
 }
 
 .neon-sign {
   opacity: 0.5;
   width: auto;
   position: absolute;
-  grid-area: 'stack';
+  grid-area: "stack";
   animation: parallax-effect linear;
   animation-timeline: scroll();
   border-radius: 0.5rem;
@@ -198,7 +198,7 @@
   text-shadow: 0px 0px 8px #2400ff;
   -webkit-text-stroke-width: 1.2px;
   -webkit-text-stroke-color: #002aff;
-  font-family: 'Train One';
+  font-family: "Train One";
   font-size: 2.5rem;
   font-style: normal;
   font-weight: 400;
@@ -210,7 +210,7 @@
   text-shadow: 0px 0px 8px #2400ff;
   -webkit-text-stroke-width: 0;
   -webkit-text-stroke-color: #ffffff;
-  font-family: 'Train One';
+  font-family: "Train One";
   font-size: 49px;
   font-style: normal;
   font-weight: 400;

@@ -1,17 +1,17 @@
-import { validate } from '@/middleware/validate'
-import { applicationSchema } from '@/schemas/application'
-import { prisma } from 'db'
-import { NextApiRequest, NextApiResponse } from 'next'
-import { getSession } from 'next-auth/react'
+import { validate } from "@/middleware/validate";
+import { applicationSchema } from "@/schemas/application";
+import { prisma } from "db";
+import { NextApiRequest, NextApiResponse } from "next";
+import { getSession } from "next-auth/react";
 
 async function handler(req: NextApiRequest, res: NextApiResponse) {
   // Only authorized user able submit application
-  const session = await getSession({ req })
+  const session = await getSession({ req });
   if (!session) {
-    return res.status(401).json({ message: 'Unauthorized.' })
+    return res.status(401).json({ message: "Unauthorized." });
   }
   // Submit application
-  if (req.method === 'POST') {
+  if (req.method === "POST") {
     try {
       const {
         name,
@@ -28,9 +28,9 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
         response,
         food,
         agree
-      } = req.body
+      } = req.body;
       if (agree == false) {
-        return res.status(403).json({ message: 'Must agree before submit' })
+        return res.status(403).json({ message: "Must agree before submit" });
       }
       // Retrieve current user
       const user = await prisma.user.findUnique({
@@ -38,13 +38,13 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
         include: {
           application: true
         }
-      })
+      });
       if (user?.application?.applied) {
         return res
           .status(403)
-          .json({ message: "You've already submitted an application!" })
+          .json({ message: "You've already submitted an application!" });
       }
-      if (email !== '') {
+      if (email !== "") {
         // submit
         await prisma.application.create({
           data: {
@@ -65,7 +65,7 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
             applied: true,
             requirement: true
           }
-        })
+        });
       } else {
         // submit
         await prisma.application.create({
@@ -86,20 +86,20 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
             applied: true,
             requirement: true
           }
-        })
+        });
       }
-      res.status(200).json(req.body)
+      res.status(200).json(req.body);
     } catch (e) {
-      res.status(500).json(e)
+      res.status(500).json(e);
     }
   }
   // HTTP method not supported!
   else {
-    res.setHeader('Allow', ['POST'])
+    res.setHeader("Allow", ["POST"]);
     res
       .status(405)
-      .json({ message: `HTTP method ${req.method} is not supported.` })
+      .json({ message: `HTTP method ${req.method} is not supported.` });
   }
 }
 
-export default validate(applicationSchema, handler)
+export default validate(applicationSchema, handler);

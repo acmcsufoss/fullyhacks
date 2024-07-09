@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 
 const Partners: React.FC = () => {
   return (
@@ -13,7 +13,7 @@ const Partners: React.FC = () => {
           Our Mission
         </p>
         <p className="mt-4 text-center text-white">
-          ACM is the largest computer science community at{' '}
+          ACM is the largest computer science community at{" "}
           <span className="font-semibold"> CSUF </span>. We aim to build a
           foundation for future industry leaders by developing their technical,
           professional, and social skills. We facilitate these by offering
@@ -22,7 +22,7 @@ const Partners: React.FC = () => {
         </p>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default Partners
+export default Partners;

@@ -1,22 +1,22 @@
-'use client'
+"use client";
 
-import { yupResolver } from '@hookform/resolvers/yup'
-import axios from 'axios'
-import { useRouter } from 'next/router'
-import React, { useState } from 'react'
-import { useForm } from 'react-hook-form'
-import * as yup from 'yup'
-import Loading from '../Loading/Loading'
+import { yupResolver } from "@hookform/resolvers/yup";
+import axios from "axios";
+import { useRouter } from "next/router";
+import React, { useState } from "react";
+import { useForm } from "react-hook-form";
+import * as yup from "yup";
+import Loading from "../Loading/Loading";
 
 interface PopUpProps {
-  title: string
-  content: any
-  action: string
+  title: string;
+  content: any;
+  action: string;
 }
 
 const PopUp: React.FC<PopUpProps> = (props) => {
-  const { title, content, action } = props
-  const [isChecked, setCheck] = useState(true)
+  const { title, content, action } = props;
+  const [isChecked, setCheck] = useState(true);
   return (
     <>
       <input
@@ -40,43 +40,43 @@ const PopUp: React.FC<PopUpProps> = (props) => {
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default PopUp
+export default PopUp;
 
 const schema = yup.object({
   bio: yup.string().min(5).max(100).required(),
   discord: yup.string().max(50)
-})
-type FormData = yup.InferType<typeof schema>
+});
+type FormData = yup.InferType<typeof schema>;
 
 export const FeedPopUp: React.FC = (props) => {
   const {
     register,
     handleSubmit,
     formState: { errors }
-  } = useForm<FormData>({ resolver: yupResolver(schema) })
-  const router = useRouter()
-  const [isChecked, setCheck] = useState(true)
-  const [step, setStep] = useState(1)
-  const [bio, setBio] = useState('')
-  const [discordId, setDiscordId] = useState('')
-  const [isLoading, setLoading] = useState(false)
+  } = useForm<FormData>({ resolver: yupResolver(schema) });
+  const router = useRouter();
+  const [isChecked, setCheck] = useState(true);
+  const [step, setStep] = useState(1);
+  const [bio, setBio] = useState("");
+  const [discordId, setDiscordId] = useState("");
+  const [isLoading, setLoading] = useState(false);
   const goNextStep = () => {
-    setStep((prev) => prev + 1)
-  }
+    setStep((prev) => prev + 1);
+  };
   const updateUserProfile = async () => {
-    setLoading(true)
+    setLoading(true);
     const data = {
       bio: bio,
       discordId: discordId
-    }
-    await axios.put('/api/user', data)
-    setLoading(false)
-    goNextStep()
-    router.reload()
-  }
+    };
+    await axios.put("/api/user", data);
+    setLoading(false);
+    goNextStep();
+    router.reload();
+  };
   return (
     <>
       {step == 1 && (
@@ -132,11 +132,11 @@ export const FeedPopUp: React.FC = (props) => {
                 action="">
                 <p className="mb-2 font-bold">Your bio:</p>
                 <input
-                  {...register('bio')}
+                  {...register("bio")}
                   name="bio"
                   onChange={(e) => setBio(e.target.value)}
                   className={`bg-white text-black rounded-md form-input ${
-                    errors.bio ? 'error-form' : ''
+                    errors.bio ? "error-form" : ""
                   }`}
                   type="text"
                   placeholder="Hi, I loveee web development, add me on Discord to talk more:)"
@@ -144,10 +144,10 @@ export const FeedPopUp: React.FC = (props) => {
                 <p className="error-msg">{errors.bio?.message}</p>
                 <p className="mb-2 font-bold">Discord Id:</p>
                 <input
-                  {...register('discord')}
+                  {...register("discord")}
                   name="discord"
                   className={`bg-white rounded-md form-input text-black ${
-                    errors.discord ? 'error-form' : ''
+                    errors.discord ? "error-form" : ""
                   }`}
                   onChange={(e) => setDiscordId(e.target.value)}
                   type="text"
@@ -169,5 +169,5 @@ export const FeedPopUp: React.FC = (props) => {
         </>
       )}
     </>
-  )
-}
+  );
+};

@@ -1,22 +1,22 @@
-import React, { useState } from 'react'
+import React, { useState } from "react";
 interface ApplyAuthProps {
-  children?: React.ReactNode
+  children?: React.ReactNode;
 }
 const ApplyAuth: React.FC<ApplyAuthProps> = ({ children }) => {
   // Application from March 13rd to April 1st
-  const options = { timeZone: 'America/Los_Angeles' }
-  const openDate = new Date('2024-01-14T00:00:00.000-07:00').toLocaleString(
-    'en-US',
+  const options = { timeZone: "America/Los_Angeles" };
+  const openDate = new Date("2024-01-14T00:00:00.000-07:00").toLocaleString(
+    "en-US",
     options
-  )
-  const closeDate = new Date('2024-02-13T23:59:59.999-07:00').toLocaleString(
-    'en-US',
+  );
+  const closeDate = new Date("2024-02-13T23:59:59.999-07:00").toLocaleString(
+    "en-US",
     options
-  )
-  const now = new Date().toLocaleString('en-US', options)
+  );
+  const now = new Date().toLocaleString("en-US", options);
   const [applicationOpen, setOpen] = useState<boolean>(
     now >= openDate && now <= closeDate
-  )
+  );
   return (
     <>
       {applicationOpen ? (
@@ -37,7 +37,7 @@ const ApplyAuth: React.FC<ApplyAuthProps> = ({ children }) => {
         </div>
       )}
     </>
-  )
-}
+  );
+};
 
-export default ApplyAuth
+export default ApplyAuth;

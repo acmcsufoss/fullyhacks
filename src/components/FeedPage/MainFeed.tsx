@@ -1,19 +1,19 @@
-import { feedUsers, User } from '@/types/interface'
-import React, { useState } from 'react'
-import { BsDiscord, BsGithub } from 'react-icons/bs'
-import { FeedPopUp } from '../PopUp/PopUp'
+import { feedUsers, User } from "@/types/interface";
+import React, { useState } from "react";
+import { BsDiscord, BsGithub } from "react-icons/bs";
+import { FeedPopUp } from "../PopUp/PopUp";
 
 interface MainFeedProps {
-  feedUsers: feedUsers[]
-  currentUser: User
+  feedUsers: feedUsers[];
+  currentUser: User;
 }
 
 const MainFeed: React.FC<MainFeedProps> = (props) => {
-  const { feedUsers, currentUser } = props
-  const [isOpen, setOpen] = useState(false)
+  const { feedUsers, currentUser } = props;
+  const [isOpen, setOpen] = useState(false);
   const filteredFeedUsers = feedUsers?.filter(
     (user) => user.bio !== null && user.application.approved == true
-  )
+  );
   return (
     <section className="flex items-start flex-col w-full grow md:mx-10 mr-[2rem] mt-14 overflow-x-hidden">
       {currentUser?.bio == null && <FeedPopUp />}
@@ -51,7 +51,8 @@ const MainFeed: React.FC<MainFeedProps> = (props) => {
                 </a>
                 <div
                   onClick={() => {
-                    navigator.clipboard.writeText(user.discordId), setOpen(true)
+                    navigator.clipboard.writeText(user.discordId),
+                      setOpen(true);
                   }}
                   className="cursor-pointer flex items-center gap-2">
                   <BsDiscord color="#EF4DB3" />
@@ -79,10 +80,10 @@ const MainFeed: React.FC<MainFeedProps> = (props) => {
               <p className="text-white mt-2"> {user.bio}</p>
             </div>
           </div>
-        )
+        );
       })}
     </section>
-  )
-}
+  );
+};
 
-export default MainFeed
+export default MainFeed;

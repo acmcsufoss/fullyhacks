@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 
 const About: React.FC = () => {
   return (
@@ -14,12 +14,12 @@ const About: React.FC = () => {
         </h2>
         <p className="md:mt-4">
           <span className="font-semibold text-[#00ABF5]">
-            24-hour hackathon{' '}
+            24-hour hackathon{" "}
           </span>
           for beginners and first-time hackers. This year, our hackathon will be
           held on
           <span className="font-semibold text-[#385DDF]">
-            {' '}
+            {" "}
             February 24th to 25th
           </span>
           .
@@ -27,19 +27,19 @@ const About: React.FC = () => {
         <p className="mt-4 md:mt-8">
           You can even
           <span className="font-semibold text-[#4F38DF]">
-            {' '}
-            meet representatives{' '}
+            {" "}
+            meet representatives{" "}
           </span>
           from our generous sponsors during our networking event. Your project
           also has the chance to
           <span className="font-semibold text-pink_700">
-            {' '}
+            {" "}
             win cool prizes! 🎉
           </span>
         </p>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default About
+export default About;

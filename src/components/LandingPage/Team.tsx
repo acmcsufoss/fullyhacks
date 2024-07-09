@@ -1,51 +1,51 @@
-import { TeamType } from '@/types/interface'
-import React, { useState } from 'react'
-import { FaChevronLeft, FaChevronRight } from 'react-icons/fa'
+import { TeamType } from "@/types/interface";
+import React, { useState } from "react";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 const teamTags = [
-  'All',
-  'Director',
-  'Web',
-  'Design',
-  'Marketing',
-  'Finance',
-  'Operation'
-]
+  "All",
+  "Director",
+  "Web",
+  "Design",
+  "Marketing",
+  "Finance",
+  "Operation"
+];
 
 interface TeamProps {
-  team: TeamType[]
+  team: TeamType[];
 }
 
 interface TeamMemberProps {
-  member: TeamType
+  member: TeamType;
 }
 
 enum TeamMemberTagColor {
-  'Director' = 'bg-[#C614E4]',
-  'Web' = 'bg-[#EE9292]',
-  'Design' = 'bg-[#FB3E3E]',
-  'Marketing' = 'bg-[rgb(20,71,255)]',
-  'Finance' = 'bg-[#FCFF60]',
-  'Operation' = 'bg-[#56FF71]'
+  "Director" = "bg-[#C614E4]",
+  "Web" = "bg-[#EE9292]",
+  "Design" = "bg-[#FB3E3E]",
+  "Marketing" = "bg-[rgb(20,71,255)]",
+  "Finance" = "bg-[#FCFF60]",
+  "Operation" = "bg-[#56FF71]"
 }
 
 const listToMatrix = (list: TeamType[], n: number = 8) => {
   // separate the all list into groups of n elements
-  let matrix: TeamType[][] = []
+  let matrix: TeamType[][] = [];
   for (let i = 0, k = -1; i < list.length; i++) {
     if (i % n === 0) {
-      k++
-      matrix[k] = []
+      k++;
+      matrix[k] = [];
     }
-    matrix[k].push(list[i])
+    matrix[k].push(list[i]);
   }
 
-  return matrix
-}
+  return matrix;
+};
 
 const TeamMember: React.FC<TeamMemberProps> = ({ member }) => {
-  const memberTag = member.tag as keyof typeof TeamMemberTagColor
-  const color = TeamMemberTagColor[memberTag]
+  const memberTag = member.tag as keyof typeof TeamMemberTagColor;
+  const color = TeamMemberTagColor[memberTag];
 
   return (
     <div className="flex flex-col items-center">
@@ -65,29 +65,29 @@ const TeamMember: React.FC<TeamMemberProps> = ({ member }) => {
         <p className="font-light">{member.role}</p>
       </div>
     </div>
-  )
-}
+  );
+};
 
 const Team: React.FC<TeamProps> = ({ team }) => {
-  const [filteredTeam, setFilteredTeam] = useState<TeamType[]>(team)
-  const [filteredTag, setFilteredTag] = useState('')
-  const [carouselIndex, setCarouselIndex] = useState(0)
-  const [isCarousel, setIsCarousel] = useState(true)
-  const allTeam = listToMatrix(team)
+  const [filteredTeam, setFilteredTeam] = useState<TeamType[]>(team);
+  const [filteredTag, setFilteredTag] = useState("");
+  const [carouselIndex, setCarouselIndex] = useState(0);
+  const [isCarousel, setIsCarousel] = useState(true);
+  const allTeam = listToMatrix(team);
 
   // Handle all team filtering options
   const handleTeamFiltering = (tag: string) => {
-    setFilteredTag(tag)
-    if (tag === 'All') {
-      setIsCarousel(true)
-      return
+    setFilteredTag(tag);
+    if (tag === "All") {
+      setIsCarousel(true);
+      return;
     }
     // If anything other than "All" tag, set the filterted team to that
     // tag and no carousel
-    const newFilteredTeam = team.filter((people) => people.tag === tag)
-    setFilteredTeam(newFilteredTeam)
-    setIsCarousel(false)
-  }
+    const newFilteredTeam = team.filter((people) => people.tag === tag);
+    setFilteredTeam(newFilteredTeam);
+    setIsCarousel(false);
+  };
 
   return (
     <div className="relative font-rubik md:w-[min(900px,_90vw)]">
@@ -102,19 +102,19 @@ const Team: React.FC<TeamProps> = ({ team }) => {
         {teamTags.map((tag, i) => {
           return (
             <div
-              key={'tag' + (i + 1)}
+              key={"tag" + (i + 1)}
               onClick={() => handleTeamFiltering(tag)}
               className={`flex items-center justify-between px-4 py-2 text-white border-2 border-pink_200 rounded-box transition-all duration-500 cursor-pointer hover:brightness-110 ${
-                filteredTag === tag ? 'bg-pink_200' : ''
+                filteredTag === tag ? "bg-pink_200" : ""
               }`}>
               <span>{tag}</span>
             </div>
-          )
+          );
         })}
       </div>
 
       {/* If displaying all organizers, create carousel */}
-      {(filteredTag === 'All' || filteredTag === '') && (
+      {(filteredTag === "All" || filteredTag === "") && (
         <>
           {carouselIndex > 0 && (
             <button
@@ -138,16 +138,16 @@ const Team: React.FC<TeamProps> = ({ team }) => {
         {isCarousel
           ? allTeam.map((group: TeamType[], i) => {
               return group.map((people: TeamType) => {
-                if (carouselIndex !== i) return
-                return <TeamMember key={people.id} member={people} />
-              })
+                if (carouselIndex !== i) return;
+                return <TeamMember key={people.id} member={people} />;
+              });
             })
           : filteredTeam.map((people: TeamType) => {
-              return <TeamMember key={people.id} member={people} />
+              return <TeamMember key={people.id} member={people} />;
             })}
       </section>
     </div>
-  )
-}
+  );
+};
 
-export default Team
+export default Team;

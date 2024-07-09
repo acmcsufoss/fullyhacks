@@ -1,32 +1,32 @@
-'use client'
+"use client";
 
-import React from 'react'
-import Flower from '@/components/Flower/Flower'
-import UserPortal from '@/components/PortalPage/UserPortal'
-import { AuthNavBar } from '@/components/NavBar/NavBar'
-import { redirect } from 'next/navigation'
-import { authOptions } from '../api/auth/[...nextauth]/route'
-import { getServerSession } from 'next-auth'
-import { prisma } from 'db'
+import React from "react";
+import Flower from "@/components/Flower/Flower";
+import UserPortal from "@/components/PortalPage/UserPortal";
+import { AuthNavBar } from "@/components/NavBar/NavBar";
+import { redirect } from "next/navigation";
+import { authOptions } from "../api/auth/[...nextauth]/route";
+import { getServerSession } from "next-auth";
+import { prisma } from "db";
 
 export default async function PortalPage() {
   // Check if the user signed in
-  const session = await getServerSession(authOptions)
-  console.log('Session: ' + session)
+  const session = await getServerSession(authOptions);
+  console.log("Session: " + session);
 
   if (!session) {
-    redirect('/signin')
+    redirect("/signin");
   }
   const User = await prisma.user.findUnique({
     where: { email: session?.user?.email as any },
     include: {
       application: true
     }
-  })
+  });
   if (!User?.application?.applied) {
-    redirect('/apply')
+    redirect("/apply");
   }
-  const user = JSON.parse(JSON.stringify(User))
+  const user = JSON.parse(JSON.stringify(User));
 
   return (
     <div className="bg-[#0B062B] pb-12">
@@ -57,5 +57,5 @@ export default async function PortalPage() {
       />
       <UserPortal user={user} />
     </div>
-  )
+  );
 }

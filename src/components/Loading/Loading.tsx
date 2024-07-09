@@ -1,13 +1,13 @@
-import React from 'react'
-import { AiOutlineLoading } from 'react-icons/ai'
+import React from "react";
+import { AiOutlineLoading } from "react-icons/ai";
 
 interface LoadingProps {
-  children?: React.PropsWithChildren
-  isLoading: boolean
+  children?: React.PropsWithChildren;
+  isLoading: boolean;
 }
 
 const Loading: React.FC<LoadingProps> = (props) => {
-  const { isLoading, children } = props
+  const { isLoading, children } = props;
   return (
     <>
       {isLoading ? (
@@ -16,7 +16,7 @@ const Loading: React.FC<LoadingProps> = (props) => {
         { children }
       )}
     </>
-  )
-}
+  );
+};
 
-export default Loading
+export default Loading;

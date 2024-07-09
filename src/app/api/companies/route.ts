@@ -1,6 +1,6 @@
-import { NextResponse } from 'next/server'
-import { companies } from './companies'
+import { NextResponse } from "next/server";
+import { companies } from "./companies";
 
 export async function GET() {
-  return NextResponse.json(companies)
+  return NextResponse.json(companies);
 }

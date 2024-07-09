@@ -1,8 +1,8 @@
-'use client'
+"use client";
 
-import { AuthNavBar } from '@/components/NavBar/NavBar'
-import Link from 'next/link'
-import React from 'react'
+import { AuthNavBar } from "@/components/NavBar/NavBar";
+import Link from "next/link";
+import React from "react";
 
 export default function Error() {
   return (
@@ -15,7 +15,7 @@ export default function Error() {
             An error has occurred with your application submission. Please click
             on the button below to be redirected to the application page.
           </p>
-          <Link href={'/apply'}>
+          <Link href={"/apply"}>
             <button className="bg-[#4998E1] rounded-md my-16 p-2 text-white">
               Return to Application
             </button>
@@ -23,5 +23,5 @@ export default function Error() {
         </div>
       </div>
     </div>
-  )
+  );
 }

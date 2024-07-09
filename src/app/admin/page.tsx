@@ -1,48 +1,48 @@
-'use client'
+"use client";
 
-import React, { useState } from 'react'
-import Applications from '@/components/Admin/Applications/Applications'
-import { AuthNavBar } from '@/components/NavBar/NavBar'
-import { authOptions } from '../api/auth/[...nextauth]/route'
-import { getServerSession } from 'next-auth'
-import { redirect } from 'next/navigation'
-import { prisma } from 'db'
+import React, { useState } from "react";
+import Applications from "@/components/Admin/Applications/Applications";
+import { AuthNavBar } from "@/components/NavBar/NavBar";
+import { authOptions } from "../api/auth/[...nextauth]/route";
+import { getServerSession } from "next-auth";
+import { redirect } from "next/navigation";
+import { prisma } from "db";
 
 export default async function AdminPage() {
   // Check if user is authenticated
-  const session = await getServerSession(authOptions)
+  const session = await getServerSession(authOptions);
   // If user not signed in, move to signin
   if (!session) {
-    redirect('/signin')
+    redirect("/signin");
   }
 
   const User = await prisma.user.findUnique({
     where: { email: session?.user?.email as any }
-  })
+  });
   //Only admin allow to access this page
   if (!User?.isAdmin) {
-    redirect('/')
+    redirect("/");
   }
-  const application = await prisma.application.findMany()
-  const user = JSON.parse(JSON.stringify(session.user))
-  const applications = JSON.parse(JSON.stringify(application))
+  const application = await prisma.application.findMany();
+  const user = JSON.parse(JSON.stringify(session.user));
+  const applications = JSON.parse(JSON.stringify(application));
 
-  const [tabName, setTabName] = useState('Applications')
-  const [currentIdx, setIdx] = useState(0)
+  const [tabName, setTabName] = useState("Applications");
+  const [currentIdx, setIdx] = useState(0);
   const tabList = [
     {
-      id: 'tab1',
-      name: 'Applications'
+      id: "tab1",
+      name: "Applications"
     },
     {
-      id: 'tab2',
-      name: 'Check-in'
+      id: "tab2",
+      name: "Check-in"
     },
     {
-      id: 'tab3',
-      name: 'Schedule'
+      id: "tab3",
+      name: "Schedule"
     }
-  ]
+  ];
   return (
     <section className="font-rubik">
       <AuthNavBar />
@@ -58,18 +58,18 @@ export default async function AdminPage() {
                   <p
                     key={tab.id}
                     className={`cursor-pointer ${
-                      idx == currentIdx ? 'font-bold underline' : ''
+                      idx == currentIdx ? "font-bold underline" : ""
                     }`}
                     onClick={() => {
-                      setIdx(idx)
-                      setTabName(tab.name)
+                      setIdx(idx);
+                      setTabName(tab.name);
                     }}>
                     {tab.name}
                   </p>
-                )
+                );
               })}
             </div>
-            {tabName == 'Applications' ? (
+            {tabName == "Applications" ? (
               <Applications applications={applications} />
             ) : (
               <></>
@@ -78,5 +78,5 @@ export default async function AdminPage() {
         </div>
       </div>
     </section>
-  )
+  );
 }

@@ -1,26 +1,26 @@
-import Feed from '@/components/FeedPage/Feed'
-import { FeedNavBar } from '@/components/NavBar/NavBar'
-import { authOptions } from '../api/auth/[...nextauth]/route'
-import { getServerSession } from 'next-auth'
-import { redirect } from 'next/navigation'
-import { prisma } from 'db'
+import Feed from "@/components/FeedPage/Feed";
+import { FeedNavBar } from "@/components/NavBar/NavBar";
+import { authOptions } from "../api/auth/[...nextauth]/route";
+import { getServerSession } from "next-auth";
+import { redirect } from "next/navigation";
+import { prisma } from "db";
 
 export default async function FeedPage() {
   // Check if user is authenticated
-  const session = await getServerSession(authOptions)
+  const session = await getServerSession(authOptions);
   // If user signed out, back to sign in page
   if (!session) {
-    redirect('/signin')
+    redirect("/signin");
   }
   const User = await prisma.user.findUnique({
     where: { email: session?.user?.email as any },
     include: {
       application: true
     }
-  })
+  });
   // Only approved applicants have access to the feed
-  if (User?.application?.status !== 'approved') {
-    redirect('/apply')
+  if (User?.application?.status !== "approved") {
+    redirect("/apply");
   }
   // Fetch all applicants discord and bio for feed
   const FeedUsers = await prisma.user.findMany({
@@ -41,15 +41,15 @@ export default async function FeedPage() {
       bio: true,
       discordId: true
     }
-  })
+  });
   const Announcements = await prisma.announcement.findMany({
     orderBy: {
-      submittedAt: 'desc'
+      submittedAt: "desc"
     }
-  })
-  const user = JSON.parse(JSON.stringify(User))
-  const feedUsers = JSON.parse(JSON.stringify(FeedUsers))
-  const announcements = JSON.parse(JSON.stringify(Announcements))
+  });
+  const user = JSON.parse(JSON.stringify(User));
+  const feedUsers = JSON.parse(JSON.stringify(FeedUsers));
+  const announcements = JSON.parse(JSON.stringify(Announcements));
 
   return (
     <section className="font-rubik bg-purple_dark">
@@ -60,5 +60,5 @@ export default async function FeedPage() {
         announcements={announcements}
       />
     </section>
-  )
+  );
 }

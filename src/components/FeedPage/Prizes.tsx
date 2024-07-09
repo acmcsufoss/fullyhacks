@@ -1,110 +1,110 @@
-import React from 'react'
-import { BsShield, BsMap, BsGift, BsMusicPlayer } from 'react-icons/bs'
-import { CgSmartphoneChip } from 'react-icons/cg'
-import { MdOutlineRecycling } from 'react-icons/md'
-import { tracksType } from '@/types/interface'
-import { TbAccessible } from 'react-icons/tb'
+import React from "react";
+import { BsShield, BsMap, BsGift, BsMusicPlayer } from "react-icons/bs";
+import { CgSmartphoneChip } from "react-icons/cg";
+import { MdOutlineRecycling } from "react-icons/md";
+import { tracksType } from "@/types/interface";
+import { TbAccessible } from "react-icons/tb";
 
 const tracks: tracksType[] = [
   {
-    id: 'track1',
-    name: 'Entertainment',
+    id: "track1",
+    name: "Entertainment",
     icon: <BsMusicPlayer size={38} />,
     description:
-      'Developing engaging and innovative entertainment solutions, including games, interactive media, and digital experiences.'
+      "Developing engaging and innovative entertainment solutions, including games, interactive media, and digital experiences."
   },
   {
-    id: 'track2',
-    name: 'Accessibility',
+    id: "track2",
+    name: "Accessibility",
     icon: <TbAccessible size={38} />,
     description:
-      'Improving user experience through inclusive design, assistive technologies, and compliance with accessibility standards.'
+      "Improving user experience through inclusive design, assistive technologies, and compliance with accessibility standards."
   },
   {
-    id: 'track3',
-    name: 'New Frontiers',
+    id: "track3",
+    name: "New Frontiers",
     icon: <CgSmartphoneChip size={38} />,
     description:
-      'New and emerging technologies, such as blockchain, artificial intelligence, and the Internet of Things.'
+      "New and emerging technologies, such as blockchain, artificial intelligence, and the Internet of Things."
   },
   {
-    id: 'track4',
-    name: 'Sustainability',
+    id: "track4",
+    name: "Sustainability",
     icon: <MdOutlineRecycling size={38} />,
     description:
-      'Tackling challenges like renewable energy, waste reduction, and green technology to promote a more sustainable future'
+      "Tackling challenges like renewable energy, waste reduction, and green technology to promote a more sustainable future"
   }
-]
+];
 
 const mainCategory: tracksType[] = [
   {
-    id: 'cat1',
-    name: 'Best Beginner Project',
+    id: "cat1",
+    name: "Best Beginner Project",
     team: 1,
-    description: 'Logitech G305'
+    description: "Logitech G305"
   },
   {
-    id: 'cat2',
-    name: 'Most Technical Project',
+    id: "cat2",
+    name: "Most Technical Project",
     team: 1,
-    description: 'Keychron K8'
+    description: "Keychron K8"
   },
   {
-    id: 'cat3',
-    name: 'Best UI/UX Project',
+    id: "cat3",
+    name: "Best UI/UX Project",
     team: 1,
-    description: 'JBL G03 Wireless Speaker'
+    description: "JBL G03 Wireless Speaker"
   },
   {
-    id: 'cat4',
-    name: 'Best AI/ML Project',
+    id: "cat4",
+    name: "Best AI/ML Project",
     team: 1,
-    description: 'Sony WH-CH520'
+    description: "Sony WH-CH520"
   },
   {
-    id: 'cat5',
-    name: 'Best Mobile App',
+    id: "cat5",
+    name: "Best Mobile App",
     team: 1,
-    description: 'Mini Mobile Projector'
+    description: "Mini Mobile Projector"
   }
-]
+];
 const subCategory: tracksType[] = [
   {
-    id: 'sub1',
-    name: 'Organizer Favorite',
+    id: "sub1",
+    name: "Organizer Favorite",
     team: 1,
-    description: 'Vercel Hats'
+    description: "Vercel Hats"
   },
   {
-    id: 'sub2',
-    name: 'Cutest Project',
+    id: "sub2",
+    name: "Cutest Project",
     team: 1,
-    description: 'Cute Stuff Animal'
+    description: "Cute Stuff Animal"
   },
   {
-    id: 'sub4',
-    name: 'Cool Game Project',
+    id: "sub4",
+    name: "Cool Game Project",
     team: 2,
-    description: 'Steam key for Grounded by Obsidian'
+    description: "Steam key for Grounded by Obsidian"
   },
   {
-    id: 'sub3',
-    name: 'Best use of Wolfram',
+    id: "sub3",
+    name: "Best use of Wolfram",
     team: 7,
     description:
-      '1 year of Wolfram|One Personal Edition + 1 year of Wolfram|Alpha Pro (375$ value)'
+      "1 year of Wolfram|One Personal Edition + 1 year of Wolfram|Alpha Pro (375$ value)"
   },
   {
-    id: 'sub5',
-    name: 'Best Mobile App with Swift',
+    id: "sub5",
+    name: "Best Mobile App with Swift",
     team: 1,
     description:
-      'StickerGiant fun pack (drawing book, webcam cover, poppin game,...)'
+      "StickerGiant fun pack (drawing book, webcam cover, poppin game,...)"
   }
-]
+];
 
 interface TrackProps {
-  track: tracksType
+  track: tracksType;
 }
 
 const Card: React.FC<TrackProps> = ({ track }) => {
@@ -127,8 +127,8 @@ const Card: React.FC<TrackProps> = ({ track }) => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 const Prizes = () => {
   return (
@@ -149,7 +149,7 @@ const Prizes = () => {
       </div>
       <div className="mt-10 grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
         {tracks.map((track: tracksType) => {
-          return <Card key={track.id} track={track} />
+          return <Card key={track.id} track={track} />;
         })}
       </div>
       <div className="mt-14">
@@ -170,7 +170,7 @@ const Prizes = () => {
         </p>
         <div className="mt-10 grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
           {mainCategory.map((category: tracksType) => {
-            return <Card key={category.id} track={category} />
+            return <Card key={category.id} track={category} />;
           })}
         </div>
       </div>
@@ -183,12 +183,12 @@ const Prizes = () => {
         </p>
         <div className="mt-10 grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
           {subCategory.map((category: tracksType) => {
-            return <Card key={category.id} track={category} />
+            return <Card key={category.id} track={category} />;
           })}
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Prizes
+export default Prizes;

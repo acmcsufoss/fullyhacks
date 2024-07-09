@@ -1,5 +1,5 @@
-import React from 'react'
-import { BsInstagram, BsLinkedin, BsDiscord } from 'react-icons/bs'
+import React from "react";
+import { BsInstagram, BsLinkedin, BsDiscord } from "react-icons/bs";
 
 export const LandingFooter: React.FC = () => {
   return (
@@ -39,5 +39,5 @@ export const LandingFooter: React.FC = () => {
         </div>
       </div>
     </>
-  )
-}
+  );
+};

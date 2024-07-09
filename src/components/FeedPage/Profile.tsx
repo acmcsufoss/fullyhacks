@@ -1,11 +1,11 @@
-import React, { useRef, useState } from 'react'
-import { yupResolver } from '@hookform/resolvers/yup'
-import axios, { AxiosError, CancelTokenSource } from 'axios'
-import { useForm } from 'react-hook-form'
-import * as yup from 'yup'
-import Loading from '../Loading/Loading'
-import { User } from '@/types/interface'
-import AnnouncementForm from '../Admin/Announcements/AnnouncementForm'
+import React, { useRef, useState } from "react";
+import { yupResolver } from "@hookform/resolvers/yup";
+import axios, { AxiosError, CancelTokenSource } from "axios";
+import { useForm } from "react-hook-form";
+import * as yup from "yup";
+import Loading from "../Loading/Loading";
+import { User } from "@/types/interface";
+import AnnouncementForm from "../Admin/Announcements/AnnouncementForm";
 
 const schema = yup
   .object({
@@ -13,76 +13,76 @@ const schema = yup
     discordId: yup.string().max(50)
   })
   .test({
-    name: 'at-least-one-required',
+    name: "at-least-one-required",
     test: function (value) {
-      const { bio, discordId } = value
+      const { bio, discordId } = value;
       if (!bio && !discordId) {
         return this.createError({
-          message: 'At least one of bio or discordId is required',
-          path: 'bio'
-        })
+          message: "At least one of bio or discordId is required",
+          path: "bio"
+        });
       }
-      return true
+      return true;
     }
-  })
+  });
 
 interface ProfileProps {
-  currentUser: User
+  currentUser: User;
 }
 
-type FormData = yup.InferType<typeof schema>
+type FormData = yup.InferType<typeof schema>;
 const Profile: React.FC<ProfileProps> = ({ currentUser }) => {
   const {
     register,
     handleSubmit,
     formState: { errors }
-  } = useForm<FormData>({ resolver: yupResolver(schema) })
+  } = useForm<FormData>({ resolver: yupResolver(schema) });
   const [updatedProfile, setProfile] = useState({
-    bio: '',
-    discordId: ''
-  })
-  const cancelToken = useRef<CancelTokenSource | null>(null)
-  const [isLoading, setLoading] = useState(false)
-  const [errorMsg, setErrorMsg] = useState('')
+    bio: "",
+    discordId: ""
+  });
+  const cancelToken = useRef<CancelTokenSource | null>(null);
+  const [isLoading, setLoading] = useState(false);
+  const [errorMsg, setErrorMsg] = useState("");
   const handleInfoChange = (event: any) => {
-    const { name, value } = event.target
+    const { name, value } = event.target;
     setProfile((prev) => ({
       ...prev,
       [name]: value
-    }))
-  }
+    }));
+  };
   const updateUserProfile = async () => {
     if (cancelToken.current) {
-      cancelToken.current.cancel('Request canceled by user')
+      cancelToken.current.cancel("Request canceled by user");
     }
     try {
-      setLoading(true)
-      cancelToken.current = axios.CancelToken.source()
+      setLoading(true);
+      cancelToken.current = axios.CancelToken.source();
       const data = {
         ...updatedProfile
-      }
-      await axios.put('/api/user', data, {
+      };
+      await axios.put("/api/user", data, {
         cancelToken: cancelToken.current.token
-      })
+      });
       setProfile({
-        bio: '',
-        discordId: ''
-      })
-      setErrorMsg('')
-      setLoading(false)
+        bio: "",
+        discordId: ""
+      });
+      setErrorMsg("");
+      setLoading(false);
     } catch (e: any) {
       if (axios.isCancel(e)) {
-        console.log('Request canceled:', e.message)
+        console.log("Request canceled:", e.message);
       } else {
         if (e.response.status == 429) {
-          setErrorMsg(e.response.data.message)
-          setLoading(false)
+          setErrorMsg(e.response.data.message);
+          setLoading(false);
         } else {
-          console.log(e)
+          console.log(e);
         }
       }
     }
-  }
+  };
 
   return (
     <section className="overflow-x-auto w-full mt-14 mr-8">
@@ -93,11 +93,11 @@ const Profile: React.FC<ProfileProps> = ({ currentUser }) => {
         action="">
         <p className="mb-2 text-purple_main font-bold">YOUR BIO:</p>
         <textarea
-          {...register('bio')}
+          {...register("bio")}
           name="bio"
           value={updatedProfile.bio}
           className={`rounded-md feed-form-input ${
-            errors.bio ? 'error-form' : ''
+            errors.bio ? "error-form" : ""
           }`}
           onChange={handleInfoChange}
           placeholder="Hi, I loveee web development, add me on Discord to talk more :)"
@@ -105,11 +105,11 @@ const Profile: React.FC<ProfileProps> = ({ currentUser }) => {
         <p className="error-msg">{errors.bio?.message}</p>
         <p className="mb-2 text-purple_main font-bold">DISCORD ID:</p>
         <input
-          {...register('discordId')}
+          {...register("discordId")}
           name="discordId"
           value={updatedProfile.discordId}
           className={`rounded-md feed-form-input ${
-            errors.discordId ? 'error-form' : ''
+            errors.discordId ? "error-form" : ""
           }`}
           onChange={handleInfoChange}
           type="text"
@@ -143,7 +143,7 @@ const Profile: React.FC<ProfileProps> = ({ currentUser }) => {
         </>
       )}
     </section>
-  )
-}
+  );
+};
 
-export default Profile
+export default Profile;

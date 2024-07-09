@@ -1,6 +1,6 @@
-import { fullyPacksType } from '@/types/interface'
-import React from 'react'
-import { BsGithub, BsLink } from 'react-icons/bs'
+import { fullyPacksType } from "@/types/interface";
+import React from "react";
+import { BsGithub, BsLink } from "react-icons/bs";
 const flaskDescription = (
   <>
     <p>
@@ -13,7 +13,7 @@ const flaskDescription = (
       easier to build web applications.
     </p>
   </>
-)
+);
 
 const reactNativeDescription = (
   <>
@@ -28,72 +28,72 @@ const reactNativeDescription = (
       tools for faster development, building, and deployment.
     </p>
   </>
-)
+);
 
 const webDev: fullyPacksType[] = [
   {
-    id: 'web01',
-    name: 'Flask + Vercel',
-    github: 'https://github.com/acmcsufoss/fullypack_flask_vercel',
+    id: "web01",
+    name: "Flask + Vercel",
+    github: "https://github.com/acmcsufoss/fullypack_flask_vercel",
     description: flaskDescription
   },
   {
-    id: 'web02',
-    name: 'HTML + CSS',
-    github: 'https://github.com/acmcsufoss/fullypack_html_css',
+    id: "web02",
+    name: "HTML + CSS",
+    github: "https://github.com/acmcsufoss/fullypack_html_css",
     description:
-      'Most beginner-friendly website using HTML and CSS for everyone to create their first website, no coding experience required'
+      "Most beginner-friendly website using HTML and CSS for everyone to create their first website, no coding experience required"
   },
   {
-    id: 'web03',
-    name: 'Sveltekit',
-    github: 'https://github.com/acmcsufoss/fullypack_sveltekit',
+    id: "web03",
+    name: "Sveltekit",
+    github: "https://github.com/acmcsufoss/fullypack_sveltekit",
     description:
-      'This is a project template to help you create your first web application with Sveltekit. It comes with a simple routing setup and a couple of helper components, including one that should keep most of your content mobile friendly and a premade mobile friendly navbar.'
+      "This is a project template to help you create your first web application with Sveltekit. It comes with a simple routing setup and a couple of helper components, including one that should keep most of your content mobile friendly and a premade mobile friendly navbar."
   }
-]
+];
 
 const backendDev: fullyPacksType[] = [
   {
-    id: 'backend01',
-    name: 'Free Database Providers',
-    link: 'https://fullyhacks.notion.site/Free-Database-Providers-857f6fa883c5458f899f97a3f5e18f1c',
+    id: "backend01",
+    name: "Free Database Providers",
+    link: "https://fullyhacks.notion.site/Free-Database-Providers-857f6fa883c5458f899f97a3f5e18f1c",
     description:
-      'A compiled list of database hosting providers, along with details about their free usage tiers and any associated limitations or conditions.'
+      "A compiled list of database hosting providers, along with details about their free usage tiers and any associated limitations or conditions."
   }
-]
+];
 
 const mobileDev: fullyPacksType[] = [
   {
-    id: 'mobile01',
-    name: 'React Native (Expo)',
-    github: 'https://github.com/acmcsufoss/fullypack_react_native',
+    id: "mobile01",
+    name: "React Native (Expo)",
+    github: "https://github.com/acmcsufoss/fullypack_react_native",
     description: reactNativeDescription
   }
-]
+];
 
 const dataScience: fullyPacksType[] = [
   {
-    id: 'ds01',
-    name: 'Analyze universities around the world',
-    github: 'https://github.com/acmcsufoss/fullypack_data_science',
+    id: "ds01",
+    name: "Analyze universities around the world",
+    github: "https://github.com/acmcsufoss/fullypack_data_science",
     description:
-      'This is a simple Data Science project analyzing a universities dataset using Google Colab, Python, Pandas, Matplotlib'
+      "This is a simple Data Science project analyzing a universities dataset using Google Colab, Python, Pandas, Matplotlib"
   }
-]
+];
 
 const discordBot: fullyPacksType[] = [
   {
-    id: 'bot01',
-    name: 'Discord Bot Python',
-    github: 'https://github.com/acmcsufoss/fullypack_discord_python',
+    id: "bot01",
+    name: "Discord Bot Python",
+    github: "https://github.com/acmcsufoss/fullypack_discord_python",
     description:
-      'Discord.py is a Python library for building Discord bots. It provides an easy-to-use interface for interacting with the Discord API, allowing developers to create bots that can perform a wide range of tasks, such as moderating channels, automating tasks, and responding to user commands.'
+      "Discord.py is a Python library for building Discord bots. It provides an easy-to-use interface for interacting with the Discord API, allowing developers to create bots that can perform a wide range of tasks, such as moderating channels, automating tasks, and responding to user commands."
   }
-]
+];
 
 interface FullyPackProps {
-  fullypack: fullyPacksType
+  fullypack: fullyPacksType;
 }
 const FullyPack: React.FC<FullyPackProps> = ({ fullypack }) => {
   return (
@@ -104,9 +104,9 @@ const FullyPack: React.FC<FullyPackProps> = ({ fullypack }) => {
       <div className="mb-4 text-white font-rubik text-20 font-normal leading-7">
         {fullypack.description}
       </div>
-      {'github' in fullypack ? (
+      {"github" in fullypack ? (
         <button className="flex gap-2 items-center mt-auto font-semibold bg-cyan text-purple_card rounded-lg p-2">
-          <a target={'_blank'} href={fullypack.github}>
+          <a target={"_blank"} href={fullypack.github}>
             Github link
           </a>
           <BsGithub size={28} />
@@ -114,9 +114,9 @@ const FullyPack: React.FC<FullyPackProps> = ({ fullypack }) => {
       ) : (
         <></>
       )}
-      {'link' in fullypack ? (
+      {"link" in fullypack ? (
         <button className="flex gap-2 items-center mt-auto font-semibold bg-[rgb(52,11,103)] text-white rounded-lg p-2">
-          <a target={'_blank'} href={fullypack.link}>
+          <a target={"_blank"} href={fullypack.link}>
             Link
           </a>
           <BsLink size={28} />
@@ -125,8 +125,8 @@ const FullyPack: React.FC<FullyPackProps> = ({ fullypack }) => {
         <></>
       )}
     </div>
-  )
-}
+  );
+};
 
 const FullyPacks = () => {
   return (
@@ -137,7 +137,7 @@ const FullyPacks = () => {
         <p className="text-purple-500 text-md font-bold">Web Development</p>
         <div className="mt-4 gap-10 grid md:grid-cols-3 justify-start">
           {webDev.map((fullypack: fullyPacksType) => {
-            return <FullyPack key={fullypack.id} fullypack={fullypack} />
+            return <FullyPack key={fullypack.id} fullypack={fullypack} />;
           })}
         </div>
       </div>
@@ -145,7 +145,7 @@ const FullyPacks = () => {
         <p className="text-purple-500 text-md font-bold">Backend Development</p>
         <div className="mt-4 gap-10 grid md:grid-cols-3 justify-start">
           {backendDev.map((fullypack: fullyPacksType) => {
-            return <FullyPack key={fullypack.id} fullypack={fullypack} />
+            return <FullyPack key={fullypack.id} fullypack={fullypack} />;
           })}
         </div>
       </div>
@@ -153,7 +153,7 @@ const FullyPacks = () => {
         <p className="text-purple-500 text-md font-bold">Mobile Development</p>
         <div className="mt-4 gap-10 grid md:grid-cols-3 justify-start">
           {mobileDev.map((fullypack: fullyPacksType) => {
-            return <FullyPack key={fullypack.id} fullypack={fullypack} />
+            return <FullyPack key={fullypack.id} fullypack={fullypack} />;
           })}
         </div>
       </div>
@@ -161,7 +161,7 @@ const FullyPacks = () => {
         <p className="text-purple-500 text-md font-bold">Data Science</p>
         <div className="mt-4 gap-10 grid md:grid-cols-3 justify-start">
           {dataScience.map((fullypack: fullyPacksType) => {
-            return <FullyPack key={fullypack.id} fullypack={fullypack} />
+            return <FullyPack key={fullypack.id} fullypack={fullypack} />;
           })}
         </div>
       </div>
@@ -169,12 +169,12 @@ const FullyPacks = () => {
         <p className="text-purple-500 text-md font-bold">Discord Bot</p>
         <div className="mt-4 gap-10 grid md:grid-cols-3 justify-start">
           {discordBot.map((fullypack: fullyPacksType) => {
-            return <FullyPack key={fullypack.id} fullypack={fullypack} />
+            return <FullyPack key={fullypack.id} fullypack={fullypack} />;
           })}
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default FullyPacks
+export default FullyPacks;

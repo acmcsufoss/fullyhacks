@@ -1,51 +1,51 @@
-import uniJson from '@/components/Form/usuni.json'
-import { University } from '@/types/interface'
-import { bool, InferType, number, object, string } from 'yup'
-const usUni: University[] = uniJson.usUniveristies
+import uniJson from "@/components/Form/usuni.json";
+import { University } from "@/types/interface";
+import { bool, InferType, number, object, string } from "yup";
+const usUni: University[] = uniJson.usUniveristies;
 export const applicationSchema = object({
   name: string(),
   email: string()
-    .email('Invalid email format')
+    .email("Invalid email format")
     //Matches any .edu email
     .matches(/^[a-zA-Z0-9._%+-]+@([a-zA-Z0-9-]+\.)+(edu)$/, {
-      message: 'Must be a .edu email',
+      message: "Must be a .edu email",
       excludeEmptyString: true
     }),
-  preferredEmail: string().email('Invalid email format').required(),
+  preferredEmail: string().email("Invalid email format").required(),
   phone: string().matches(
     /^\D?(\d{3})\D?\D?(\d{3})\D?(\d{4})$/,
-    'Invalid phone number format'
+    "Invalid phone number format"
   ),
   major: string().min(2),
   skill: number().min(0).max(4),
   gradYear: number()
-    .typeError('Must be number')
+    .typeError("Must be number")
     .positive()
     .integer()
-    .min(2023, 'Invalid grad year')
+    .min(2023, "Invalid grad year")
     .max(2030),
-  school: string().test('validSchool', 'Invalid school', (value) => {
+  school: string().test("validSchool", "Invalid school", (value) => {
     if (value) {
-      return usUni.some((uni) => uni.institution === value)
+      return usUni.some((uni) => uni.institution === value);
     }
-    return false
+    return false;
   }),
-  education: string().oneOf(['Bachelor', 'Master']),
+  education: string().oneOf(["Bachelor", "Master"]),
   response: string()
-    .test('wordCount50', 'Must be at least 50 words', (value) => {
+    .test("wordCount50", "Must be at least 50 words", (value) => {
       if (value) {
-        const wordCount = value.trim().split(/\s+/).length
-        return wordCount >= 50
+        const wordCount = value.trim().split(/\s+/).length;
+        return wordCount >= 50;
       }
-      return false
+      return false;
     })
-    .test('wordCount500', 'Must be less than 500 words', (value) => {
+    .test("wordCount500", "Must be less than 500 words", (value) => {
       if (value) {
-        const wordCount = value.trim().split(/\s+/).length
-        return wordCount <= 500
+        const wordCount = value.trim().split(/\s+/).length;
+        return wordCount <= 500;
       }
-      return false
+      return false;
     })
-}).required()
+}).required();
 
-export type Application = InferType<typeof applicationSchema>
+export type Application = InferType<typeof applicationSchema>;

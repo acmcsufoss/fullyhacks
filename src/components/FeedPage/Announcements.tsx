@@ -1,12 +1,12 @@
-import { announcementsType } from '@/types/interface'
-import TimeAgo from 'react-timeago'
-import React from 'react'
+import { announcementsType } from "@/types/interface";
+import TimeAgo from "react-timeago";
+import React from "react";
 
 interface AnnouncementsProps {
-  announcements: announcementsType[]
+  announcements: announcementsType[];
 }
 interface AnnouncementProps {
-  announcement: announcementsType
+  announcement: announcementsType;
 }
 
 const Announcement: React.FC<AnnouncementProps> = ({ announcement }) => {
@@ -16,8 +16,8 @@ const Announcement: React.FC<AnnouncementProps> = ({ announcement }) => {
       <p>{announcement.content}</p>
       <TimeAgo date={announcement.submittedAt} className="mt-4 font-semibold" />
     </div>
-  )
-}
+  );
+};
 
 const Announcements: React.FC<AnnouncementsProps> = ({ announcements }) => {
   return (
@@ -29,10 +29,10 @@ const Announcements: React.FC<AnnouncementsProps> = ({ announcements }) => {
       {announcements.map((announcement: announcementsType) => {
         return (
           <Announcement key={announcement.id} announcement={announcement} />
-        )
+        );
       })}
     </div>
-  )
-}
+  );
+};
 
-export default Announcements
+export default Announcements;
