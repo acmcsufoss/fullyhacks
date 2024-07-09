@@ -1,5 +1,3 @@
-"use client";
-
 import Link from "next/link";
 import Flower from "@/components/Flower/Flower";
 import { AuthNavBar } from "@/components/NavBar/NavBar";
