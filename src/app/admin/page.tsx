@@ -1,51 +1,32 @@
-import { Application } from '@/components/Admin/Applications/Application'
+'use client'
+
+import React, { useState } from 'react'
 import Applications from '@/components/Admin/Applications/Applications'
 import { AuthNavBar } from '@/components/NavBar/NavBar'
-import { ApplicationType, User } from '@/types/interface'
+import { authOptions } from '../api/auth/[...nextauth]/route'
+import { getServerSession } from 'next-auth'
+import { redirect } from 'next/navigation'
 import { prisma } from 'db'
-import { GetServerSidePropsContext } from 'next'
-import { getSession } from 'next-auth/react'
-import React, { useState } from 'react'
-export async function getServerSideProps(context: GetServerSidePropsContext) {
+
+export default async function AdminPage() {
   // Check if user is authenticated
-  const session = await getSession(context)
+  const session = await getServerSession(authOptions)
   // If user not signed in, move to signin
   if (!session) {
-    return {
-      redirect: {
-        destination: '/signin',
-        permanent: false
-      }
-    }
+    redirect('/signin')
   }
-  const { user } = session
+
   const User = await prisma.user.findUnique({
     where: { email: session?.user?.email as any }
   })
   //Only admin allow to access this page
   if (!User?.isAdmin) {
-    return {
-      redirect: {
-        destination: '/',
-        permanent: false
-      }
-    }
+    redirect('/')
   }
   const application = await prisma.application.findMany()
-  return {
-    props: {
-      user: JSON.parse(JSON.stringify(user)),
-      applications: JSON.parse(JSON.stringify(application))
-    }
-  }
-}
+  const user = JSON.parse(JSON.stringify(session.user))
+  const applications = JSON.parse(JSON.stringify(application))
 
-interface AdminProps {
-  user: User
-  applications: ApplicationType[]
-}
-
-const AdminPage = ({ user, applications }: AdminProps) => {
   const [tabName, setTabName] = useState('Applications')
   const [currentIdx, setIdx] = useState(0)
   const tabList = [
@@ -99,5 +80,3 @@ const AdminPage = ({ user, applications }: AdminProps) => {
     </section>
   )
 }
-
-export default AdminPage
