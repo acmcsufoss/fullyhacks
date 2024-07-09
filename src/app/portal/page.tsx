@@ -1,14 +1,19 @@
-import Flower from '@/components/Flower/Flower'
-import { AuthNavBar } from '@/components/NavBar/NavBar'
-import UserPortal from '@/components/PortalPage/UserPortal'
-import { getSession } from 'next-auth/react'
-import { redirect } from 'next/navigation'
-import { prisma } from 'db'
+'use client'
+
 import React from 'react'
+import Flower from '@/components/Flower/Flower'
+import UserPortal from '@/components/PortalPage/UserPortal'
+import { AuthNavBar } from '@/components/NavBar/NavBar'
+import { redirect } from 'next/navigation'
+import { authOptions } from '../api/auth/[...nextauth]/route'
+import { getServerSession } from 'next-auth'
+import { prisma } from 'db'
 
 export default async function PortalPage() {
   // Check if the user signed in
-  const session = await getSession()
+  const session = await getServerSession(authOptions)
+  console.log('Session: ' + session)
+
   if (!session) {
     redirect('/signin')
   }

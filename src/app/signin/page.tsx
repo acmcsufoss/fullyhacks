@@ -1,12 +1,13 @@
-import AuthButton from '@/components/AuthWrapper/AuthButton'
-import Flower from '@/components/Flower/Flower'
-import { GenericNavBar } from '@/components/NavBar/NavBar'
 import PopUp from '@/components/PopUp/PopUp'
-import { getSession } from 'next-auth/react'
+import Flower from '@/components/Flower/Flower'
+import AuthButton from '@/components/AuthWrapper/AuthButton'
+import { GenericNavBar } from '@/components/NavBar/NavBar'
 import { redirect } from 'next/navigation'
+import { authOptions } from '../api/auth/[...nextauth]/route'
+import { getServerSession } from 'next-auth'
 
 export default async function SignIn() {
-  const session = await getSession()
+  const session = await getServerSession(authOptions)
   if (session) {
     redirect('/')
   }

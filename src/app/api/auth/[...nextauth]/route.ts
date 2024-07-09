@@ -1,8 +1,8 @@
-import NextAuth from 'next-auth/next'
-import { prisma } from 'db'
-import GitHubProvider from 'next-auth/providers/github'
-import { PrismaAdapter } from '@next-auth/prisma-adapter'
 import { AuthOptions } from 'next-auth'
+import { prisma } from 'db'
+import { PrismaAdapter } from '@next-auth/prisma-adapter'
+import GitHubProvider from 'next-auth/providers/github'
+import NextAuth from 'next-auth/next'
 
 export const authOptions: AuthOptions = {
   adapter: PrismaAdapter(prisma),
@@ -26,8 +26,7 @@ export const authOptions: AuthOptions = {
     error: '/auth/error', // Error code passed in query string as ?error=
     verifyRequest: '/auth/verify-request', // (used for check email message)
     newUser: '/' // New users will be directed here on first sign in (leave the property out if not of interest)
-  },
-  secret: process.env.NEXT_AUTH_JWT_SECRET
+  }
 }
 
 const handler = NextAuth(authOptions)

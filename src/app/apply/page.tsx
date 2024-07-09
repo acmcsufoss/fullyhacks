@@ -1,14 +1,17 @@
-import ApplyAuth from '@/components/AuthWrapper/ApplyAuth'
-import Flower from '@/components/Flower/Flower'
-import ApplicationForm from '@/components/Form/ApplicationForm'
-import { AuthNavBar } from '@/components/NavBar/NavBar'
-import { prisma } from 'db'
-import { getSession } from 'next-auth/react'
+'use client'
+
 import Link from 'next/link'
+import Flower from '@/components/Flower/Flower'
+import { AuthNavBar } from '@/components/NavBar/NavBar'
+import ApplyAuth from '@/components/AuthWrapper/ApplyAuth'
+import ApplicationForm from '@/components/Form/ApplicationForm'
 import { redirect } from 'next/navigation'
+import { authOptions } from '../api/auth/[...nextauth]/route'
+import { getServerSession } from 'next-auth'
+import { prisma } from 'db'
 
 export default async function ApplyPage() {
-  const session = await getSession()
+  const session = await getServerSession(authOptions)
   if (!session) {
     redirect('/signin')
   }

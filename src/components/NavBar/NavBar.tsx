@@ -162,19 +162,19 @@ export const GenericNavBar = () => {
 }
 
 export const AuthNavBar = () => {
-  const router = useRouter()
   return (
     <nav className="flex items-center text-purple_main">
-      <img
-        onClick={() => router.push('/')}
-        alt="nav bar logo"
-        src="/logo.svg"
-        className="cursor-pointer ml-2 w-24 h-24 md:w-32 md:h-32"
-      />
+      <Link href="/">
+        <img
+          src="/logo.svg"
+          alt="nav bar logo"
+          className="cursor-pointer ml-2 w-24 h-24 md:w-32 md:h-32"
+        />
+      </Link>
       <div
         onClick={() => signOut()}
         className="cursor-pointer p-2 mr-4 ml-auto text-md bg-[#E149A9] text-white rounded-xl hover:bg-pink-500 hover:transition-all hover:duration-300">
-        <button> Sign out</button>
+        <button>Sign out</button>
       </div>
     </nav>
   )

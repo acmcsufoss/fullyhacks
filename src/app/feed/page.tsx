@@ -1,12 +1,13 @@
 import Feed from '@/components/FeedPage/Feed'
 import { FeedNavBar } from '@/components/NavBar/NavBar'
-import { prisma } from 'db'
-import { getSession } from 'next-auth/react'
+import { authOptions } from '../api/auth/[...nextauth]/route'
+import { getServerSession } from 'next-auth'
 import { redirect } from 'next/navigation'
+import { prisma } from 'db'
 
 export default async function FeedPage() {
   // Check if user is authenticated
-  const session = await getSession()
+  const session = await getServerSession(authOptions)
   // If user signed out, back to sign in page
   if (!session) {
     redirect('/signin')
