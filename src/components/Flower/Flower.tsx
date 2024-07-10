@@ -1,37 +1,37 @@
-import React from 'react'
+import React from "react";
 
 interface FlowerProps {
-  top?: string
-  right?: string
-  bottom?: string
-  left?: string
-  width: string
-  height: string
-  isFixed?: boolean
-  noMotion?: boolean
-  flowerType?: number
+  top?: string;
+  right?: string;
+  bottom?: string;
+  left?: string;
+  width: string;
+  height: string;
+  isFixed?: boolean;
+  noMotion?: boolean;
+  flowerType?: number;
 }
 
 const Flower: React.FC<FlowerProps> = (props) => {
   const {
     width,
     height,
-    top = 'top-0',
-    right = 'right-0',
-    bottom = 'bottom-0',
-    left = 'left-0',
+    top = "top-0",
+    right = "right-0",
+    bottom = "bottom-0",
+    left = "left-0",
     isFixed = false,
     noMotion = false,
     flowerType = 1
-  } = props
+  } = props;
   return (
     <img
       src={`flower${flowerType}.svg`}
       className={`motion-reduce:animate-none rounded-full ${width} ${height} ${top} ${right} ${bottom} ${left} ${
-        noMotion ? 'animate-none' : 'animate-float'
-      } ${isFixed ? 'fixed' : 'absolute'}`}
+        noMotion ? "animate-none" : "animate-float"
+      } ${isFixed ? "fixed" : "absolute"}`}
       alt={`flower ${flowerType} svg`}></img>
-  )
-}
+  );
+};
 
-export default Flower
+export default Flower;

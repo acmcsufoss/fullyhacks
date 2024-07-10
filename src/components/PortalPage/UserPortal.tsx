@@ -1,22 +1,24 @@
-import { ApplicationType, User } from '@/types/interface'
-import { useRouter } from 'next/router'
-import React from 'react'
-import { BsArrowRight } from 'react-icons/bs'
+"use client";
+
+import { ApplicationType, User } from "@/types/interface";
+import { useRouter } from "next/router";
+import React from "react";
+import { BsArrowRight } from "react-icons/bs";
 
 interface UserProps {
-  user: User
+  user: User;
 }
 
 const UserPortal: React.FC<UserProps> = ({ user }) => {
-  const application: ApplicationType = user.application as ApplicationType
-  const date: Date = new Date(application.submittedAt)
-  const router = useRouter()
+  const application: ApplicationType = user.application as ApplicationType;
+  const date: Date = new Date(application.submittedAt);
+  const router = useRouter();
   const option: Intl.DateTimeFormatOptions = {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric'
-  }
-  const formattedDate = date.toLocaleDateString('en-US', option)
+    year: "numeric",
+    month: "long",
+    day: "numeric"
+  };
+  const formattedDate = date.toLocaleDateString("en-US", option);
 
   return (
     <div className="font-rubik relative mx-4 flex flex-col items-center justify-center text-white">
@@ -33,7 +35,7 @@ const UserPortal: React.FC<UserProps> = ({ user }) => {
               Name: <span className="font-normal"> {application.name} </span>
             </p>
             <p className="">
-              School:{' '}
+              School:{" "}
               <span className="font-normal"> {application.school} </span>
             </p>
             <p className="">
@@ -42,8 +44,8 @@ const UserPortal: React.FC<UserProps> = ({ user }) => {
             </p>
             <p className="">Email:</p>
             <span className="break-all font-normal">
-              {' '}
-              {application.preferredEmail}{' '}
+              {" "}
+              {application.preferredEmail}{" "}
             </span>
           </div>
         </div>
@@ -52,11 +54,11 @@ const UserPortal: React.FC<UserProps> = ({ user }) => {
             Application Status:
             <span
               className={`ml-4 rounded-md p-1 text-center font-normal ${
-                application.status == 'approved'
-                  ? 'bg-green-500'
-                  : application.status == 'rejected'
-                    ? 'bg-red-600'
-                    : 'bg-gray-500'
+                application.status == "approved"
+                  ? "bg-green-500"
+                  : application.status == "rejected"
+                    ? "bg-red-600"
+                    : "bg-gray-500"
               }`}>
               {application.status}
             </span>
@@ -67,10 +69,10 @@ const UserPortal: React.FC<UserProps> = ({ user }) => {
         </div>
         <div className="hidden md:block"></div>
       </div>
-      {application.status == 'approved' && (
+      {application.status == "approved" && (
         <>
           <button
-            onClick={() => router.push('/feed')}
+            onClick={() => router.push("/feed")}
             className="bg-purple_main md:text-md mb-16 mt-8 flex items-center gap-4 rounded-lg p-2 font-semibold text-white hover:bg-[#b63487] hover:duration-200 hover:ease-in-out">
             Continue to Feed
             <BsArrowRight size={24} />
@@ -79,7 +81,7 @@ const UserPortal: React.FC<UserProps> = ({ user }) => {
         </>
       )}
     </div>
-  )
-}
+  );
+};
 
-export default UserPortal
+export default UserPortal;

@@ -1,57 +1,59 @@
-import Loading from '@/components/Loading/Loading'
-import PopUp from '@/components/PopUp/PopUp'
-import { ApplicationType } from '@/types/interface'
-import React, { useMemo, useState } from 'react'
-import { Application } from './Application'
+"use client";
+
+import Loading from "@/components/Loading/Loading";
+import PopUp from "@/components/PopUp/PopUp";
+import { ApplicationType } from "@/types/interface";
+import React, { useMemo, useState } from "react";
+import { Application } from "./Application";
 
 interface ApplicationsProps {
-  applications: ApplicationType[]
+  applications: ApplicationType[];
 }
 //Application Dashboard
 const Applications: React.FC<ApplicationsProps> = (props) => {
-  const { applications } = props
-  const [statusFilter, setStatusFilter] = useState('all')
-  const [isLoading, setLoading] = useState(false)
-  const [applicationIdx, pushIdx] = useState<string[]>([])
+  const { applications } = props;
+  const [statusFilter, setStatusFilter] = useState("all");
+  const [isLoading, setLoading] = useState(false);
+  const [applicationIdx, pushIdx] = useState<string[]>([]);
   const handleStatusChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    setStatusFilter(event.target.value)
-  }
+    setStatusFilter(event.target.value);
+  };
   // Filter out application when choose from the Filter by: dropdown
   const getFilteredApplication = (
     applications: ApplicationType[],
     statusFilter: string
   ) => {
-    return statusFilter === 'all'
+    return statusFilter === "all"
       ? applications.filter((app) => !applicationIdx.includes(app.id))
-      : applications.filter((app) => app.status === statusFilter)
-  }
+      : applications.filter((app) => app.status === statusFilter);
+  };
   const filteredApplications = useMemo(() => {
-    return getFilteredApplication(applications, statusFilter)
-  }, [applications, statusFilter, getFilteredApplication])
-  const applicationsNumber = filteredApplications.length
-  type GroupedData = Record<string, number>
-  const classStat: [] = []
-  const foodStat: [] = []
-  const skillStat: [] = []
+    return getFilteredApplication(applications, statusFilter);
+  }, [applications, statusFilter, getFilteredApplication]);
+  const applicationsNumber = filteredApplications.length;
+  type GroupedData = Record<string, number>;
+  const classStat: [] = [];
+  const foodStat: [] = [];
+  const skillStat: [] = [];
   // Group By function to give the stats
   function groupBy(array: any, key: any): GroupedData {
     return array.reduce((result: GroupedData, currentValue: any) => {
-      const groupByKey = currentValue[key]
+      const groupByKey = currentValue[key];
       if (!result[groupByKey]) {
-        result[groupByKey] = 0
+        result[groupByKey] = 0;
       }
-      result[groupByKey]++
-      return result
-    }, {})
+      result[groupByKey]++;
+      return result;
+    }, {});
   }
   //Stats
-  const groupByClass = groupBy(filteredApplications, 'class')
-  const groupByFood = groupBy(filteredApplications, 'food')
-  const groupBySkill = groupBy(filteredApplications, 'skillLevel')
+  const groupByClass = groupBy(filteredApplications, "class");
+  const groupByFood = groupBy(filteredApplications, "food");
+  const groupBySkill = groupBy(filteredApplications, "skillLevel");
 
   const printData = (data: GroupedData, stat: any[]) => {
     for (const key in data) {
-      const percentage = Math.floor((100 * data[key]) / applicationsNumber)
+      const percentage = Math.floor((100 * data[key]) / applicationsNumber);
       stat.push(
         <>
           <div className="stat-title font-semibold">{key}:</div>
@@ -59,12 +61,12 @@ const Applications: React.FC<ApplicationsProps> = (props) => {
             {data[key]} ({percentage}%)
           </div>
         </>
-      )
+      );
     }
-  }
-  printData(groupByClass, classStat)
-  printData(groupByFood, foodStat)
-  printData(groupBySkill, skillStat)
+  };
+  printData(groupByClass, classStat);
+  printData(groupByFood, foodStat);
+  printData(groupBySkill, skillStat);
 
   return (
     <div className="mt-2 flex flex-col">
@@ -144,7 +146,7 @@ const Applications: React.FC<ApplicationsProps> = (props) => {
         </table>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Applications
+export default Applications;

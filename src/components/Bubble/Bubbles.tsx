@@ -1,5 +1,5 @@
-import React from 'react'
-import Bubble from './Bubble'
+import React from "react";
+import Bubble from "./Bubble";
 
 const Bubbles = () => {
   return (
@@ -64,8 +64,8 @@ const Bubbles = () => {
         color="bg-orange_300"
       />
     </>
-  )
-}
+  );
+};
 
 export const FooterBubbles: React.FC = () => {
   return (
@@ -103,7 +103,7 @@ export const FooterBubbles: React.FC = () => {
         color="bg-sky_300"
       />
     </>
-  )
-}
+  );
+};
 
-export default Bubbles
+export default Bubbles;

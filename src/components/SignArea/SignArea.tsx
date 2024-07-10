@@ -1,10 +1,10 @@
-import React from 'react'
-import Script from 'next/script'
-import Sign, { type SignProps } from './Sign'
+import React from "react";
+import Script from "next/script";
+import Sign, { type SignProps } from "./Sign";
 
 export interface SignAreaProps {
-  children?: React.ReactNode
-  signs: SignProps[]
+  children?: React.ReactNode;
+  signs: SignProps[];
 }
 
 const SignArea: React.FC<SignAreaProps> = (props) => {
@@ -22,7 +22,7 @@ const SignArea: React.FC<SignAreaProps> = (props) => {
         src="https://flackr.github.io/scroll-timeline/dist/scroll-timeline.js"
       />
     </>
-  )
-}
+  );
+};
 
-export default SignArea
+export default SignArea;

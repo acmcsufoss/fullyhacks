@@ -1,13 +1,13 @@
-import React, { useState } from 'react'
-import { AiOutlineSearch } from 'react-icons/ai'
-import uniJson from './usuni.json'
-import { University } from '@/types/interface'
+import React, { useState } from "react";
+import { AiOutlineSearch } from "react-icons/ai";
+import uniJson from "./usuni.json";
+import { University } from "@/types/interface";
 
 interface SchoolSuggestionProps {
-  register: any
-  errors: any
-  dispatch: any
-  application: any
+  register: any;
+  errors: any;
+  dispatch: any;
+  application: any;
 }
 
 const SchoolSuggestion: React.FC<SchoolSuggestionProps> = ({
@@ -16,31 +16,31 @@ const SchoolSuggestion: React.FC<SchoolSuggestionProps> = ({
   dispatch,
   application
 }) => {
-  const [search, setSearch] = useState<string>('')
-  const [filteredSchool, setfilteredSchool] = useState<University[]>([])
-  const universites: University[] = uniJson.usUniveristies
+  const [search, setSearch] = useState<string>("");
+  const [filteredSchool, setfilteredSchool] = useState<University[]>([]);
+  const universites: University[] = uniJson.usUniveristies;
   const handleChange = (e: any) => {
-    setSearch(e.target.value)
+    setSearch(e.target.value);
     setfilteredSchool(
       universites.filter((item: University) =>
         item.institution.toLowerCase().includes(e.target.value.toLowerCase())
       )
-    )
-    dispatch({ type: 'SET_SCHOOL', payload: e.target.value })
+    );
+    dispatch({ type: "SET_SCHOOL", payload: e.target.value });
     dispatch({
-      type: 'SAVE_DRAFT',
-      payload: { name: 'school', value: e.target.value }
-    })
-  }
+      type: "SAVE_DRAFT",
+      payload: { name: "school", value: e.target.value }
+    });
+  };
   return (
     <div className="">
       <div className="mt-4 form-input flex items-center w-full">
         <input
-          {...register('school')}
+          {...register("school")}
           type="text"
           name="school"
           className={`outline-none bg-transparent w-full ${
-            errors.email ? 'error-form' : ''
+            errors.email ? "error-form" : ""
           }`}
           placeholder="Search school"
           value={search}
@@ -52,13 +52,13 @@ const SchoolSuggestion: React.FC<SchoolSuggestionProps> = ({
         {filteredSchool.map((item: University, index) => (
           <div
             onClick={() => {
-              setSearch(item.institution)
+              setSearch(item.institution);
               dispatch({
-                type: 'SAVE_DRAFT',
-                payload: { name: 'school', value: item.institution }
-              })
-              dispatch({ type: 'SET_SCHOOL', payload: item.institution })
-              setfilteredSchool([])
+                type: "SAVE_DRAFT",
+                payload: { name: "school", value: item.institution }
+              });
+              dispatch({ type: "SET_SCHOOL", payload: item.institution });
+              setfilteredSchool([]);
             }}
             key={index}
             className="text-black cursor-pointer p-1 border border-t-1 bg-white font-semibold">
@@ -67,7 +67,7 @@ const SchoolSuggestion: React.FC<SchoolSuggestionProps> = ({
         ))}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default SchoolSuggestion
+export default SchoolSuggestion;
