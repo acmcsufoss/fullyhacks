@@ -1,32 +1,31 @@
-"use client";
-
 import React from "react";
 import Flower from "@/components/Flower/Flower";
 import UserPortal from "@/components/PortalPage/UserPortal";
 import { AuthNavBar } from "@/components/NavBar/NavBar";
 import { redirect } from "next/navigation";
-import { authOptions } from "../api/auth/[...nextauth]/route";
-import { getServerSession } from "next-auth";
+import { Session } from "next-auth";
 import { prisma } from "db";
+import { getAuthSession } from "@/lib/auth";
 
-export default async function PortalPage() {
-  // Check if the user signed in
-  const session = await getServerSession(authOptions);
-  console.log("Session: " + session);
-
-  if (!session) {
-    redirect("/signin");
-  }
-  const User = await prisma.user.findUnique({
-    where: { email: session?.user?.email as any },
+async function getUser(session: Session) {
+  const user = await prisma.user.findUnique({
+    where: { email: session.user?.email as any },
     include: {
       application: true
     }
   });
-  if (!User?.application?.applied) {
+
+  if (!user?.application?.applied) {
     redirect("/apply");
   }
-  const user = JSON.parse(JSON.stringify(User));
+  return {
+    user: JSON.parse(JSON.stringify(user))
+  };
+}
+
+export default async function PortalPage() {
+  const session = await getAuthSession();
+  const { user } = await getUser(session);
 
   return (
     <div className="bg-[#0B062B] pb-12">

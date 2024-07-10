@@ -3,8 +3,8 @@ import Flower from "@/components/Flower/Flower";
 import AuthButton from "@/components/AuthWrapper/AuthButton";
 import { GenericNavBar } from "@/components/NavBar/NavBar";
 import { redirect } from "next/navigation";
-import { authOptions } from "../api/auth/[...nextauth]/route";
 import { getServerSession } from "next-auth";
+import { authOptions } from "@/lib/auth";
 
 export default async function SignIn() {
   const session = await getServerSession(authOptions);

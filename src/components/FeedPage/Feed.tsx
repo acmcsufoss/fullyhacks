@@ -1,3 +1,5 @@
+"use client";
+
 import { announcementsType, feedUsers, User } from "@/types/interface";
 import React, { useState } from "react";
 import { FeedSideBar } from "../NavBar/NavBar";

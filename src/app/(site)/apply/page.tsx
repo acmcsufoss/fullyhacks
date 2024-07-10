@@ -3,24 +3,27 @@ import Flower from "@/components/Flower/Flower";
 import { AuthNavBar } from "@/components/NavBar/NavBar";
 import ApplyAuth from "@/components/AuthWrapper/ApplyAuth";
 import ApplicationForm from "@/components/Form/ApplicationForm";
-import { redirect } from "next/navigation";
-import { authOptions } from "../api/auth/[...nextauth]/route";
-import { getServerSession } from "next-auth";
+import { Session } from "next-auth";
 import { prisma } from "db";
+import { getAuthSession } from "@/lib/auth";
 
-export default async function ApplyPage() {
-  const session = await getServerSession(authOptions);
-  if (!session) {
-    redirect("/signin");
-  }
-  const User = await prisma.user.findUnique({
+async function getApplicationData(session: Session) {
+  const user = await prisma.user.findUnique({
     where: { email: session?.user?.email as any },
     select: {
       application: true
     }
   });
-  const user = JSON.parse(JSON.stringify(session.user));
-  const application = JSON.parse(JSON.stringify(User?.application));
+
+  return {
+    user: JSON.parse(JSON.stringify(session.user)),
+    application: JSON.parse(JSON.stringify(user?.application))
+  };
+}
+
+export default async function ApplyPage() {
+  const session = await getAuthSession();
+  const { user, application } = await getApplicationData(session);
 
   return (
     <>
@@ -79,7 +82,7 @@ export default async function ApplyPage() {
               <p className="text-lg font-semibold md:text-xl">
                 You&apos;ve already submitted an application
               </p>
-              <Link href="/poral" className="purple-btn mt-10">
+              <Link href="/portal" className="purple-btn mt-10">
                 Go to User Portal
               </Link>
             </div>

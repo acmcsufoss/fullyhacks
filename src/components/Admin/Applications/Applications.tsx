@@ -1,3 +1,5 @@
+"use client";
+
 import Loading from "@/components/Loading/Loading";
 import PopUp from "@/components/PopUp/PopUp";
 import { ApplicationType } from "@/types/interface";

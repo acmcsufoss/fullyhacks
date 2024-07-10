@@ -1,7 +1,7 @@
 import LandingPage from "@/components/LandingPage/LandingPage";
 import axios from "axios";
 
-async function getData() {
+async function getSiteData() {
   const company = axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/companies`);
   const team = axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/team`);
   const faq = axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/faqs`);
@@ -18,7 +18,7 @@ async function getData() {
 }
 
 export default async function Home() {
-  const { companyData, teamData, faqData } = await getData();
+  const { companyData, teamData, faqData } = await getSiteData();
   return (
     <LandingPage
       companyData={companyData}
