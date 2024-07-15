@@ -85,30 +85,30 @@ const Profile: React.FC<ProfileProps> = ({ currentUser }) => {
   };
 
   return (
-    <section className="overflow-x-auto w-full mt-14 mr-8">
+    <section className="mt-14 mr-8 w-full overflow-x-auto">
       <p className="feed-title mb-10">{currentUser.name}&apos;s Profile</p>
       <form
         onSubmit={handleSubmit(updateUserProfile)}
-        className="text-white w-full flex flex-col items-start"
+        className="flex w-full flex-col items-start text-white"
         action="">
-        <p className="mb-2 text-purple_main font-bold">YOUR BIO:</p>
+        <p className="mb-2 font-bold text-purple_main">YOUR BIO:</p>
         <textarea
           {...register("bio")}
           name="bio"
           value={updatedProfile.bio}
-          className={`rounded-md feed-form-input ${
+          className={`feed-form-input rounded-md ${
             errors.bio ? "error-form" : ""
           }`}
           onChange={handleInfoChange}
           placeholder="Hi, I loveee web development, add me on Discord to talk more :)"
         />
         <p className="error-msg">{errors.bio?.message}</p>
-        <p className="mb-2 text-purple_main font-bold">DISCORD ID:</p>
+        <p className="mb-2 font-bold text-purple_main">DISCORD ID:</p>
         <input
           {...register("discordId")}
           name="discordId"
           value={updatedProfile.discordId}
-          className={`rounded-md feed-form-input ${
+          className={`feed-form-input rounded-md ${
             errors.discordId ? "error-form" : ""
           }`}
           onChange={handleInfoChange}
@@ -120,17 +120,17 @@ const Profile: React.FC<ProfileProps> = ({ currentUser }) => {
           Note: You can only update your profile once an hour
         </p>
         {isLoading ? (
-          <button className="mt-4 self-start normal-case btn bg-sky-100 border-none text-purple_main hover:bg-sky-200 hover:ease-in-out hover:duration-200">
+          <button className="btn mt-4 self-start border-none bg-sky-100 normal-case text-purple_main hover:bg-sky-200 hover:duration-200 hover:ease-in-out">
             <Loading isLoading={isLoading} />
           </button>
         ) : (
           <>
             <button
               type="submit"
-              className="mt-4 self-start normal-case btn bg-[#46C8E5] border-none text-[#1E2D79] hover:bg-sky-200 hover:ease-in-out hover:duration-200">
+              className="btn mt-4 self-start border-none bg-[#46C8E5] normal-case text-[#1E2D79] hover:bg-sky-200 hover:duration-200 hover:ease-in-out">
               UPDATE
             </button>
-            <p className="mt-4 error-msg">{errorMsg}</p>
+            <p className="error-msg mt-4">{errorMsg}</p>
           </>
         )}
       </form>

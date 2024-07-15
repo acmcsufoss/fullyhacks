@@ -82,7 +82,7 @@ const Applications: React.FC<ApplicationsProps> = (props) => {
       <select
         value={statusFilter}
         onChange={(e) => handleStatusChange(e)}
-        className="select my-4 bg-purple_300 text-purple_main md:w-[200px] max-w-xs">
+        className="select my-4 max-w-xs bg-purple_300 text-purple_main md:w-[200px]">
         <option disabled selected>
           Filter by:
         </option>
@@ -93,7 +93,7 @@ const Applications: React.FC<ApplicationsProps> = (props) => {
         <option value="submitted">Not Done</option>
       </select>
       <p>Refresh page if you want the filter has the most recent update lol</p>
-      <div className="stats stats-vertical lg:stats-horizontal shadow my-8">
+      <div className="stats stats-vertical my-8 shadow lg:stats-horizontal">
         <div className="stat">
           <div className="stat-title">Total applications</div>
           <div className="stat-value">{applicationsNumber}</div>
@@ -114,7 +114,7 @@ const Applications: React.FC<ApplicationsProps> = (props) => {
         </div>
       </div>
       <div className="overflow-x-auto">
-        <table className="w-full table">
+        <table className="table w-full">
           <thead>
             <tr>
               <th>#</th>

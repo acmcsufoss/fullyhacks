@@ -27,13 +27,13 @@ const PopUp: React.FC<PopUpProps> = (props) => {
       />
       <div className="modal text-white">
         <div className="modal-box bg-[#AF5B98]">
-          <h3 className="font-bold text-lg">{title}</h3>
+          <h3 className="text-lg font-bold">{title}</h3>
           <p className="py-4">{content}</p>
           <div className="modal-action">
             <label
               htmlFor="my-modal"
               onClick={() => setCheck(false)}
-              className="normal-case btn bg-[#230D41] hover:bg-[#8f467b] hover:transition-all hover:duration-300 border-none text-white">
+              className="btn border-none bg-[#230D41] normal-case text-white hover:bg-[#8f467b] hover:transition-all hover:duration-300">
               {action}
             </label>
           </div>
@@ -88,8 +88,8 @@ export const FeedPopUp: React.FC = (props) => {
             className="modal-toggle"
           />
           <div className="modal">
-            <div className="modal-box feed-popup">
-              <h3 className="font-bold text-lg">Welcome to The Feed 🐘</h3>
+            <div className="feed-popup modal-box">
+              <h3 className="text-lg font-bold">Welcome to The Feed 🐘</h3>
               <p className="py-4 font-normal">
                 Where you meet other participants and explore other cool things
                 about FullyHacks to be best prepared 🎉
@@ -99,7 +99,7 @@ export const FeedPopUp: React.FC = (props) => {
                 <label
                   htmlFor="my-modal"
                   onClick={() => goNextStep()}
-                  className="normal-case purple-btn">
+                  className="purple-btn normal-case">
                   Continue
                 </label>
               </div>
@@ -116,8 +116,8 @@ export const FeedPopUp: React.FC = (props) => {
             className="modal-toggle"
           />
           <div className="modal">
-            <div className="modal-box feed-popup">
-              <h3 className="font-bold text-lg">
+            <div className="feed-popup modal-box">
+              <h3 className="text-lg font-bold">
                 Let&apos;s introduce yourself 🤩
               </h3>
               <p className="py-4 font-normal">
@@ -128,14 +128,14 @@ export const FeedPopUp: React.FC = (props) => {
               </p>
               <form
                 onSubmit={handleSubmit(updateUserProfile)}
-                className="w-full flex flex-col"
+                className="flex w-full flex-col"
                 action="">
                 <p className="mb-2 font-bold">Your bio:</p>
                 <input
                   {...register("bio")}
                   name="bio"
                   onChange={(e) => setBio(e.target.value)}
-                  className={`bg-white text-black rounded-md form-input ${
+                  className={`form-input rounded-md bg-white text-black ${
                     errors.bio ? "error-form" : ""
                   }`}
                   type="text"
@@ -146,7 +146,7 @@ export const FeedPopUp: React.FC = (props) => {
                 <input
                   {...register("discord")}
                   name="discord"
-                  className={`bg-white rounded-md form-input text-black ${
+                  className={`form-input rounded-md bg-white text-black ${
                     errors.discord ? "error-form" : ""
                   }`}
                   onChange={(e) => setDiscordId(e.target.value)}
@@ -155,11 +155,11 @@ export const FeedPopUp: React.FC = (props) => {
                 />
                 <p className="error-msg">{errors.discord?.message}</p>
                 {isLoading ? (
-                  <button type="submit" className="mt-4 self-end purple-btn">
+                  <button type="submit" className="purple-btn mt-4 self-end">
                     <Loading isLoading={isLoading} />
                   </button>
                 ) : (
-                  <button type="submit" className="mt-4 self-end purple-btn">
+                  <button type="submit" className="purple-btn mt-4 self-end">
                     Submit
                   </button>
                 )}

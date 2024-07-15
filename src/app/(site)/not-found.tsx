@@ -8,11 +8,11 @@ export default function NotFound() {
   return (
     <>
       <GenericNavBar />
-      <div className="flex flex-col items-center w-full justify-center h-full text-purple_main mt-10 font-rubik">
-        <p className="text-xl md:text-xxl font-semibold text-center">
+      <div className="mt-10 flex h-full w-full flex-col items-center justify-center font-rubik text-purple_main">
+        <p className="text-center text-xl font-semibold md:text-xxl">
           404 Page Not Found :({" "}
         </p>
-        <button className="md:text-lg p-2 mt-10 apply-btn">
+        <button className="apply-btn mt-10 p-2 md:text-lg">
           <Link href={"/"}>Back to home</Link>
         </button>
       </div>

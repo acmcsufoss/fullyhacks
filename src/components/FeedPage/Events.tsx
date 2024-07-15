@@ -293,7 +293,7 @@ const events: eventsType[] = [
 const Events: React.FC = () => {
   const [filteredEvent, setFilteredEvent] = useState<eventsType[]>(events);
   return (
-    <section className="bg-purple_dark mr-8 mt-14 min-h-screen w-full text-white">
+    <section className="mr-8 mt-14 min-h-screen w-full bg-purple_dark text-white">
       <p className="feed-title">Events</p>
       <p className="md:text-md">Fullyhacks timeline for your reference</p>
       <p className="mt-4 text-white/60 md:text-sm">Click the label to filter</p>
@@ -305,7 +305,7 @@ const Events: React.FC = () => {
           </div>
           {filteredEvent.map((event: eventsType) => {
             return (
-              <div className="bg-purple_card relative rounded-md p-4 text-white">
+              <div className="relative rounded-md bg-purple_card p-4 text-white">
                 <div className="flex flex-row items-center justify-between">
                   <p className="text-lg font-bold">{event.name}</p>
                   <p

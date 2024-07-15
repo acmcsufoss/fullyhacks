@@ -4,12 +4,12 @@ const Partners: React.FC = () => {
   return (
     <>
       <a
-        className="block z-[2] relative w-[58%] md:w-[40%] mt-24"
+        className="relative z-[2] mt-24 block w-[58%] md:w-[40%]"
         href="https://acmcsuf.com/">
         <img src="/acm_blue_logo.svg" alt="ACM Logo" />
       </a>
-      <div className="mb-auto flex flex-col md:w-[80vw] lg:w-[80vw] md:mt-14">
-        <p className="text-xxl text-center font-medium md:text-[5rem] text-[#0BB6FF] [text-shadow:_-3px_0_4px_#FF0BF5] font-ohm">
+      <div className="mb-auto flex flex-col md:mt-14 md:w-[80vw] lg:w-[80vw]">
+        <p className="text-center font-ohm text-xxl font-medium text-[#0BB6FF] [text-shadow:_-3px_0_4px_#FF0BF5] md:text-[5rem]">
           Our Mission
         </p>
         <p className="mt-4 text-center text-white">

@@ -18,7 +18,7 @@ export default function Providers({ children }: { children: React.ReactNode }) {
   return (
     <QueryClientProvider client={queryClient}>
       <SessionProvider>
-        <section className="scroll-smooth bg-gradient-to-b from-purple_gradient_1 to-purple_gradient_2 w-[100vw] h-[100vh] flex flex-col overflow-scroll overflow-x-hidden">
+        <section className="flex h-[100vh] w-[100vw] flex-col overflow-scroll overflow-x-hidden scroll-smooth bg-gradient-to-b from-purple_gradient_1 to-purple_gradient_2">
           <NextNProgress
             transformCSS={(css) => {
               return <style>{css}</style>;

@@ -50,19 +50,19 @@ export const NavBarLanding: React.FC = () => {
   ]);
 
   return (
-    <nav className="z-[30] navbar text-white font-semibold text-lg lg:pl-8 lg:pt-2 lg:grid lg:grid-cols-4">
+    <nav className="navbar z-[30] text-lg font-semibold text-white lg:grid lg:grid-cols-4 lg:pl-8 lg:pt-2">
       <div className="navbar-start">
-        <Link href="/" className="hidden lg:flex gap-2 items-center">
+        <Link href="/" className="hidden items-center gap-2 lg:flex">
           <img
             src="/logo.svg"
             alt="Fully logo"
             width={240}
             height={240}
-            className="lg:inline-flex hidden"
+            className="hidden lg:inline-flex"
           />
         </Link>
         <div className="dropdown">
-          <label tabIndex={0} className="btn btn-ghost lg:hidden">
+          <label tabIndex={0} className="btn-ghost btn lg:hidden">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5"
@@ -79,14 +79,14 @@ export const NavBarLanding: React.FC = () => {
           </label>
           <ul
             tabIndex={0}
-            className="z-[3] ml-4 menu menu-compact dropdown-content mt-3 p-2 shadow bg-purple_300 rounded-box w-52 text-[1rem]">
+            className="dropdown-content menu rounded-box menu-compact z-[3] ml-4 mt-3 w-52 bg-purple_300 p-2 text-[1rem] shadow">
             {menuList.map((item) => {
               return (
-                <div key={item.id} className="flex gap-4 my-2">
+                <div key={item.id} className="my-2 flex gap-4">
                   <Link
                     key={item.id}
                     href={item.href}
-                    className="flex gap-2 items-center m-2">
+                    className="m-2 flex items-center gap-2">
                     <p className="cursor-pointer"> {item.name} </p>
                   </Link>
                 </div>
@@ -95,14 +95,14 @@ export const NavBarLanding: React.FC = () => {
           </ul>
         </div>
       </div>
-      <div className="navbar-center hidden xl:flex lg:col-span-3 mr-36 mb-20">
-        <ul className="menu menu-horizontal w-[100%] flex justify-end items-center">
+      <div className="navbar-center mr-36 mb-20 hidden lg:col-span-3 xl:flex">
+        <ul className="menu menu-horizontal flex w-[100%] items-center justify-end">
           {menuList.map((item, index) => {
             return (
               <div
                 key={item.id}
                 style={{ marginRight: "-40px" }}
-                className="flex my-2">
+                className="my-2 flex">
                 {/* Placeholder div or remove entirely */}
                 <div
                   style={{ width: item.desktop, height: item.desktop }}
@@ -113,7 +113,7 @@ export const NavBarLanding: React.FC = () => {
                   id={item.id}
                   href={item.href}
                   className="flex items-center">
-                  <p className="cursor-pointer hover:ease-in-out hover:duration-200 hover:text-purple_main_hover font-rubik">
+                  <p className="cursor-pointer font-rubik hover:text-purple_main_hover hover:duration-200 hover:ease-in-out">
                     {item.name}
                   </p>
                 </Link>
@@ -147,15 +147,15 @@ export const GenericNavBar = () => {
         onClick={() => router.push("/")}
         alt="nav bar logo"
         src="/logo.svg"
-        className="cursor-pointer ml-4 w-24 h-24 md:w-32 md:h-32"
+        className="ml-4 h-24 w-24 cursor-pointer md:h-32 md:w-32"
       />
       <div
         onClick={() => router.push("/")}
-        className="cursor-pointer mr-4 p-2 ml-auto flex gap-4 items-center bg-purple_main text-white rounded-xl hover:bg-pink-500 hover:transition-all hover:duration-300">
-        <button className="font-semibold text-sm md:text-md">
+        className="mr-4 ml-auto flex cursor-pointer items-center gap-4 rounded-xl bg-purple_main p-2 text-white hover:bg-pink-500 hover:transition-all hover:duration-300">
+        <button className="text-sm font-semibold md:text-md">
           Back to Home
         </button>
-        <IoArrowBackSharp className="cursor-pointer scale-x-[-1] w-8 h-8" />
+        <IoArrowBackSharp className="h-8 w-8 scale-x-[-1] cursor-pointer" />
       </div>
     </nav>
   );
@@ -168,12 +168,12 @@ export const AuthNavBar = () => {
         <img
           src="/logo.svg"
           alt="nav bar logo"
-          className="cursor-pointer ml-2 w-24 h-24 md:w-32 md:h-32"
+          className="ml-2 h-24 w-24 cursor-pointer md:h-32 md:w-32"
         />
       </Link>
       <div
         onClick={() => signOut()}
-        className="cursor-pointer p-2 mr-4 ml-auto text-md bg-[#E149A9] text-white rounded-xl hover:bg-pink-500 hover:transition-all hover:duration-300">
+        className="mr-4 ml-auto cursor-pointer rounded-xl bg-[#E149A9] p-2 text-md text-white hover:bg-pink-500 hover:transition-all hover:duration-300">
         <button>Sign out</button>
       </div>
     </nav>
@@ -188,9 +188,9 @@ export const FeedNavBar = () => {
         onClick={() => router.push("/")}
         alt="nav bar logo"
         src="/logo.svg"
-        className="cursor-pointer my-4 ml-4 md:ml-10 w-16 h-16 md:w-20 md:h-20"
+        className="my-4 ml-4 h-16 w-16 cursor-pointer md:ml-10 md:h-20 md:w-20"
       />
-      <div className="mr-4 md:mr-10 ml-auto text-md text-white">
+      <div className="mr-4 ml-auto text-md text-white md:mr-10">
         <button onClick={() => signOut()}> Sign out</button>
       </div>
     </nav>
@@ -251,22 +251,22 @@ export const FeedSideBar: React.FC<FeedSideBarProps> = ({ setLocation }) => {
       {!isOpen && (
         <AiOutlineMenu
           onClick={() => setOpen(true)}
-          className="fixed top-[5rem] left-4 z-20 md:hidden cursor-pointer text-[#EF4DB3]"
+          className="fixed top-[5rem] left-4 z-20 cursor-pointer text-[#EF4DB3] md:hidden"
           size={20}
         />
       )}
 
       {/* For mobile */}
       <div
-        className={`md:hidden fixed left-0 top-0 w-screen h-screen z-20 pointer-events-none bg-purple_dark/40 ${
+        className={`pointer-events-none fixed left-0 top-0 z-20 h-screen w-screen bg-purple_dark/40 md:hidden ${
           isOpen ? "block" : "hidden"
         }`}
       />
 
       <div
-        className={`md:hidden fixed top-0 transition-all duration-200 ease-in ${
+        className={`fixed top-0 transition-all duration-200 ease-in md:hidden ${
           isOpen ? "left-0" : "-left-80"
-        } bg-purple_dark z-30 text-sm p-8 h-screen font-rubik text-[#EF4DB3] font-semibold basis-1/6`}>
+        } z-30 h-screen basis-1/6 bg-purple_dark p-8 font-rubik text-sm font-semibold text-[#EF4DB3]`}>
         <AiOutlineClose
           onClick={() => setOpen(false)}
           size={20}
@@ -280,8 +280,8 @@ export const FeedSideBar: React.FC<FeedSideBarProps> = ({ setLocation }) => {
                 onClick={() => {
                   setLocation(item.name), setIdx(idx), setOpen(false);
                 }}
-                className={`w-full flex my-2 p-2 rounded-lg items-center ${
-                  currIdx == idx ? "text-white bg-[rgba(255,136,229,0.4)]" : ""
+                className={`my-2 flex w-full items-center rounded-lg p-2 ${
+                  currIdx == idx ? "bg-[rgba(255,136,229,0.4)] text-white" : ""
                 }`}>
                 {item.icon}
                 <li className="ml-4 text-white">{item.name}</li>
@@ -289,7 +289,7 @@ export const FeedSideBar: React.FC<FeedSideBarProps> = ({ setLocation }) => {
             );
           })}
         </ul>
-        <div className="flex items-center text-center mt-4 gap-4">
+        <div className="mt-4 flex items-center gap-4 text-center">
           <BsDiscord size={28} />
           <a target={"_blank"} href="https://discord.gg/XKNZxHEnJj">
             Discord Server
@@ -298,7 +298,7 @@ export const FeedSideBar: React.FC<FeedSideBarProps> = ({ setLocation }) => {
       </div>
 
       {/* For desktop */}
-      <div className="hidden md:block text-sm mt-12 mx-4 md:mx-10 font-rubik text-[#EF4DB3] font-semibold md:text-md basis-1/5">
+      <div className="mx-4 mt-12 hidden basis-1/5 font-rubik text-sm font-semibold text-[#EF4DB3] md:mx-10 md:block md:text-md">
         <ul className="border-b-2 p-2">
           {feedItems.map((item, idx) => {
             return (
@@ -307,8 +307,8 @@ export const FeedSideBar: React.FC<FeedSideBarProps> = ({ setLocation }) => {
                 onClick={() => {
                   setLocation(item.name), setIdx(idx);
                 }}
-                className={`w-full flex my-4 p-2 rounded-lg items-center ${
-                  currIdx == idx ? "text-white bg-[rgba(255,136,229,0.4)]" : ""
+                className={`my-4 flex w-full items-center rounded-lg p-2 ${
+                  currIdx == idx ? "bg-[rgba(255,136,229,0.4)] text-white" : ""
                 }`}>
                 {item.icon}
                 <li className="ml-4 text-white">{item.name}</li>
@@ -316,7 +316,7 @@ export const FeedSideBar: React.FC<FeedSideBarProps> = ({ setLocation }) => {
             );
           })}
         </ul>
-        <div className="flex items-center text-center mt-4 gap-4">
+        <div className="mt-4 flex items-center gap-4 text-center">
           <BsDiscord size={28} />
           <a
             target={"_blank"}

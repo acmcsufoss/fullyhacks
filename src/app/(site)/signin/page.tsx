@@ -13,7 +13,7 @@ export default async function SignIn() {
   }
 
   return (
-    <section className="text-purple_main bg-[#0B062B] text-md font-rubik">
+    <section className="bg-[#0B062B] font-rubik text-md text-purple_main">
       <GenericNavBar />
       <Flower
         top="top-[20em] hidden md:block"
@@ -44,17 +44,17 @@ export default async function SignIn() {
         content="FullyHacks only open to college students 18 years old or older 🐘"
         action="I understand"
       />
-      <div className="relative mt-10 flex flex-col justify-center items-center mx-4">
-        <div className="bg-blue_rgba flex rounded-lg flex-col items-center p-4 mb-16 border-4 border-[#373DCB]">
-          <div className="text-white text-center font-normal flex flex-col items-center">
+      <div className="relative mx-4 mt-10 flex flex-col items-center justify-center">
+        <div className="mb-16 flex flex-col items-center rounded-lg border-4 border-[#373DCB] bg-blue_rgba p-4">
+          <div className="flex flex-col items-center text-center font-normal text-white">
             <img src="signin.svg" alt="Sign In" className="w-[320px]" />
-            <p className=" mt-14 text-[2rem] md:text-[3rem] font-bold">
+            <p className="mt-14 text-[2rem] font-bold md:text-[3rem]">
               Welcome to FullyHacks!
             </p>
             <p>Let&apos;s sign in and start your application</p>
           </div>
           <AuthButton />
-          <p className="mt-6 text-[1rem] text-center">
+          <p className="mt-6 text-center text-[1rem]">
             Note: We use Github to keep track of your submission
           </p>
         </div>

@@ -97,7 +97,7 @@ const FAQs = () => {
       <div className="flex flex-col items-center">
         {faqs.map((faq: FAQType) => {
           return (
-            <div key={faq.id} className="w-full my-4">
+            <div key={faq.id} className="my-4 w-full">
               <FAQDropDown question={faq.question} answer={faq.answer} />
             </div>
           );

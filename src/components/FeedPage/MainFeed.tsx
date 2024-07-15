@@ -15,14 +15,14 @@ const MainFeed: React.FC<MainFeedProps> = (props) => {
     (user) => user.bio !== null && user.application.approved == true
   );
   return (
-    <section className="flex items-start flex-col w-full grow md:mx-10 mr-[2rem] mt-14 overflow-x-hidden">
+    <section className="mr-[2rem] mt-14 flex w-full grow flex-col items-start overflow-x-hidden md:mx-10">
       {currentUser?.bio == null && <FeedPopUp />}
       <p className="feed-title">Homepage</p>
       {filteredFeedUsers.map((user: feedUsers) => {
         return (
           <div
             key={user.id}
-            className="border-b-2 border-[#5A75FF] [box-shadow:_0_4px_8px_-2px_#5A75FF] pb-6 my-4 w-full md:text-md flex gap-4 text-purple_main">
+            className="my-4 flex w-full gap-4 border-b-2 border-[#5A75FF] pb-6 text-purple_main [box-shadow:_0_4px_8px_-2px_#5A75FF] md:text-md">
             {isOpen && (
               <div
                 className="toast cursor-pointer"
@@ -34,18 +34,18 @@ const MainFeed: React.FC<MainFeedProps> = (props) => {
                 </div>
               </div>
             )}
-            <p className="md:w-12 md:h-12 w-[40px] h-[40px] self-start md:text-lg text-center font-semibold p-2 bg-[#B7EEFF] text-black rounded-[50%]">
+            <p className="h-[40px] w-[40px] self-start rounded-[50%] bg-[#B7EEFF] p-2 text-center font-semibold text-black md:h-12 md:w-12 md:text-lg">
               {user.application.name[0].toUpperCase()}
             </p>
-            <div className="flex flex-col w-full">
-              <div className="mb-2 gap-1 flex items-start flex-col md:flex-row md:tems-center">
-                <p className="font-semibold mr-4 text-[#66D4EC]">
+            <div className="flex w-full flex-col">
+              <div className="md:tems-center mb-2 flex flex-col items-start gap-1 md:flex-row">
+                <p className="mr-4 font-semibold text-[#66D4EC]">
                   {user.application.name}
                 </p>
                 <a
                   href={`https://github.com/${user.application.github}`}
                   target="_blank"
-                  className="flex items-center gap-2 mr-4">
+                  className="mr-4 flex items-center gap-2">
                   <BsGithub color="#EF4DB3" />
                   <p className="text-white"> {user.application.github}</p>
                 </a>
@@ -54,7 +54,7 @@ const MainFeed: React.FC<MainFeedProps> = (props) => {
                     navigator.clipboard.writeText(user.discordId),
                       setOpen(true);
                   }}
-                  className="cursor-pointer flex items-center gap-2">
+                  className="flex cursor-pointer items-center gap-2">
                   <BsDiscord color="#EF4DB3" />
                   {!user.discordId ? (
                     <p>Not added</p>
@@ -63,21 +63,21 @@ const MainFeed: React.FC<MainFeedProps> = (props) => {
                   )}
                 </div>
               </div>
-              <div className="flex flex-wrap items-center gap-4 my-2 text-sm text-black">
+              <div className="my-2 flex flex-wrap items-center gap-4 text-sm text-black">
                 {user.isAdmin && (
-                  <p className="bg-[#FCC14F] px-4 rounded-xl">Admin</p>
+                  <p className="rounded-xl bg-[#FCC14F] px-4">Admin</p>
                 )}
-                <p className="bg-[#00B3FF] px-4 rounded-xl">
+                <p className="rounded-xl bg-[#00B3FF] px-4">
                   {user.application.major}
                 </p>
-                <p className="bg-[#00B3FF] px-4 rounded-xl">
+                <p className="rounded-xl bg-[#00B3FF] px-4">
                   {user.application.class}
                 </p>
-                <p className="bg-[#00B3FF] px-4 rounded-xl">
+                <p className="rounded-xl bg-[#00B3FF] px-4">
                   {user.application.school}
                 </p>
               </div>
-              <p className="text-white mt-2"> {user.bio}</p>
+              <p className="mt-2 text-white"> {user.bio}</p>
             </div>
           </div>
         );

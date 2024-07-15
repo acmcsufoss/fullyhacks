@@ -8,7 +8,7 @@ export default function AuthButton() {
   const [isClicked, setIsClicked] = useState(false);
   return (
     <button
-      className="flex text-white items-center rounded-md mt-12 p-4 bg-[#E149A9] hover:bg-[#8f467b] hover:transition-all hover:duration-300 text-[1.15rem] font-semibold font-mont"
+      className="font-mont mt-12 flex items-center rounded-md bg-[#E149A9] p-4 text-[1.15rem] font-semibold text-white hover:bg-[#8f467b] hover:transition-all hover:duration-300"
       onClick={() => {
         setIsClicked(true);
         signIn("github", {

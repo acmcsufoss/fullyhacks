@@ -42,20 +42,20 @@ const CountDown = () => {
   });
 
   return (
-    <div className="z-[11] grid lg:grid-flow-col md:grid-flow-col gap-2 md:gap-10 text-center auto-cols-max font-ohm font-medium mt-12">
-      <div className="flex flex-col items-center justify-center text-blue_neon bg-blue_dark rounded-xl p-3">
+    <div className="z-[11] mt-12 grid auto-cols-max gap-2 text-center font-ohm font-medium md:grid-flow-col md:gap-10 lg:grid-flow-col">
+      <div className="flex flex-col items-center justify-center rounded-xl bg-blue_dark p-3 text-blue_neon">
         <span className="countdown text-4xl md:text-6xl">
           <span style={{ "--value": time.days } as CSSProperties}></span>
         </span>
       </div>
       <span className="colon text-5xl md:text-7xl">:</span>
-      <div className="flex flex-col items-center justify-center text-blue_neon bg-blue_dark rounded-xl p-3">
+      <div className="flex flex-col items-center justify-center rounded-xl bg-blue_dark p-3 text-blue_neon">
         <span className="countdown text-4xl md:text-6xl">
           <span style={{ "--value": time.hours } as CSSProperties}></span>
         </span>
       </div>
       <span className="colon text-5xl md:text-7xl">:</span>
-      <div className="flex flex-col items-center justify-center text-blue_neon bg-blue_dark rounded-xl p-3">
+      <div className="flex flex-col items-center justify-center rounded-xl bg-blue_dark p-3 text-blue_neon">
         <div className="flex items-center">
           <span className="countdown text-4xl md:text-6xl">
             <span style={{ "--value": time.minutes } as CSSProperties}></span>
@@ -63,7 +63,7 @@ const CountDown = () => {
         </div>
       </div>
       <span className="colon text-5xl md:text-7xl">:</span>
-      <div className="flex flex-col items-center justify-center text-blue_neon bg-blue_dark rounded-xl p-3">
+      <div className="flex flex-col items-center justify-center rounded-xl bg-blue_dark p-3 text-blue_neon">
         <div className="flex items-center">
           <span className="countdown text-4xl md:text-6xl">
             <span style={{ "--value": time.seconds } as CSSProperties}></span>

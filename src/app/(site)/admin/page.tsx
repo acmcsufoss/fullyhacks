@@ -30,7 +30,7 @@ export default async function AdminPage() {
   return (
     <section className="font-rubik">
       <AuthNavBar />
-      <div className="flex flex-col mt-10 items-center">
+      <div className="mt-10 flex flex-col items-center">
         <p className="text-xl font-semibold text-purple_main">
           Welcome {user.name}
         </p>

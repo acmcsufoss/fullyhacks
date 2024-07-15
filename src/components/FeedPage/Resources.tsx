@@ -65,15 +65,15 @@ const Resources = () => {
       <div className="feed-title">Fully Gifts</div>
       <div className="md:text-md">Cool gifts from our great sponsors</div>
 
-      <div className="my-10 justify-center grid lg:grid-cols-3 gap-8">
+      <div className="my-10 grid justify-center gap-8 lg:grid-cols-3">
         {sponsorGifts.map((gift: sponsorGiftType, i) => {
           return (
             <div
               key={gift.id}
-              className={`p-4 md:p-6 rounded-xl bg-purple_card ${
+              className={`rounded-xl bg-purple_card p-4 md:p-6 ${
                 i % 2 === 0 ? "bg-opacity-30" : ""
               }`}>
-              <p className="font-bold text-lg">{gift.company}</p>
+              <p className="text-lg font-bold">{gift.company}</p>
               <p>{gift.content}</p>
               <p className="my-2 text-md font-semibold">How to access:</p>
               <div>{gift.access}</div>
