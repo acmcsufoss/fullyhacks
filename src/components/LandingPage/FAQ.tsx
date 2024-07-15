@@ -25,11 +25,11 @@ export const FAQDropDown: React.FC<FAQDropDownProps> = (props) => {
   };
   return (
     <a
-      className="border-2 collapse border-pink_200 rounded-box"
+      className="rounded-box collapse border-2 border-pink_200"
       onClick={toggleOpen}>
       <input type="checkbox" className={mounted ? "hidden" : ""} />
-      <div className="flex items-center justify-between text-sm md:text-md lg:text-lg p-2 px-4 md:p-4 w-full text-white transition-all duration-500 ease-in-out bg-[#0C1B3A] bg-opacity-50 border-pink_200 rounded-b-none collapse-title hover:ease-in-out hover:duration-200 hover:bg-purple_hover hover:text-white rounded-box">
-        <p className="leading-9 normal-case text-start text-[1rem] md:text-md lg:text-lg">
+      <div className="collapse-title rounded-box flex w-full items-center justify-between rounded-b-none border-pink_200 bg-[#0C1B3A] bg-opacity-50 p-2 px-4 text-sm text-white transition-all duration-500 ease-in-out hover:bg-purple_hover hover:text-white hover:duration-200 hover:ease-in-out md:p-4 md:text-md lg:text-lg">
+        <p className="text-start text-[1rem] normal-case leading-9 md:text-md lg:text-lg">
           {question}
         </p>
         <div
@@ -40,7 +40,7 @@ export const FAQDropDown: React.FC<FAQDropDownProps> = (props) => {
         </div>
       </div>
       <div
-        className={`collapse-content overflow-hidden bg-[#0C1B3A] shadow-pink_200 shadow-lg border-pink_200 border-solid transition-[max-height] duration-500 w-full ease-in-out ${
+        className={`collapse-content w-full overflow-hidden border-solid border-pink_200 bg-[#0C1B3A] shadow-lg shadow-pink_200 transition-[max-height] duration-500 ease-in-out ${
           opened ? "max-h-screen border-t-2" : "max-h-0"
         }`}>
         <p className="my-4 text-white md:text-md">{answer}</p>
@@ -55,15 +55,15 @@ const FAQ: React.FC<FAQProps> = (props) => {
     <>
       <img
         src="/cat3.svg"
-        className="absolute z-10 w-28 top-[5.75rem] left-1 md:w-64 md:top-6 md:left-2"
+        className="absolute top-[5.75rem] left-1 z-10 w-28 md:top-6 md:left-2 md:w-64"
       />
-      <p className="mb-4 text-xxl text-[#B479FF] [text-shadow:_0_0_10px_#FFD8FD] font-medium font-ohm mt-14 md:text-[5rem]">
+      <p className="mb-4 mt-14 font-ohm text-xxl font-medium text-[#B479FF] [text-shadow:_0_0_10px_#FFD8FD] md:text-[5rem]">
         FAQ
       </p>
       <div className="flex flex-col items-center">
         {faqs.map((faq: FAQType) => {
           return (
-            <div key={faq.id} className="w-full my-4">
+            <div key={faq.id} className="my-4 w-full">
               <FAQDropDown question={faq.question} answer={faq.answer} />
             </div>
           );

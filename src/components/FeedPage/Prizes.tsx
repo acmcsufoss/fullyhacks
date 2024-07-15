@@ -109,19 +109,19 @@ interface TrackProps {
 
 const Card: React.FC<TrackProps> = ({ track }) => {
   return (
-    <div className="cursor-pointer max-w-xs md:max-w-sm h-[300px] md:h-[350px] flex flex-col p-6 md:p-8 rounded-lg backdrop-filter backdrop-blur-md bg-purple_card border border-gray-300 border-opacity-25 shadow-xl hover:bg-[rgb(52,11,103)] duration-200 ease-in-out hover:text-white">
+    <div className="flex h-[300px] max-w-xs cursor-pointer flex-col rounded-lg border border-gray-300 border-opacity-25 bg-purple_card p-6 shadow-xl backdrop-blur-md backdrop-filter duration-200 ease-in-out hover:bg-[rgb(52,11,103)] hover:text-white md:h-[350px] md:max-w-sm md:p-8">
       <div className="flex flex-col">
-        <div className="text-lg flex gap-4 font-bold">
+        <div className="flex gap-4 text-lg font-bold">
           <p>{track.name}</p>
           <p>{track.icon}</p>
         </div>
         <div className="mt-4 md:text-md">
           {track.team && (
-            <p className="mb-4 text-white font-rubik text-20 font-normal leading-7">
+            <p className="text-20 mb-4 font-rubik font-normal leading-7 text-white">
               Total: {track.team} team(s)
             </p>
           )}
-          <p className="mb-4 text-white font-rubik text-20 font-normal leading-7">
+          <p className="text-20 mb-4 font-rubik font-normal leading-7 text-white">
             {track.description}
           </p>
         </div>
@@ -138,23 +138,23 @@ const Prizes = () => {
         Find all details about tracks, prize categories here
       </p>
       <div className="mt-10">
-        <div className="flex items-center gap-4 mb-4">
-          <p className="text-purple-500 font-rubik text-lg font-bold leading-normal">
+        <div className="mb-4 flex items-center gap-4">
+          <p className="font-rubik text-lg font-bold leading-normal text-purple-500">
             TRACKS
           </p>
         </div>
-        <p className="text-white font-rubik font-normal md:text-md">
+        <p className="font-rubik font-normal text-white md:text-md">
           Hackers have to build their projects around one of these 4 tracks
         </p>
       </div>
-      <div className="mt-10 grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
+      <div className="mt-10 grid grid-cols-1 gap-8 lg:grid-cols-2 xl:grid-cols-3">
         {tracks.map((track: tracksType) => {
           return <Card key={track.id} track={track} />;
         })}
       </div>
       <div className="mt-14">
-        <div className="flex items-center gap-4 mb-4">
-          <p className="text-purple-500 font-rubik text-lg font-bold leading-normal">
+        <div className="mb-4 flex items-center gap-4">
+          <p className="font-rubik text-lg font-bold leading-normal text-purple-500">
             PRIZES
           </p>
         </div>
@@ -165,23 +165,23 @@ const Prizes = () => {
         </p>
       </div>
       <div className="mt-10">
-        <p className="text-purple-500 font-rubik text-lg font-bold leading-normal">
+        <p className="font-rubik text-lg font-bold leading-normal text-purple-500">
           MAIN CATEGORY
         </p>
-        <div className="mt-10 grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
+        <div className="mt-10 grid grid-cols-1 gap-8 lg:grid-cols-2 xl:grid-cols-3">
           {mainCategory.map((category: tracksType) => {
             return <Card key={category.id} track={category} />;
           })}
         </div>
       </div>
       <div className="mt-10">
-        <p className="text-purple-500 font-rubik text-lg font-bold leading-normal">
+        <p className="font-rubik text-lg font-bold leading-normal text-purple-500">
           SUB CATEGORY
         </p>
         <p className="font-rubik font-normal leading-normal md:text-md">
           You can choose ONE sub category along with your project
         </p>
-        <div className="mt-10 grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
+        <div className="mt-10 grid grid-cols-1 gap-8 lg:grid-cols-2 xl:grid-cols-3">
           {subCategory.map((category: tracksType) => {
             return <Card key={category.id} track={category} />;
           })}

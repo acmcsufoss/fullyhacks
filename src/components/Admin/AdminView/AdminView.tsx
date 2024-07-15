@@ -23,7 +23,7 @@ export default function AdminView({ applications }: { applications: any }) {
 
   return (
     <div>
-      <div className="flex justify-around space-x-1 rounded-xl p-2 bg-purple_300 text-purple_main">
+      <div className="flex justify-around space-x-1 rounded-xl bg-purple_300 p-2 text-purple_main">
         {tabList.map((tab, idx) => {
           return (
             <p

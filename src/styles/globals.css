@@ -6,40 +6,40 @@
 
 @layer components {
   .apply-btn {
-    @apply hover:bg-[#FC61FF]/[.2]  hover:ease-in-out hover:duration-200;
-    @apply relative py-1 px-8 rounded-lg mx-8 ml-12 border border-solid border-[#FF42F7] text-[#FC61FF] [text-shadow:_0_0_10px_#FC61FF];
-    @apply after:content-[''] after:absolute after:top-12 after:left-2 after:w-full after:h-[5px] after:bg-[#FF42F7] after:opacity-[.7] after:blur-sm after:skew-x-[30deg];
+    @apply hover:bg-[#FC61FF]/[.2] hover:duration-200 hover:ease-in-out;
+    @apply relative mx-8 ml-12 rounded-lg border border-solid border-[#FF42F7] py-1 px-8 text-[#FC61FF] [text-shadow:_0_0_10px_#FC61FF];
+    @apply after:absolute after:top-12 after:left-2 after:h-[5px] after:w-full after:skew-x-[30deg] after:bg-[#FF42F7] after:opacity-[.7] after:blur-sm after:content-[''];
   }
 
   .sponsor-btn {
-    @apply hover:bg-[#8CEAFF]/[.2]  hover:ease-in-out hover:duration-200;
-    @apply relative py-1 px-8 rounded-lg border border-solid border-[#8CEAFF] text-[#8CEAFF] [text-shadow:_0_0_10px_#8CEAFF];
-    @apply after:content-[''] after:absolute after:top-12 after:left-2 after:w-full after:h-[5px] after:bg-[#8CEAFF] after:opacity-[.7] after:blur-sm after:skew-x-[30deg];
+    @apply hover:bg-[#8CEAFF]/[.2] hover:duration-200 hover:ease-in-out;
+    @apply relative rounded-lg border border-solid border-[#8CEAFF] py-1 px-8 text-[#8CEAFF] [text-shadow:_0_0_10px_#8CEAFF];
+    @apply after:absolute after:top-12 after:left-2 after:h-[5px] after:w-full after:skew-x-[30deg] after:bg-[#8CEAFF] after:opacity-[.7] after:blur-sm after:content-[''];
   }
   .neon-text {
-    @apply [text-shadow:_0_0_10px_#FF49ED] font-ohm text-purple_main;
+    @apply font-ohm text-purple_main [text-shadow:_0_0_10px_#FF49ED];
   }
   .purple-btn {
-    @apply hover:bg-[#b63487] hover:duration-200 hover:ease-in-out text-white p-2 bg-purple_main rounded-md;
+    @apply rounded-md bg-purple_main p-2 text-white hover:bg-[#b63487] hover:duration-200 hover:ease-in-out;
   }
 
   .feed-popup {
     @apply bg-purple_dark text-white [box-shadow:_0_0_10px_#E149A9];
   }
   .feed-form-input {
-    @apply border-2 border-[#1E2D79] bg-[#0E0E30] bg-opacity-70 outline-none focus:border-[#414f94] active:border-[#414f94] p-4 w-[min(30rem,_100%)];
+    @apply w-[min(30rem,_100%)] border-2 border-[#1E2D79] bg-[#0E0E30] bg-opacity-70 p-4 outline-none focus:border-[#414f94] active:border-[#414f94];
   }
   .form-input {
-    @apply border-2 text-[#FFC7EA] rounded-md border-[#FF49ED] [box-shadow:_0_0_10px_#FFC7EA] p-2 bg-black/30 mt-2 mb-4;
+    @apply mt-2 mb-4 rounded-md border-2 border-[#FF49ED] bg-black/30 p-2 text-[#FFC7EA] [box-shadow:_0_0_10px_#FFC7EA];
   }
   .form-option {
     @apply bg-black/80;
   }
   .error-msg {
-    @apply text-red-600 font-medium mb-2;
+    @apply mb-2 font-medium text-red-600;
   }
   .error-form {
-    @apply border-2 border-red-600 animate-shake p-2;
+    @apply animate-shake border-2 border-red-600 p-2;
   }
 }
 @layer utilities {

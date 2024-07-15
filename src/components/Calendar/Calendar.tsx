@@ -15,11 +15,11 @@ const TimeStamp: React.FC<TimeProps> = (props) => {
   return (
     <>
       {time == "12am" && (
-        <p className="absolute font-bold left-[1085px] top-[-10px]">Sun</p>
+        <p className="absolute left-[1085px] top-[-10px] font-bold">Sun</p>
       )}
       <div
         style={{ left: value }}
-        className="absolute top-10 h-[100%] bg-slate-400 w-[1px]">
+        className="absolute top-10 h-[100%] w-[1px] bg-slate-400">
         <p className="absolute top-[-25px] translate-x-[-50%]">{time}</p>
       </div>
     </>
@@ -39,7 +39,7 @@ const Event: React.FC<EventProps> = ({ event }) => {
       {/* start bar */}
       <p
         style={{ left: event.startTime * 100, top: top + 46 }}
-        className={`rounded-[50%] absolute w-2 h-2 z-[11] ${
+        className={`absolute z-[11] h-2 w-2 rounded-[50%] ${
           event.type == "event"
             ? "bg-sky_300"
             : event.type == "workshop"
@@ -48,10 +48,10 @@ const Event: React.FC<EventProps> = ({ event }) => {
                 ? "bg-orange-500"
                 : "bg-blue_300"
         }`}></p>
-      <div style={{ left: left, top: top }} className="text-sm absolute">
+      <div style={{ left: left, top: top }} className="absolute text-sm">
         <p className="font-bold">{event.name}</p>
         <div
-          className={`font-semibold flex mb-2 gap-2 ${
+          className={`mb-2 flex gap-2 font-semibold ${
             event.type == "event"
               ? "text-sky_300"
               : event.type == "workshop"
@@ -66,7 +66,7 @@ const Event: React.FC<EventProps> = ({ event }) => {
         {/* duration bar */}
         <p
           style={{ width: width }}
-          className={`rounded-md absolute h-1 ${
+          className={`absolute h-1 rounded-md ${
             event.type == "event"
               ? "bg-sky_100"
               : event.type == "workshop"
@@ -79,7 +79,7 @@ const Event: React.FC<EventProps> = ({ event }) => {
       {/* end bar */}
       <p
         style={{ left: event.endTime * 100 - 5, top: top + 46 }}
-        className={`rounded-[50%] absolute w-2 h-2 z-[11] ${
+        className={`absolute z-[11] h-2 w-2 rounded-[50%] ${
           event.type == "event"
             ? "bg-sky_300"
             : event.type == "workshop"
@@ -153,7 +153,7 @@ export const EventLabel: React.FC<EventLableProps> = ({
         return (
           <div
             key={event.id}
-            className="cursor-pointer flex items-center gap-2"
+            className="flex cursor-pointer items-center gap-2"
             onClick={() => handleFilter(event.type)}>
             <p className={event.borderStyle}></p>
             <p className={event.textStyle}>{event.name}</p>
@@ -184,16 +184,16 @@ const Calendar: React.FC<CalendarProps> = ({
     setFilteredEvent(events);
   };
   return (
-    <section className="p-4 w-[70%] mb-12 rounded-lg backdrop-filter backdrop-blur-md bg-opacity-25 border border-gray-300 border-opacity-25 shadow-xl text-purple_main font-semibold">
-      <div className="border-b-2 py-2 flex flex-wrap items-center gap-4 md:gap-8">
+    <section className="mb-12 w-[70%] rounded-lg border border-gray-300 border-opacity-25 bg-opacity-25 p-4 font-semibold text-purple_main shadow-xl backdrop-blur-md backdrop-filter">
+      <div className="flex flex-wrap items-center gap-4 border-b-2 py-2 md:gap-8">
         <p className="cursor-pointer" onClick={setAllEvent}>
           All events
         </p>
         <EventLabel events={events} setFilteredEvent={setFilteredEvent} />
       </div>
-      <div className="overflow-x-scroll gap-10 w-full">
-        <div className="ml-8 mt-8 font-normal relative h-[600px] md:h-[800px] w-[3200px]">
-          <p className="absolute font-bold left-[-15px] top-[-10px]">Sat</p>
+      <div className="w-full gap-10 overflow-x-scroll">
+        <div className="relative ml-8 mt-8 h-[600px] w-[3200px] font-normal md:h-[800px]">
+          <p className="absolute left-[-15px] top-[-10px] font-bold">Sat</p>
           {/* schedule marker */}
           {hoursArray.map((hour) => {
             return (

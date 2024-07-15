@@ -50,12 +50,12 @@ const TeamMember: React.FC<TeamMemberProps> = ({ member }) => {
   return (
     <div className="flex flex-col items-center">
       <a target="_blank" href={member.href}>
-        <div className="rounded-[50%] bg-white [box-shadow:_0_0_10px_#FFFFFF] p-1">
+        <div className="rounded-[50%] bg-white p-1 [box-shadow:_0_0_10px_#FFFFFF]">
           <div className="rounded-[50%] bg-gradient-to-b from-purple_gradient_1 to-purple_gradient_2 p-[0.75rem]">
             <img
               src={member.image}
               alt={member.name}
-              className={`cursor-pointer rounded-[50%] ${color} p-1 object-cover h-20 w-20 md:h-28 md:w-28`}
+              className={`cursor-pointer rounded-[50%] ${color} h-20 w-20 object-cover p-1 md:h-28 md:w-28`}
             />
           </div>
         </div>
@@ -91,20 +91,20 @@ const Team: React.FC<TeamProps> = ({ team }) => {
 
   return (
     <div className="relative font-rubik md:w-[min(900px,_90vw)]">
-      <h2 className="mt-10 text-xxl text-center font-medium md:text-[5rem] text-[#0BB6FF] [text-shadow:_-3px_0_4px_#FF0BF5] font-ohm">
+      <h2 className="mt-10 text-center font-ohm text-xxl font-medium text-[#0BB6FF] [text-shadow:_-3px_0_4px_#FF0BF5] md:text-[5rem]">
         Our Team
       </h2>
       <p className="mt-2 text-center font-light">
         The amazing people who make FullyHacks possible
       </p>
 
-      <div className="flex mt-4 items-center justify-center gap-4 flex-wrap">
+      <div className="mt-4 flex flex-wrap items-center justify-center gap-4">
         {teamTags.map((tag, i) => {
           return (
             <div
               key={"tag" + (i + 1)}
               onClick={() => handleTeamFiltering(tag)}
-              className={`flex items-center justify-between px-4 py-2 text-white border-2 border-pink_200 rounded-box transition-all duration-500 cursor-pointer hover:brightness-110 ${
+              className={`rounded-box flex cursor-pointer items-center justify-between border-2 border-pink_200 px-4 py-2 text-white transition-all duration-500 hover:brightness-110 ${
                 filteredTag === tag ? "bg-pink_200" : ""
               }`}>
               <span>{tag}</span>
@@ -119,22 +119,22 @@ const Team: React.FC<TeamProps> = ({ team }) => {
           {carouselIndex > 0 && (
             <button
               onClick={() => setCarouselIndex(carouselIndex - 1)}
-              className="absolute top-[26rem] md:top-96 -left-3 md:-left-6 lg:-left-12 flex items-center justify-between p-4 text-white border-2 border-pink_200 rounded-full transition-all duration-500 cursor-pointer hover:bg-purple_hover">
-              <FaChevronLeft className="w-2 h-2 md:w-4 md:h-4" />
+              className="absolute top-[26rem] -left-3 flex cursor-pointer items-center justify-between rounded-full border-2 border-pink_200 p-4 text-white transition-all duration-500 hover:bg-purple_hover md:top-96 md:-left-6 lg:-left-12">
+              <FaChevronLeft className="h-2 w-2 md:h-4 md:w-4" />
             </button>
           )}
 
           {carouselIndex < allTeam.length - 1 && (
             <button
               onClick={() => setCarouselIndex(carouselIndex + 1)}
-              className="absolute top-[26rem] md:top-96 -right-3 md:-right-6 lg:-right-12 flex items-center justify-between p-4 text-white border-2 border-pink_200 rounded-full transition-all duration-500 cursor-pointer hover:bg-purple_hover">
-              <FaChevronRight className="w-2 h-2 md:w-4 md:h-4" />
+              className="absolute top-[26rem] -right-3 flex cursor-pointer items-center justify-between rounded-full border-2 border-pink_200 p-4 text-white transition-all duration-500 hover:bg-purple_hover md:top-96 md:-right-6 lg:-right-12">
+              <FaChevronRight className="h-2 w-2 md:h-4 md:w-4" />
             </button>
           )}
         </>
       )}
 
-      <section className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 text-center gap-4 md:gap-7 lg:gap-10 my-10">
+      <section className="my-10 grid grid-cols-2 gap-4 text-center md:grid-cols-3 md:gap-7 lg:grid-cols-4 lg:gap-10">
         {isCarousel
           ? allTeam.map((group: TeamType[], i) => {
               return group.map((people: TeamType) => {

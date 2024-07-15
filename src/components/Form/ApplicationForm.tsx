@@ -413,12 +413,12 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
             </option>
           </select>
           <p className="font-medium">Why do you want to attend FullyHacks?</p>
-          <div className="flex flex-col relative">
+          <div className="relative flex flex-col">
             <textarea
               {...register("response")}
               value={application.response}
               name="response"
-              className={`h-[300px] form-input resize-none ${
+              className={`form-input h-[300px] resize-none ${
                 errors.response ? "error-form" : ""
               }`}
               onChange={(e) => {
@@ -475,7 +475,7 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
               the box, you affirm that you are and will be 18 years or older by
               February 24th, 2024.{" "}
             </p>
-            <p className="text-white font-medium">
+            <p className="font-medium text-white">
               We will be checking School ID. If you are a minor, you won't be
               allowed to attend.
             </p>
@@ -488,7 +488,7 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
                 dispatch({ type: "SET_AGREE", payload: e.target.checked });
               }}
               type="checkbox"
-              className="bg-[#F587FF] checkbox"
+              className="checkbox bg-[#F587FF]"
             />
             <p className="font-medium">
               I&apos;m 18 or older by February 24th, 2024
@@ -503,7 +503,7 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
                 dispatch({ type: "SET_AGREE", payload: e.target.checked });
               }}
               type="checkbox"
-              className="bg-[#F587FF] checkbox"
+              className="checkbox bg-[#F587FF]"
             />
             <p className="font-medium">
               I agree to
@@ -514,11 +514,11 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
           </div>
           <p className="error-msg">{errors.waiver?.message}</p>
           {isLoading ? (
-            <button className="mt-8 w-[100px] flex justify-center mr-auto p-2 bg-[#E149A9] hover:bg-[#ac307e] hover:ease-in-out hover:duration-200 rounded-md font-semibold">
+            <button className="mt-8 mr-auto flex w-[100px] justify-center rounded-md bg-[#E149A9] p-2 font-semibold hover:bg-[#ac307e] hover:duration-200 hover:ease-in-out">
               <Loading isLoading={isLoading} />
             </button>
           ) : (
-            <button className="mt-8 w-[100px] text-white md:text-md mr-auto p-2 bg-[#E149A9] hover:bg-[#ac307e] hover:ease-in-out hover:duration-200 rounded-md font-semibold">
+            <button className="mt-8 mr-auto w-[100px] rounded-md bg-[#E149A9] p-2 font-semibold text-white hover:bg-[#ac307e] hover:duration-200 hover:ease-in-out md:text-md">
               Submit
             </button>
           )}

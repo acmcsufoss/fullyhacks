@@ -51,7 +51,7 @@ export default async function FeedPage() {
   const { user, feedUsers, announcements } = await getFeedData(session);
 
   return (
-    <section className="font-rubik bg-purple_dark">
+    <section className="bg-purple_dark font-rubik">
       <FeedNavBar />
       <Feed
         currentUser={user}

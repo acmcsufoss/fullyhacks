@@ -51,7 +51,7 @@ const AnnouncementForm: React.FC = () => {
   return (
     <form
       onSubmit={handleSubmit(postAnnouncement)}
-      className="text-purple_main mb-10 flex w-full flex-col items-start"
+      className="mb-10 flex w-full flex-col items-start text-purple_main"
       action="">
       <p className="mb-2 font-bold">ANNOUNCEMENT TITLE:</p>
       <input
@@ -79,7 +79,7 @@ const AnnouncementForm: React.FC = () => {
       />
       <p className="error-msg">{errors.content?.message}</p>
       {isLoading ? (
-        <button className="btn text-purple_main mt-4 self-start border-none bg-sky-100 normal-case hover:bg-sky-200 hover:duration-200 hover:ease-in-out">
+        <button className="btn mt-4 self-start border-none bg-sky-100 normal-case text-purple_main hover:bg-sky-200 hover:duration-200 hover:ease-in-out">
           <Loading isLoading={isLoading} />
         </button>
       ) : (

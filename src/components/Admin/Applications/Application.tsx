@@ -24,7 +24,7 @@ export const Application: React.FC<ApplicationProps> = (props) => {
       key={application.id}
       className="relative rounded-md p-3 hover:bg-gray-100">
       <th> {idx + 1} </th>
-      <td className="whitespace-normal col-span-3 text-sm font-medium leading-5">
+      <td className="col-span-3 whitespace-normal text-sm font-medium leading-5">
         {application.name}
       </td>
       <td className="whitespace-normal text-sm font-medium leading-5">
@@ -58,17 +58,17 @@ export const Application: React.FC<ApplicationProps> = (props) => {
         {application.response}
       </td>
       {/* Button logic, if application has already been approved/rejected, it'll display that */}
-      <td className="whitespace-normal ">
+      <td className="whitespace-normal">
         {application.approved ? (
           <button
             disabled
-            className="bg-emerald-700 hover:bg-emerald-700 font-semibold p-1 rounded-lg">
+            className="rounded-lg bg-emerald-700 p-1 font-semibold hover:bg-emerald-700">
             Approved
           </button>
         ) : application.rejected ? (
           <button
             disabled
-            className="bg-red-800 hover:bg-red-800 font-semibold p-1 rounded-lg">
+            className="rounded-lg bg-red-800 p-1 font-semibold hover:bg-red-800">
             Rejected
           </button>
         ) : (
@@ -78,7 +78,7 @@ export const Application: React.FC<ApplicationProps> = (props) => {
                 pushIdx((prev) => [...prev, application.id]);
                 updateApplication(application.id, true);
               }}
-              className="bg-emerald-500 hover:bg-emerald-700 font-semibold p-1 rounded-lg my-8">
+              className="my-8 rounded-lg bg-emerald-500 p-1 font-semibold hover:bg-emerald-700">
               Approve
             </button>
             <button
@@ -86,7 +86,7 @@ export const Application: React.FC<ApplicationProps> = (props) => {
                 pushIdx((prev) => [...prev, application.id]);
                 updateApplication(application.id, false);
               }}
-              className="bg-red-500 hover:bg-red-800 font-semibold p-1 rounded-lg">
+              className="rounded-lg bg-red-500 p-1 font-semibold hover:bg-red-800">
               Reject
             </button>
           </>
