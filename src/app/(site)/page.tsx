@@ -1,6 +1,8 @@
 import LandingPage from "@/components/LandingPage/LandingPage";
 import axios from "axios";
 
+export const dynamic = "force-dynamic";
+
 async function getSiteData() {
   const company = axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/companies`);
   const team = axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/team`);
