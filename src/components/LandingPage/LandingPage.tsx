@@ -29,7 +29,7 @@ const LandingPage: React.FC<LandingPageProps> = (props) => {
         <CountDown />
 
         <div className="relative mt-24 flex items-center gap-8 text-md font-medium">
-          <div className="absolute -right-2 -top-[170%]">
+          <div className="absolute -right-2 -top-[127%]">
             <Image
               src="/cat.svg"
               alt="Neon cat image"

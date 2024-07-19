@@ -18,7 +18,7 @@ import { HiOutlineSpeakerphone } from "react-icons/hi";
 import { HiOutlineTrophy } from "react-icons/hi2";
 
 export const NavBarLanding: React.FC = () => {
-  const [menuList, setMenu] = useState<MenuType[]>([
+  const menuList: MenuType[] = [
     {
       id: "about",
       name: "About",
@@ -47,7 +47,7 @@ export const NavBarLanding: React.FC = () => {
       mobile: 24,
       desktop: 24
     }
-  ]);
+  ];
 
   return (
     <nav className="navbar z-[30] text-lg font-semibold text-white lg:grid lg:grid-cols-4 lg:pl-8 lg:pt-2">
@@ -83,12 +83,12 @@ export const NavBarLanding: React.FC = () => {
             {menuList.map((item) => {
               return (
                 <div key={item.id} className="my-2 flex gap-4">
-                  <Link
+                  <a
                     key={item.id}
                     href={item.href}
                     className="m-2 flex items-center gap-2">
                     <p className="cursor-pointer"> {item.name} </p>
-                  </Link>
+                  </a>
                 </div>
               );
             })}
@@ -108,7 +108,7 @@ export const NavBarLanding: React.FC = () => {
                   style={{ width: item.desktop, height: item.desktop }}
                   className="ml-12"
                 />
-                <Link
+                <a
                   key={item.id}
                   id={item.id}
                   href={item.href}
@@ -116,7 +116,7 @@ export const NavBarLanding: React.FC = () => {
                   <p className="cursor-pointer font-rubik hover:text-purple_main_hover hover:duration-200 hover:ease-in-out">
                     {item.name}
                   </p>
-                </Link>
+                </a>
                 {index < menuList.length - 1 && (
                   <span
                     className="ml-7"

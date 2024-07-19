@@ -12,8 +12,8 @@ const SignArea: React.FC<SignAreaProps> = (props) => {
     <>
       <div className="neon-sign-area">
         <div className="neon-sign-area-content">{props.children}</div>
-        {props.signs.map((sign) => (
-          <Sign {...sign} key={sign.textContent + sign.borderColor} />
+        {props.signs.map((sign, i) => (
+          <Sign {...sign} key={sign.textContent + sign.borderColor + i} />
         ))}
       </div>
       {/* https://github.com/flackr/scroll-timeline#readme */}

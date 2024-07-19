@@ -1,3 +1,4 @@
+import React from "react";
 import LandingPage from "@/components/LandingPage/LandingPage";
 import axios from "axios";
 

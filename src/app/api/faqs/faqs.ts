@@ -19,36 +19,36 @@ export const faqs: FAQType[] = [
       "US College students who are 18 or above with a valid student email. We welcome people of all backgrounds and experience levels."
   },
   {
-    id: "faq10",
+    id: "faq4",
     question: "Will there be travel reimbursements?",
     answer:
       "Unfortunately, we will not be able to provide travel reimbursements."
   },
   {
-    id: "faq4",
+    id: "faq5",
     question: "What can I build?",
     answer:
       "Anything your heart desires! Web, mobile, gaming, VR... You name it, we will support it. We offer different tracks that you can be inspired and build your project"
   },
   {
-    id: "faq5",
+    id: "faq6",
     question: "Do I need to have a team?",
     answer:
       "Not at all! You can do solo, come with a team (no more than four people), or join some teams at FullyHacks. We will also have team building activities to help you find the right teammates!"
   },
   {
-    id: "faq6",
+    id: "faq7",
     question: "I have no experience at all, can I still participate?",
     answer:
       "Yes! We welcome people of all backgrounds and experience levels. We program workshops and bring in mentors who stick around throughout the event to help you get started!"
   },
   {
-    id: "faq11",
+    id: "faq8",
     question: "What should I bring?",
     answer: "Sleeping bag, laptop, chargers, snacks & drinks, hygiene items,..."
   },
   {
-    id: "faq7",
+    id: "faq9",
     question: "When are applications due?",
     answer: "Before 23:59 Feb 10th, 2024"
   },
