@@ -22,14 +22,14 @@ export const NavBarLanding: React.FC = () => {
     {
       id: "about",
       name: "About",
-      href: "#about",
+      href: "#about-fullyhacks",
       mobile: 24,
       desktop: 24
     },
     {
       id: "faq",
       name: "FAQ",
-      href: "#faq",
+      href: "#frequently-asked-questions",
       mobile: 24,
       desktop: 24
     },
@@ -83,12 +83,12 @@ export const NavBarLanding: React.FC = () => {
             {menuList.map((item) => {
               return (
                 <div key={item.id} className="my-2 flex gap-4">
-                  <a
+                  <Link
                     key={item.id}
                     href={item.href}
                     className="m-2 flex items-center gap-2">
                     <p className="cursor-pointer"> {item.name} </p>
-                  </a>
+                  </Link>
                 </div>
               );
             })}

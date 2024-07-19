@@ -53,7 +53,7 @@ const LandingPage: React.FC<LandingPageProps> = (props) => {
 
         <section>
           <div
-            id="about"
+            id="about-fullyhacks"
             className="relative mt-40 flex max-w-[1048px] flex-col items-center justify-center font-rubik font-normal text-purple_main md:flex-row md:text-md">
             <About />
           </div>
@@ -66,7 +66,7 @@ const LandingPage: React.FC<LandingPageProps> = (props) => {
             <Partners />
           </div>
           <div
-            id="faq"
+            id="frequently-asked-questions"
             className="relative mx-4 flex max-w-[1048px] flex-col items-center justify-center font-rubik font-normal text-purple_main md:mx-0 md:mt-40 md:text-md">
             <FAQ faqs={faqData} />
           </div>
