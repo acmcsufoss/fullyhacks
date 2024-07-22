@@ -2,7 +2,7 @@
 
 import { announcementsType, feedUsers, User } from "@/types/interface";
 import React, { useState } from "react";
-import { FeedSideBar } from "../NavBar/NavBar";
+import { FeedSideBar } from "../nav-bar";
 import Announcements from "./Announcements";
 import Events from "./Events";
 import FAQs from "./FAQs";

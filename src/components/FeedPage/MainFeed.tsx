@@ -1,7 +1,7 @@
 import { feedUsers, User } from "@/types/interface";
 import React, { useState } from "react";
 import { BsDiscord, BsGithub } from "react-icons/bs";
-import { FeedPopUp } from "../PopUp/PopUp";
+import { FeedPopUp } from "../pop-up";
 
 interface MainFeedProps {
   feedUsers: feedUsers[];

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import React from "react";
-import { GenericNavBar } from "@/components/NavBar/NavBar";
+import { GenericNavBar } from "@/components/nav-bar";
 
 export default function NotFound() {
   return (

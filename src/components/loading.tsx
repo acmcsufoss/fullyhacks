@@ -6,7 +6,7 @@ interface LoadingProps {
   isLoading: boolean;
 }
 
-const Loading: React.FC<LoadingProps> = (props) => {
+export default function Loading(props: LoadingProps) {
   const { isLoading, children } = props;
   return (
     <>
@@ -17,6 +17,4 @@ const Loading: React.FC<LoadingProps> = (props) => {
       )}
     </>
   );
-};
-
-export default Loading;
+}

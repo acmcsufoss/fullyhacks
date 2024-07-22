@@ -1,18 +1,15 @@
-"use client";
-
-import { ApplicationType, User } from "@/types/interface";
-import { useRouter } from "next/router";
 import React from "react";
+import Link from "next/link";
+import { ApplicationType, User } from "@/types/interface";
 import { BsArrowRight } from "react-icons/bs";
 
 interface UserProps {
   user: User;
 }
 
-const UserPortal: React.FC<UserProps> = ({ user }) => {
+export default function UserPortal({ user }: UserProps) {
   const application: ApplicationType = user.application as ApplicationType;
   const date: Date = new Date(application.submittedAt);
-  const router = useRouter();
   const option: Intl.DateTimeFormatOptions = {
     year: "numeric",
     month: "long",
@@ -71,17 +68,15 @@ const UserPortal: React.FC<UserProps> = ({ user }) => {
       </div>
       {application.status == "approved" && (
         <>
-          <button
-            onClick={() => router.push("/feed")}
+          <Link
+            href="/feed"
             className="mb-16 mt-8 flex items-center gap-4 rounded-lg bg-purple_main p-2 font-semibold text-white hover:bg-[#b63487] hover:duration-200 hover:ease-in-out md:text-md">
             Continue to Feed
             <BsArrowRight size={24} />
-          </button>
+          </Link>
           <p className="mb-4 text-lg">Food QR Code</p>
         </>
       )}
     </div>
   );
-};
-
-export default UserPortal;
+}

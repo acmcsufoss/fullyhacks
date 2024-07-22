@@ -1,6 +1,6 @@
 import Link from "next/link";
-import Flower from "@/components/Flower/Flower";
-import { AuthNavBar } from "@/components/NavBar/NavBar";
+import Flower from "@/components/flower";
+import { AuthNavBar } from "@/components/nav-bar";
 import ApplyAuth from "@/components/AuthWrapper/ApplyAuth";
 import ApplicationForm from "@/components/Form/ApplicationForm";
 import { Session } from "next-auth";

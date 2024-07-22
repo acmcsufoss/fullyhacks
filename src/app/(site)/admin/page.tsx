@@ -1,5 +1,5 @@
 import React from "react";
-import { AuthNavBar } from "@/components/NavBar/NavBar";
+import { AuthNavBar } from "@/components/nav-bar";
 import { Session } from "next-auth";
 import { redirect } from "next/navigation";
 import { prisma } from "db";

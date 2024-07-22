@@ -1,7 +1,7 @@
 "use client";
 
-import Loading from "@/components/Loading/Loading";
-import PopUp from "@/components/PopUp/PopUp";
+import Loading from "@/components/loading";
+import PopUp from "@/components/pop-up";
 import { ApplicationType } from "@/types/interface";
 import React, { useMemo, useState } from "react";
 import { Application } from "./Application";

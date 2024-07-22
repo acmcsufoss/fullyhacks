@@ -1,5 +1,5 @@
 import Feed from "@/components/FeedPage/Feed";
-import { FeedNavBar } from "@/components/NavBar/NavBar";
+import { FeedNavBar } from "@/components/nav-bar";
 import { Session } from "next-auth";
 import { redirect } from "next/navigation";
 import { prisma } from "db";

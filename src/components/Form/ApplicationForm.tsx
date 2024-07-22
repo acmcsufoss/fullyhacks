@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import axios from "axios";
-import Loading from "../Loading/Loading";
+import Loading from "../loading";
 import { useRouter } from "next/router";
 import SchoolSuggestion from "./SchoolSuggestion";
 import uniJson from "./usuni.json";

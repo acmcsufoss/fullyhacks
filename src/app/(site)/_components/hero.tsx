@@ -1,4 +1,4 @@
-import { NavBarLanding } from "@/components/NavBar/NavBar";
+import { NavBarLanding } from "@/components/nav-bar";
 
 const Hero: React.FC = () => {
   return (

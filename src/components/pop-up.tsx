@@ -6,7 +6,7 @@ import { useRouter } from "next/router";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
-import Loading from "../Loading/Loading";
+import Loading from "./loading";
 
 interface PopUpProps {
   title: string;
@@ -14,7 +14,7 @@ interface PopUpProps {
   action: string;
 }
 
-const PopUp: React.FC<PopUpProps> = (props) => {
+export default function PopUp(props: PopUpProps) {
   const { title, content, action } = props;
   const [isChecked, setCheck] = useState(true);
   return (
@@ -41,9 +41,7 @@ const PopUp: React.FC<PopUpProps> = (props) => {
       </div>
     </>
   );
-};
-
-export default PopUp;
+}
 
 const schema = yup.object({
   bio: yup.string().min(5).max(100).required(),
@@ -51,7 +49,7 @@ const schema = yup.object({
 });
 type FormData = yup.InferType<typeof schema>;
 
-export const FeedPopUp: React.FC = (props) => {
+export function FeedPopUp() {
   const {
     register,
     handleSubmit,
@@ -170,4 +168,4 @@ export const FeedPopUp: React.FC = (props) => {
       )}
     </>
   );
-};
+}

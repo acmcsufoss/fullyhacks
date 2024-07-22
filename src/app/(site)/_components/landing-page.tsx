@@ -5,7 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { companyType, FAQType, TeamType } from "@/types/interface";
 import { SignArea, SIGNS } from "@/components/SignArea";
-import { LandingFooter } from "@/components/Footer/Footer";
+import { LandingFooter } from "@/components/footer";
 import Hero from "./hero";
 import CountDown from "./count-down";
 import About from "./about";

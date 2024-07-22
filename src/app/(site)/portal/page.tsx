@@ -1,7 +1,7 @@
 import React from "react";
-import Flower from "@/components/Flower/Flower";
-import UserPortal from "@/components/PortalPage/UserPortal";
-import { AuthNavBar } from "@/components/NavBar/NavBar";
+import Flower from "@/components/flower";
+import UserPortal from "./_components/user-portal";
+import { AuthNavBar } from "@/components/nav-bar";
 import { redirect } from "next/navigation";
 import { Session } from "next-auth";
 import { prisma } from "db";

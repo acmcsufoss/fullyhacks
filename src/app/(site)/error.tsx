@@ -1,6 +1,6 @@
 "use client";
 
-import { AuthNavBar } from "@/components/NavBar/NavBar";
+import { AuthNavBar } from "@/components/nav-bar";
 import Link from "next/link";
 import React from "react";
 
