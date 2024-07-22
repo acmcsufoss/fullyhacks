@@ -1,5 +1,5 @@
 import React from "react";
-import LandingPage from "@/components/LandingPage/LandingPage";
+import LandingPage from "./_components/landing-page";
 import axios from "axios";
 
 export const dynamic = "force-dynamic";

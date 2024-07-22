@@ -6,13 +6,13 @@ import Image from "next/image";
 import { companyType, FAQType, TeamType } from "@/types/interface";
 import { SignArea, SIGNS } from "@/components/SignArea";
 import { LandingFooter } from "@/components/Footer/Footer";
-import About from "@/components/LandingPage/About";
-import CountDown from "@/components/LandingPage/CountDown";
-import FAQ from "@/components/LandingPage/FAQ";
-import Partners from "@/components/LandingPage/Partners";
-import Sponsors from "@/components/LandingPage/Sponsors";
-import Team from "@/components/LandingPage/Team";
-import Hero from "@/components/LandingPage/Hero";
+import Hero from "./hero";
+import CountDown from "./count-down";
+import About from "./about";
+import Sponsors from "./sponsors";
+import Partners from "./partners";
+import FAQ from "./faq";
+import Team from "./team";
 
 interface LandingPageProps {
   companyData: companyType[];

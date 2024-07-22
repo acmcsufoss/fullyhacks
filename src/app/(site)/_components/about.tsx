@@ -1,6 +1,6 @@
 import React from "react";
 
-const About: React.FC = () => {
+export default function About() {
   return (
     <section className="relative flex w-[min(40rem,_80%)] flex-col rounded-2xl border-4 border-pink_200 bg-[#1E0072] bg-opacity-20">
       <img
@@ -40,6 +40,4 @@ const About: React.FC = () => {
       </div>
     </section>
   );
-};
-
-export default About;
+}
