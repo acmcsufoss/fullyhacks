@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Flower from "@/components/flower";
 import { AuthNavBar } from "@/components/nav-bar";
-import ApplyAuth from "@/components/AuthWrapper/ApplyAuth";
+import ApplyAuth from "./_components/apply-auth";
 import ApplicationForm from "@/components/Form/ApplicationForm";
 import { Session } from "next-auth";
 import { prisma } from "db";

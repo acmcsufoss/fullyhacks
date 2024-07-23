@@ -3,9 +3,9 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import axios, { AxiosError, CancelTokenSource } from "axios";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
-import Loading from "../loading";
+import Loading from "@/components/loading";
 import { User } from "@/types/interface";
-import AnnouncementForm from "../Admin/Announcements/AnnouncementForm";
+import AnnouncementForm from "@/components/announcement-form";
 
 const schema = yup
   .object({

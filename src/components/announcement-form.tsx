@@ -3,7 +3,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import axios from "axios";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
-import Loading from "../../loading";
+import Loading from "@/components/loading";
 
 const schema = yup
   .object({

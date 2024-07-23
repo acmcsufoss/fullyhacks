@@ -4,7 +4,7 @@ import Loading from "@/components/loading";
 import PopUp from "@/components/pop-up";
 import { ApplicationType } from "@/types/interface";
 import React, { useMemo, useState } from "react";
-import { Application } from "./Application";
+import { Application } from "./application";
 
 interface ApplicationsProps {
   applications: ApplicationType[];

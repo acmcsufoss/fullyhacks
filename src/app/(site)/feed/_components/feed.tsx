@@ -2,15 +2,14 @@
 
 import { announcementsType, feedUsers, User } from "@/types/interface";
 import React, { useState } from "react";
-import { FeedSideBar } from "../nav-bar";
-import Announcements from "./Announcements";
-import Events from "./Events";
-import FAQs from "./FAQs";
-import FullyPacks from "./FullyPacks";
-import MainFeed from "./MainFeed";
-import Prizes from "./Prizes";
-import Profile from "./Profile";
-import Resources from "./Resources";
+import { FeedSideBar } from "@/components/nav-bar";
+import Announcements from "./announcements";
+import Events from "./events";
+import FAQs from "./faq";
+import FullyPacks from "./fullypacks";
+import MainFeed from "./main-feed";
+import Prizes from "./prizes";
+import Resources from "./resources";
 interface FeedProps {
   feedUsers: feedUsers[];
   currentUser: User;

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import Applications from "../Applications/Applications";
+import Applications from "./applications";
 
 export default function AdminView({ applications }: { applications: any }) {
   const [tabName, setTabName] = useState("Applications");

@@ -1,4 +1,4 @@
-import Feed from "@/components/FeedPage/Feed";
+import Feed from "./_components/feed";
 import { FeedNavBar } from "@/components/nav-bar";
 import { Session } from "next-auth";
 import { redirect } from "next/navigation";

@@ -1,6 +1,6 @@
 import { eventsType } from "@/types/interface";
 import React, { useState } from "react";
-import Calendar, { EventLabel } from "../calendar";
+import Calendar, { EventLabel } from "./calendar";
 const events: eventsType[] = [
   {
     id: "event1",

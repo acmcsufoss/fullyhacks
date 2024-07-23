@@ -4,7 +4,7 @@ import { Session } from "next-auth";
 import { redirect } from "next/navigation";
 import { prisma } from "db";
 import { getAuthSession } from "@/lib/auth";
-import AdminView from "@/components/Admin/AdminView/AdminView";
+import AdminView from "./_components/admin-view";
 
 async function getAdminData(session: Session) {
   const user = await prisma.user.findUnique({

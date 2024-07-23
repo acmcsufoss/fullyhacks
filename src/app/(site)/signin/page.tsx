@@ -1,6 +1,6 @@
 import PopUp from "@/components/pop-up";
 import Flower from "@/components/flower";
-import AuthButton from "@/components/AuthWrapper/AuthButton";
+import AuthButton from "./_components/auth-button";
 import { GenericNavBar } from "@/components/nav-bar";
 import { redirect } from "next/navigation";
 import { getServerSession } from "next-auth";
