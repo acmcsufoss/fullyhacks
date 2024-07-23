@@ -4,7 +4,7 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { companyType, FAQType, TeamType } from "@/types/interface";
-import { SignArea, SIGNS } from "@/components/SignArea";
+import { SignArea, SIGNS } from "./signs";
 import { LandingFooter } from "@/components/footer";
 import Hero from "./hero";
 import CountDown from "./count-down";

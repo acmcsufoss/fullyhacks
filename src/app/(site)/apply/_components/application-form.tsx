@@ -5,9 +5,9 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import axios from "axios";
-import Loading from "../loading";
+import Loading from "@/components/loading";
 import { useRouter } from "next/router";
-import SchoolSuggestion from "./SchoolSuggestion";
+import SchoolSuggestion from "./school-suggestion";
 import uniJson from "./usuni.json";
 import { University } from "@/types/interface";
 
@@ -149,7 +149,6 @@ interface ApplicationProps {
 
 const ApplicationForm: React.FC<ApplicationProps> = (props) => {
   const { url } = props;
-  const usUni: University[] = uniJson.usUniveristies;
   const {
     register,
     handleSubmit,

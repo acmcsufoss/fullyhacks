@@ -1,6 +1,29 @@
 import React from "react";
 import Script from "next/script";
-import Sign, { type SignProps } from "./Sign";
+import { SignProps } from "./signs";
+
+const Sign: React.FC<SignProps> = (props) => {
+  return (
+    <div
+      className="neon-sign"
+      style={
+        {
+          "--border-color": props.borderColor,
+          "--z-index": props.zIndex,
+          "--css-top": props.top,
+          "--css-right": props.right,
+          "--css-bottom": props.bottom,
+          "--css-left": props.left,
+          "--parallax-speed": props.parallaxSpeed,
+          "--flicker-delay": props.flickerDelay
+            ? `${props.flickerDelay}s`
+            : undefined
+        } as React.CSSProperties
+      }>
+      <span>{props.textContent}</span>
+    </div>
+  );
+};
 
 export interface SignAreaProps {
   children?: React.ReactNode;

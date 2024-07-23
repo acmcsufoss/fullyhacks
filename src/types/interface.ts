@@ -1,5 +1,3 @@
-import React from "react";
-
 export interface companyType {
   id: string;
   name: string;
