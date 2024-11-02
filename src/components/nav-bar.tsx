@@ -3,7 +3,6 @@
 import { MenuType } from "@/types/interface";
 import { signOut } from "next-auth/react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import { IoArrowBackSharp } from "react-icons/io5";
 import { BiHomeAlt, BiCalendarEvent } from "react-icons/bi";
@@ -140,23 +139,23 @@ export const NavBarLanding: React.FC = () => {
 };
 
 export const GenericNavBar = () => {
-  const router = useRouter();
   return (
     <nav className="flex items-center justify-center text-purple_main">
-      <img
-        onClick={() => router.push("/")}
-        alt="nav bar logo"
-        src="/logo.svg"
-        className="ml-4 h-24 w-24 cursor-pointer md:h-32 md:w-32"
-      />
-      <div
-        onClick={() => router.push("/")}
+      <Link href="/">
+        <img
+          alt="nav bar logo"
+          src="/logo.svg"
+          className="ml-4 h-24 w-24 cursor-pointer md:h-32 md:w-32"
+        />
+      </Link>
+      <Link
+        href="/"
         className="mr-4 ml-auto flex cursor-pointer items-center gap-4 rounded-xl bg-purple_main p-2 text-white hover:bg-pink-500 hover:transition-all hover:duration-300">
         <button className="text-sm font-semibold md:text-md">
           Back to Home
         </button>
         <IoArrowBackSharp className="h-8 w-8 scale-x-[-1] cursor-pointer" />
-      </div>
+      </Link>
     </nav>
   );
 };
@@ -181,18 +180,18 @@ export const AuthNavBar = () => {
 };
 
 export const FeedNavBar = () => {
-  const router = useRouter();
   return (
     <nav className="flex items-center text-purple_main">
-      <img
-        onClick={() => router.push("/")}
-        alt="nav bar logo"
-        src="/logo.svg"
-        className="my-4 ml-4 h-16 w-16 cursor-pointer md:ml-10 md:h-20 md:w-20"
-      />
-      <div className="mr-4 ml-auto text-md text-white md:mr-10">
-        <button onClick={() => signOut()}> Sign out</button>
-      </div>
+      <Link href="/">
+        <img
+          alt="nav bar logo"
+          src="/logo.svg"
+          className="my-4 ml-4 h-16 w-16 cursor-pointer md:ml-10 md:h-20 md:w-20"
+        />
+        <div className="mr-4 ml-auto text-md text-white md:mr-10">
+          <button onClick={() => signOut()}> Sign out</button>
+        </div>
+      </Link>
     </nav>
   );
 };
