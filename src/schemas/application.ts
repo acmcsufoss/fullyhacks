@@ -1,4 +1,4 @@
-import uniJson from "@/components/Form/usuni.json";
+import uniJson from "@/data/usuni.json";
 import { University } from "@/types/interface";
 import { bool, InferType, number, object, string } from "yup";
 
