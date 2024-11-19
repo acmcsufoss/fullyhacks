@@ -6,10 +6,10 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import axios from "axios";
 import Loading from "@/components/loading";
-import { useRouter } from "next/router";
 import SchoolSuggestion from "./school-suggestion";
 import uniJson from "@/data/usuni.json";
 import { University } from "@/types/interface";
+import { redirect } from "next/navigation";
 
 interface ApplicationState {
   name: string;
@@ -154,7 +154,6 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
     handleSubmit,
     formState: { errors }
   } = useForm<FormData>({ resolver: yupResolver(schema) });
-  const router = useRouter();
   const [foodState, setFood] = useState("");
   const userId = url?.split("/").pop()?.split("?")[0] || "";
   const [application, dispatch] = useReducer(
@@ -206,11 +205,11 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
         github: githubLogin
       };
       await axios.post("/api/application", newApplication);
-      router.push("/portal");
       setLoading(false);
+      redirect("/portal");
     } catch (error) {
       setLoading(false);
-      router.push("/error");
+      redirect("/error");
     }
   };
   return (

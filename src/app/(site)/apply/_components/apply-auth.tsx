@@ -16,9 +16,13 @@ const ApplyAuth: React.FC<ApplyAuthProps> = ({ children }) => {
     options
   );
   const now = new Date().toLocaleString("en-US", options);
-  const [applicationOpen, setOpen] = useState<boolean>(
-    now >= openDate && now <= closeDate
-  );
+  const [applicationOpen, setOpen] = useState<boolean>(() => {
+    const currentDate = new Date();
+    const opening = new Date(openDate);
+    const closing = new Date(closeDate);
+    return currentDate >= opening && currentDate <= closing;
+  });
+
   return (
     <>
       {applicationOpen ? (
