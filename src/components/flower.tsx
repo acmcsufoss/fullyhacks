@@ -26,7 +26,7 @@ const Flower: React.FC<FlowerProps> = (props) => {
   } = props;
   return (
     <img
-      src={`flower${flowerType}.svg`}
+      src={`/assets/flower${flowerType}.svg`}
       className={`rounded-full motion-reduce:animate-none ${width} ${height} ${top} ${right} ${bottom} ${left} ${
         noMotion ? "animate-none" : "animate-float"
       } ${isFixed ? "fixed" : "absolute"}`}

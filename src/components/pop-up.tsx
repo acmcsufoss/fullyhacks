@@ -92,7 +92,11 @@ export function FeedPopUp() {
                 Where you meet other participants and explore other cool things
                 about FullyHacks to be best prepared 🎉
               </p>
-              <img src="/feed.png" alt="feed pic" className="md:w-[600px]" />
+              <img
+                src="/assets/feed.png"
+                alt="feed pic"
+                className="md:w-[600px]"
+              />
               <div className="modal-action">
                 <label
                   htmlFor="my-modal"

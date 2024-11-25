@@ -53,7 +53,7 @@ export const NavBarLanding: React.FC = () => {
       <div className="navbar-start">
         <Link href="/" className="hidden items-center gap-2 lg:flex">
           <img
-            src="/logo.svg"
+            src="/assets/logo.svg"
             alt="Fully logo"
             width={240}
             height={240}
@@ -131,7 +131,7 @@ export const NavBarLanding: React.FC = () => {
       </div>
       <div className="navbar-end lg:hidden">
         <>
-          <img src="/logo.svg" alt="Fully logo" width={36} height={36} />
+          <img src="/assets/logo.svg" alt="Fully logo" width={36} height={36} />
         </>
       </div>
     </nav>
@@ -144,7 +144,7 @@ export const GenericNavBar = () => {
       <Link href="/">
         <img
           alt="nav bar logo"
-          src="/logo.svg"
+          src="/assets/logo.svg"
           className="ml-4 h-24 w-24 cursor-pointer md:h-32 md:w-32"
         />
       </Link>
@@ -165,7 +165,7 @@ export const AuthNavBar = () => {
     <nav className="flex items-center text-purple_main">
       <Link href="/">
         <img
-          src="/logo.svg"
+          src="/assets/logo.svg"
           alt="nav bar logo"
           className="ml-2 h-24 w-24 cursor-pointer md:h-32 md:w-32"
         />
@@ -185,7 +185,7 @@ export const FeedNavBar = () => {
       <Link href="/">
         <img
           alt="nav bar logo"
-          src="/logo.svg"
+          src="/assets/logo.svg"
           className="my-4 ml-4 h-16 w-16 cursor-pointer md:ml-10 md:h-20 md:w-20"
         />
         <div className="mr-4 ml-auto text-md text-white md:mr-10">

@@ -34,7 +34,11 @@ const ApplyAuth: React.FC<ApplyAuthProps> = ({ children }) => {
               <p className="w-[80%]">
                 Application will open on January 12th, see you soon!.
               </p>
-              <img src="byecat.svg" alt="bye cat" className="w-[300px]" />
+              <img
+                src="/assets/byecat.svg"
+                alt="bye cat"
+                className="w-[300px]"
+              />
             </div>
           )}
           {new Date(now) >= new Date(closeDate) && (

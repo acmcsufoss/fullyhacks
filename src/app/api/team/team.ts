@@ -4,7 +4,7 @@ export const team: TeamType[] = [
   {
     id: "team1",
     name: "Daniel",
-    image: "/daniel_truong.jpg",
+    image: "/team/daniel_truong.jpg",
     role: "Director/Webmaster",
     tag: "Director",
     href: "https://www.linkedin.com/in/danieltruongg/"
@@ -12,7 +12,7 @@ export const team: TeamType[] = [
   {
     id: "team9",
     name: "David",
-    image: "/david_s.jpg",
+    image: "/team/david_s.jpg",
     role: "Co-Director",
     tag: "Director",
     href: "https://www.linkedin.com/in/david-solano787/"
@@ -20,7 +20,7 @@ export const team: TeamType[] = [
   {
     id: "team2",
     name: "Ethan",
-    image: "/ethan_davidson.jpg",
+    image: "/team/ethan_davidson.jpg",
     role: "Web Officer",
     tag: "Web",
     href: "https://github.com/EthanThatOneKid/"
@@ -28,7 +28,7 @@ export const team: TeamType[] = [
   {
     id: "team20",
     name: "Tomas",
-    image: "/tomas_oh.jpg",
+    image: "/team/tomas_oh.jpg",
     role: "Web Officer",
     tag: "Web",
     href: "https://github.com/tomasohCHOM"
@@ -36,7 +36,7 @@ export const team: TeamType[] = [
   {
     id: "team21",
     name: "Elzie",
-    image: "/elzie.webp",
+    image: "/team/elzie.webp",
     role: "Web Officer",
     tag: "Web",
     href: "https://www.linkedin.com/in/elizabeth-mazuca-063b1713b"
@@ -44,7 +44,7 @@ export const team: TeamType[] = [
   {
     id: "team22",
     name: "Jeremiah",
-    image: "/jeremiah.webp",
+    image: "/team/jeremiah.webp",
     role: "Web Officer",
     tag: "Web",
     href: "https://www.linkedin.com/in/jeremiahherring/"
@@ -52,7 +52,7 @@ export const team: TeamType[] = [
   {
     id: "teamboushra",
     name: "Boushra",
-    image: "/boushra.webp",
+    image: "/team/boushra.webp",
     role: "Web Officer",
     tag: "Web",
     href: "https://www.linkedin.com/in/boushra-bettir-428038260/"
@@ -60,7 +60,7 @@ export const team: TeamType[] = [
   {
     id: "team100",
     name: "Kristen",
-    image: "/kristen.webp",
+    image: "/team/kristen.webp",
     role: "Design Lead",
     tag: "Design",
     href: "https://www.linkedin.com/in/kristenportillo/"
@@ -68,7 +68,7 @@ export const team: TeamType[] = [
   {
     id: "team3",
     name: "Alan",
-    image: "/alan_c.png",
+    image: "/team/alan_c.png",
     role: "Design Co-Lead",
     tag: "Design",
     href: "https://www.linkedin.com/in/alancortez1337/"
@@ -76,7 +76,7 @@ export const team: TeamType[] = [
   {
     id: "team30",
     name: "Lori",
-    image: "/tuffy_rocket.svg",
+    image: "/team/tuffy_rocket.svg",
     role: "Design Officer",
     tag: "Design",
     href: "/"
@@ -84,7 +84,7 @@ export const team: TeamType[] = [
   {
     id: "team31",
     name: "Ryan",
-    image: "/tuffy_rocket.svg",
+    image: "/team/tuffy_rocket.svg",
     role: "Design Officer",
     tag: "Design",
     href: "/"
@@ -92,7 +92,7 @@ export const team: TeamType[] = [
   {
     id: "team32",
     name: "Sama",
-    image: "/sama.webp",
+    image: "/team/sama.webp",
     role: "Design Officer",
     tag: "Design",
     href: "https://www.linkedin.com/in/sama-ahmedd/"
@@ -100,7 +100,7 @@ export const team: TeamType[] = [
   {
     id: "team33",
     name: "Ola",
-    image: "/tuffy_rocket.svg",
+    image: "/team/tuffy_rocket.svg",
     role: "Design Officer",
     tag: "Design",
     href: "/"
@@ -108,7 +108,7 @@ export const team: TeamType[] = [
   {
     id: "team34",
     name: "Richard",
-    image: "/tuffy_rocket.svg",
+    image: "/team/tuffy_rocket.svg",
     role: "Design Officer",
     tag: "Design",
     href: "/"
@@ -116,7 +116,7 @@ export const team: TeamType[] = [
   {
     id: "team14",
     name: "Brian",
-    image: "/brian.webp",
+    image: "/team/brian.webp",
     role: "Marketing Outreach Lead",
     tag: "Marketing",
     href: "https://www.linkedin.com/in/brian-milian/"
@@ -124,7 +124,7 @@ export const team: TeamType[] = [
   {
     id: "team144",
     name: "Max",
-    image: "/max.webp",
+    image: "/team/max.webp",
     role: "Marketing Outreach Officer",
     tag: "Marketing",
     href: "/"
@@ -132,7 +132,7 @@ export const team: TeamType[] = [
   {
     id: "team140",
     name: "Kenny",
-    image: "/tuffy_rocket.svg",
+    image: "/team/tuffy_rocket.svg",
     role: "Marketing Outreach Officer",
     tag: "Marketing",
     href: "/"
@@ -140,7 +140,7 @@ export const team: TeamType[] = [
   {
     id: "team142",
     name: "Hiba",
-    image: "/hiba.webp",
+    image: "/team/hiba.webp",
     role: "Marketing Outreach Officer",
     tag: "Marketing",
     href: "https://www.linkedin.com/in/hibamughal"
@@ -148,7 +148,7 @@ export const team: TeamType[] = [
   {
     id: "team69",
     name: "Eric",
-    image: "/tuffy_rocket.svg",
+    image: "/team/tuffy_rocket.svg",
     role: "Finance Lead",
     tag: "Finance",
     href: "https://www.linkedin.com/in/lyyeric/"
@@ -156,7 +156,7 @@ export const team: TeamType[] = [
   {
     id: "team6",
     name: "Angel",
-    image: "/angel_s.jpg",
+    image: "/team/angel_s.jpg",
     role: "Operation Lead",
     tag: "Operation",
     href: "https://www.linkedin.com/in/asantoyo/"
@@ -164,7 +164,7 @@ export const team: TeamType[] = [
   {
     id: "team11",
     name: "Joel",
-    image: "/joel_d.jpg",
+    image: "/team/joel_d.jpg",
     role: "Operation Officer",
     tag: "Operation",
     href: "https://github.com/jjoeldaniel"
@@ -172,7 +172,7 @@ export const team: TeamType[] = [
   {
     id: "team7",
     name: "Oscar",
-    image: "/oscar_c.jpg",
+    image: "/team/oscar_c.jpg",
     role: "Operation Officer",
     tag: "Operation",
     href: "https://github.com/oscisn93"
@@ -180,7 +180,7 @@ export const team: TeamType[] = [
   {
     id: "team16",
     name: "Cyril",
-    image: "/cyril.webp",
+    image: "/team/cyril.webp",
     role: "Operation Officer",
     tag: "Operation",
     href: "/"
@@ -188,7 +188,7 @@ export const team: TeamType[] = [
   {
     id: "teammatt",
     name: "Matt",
-    image: "/matt.webp",
+    image: "/team/matt.webp",
     role: "Operation Officer",
     tag: "Operation",
     href: "/"
@@ -196,7 +196,7 @@ export const team: TeamType[] = [
   {
     id: "teamdemi",
     name: "Demi",
-    image: "/demi.webp",
+    image: "/team/demi.webp",
     role: "Operation Officer",
     tag: "Operation",
     href: "https://github.com/demihungry"
@@ -204,7 +204,7 @@ export const team: TeamType[] = [
   {
     id: "teamashley",
     name: "Ashley",
-    image: "/ashleyc.webp",
+    image: "/team/ashleyc.webp",
     role: "Operation Officer",
     tag: "Operation",
     href: "http://linkedin.com/in/ashley-chan12"
@@ -212,7 +212,7 @@ export const team: TeamType[] = [
   {
     id: "teamemily",
     name: "Emily",
-    image: "/emily.webp",
+    image: "/team/emily.webp",
     role: "Operation Officer",
     tag: "Operation",
     href: "https://github.com/emilykrohn"
@@ -220,7 +220,7 @@ export const team: TeamType[] = [
   {
     id: "teamkelsey",
     name: "Kelsey",
-    image: "/kelsey.webp",
+    image: "/team/kelsey.webp",
     role: "Operation Officer",
     tag: "Operation",
     href: "https://www.linkedin.com/in/kelsey-tang-392514287"
@@ -228,7 +228,7 @@ export const team: TeamType[] = [
   {
     id: "teamgabe",
     name: "Gabe",
-    image: "/gabe.webp",
+    image: "/team/gabe.webp",
     role: "Operation Officer",
     tag: "Operation",
     href: "https://github.com/GabrieliusGintalas"
@@ -236,7 +236,7 @@ export const team: TeamType[] = [
   {
     id: "teamnate",
     name: "Nate",
-    image: "/nate.webp",
+    image: "/team/nate.webp",
     role: "Operation Officer",
     tag: "Operation",
     href: "https://github.com/NateGries1"
@@ -244,7 +244,7 @@ export const team: TeamType[] = [
   {
     id: "teamalex",
     name: "Alex",
-    image: "/alex.jpg",
+    image: "/team/alex.jpg",
     role: "Operation Officer",
     tag: "Operation",
     href: "https://www.linkedin.com/in/a1exanderk/"

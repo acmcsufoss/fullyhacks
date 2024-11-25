@@ -7,7 +7,7 @@ export const LandingFooter: React.FC = () => {
       <div className="relative flex">
         <img
           className="absolute top-9 right-4 w-16 -scale-x-100 md:top-3 md:w-28"
-          src="/cat3.svg"
+          src="/assets/cat3.svg"
           alt="Cat image"
         />
 
@@ -28,7 +28,7 @@ export const LandingFooter: React.FC = () => {
             <a target="_blank" href="https://acmcsuf.com/">
               <img
                 className="h-12 w-12 md:h-16 md:w-16"
-                src="/acm_logo.svg"
+                src="/assets/acm_logo.svg"
                 alt="ACM Logo"
               />
             </a>

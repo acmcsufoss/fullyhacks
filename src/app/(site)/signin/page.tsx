@@ -47,7 +47,7 @@ export default async function SignIn() {
       <div className="relative mx-4 mt-10 flex flex-col items-center justify-center">
         <div className="mb-16 flex flex-col items-center rounded-lg border-4 border-[#373DCB] bg-blue_rgba p-4">
           <div className="flex flex-col items-center text-center font-normal text-white">
-            <img src="signin.svg" alt="Sign In" className="w-[320px]" />
+            <img src="/assets/signin.svg" alt="Sign In" className="w-[320px]" />
             <p className="mt-14 text-[2rem] font-bold md:text-[3rem]">
               Welcome to FullyHacks!
             </p>

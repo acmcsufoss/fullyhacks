@@ -4,7 +4,7 @@ export default function About() {
   return (
     <section className="relative flex w-[min(40rem,_80%)] flex-col rounded-2xl border-4 border-pink_200 bg-[#1E0072] bg-opacity-20">
       <img
-        src="/cat2.svg"
+        src="/assets/cat2.svg"
         className="absolute top-5 left-8 z-10 w-48 object-cover md:left-20 md:w-64 md:-rotate-6"
         alt="Fully logo"
       />

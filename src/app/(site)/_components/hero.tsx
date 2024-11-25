@@ -11,7 +11,7 @@ const Hero: React.FC = () => {
             2024
           </span>
           <img
-            src="/cat3.svg"
+            src="/assets/cat3.svg"
             className="absolute top-[-18%] left-1/2 w-[72px] md:top-[-20%] md:w-[100px]"
             alt="neon cat"
           />

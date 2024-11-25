@@ -54,7 +54,7 @@ const FAQ: React.FC<FAQProps> = (props) => {
   return (
     <>
       <img
-        src="/cat3.svg"
+        src="/assets/cat3.svg"
         className="absolute top-[5.75rem] left-1 z-10 w-28 md:top-6 md:left-2 md:w-64"
       />
       <p className="mb-4 mt-14 font-ohm text-xxl font-medium text-[#B479FF] [text-shadow:_0_0_10px_#FFD8FD] md:text-[5rem]">

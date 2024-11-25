@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Fullyhacks 2024",
     description: "Welcome to FullyHacks 2024, CSUF's largest 24-hour hackathon",
-    images: "/fullyhacks_logo.png"
+    images: "/assets/fullyhacks_logo.png"
   },
   icons: {
     shortcut: "/favicon.ico"
