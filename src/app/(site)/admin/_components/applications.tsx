@@ -18,18 +18,18 @@ const Applications: React.FC<ApplicationsProps> = (props) => {
   const handleStatusChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setStatusFilter(event.target.value);
   };
-  // Filter out application when choose from the Filter by: dropdown
-  const getFilteredApplication = (
-    applications: ApplicationType[],
-    statusFilter: string
-  ) => {
-    return statusFilter === "all"
-      ? applications.filter((app) => !applicationIdx.includes(app.id))
-      : applications.filter((app) => app.status === statusFilter);
-  };
   const filteredApplications = useMemo(() => {
+    // Filter out application when choose from the Filter by: dropdown
+    const getFilteredApplication = (
+      applications: ApplicationType[],
+      statusFilter: string
+    ) => {
+      return statusFilter === "all"
+        ? applications.filter((app) => !applicationIdx.includes(app.id))
+        : applications.filter((app) => app.status === statusFilter);
+    };
     return getFilteredApplication(applications, statusFilter);
-  }, [applications, statusFilter, getFilteredApplication]);
+  }, [applications, statusFilter, applicationIdx]);
   const applicationsNumber = filteredApplications.length;
   type GroupedData = Record<string, number>;
   const classStat: [] = [];

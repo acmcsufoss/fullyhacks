@@ -190,7 +190,7 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
       }
     }
     getGithubLogin();
-  }, []);
+  }, [userId]);
 
   const onSubmit = async () => {
     try {
@@ -474,8 +474,8 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
               February 24th, 2024.{" "}
             </p>
             <p className="font-medium text-white">
-              We will be checking School ID. If you are a minor, you won't be
-              allowed to attend.
+              We will be checking School ID. If you are a minor, you won&apos;t
+              be allowed to attend.
             </p>
           </div>
           <div className="mt-4 flex items-center gap-4">

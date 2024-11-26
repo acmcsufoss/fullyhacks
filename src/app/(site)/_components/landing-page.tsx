@@ -11,7 +11,7 @@ import CountDown from "./count-down";
 import About from "./about";
 import Sponsors from "./sponsors";
 import Partners from "./partners";
-import FAQ from "./faq";
+import FAQ from "@/components/faq";
 import Team from "./team";
 
 interface LandingPageProps {
