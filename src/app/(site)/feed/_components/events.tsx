@@ -305,7 +305,9 @@ const Events: React.FC = () => {
           </div>
           {filteredEvent.map((event: eventsType) => {
             return (
-              <div className="relative rounded-md bg-purple_card p-4 text-white">
+              <div
+                key={event.id}
+                className="relative rounded-md bg-purple_card p-4 text-white">
                 <div className="flex flex-row items-center justify-between">
                   <p className="text-lg font-bold">{event.name}</p>
                   <p
