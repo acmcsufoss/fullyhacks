@@ -90,8 +90,8 @@ const Team: React.FC<TeamProps> = ({ team }) => {
   };
 
   return (
-    <div className="relative font-rubik md:w-[min(900px,_90vw)]">
-      <h2 className="mt-10 text-center font-ohm text-xxl font-medium text-[#0BB6FF] [text-shadow:_-3px_0_4px_#FF0BF5] md:text-[5rem]">
+    <div className="relative md:w-[min(900px,_90vw)]">
+      <h2 className="mt-10 text-center text-xxl font-medium text-[#0BB6FF] [text-shadow:_-3px_0_4px_#FF0BF5] md:text-[5rem]">
         Our Team
       </h2>
       <p className="mt-2 text-center font-light">

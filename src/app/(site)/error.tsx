@@ -10,7 +10,7 @@ export default function Error() {
       <AuthNavBar />
       <div className="flex flex-col items-center">
         <div className="flex flex-col items-center rounded-lg bg-[#100D21] p-2 md:w-[640px]">
-          <p className="font-ohm text-[4rem] text-[#62B4FF]">ERROR</p>
+          <p className="text-[4rem] text-[#62B4FF]">ERROR</p>
           <p className="my-2 w-[80%] text-center text-[1.5rem] font-semibold text-white">
             An error has occurred with your application submission. Please click
             on the button below to be redirected to the application page.

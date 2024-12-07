@@ -1,5 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Train+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Audiowide&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bruno+Ace&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -17,7 +21,7 @@
     @apply after:absolute after:top-12 after:left-2 after:h-[5px] after:w-full after:skew-x-[30deg] after:bg-[#8CEAFF] after:opacity-[.7] after:blur-sm after:content-[''];
   }
   .neon-text {
-    @apply font-ohm text-purple_main [text-shadow:_0_0_10px_#FF49ED];
+    @apply text-purple_main [text-shadow:_0_0_10px_#FF49ED];
   }
   .purple-btn {
     @apply rounded-md bg-purple_main p-2 text-white hover:bg-[#b63487] hover:duration-200 hover:ease-in-out;
@@ -42,6 +46,7 @@
     @apply animate-shake border-2 border-red-600 p-2;
   }
 }
+
 @layer utilities {
   /* Chrome, Safari and Opera */
   .no-scrollbar::-webkit-scrollbar {
@@ -54,143 +59,35 @@
   }
 }
 
-@layer base {
-  @font-face {
-    font-family: Ohm;
-    font-weight: 600;
-    src: url(/fonts/ohm/OHM-Bold.woff) format("woff");
-  }
-  @font-face {
-    font-family: Ohm;
-    font-weight: 400;
-    src: url(/fonts/ohm/OHM-Light.woff) format("woff");
-  }
-  @font-face {
-    font-family: Ohm;
-    font-weight: 500;
-    src: url(/fonts/ohm/OHM-Medium.woff) format("woff");
-  }
+:root {
+  font-family: "Audiowide", sans-serif;
+  color-scheme: dark;
 }
 
-.neon-sign-area {
-  position: relative;
-  z-index: 0;
-  display: grid;
-  grid-template-areas: "stack";
+.top-section {
+  background: linear-gradient(180deg, #000, #3f3865 90%);
 }
 
-.neon-sign-area-content {
-  grid-area: "stack";
+.landing-container {
+  background-color: linear-gradient(180deg, #3f3865 60%, #201c33 100%);
 }
 
-.neon-sign {
-  opacity: 0.5;
-  width: auto;
-  position: absolute;
-  grid-area: "stack";
-  animation: parallax-effect linear;
-  animation-timeline: scroll();
-  border-radius: 0.5rem;
-  outline: 2px solid #fff;
-  box-shadow:
-    0 0 25px 4px var(--border-color),
-    0 0 25px 4px var(--border-color) inset;
-  padding: 0.5rem;
-  z-index: var(--z-index);
-  top: var(--css-top);
-  right: var(--css-right);
-  bottom: var(--css-bottom);
-  left: var(--css-left);
+.sponsors-container {
+  background:
+    linear-gradient(
+      180deg,
+      #3f3865 0%,
+      rgba(63, 56, 101, 0) 15%,
+      rgba(32, 28, 51, 0) 85%,
+      #201c33 100%
+    ),
+    url("/assets/stars-background.png") no-repeat center;
+  background-size: cover;
+  overflow: hidden;
 }
 
-.neon-sign:hover {
-  opacity: 1;
-}
-
-.neon-sign:hover span {
-  animation: none;
-}
-
-.neon-sign span {
-  color: transparent;
-  writing-mode: vertical-rl;
-  text-orientation: upright;
-  text-transform: uppercase;
-  text-shadow: 0 0 10px var(--border-color);
-  -webkit-text-stroke: 2px white;
-  font-size: 2rem;
-  font-family: Rubik, sans-serif;
-  font-weight: 700;
-  pointer-events: none;
-  user-select: none;
-  animation: flicker 5s infinite var(--flicker-delay, 0s);
-}
-
-@keyframes flicker {
-  0% {
-    opacity: 0.1;
-  }
-
-  2% {
-    opacity: 1;
-  }
-
-  8% {
-    opacity: 0.1;
-  }
-
-  9% {
-    opacity: 1;
-  }
-
-  12% {
-    opacity: 0.1;
-  }
-  20% {
-    opacity: 1;
-  }
-  25% {
-    opacity: 0.3;
-  }
-  30% {
-    opacity: 1;
-  }
-
-  70% {
-    opacity: 0.7;
-  }
-  72% {
-    opacity: 0.2;
-  }
-
-  77% {
-    opacity: 0.9;
-  }
-  100% {
-    opacity: 0.9;
-  }
-}
-
-@keyframes parallax-effect {
-  to {
-    opacity: 0;
-    transform: translateY(calc(var(--parallax-speed) * 100px));
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  @keyframes parallax {
-    to {
-      transform: translateY(0);
-    }
-  }
-}
-
-/* TODO: Think of something better for neon sign in mobile dimensions. */
-@media (max-width: 720px) {
-  .neon-sign {
-    display: none;
-  }
+.team-container {
+  background: radial-gradient(50% 50% at 50% 50%, #60549980, #201c33 70.69%);
 }
 
 .feed-title {
@@ -198,7 +95,6 @@
   text-shadow: 0px 0px 8px #2400ff;
   -webkit-text-stroke-width: 1.2px;
   -webkit-text-stroke-color: #002aff;
-  font-family: "Train One";
   font-size: 2.5rem;
   font-style: normal;
   font-weight: 400;
@@ -210,7 +106,6 @@
   text-shadow: 0px 0px 8px #2400ff;
   -webkit-text-stroke-width: 0;
   -webkit-text-stroke-color: #ffffff;
-  font-family: "Train One";
   font-size: 49px;
   font-style: normal;
   font-weight: 400;

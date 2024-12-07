@@ -2,15 +2,13 @@
 
 import React from "react";
 import Link from "next/link";
-import Image from "next/image";
+// import Image from "next/image";
 import { companyType, FAQType, TeamType } from "@/types/interface";
-import { SignArea, SIGNS } from "./signs";
 import { LandingFooter } from "@/components/footer";
 import Hero from "./hero";
 import CountDown from "./count-down";
 import About from "./about";
 import Sponsors from "./sponsors";
-import Partners from "./partners";
 import FAQ from "@/components/faq";
 import Team from "./team";
 
@@ -23,21 +21,11 @@ interface LandingPageProps {
 const LandingPage: React.FC<LandingPageProps> = (props) => {
   const { companyData, faqData, teamData } = props;
   return (
-    <SignArea signs={SIGNS}>
-      <main className="relative flex flex-col items-center font-rubik font-semibold">
+    <main className="landing-container relative flex flex-col text-white">
+      <section className="top-section relative flex w-full flex-col items-center">
         <Hero />
         <CountDown />
-
         <div className="relative mt-24 flex items-center gap-8 text-md font-medium">
-          <div className="absolute -right-2 -top-[127%]">
-            <Image
-              src="/cat.svg"
-              alt="Neon cat image"
-              width={100}
-              height={100}
-            />
-          </div>
-
           <Link href="/signin" className="">
             <button className="apply-btn z-[11] mx-0 cursor-pointer">
               Apply
@@ -50,37 +38,35 @@ const LandingPage: React.FC<LandingPageProps> = (props) => {
             Sponsor Us!
           </a>
         </div>
-
-        <section>
-          <div
-            id="about-fullyhacks"
-            className="relative mt-40 flex max-w-[1048px] flex-col items-center justify-center font-rubik font-normal text-purple_main md:flex-row md:text-md">
-            <About />
-          </div>
-          <div
-            id="sponsors"
-            className="mt-8 flex max-w-[1048px] flex-col items-center justify-center font-rubik font-normal text-purple_main md:mt-40 md:text-md">
-            <Sponsors companies={companyData} />
-          </div>
-          <div className="relative mx-4 flex max-w-[1048px] flex-col items-center justify-center gap-16 font-rubik font-normal text-purple_main md:mt-40 md:flex-row md:justify-start md:gap-6 md:text-md lg:gap-16">
-            <Partners />
-          </div>
-          <div
-            id="frequently-asked-questions"
-            className="relative mx-4 flex max-w-[1048px] flex-col items-center justify-center font-rubik font-normal text-purple_main md:mx-0 md:mt-40 md:text-md">
-            <FAQ faqs={faqData} />
-          </div>
-          <div
-            id="team"
-            className="mx-4 mt-8 flex max-w-[1048px] flex-col items-center justify-center font-rubik font-normal text-purple_main md:mx-0 md:mt-40 md:text-md">
-            <Team team={teamData} />
-          </div>
-        </section>
-        <div className="relative mb-40 flex w-[100vw] flex-col items-center justify-start overflow-hidden font-rubik font-normal text-purple_main md:mt-32 md:mb-24 md:text-md">
-          <LandingFooter />
+        <div
+          id="about-fullyhacks"
+          className="relative mt-40 flex max-w-[1048px] flex-col items-center justify-center font-normal md:flex-row md:text-md">
+          <About />
         </div>
-      </main>
-    </SignArea>
+      </section>
+      <section className="sponsors-container relative flex w-full flex-col items-center">
+        <div
+          id="sponsors"
+          className="mt-8 flex w-full max-w-[1048px] flex-col items-center justify-center font-normal md:mt-40 md:text-md">
+          <Sponsors companies={companyData} />
+        </div>
+      </section>
+      <section className="team-container flex w-screen flex-col items-center overflow-hidden">
+        <div
+          id="team"
+          className="mx-4 mt-8 flex max-w-[1048px] flex-col items-center justify-center font-normal md:mx-0 md:mt-40 md:text-md">
+          <Team team={teamData} />
+        </div>
+      </section>
+      <section className="relative flex w-[100vw] flex-col items-center justify-start overflow-hidden pb-40 font-normal md:pt-32 md:pb-24 md:text-md">
+        <div
+          id="frequently-asked-questions"
+          className="relative mx-4 flex max-w-[1048px] flex-col items-center justify-center font-normal md:mx-0 md:mt-40 md:text-md">
+          <FAQ faqs={faqData} />
+        </div>
+        <LandingFooter />
+      </section>
+    </main>
   );
 };
 

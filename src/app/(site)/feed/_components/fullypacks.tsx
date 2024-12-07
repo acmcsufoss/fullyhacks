@@ -98,10 +98,10 @@ interface FullyPackProps {
 const FullyPack: React.FC<FullyPackProps> = ({ fullypack }) => {
   return (
     <div className="flex flex-col items-start rounded-lg bg-purple_card p-4">
-      <p className="text-center font-rubik text-lg font-bold leading-normal text-white">
+      <p className="text-center text-lg font-bold leading-normal text-white">
         {fullypack.name}
       </p>
-      <div className="text-20 mb-4 font-rubik font-normal leading-7 text-white">
+      <div className="text-20 mb-4 font-normal leading-7 text-white">
         {fullypack.description}
       </div>
       {"github" in fullypack ? (

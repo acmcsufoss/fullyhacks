@@ -42,7 +42,7 @@ const CountDown = () => {
   });
 
   return (
-    <div className="z-[11] mt-12 grid auto-cols-max gap-2 text-center font-ohm font-medium md:grid-flow-col md:gap-10 lg:grid-flow-col">
+    <div className="z-[11] mt-12 grid auto-cols-max gap-2 text-center font-medium md:grid-flow-col md:gap-10 lg:grid-flow-col">
       <div className="flex flex-col items-center justify-center rounded-xl bg-blue_dark p-3 text-blue_neon">
         <span className="countdown text-4xl md:text-6xl">
           <span style={{ "--value": time.days } as CSSProperties}></span>

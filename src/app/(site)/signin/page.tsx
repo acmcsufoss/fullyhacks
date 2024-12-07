@@ -13,7 +13,7 @@ export default async function SignIn() {
   }
 
   return (
-    <section className="bg-[#0B062B] font-rubik text-md text-purple_main">
+    <section className="bg-[#0B062B] text-md text-purple_main">
       <GenericNavBar />
       <Flower
         top="top-[20em] hidden md:block"

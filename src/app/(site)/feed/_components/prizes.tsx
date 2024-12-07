@@ -117,11 +117,11 @@ const Card: React.FC<TrackProps> = ({ track }) => {
         </div>
         <div className="mt-4 md:text-md">
           {track.team && (
-            <p className="text-20 mb-4 font-rubik font-normal leading-7 text-white">
+            <p className="text-20 mb-4 font-normal leading-7 text-white">
               Total: {track.team} team(s)
             </p>
           )}
-          <p className="text-20 mb-4 font-rubik font-normal leading-7 text-white">
+          <p className="text-20 mb-4 font-normal leading-7 text-white">
             {track.description}
           </p>
         </div>
@@ -139,11 +139,11 @@ const Prizes = () => {
       </p>
       <div className="mt-10">
         <div className="mb-4 flex items-center gap-4">
-          <p className="font-rubik text-lg font-bold leading-normal text-purple-500">
+          <p className="text-lg font-bold leading-normal text-purple-500">
             TRACKS
           </p>
         </div>
-        <p className="font-rubik font-normal text-white md:text-md">
+        <p className="font-normal text-white md:text-md">
           Hackers have to build their projects around one of these 4 tracks
         </p>
       </div>
@@ -154,18 +154,18 @@ const Prizes = () => {
       </div>
       <div className="mt-14">
         <div className="mb-4 flex items-center gap-4">
-          <p className="font-rubik text-lg font-bold leading-normal text-purple-500">
+          <p className="text-lg font-bold leading-normal text-purple-500">
             PRIZES
           </p>
         </div>
-        <p className="font-rubik font-normal leading-normal md:text-md">
+        <p className="font-normal leading-normal md:text-md">
           Each team has to sign up for 1 category in order to be considered for
           the corresponding prize. Sign up will begin during the hackathon team
           forming event
         </p>
       </div>
       <div className="mt-10">
-        <p className="font-rubik text-lg font-bold leading-normal text-purple-500">
+        <p className="text-lg font-bold leading-normal text-purple-500">
           MAIN CATEGORY
         </p>
         <div className="mt-10 grid grid-cols-1 gap-8 lg:grid-cols-2 xl:grid-cols-3">
@@ -175,10 +175,10 @@ const Prizes = () => {
         </div>
       </div>
       <div className="mt-10">
-        <p className="font-rubik text-lg font-bold leading-normal text-purple-500">
+        <p className="text-lg font-bold leading-normal text-purple-500">
           SUB CATEGORY
         </p>
-        <p className="font-rubik font-normal leading-normal md:text-md">
+        <p className="font-normal leading-normal md:text-md">
           You can choose ONE sub category along with your project
         </p>
         <div className="mt-10 grid grid-cols-1 gap-8 lg:grid-cols-2 xl:grid-cols-3">

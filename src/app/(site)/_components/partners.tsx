@@ -9,7 +9,7 @@ const Partners: React.FC = () => {
         <img src="/assets/acm_blue_logo.svg" alt="ACM Logo" />
       </a>
       <div className="mb-auto flex flex-col md:mt-14 md:w-[80vw] lg:w-[80vw]">
-        <p className="text-center font-ohm text-xxl font-medium text-[#0BB6FF] [text-shadow:_-3px_0_4px_#FF0BF5] md:text-[5rem]">
+        <p className="text-center text-xxl font-medium text-[#0BB6FF] [text-shadow:_-3px_0_4px_#FF0BF5] md:text-[5rem]">
           Our Mission
         </p>
         <p className="mt-4 text-center text-white">

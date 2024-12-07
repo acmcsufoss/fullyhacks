@@ -1,6 +1,6 @@
-# FullyHacks 2024
+# FullyHacks 2025
 
-## Welcome to FullyHacks 2024 - CSUF's first 24-hour in-person hackathon
+## Welcome to FullyHacks 2025 - CSUF's first 24-hour in-person hackathon
 
 ## Tech Stacks:
 

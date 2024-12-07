@@ -52,10 +52,6 @@ module.exports = {
         xl: "2rem",
         xxl: "3.5rem"
       },
-      fontFamily: {
-        rubik: ["Rubik"],
-        ohm: ["Ohm"]
-      },
       colors: {
         sky_100: "#ABE1FF",
         sky_300: "#18AAFF",
@@ -96,8 +92,9 @@ module.exports = {
         md: "700px"
       },
       fontFamily: {
-        rubik: ["Rubik", "sans-serif"],
-        ohm: ["Ohm"]
+        inter: ["Inter", "sans-serif"],
+        audiowide: ["Audiowide", "sans-serif"],
+        bruno: ["Bruno Ace", "sans-serif"]
       }
     }
   },

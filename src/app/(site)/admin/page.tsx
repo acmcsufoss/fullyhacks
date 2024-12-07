@@ -28,7 +28,7 @@ export default async function AdminPage() {
   const { user, applications } = await getAdminData(session);
 
   return (
-    <section className="font-rubik">
+    <section className=" ">
       <AuthNavBar />
       <div className="mt-10 flex flex-col items-center">
         <p className="text-xl font-semibold text-purple_main">

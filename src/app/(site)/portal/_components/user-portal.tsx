@@ -18,7 +18,7 @@ export default function UserPortal({ user }: UserProps) {
   const formattedDate = date.toLocaleDateString("en-US", option);
 
   return (
-    <div className="relative mx-4 flex flex-col items-center justify-center font-rubik text-white">
+    <div className="relative mx-4 flex flex-col items-center justify-center text-white">
       <p className="neon-text text-[4rem]">User Portal</p>
       <div className="mt-10 w-[min(400px,_90wv)] rounded-lg border-2 border-purple_main bg-[#100D21] bg-opacity-25 p-6 backdrop-blur-md backdrop-filter md:w-[500px] md:text-md lg:w-[720px]">
         <div className="flex flex-col items-center gap-4 lg:flex-row lg:items-start">

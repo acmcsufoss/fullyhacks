@@ -4,15 +4,9 @@ import { BsInstagram, BsLinkedin, BsDiscord } from "react-icons/bs";
 export const LandingFooter: React.FC = () => {
   return (
     <>
-      <div className="relative flex">
-        <img
-          className="absolute top-9 right-4 w-16 -scale-x-100 md:top-3 md:w-28"
-          src="/assets/cat3.svg"
-          alt="Cat image"
-        />
-
+      <div className="relative flex pt-80">
         <div className="flex w-full flex-col items-center">
-          <h2 className="m-4 mt-14 text-center font-ohm text-xxl font-medium text-[#B479FF] [text-shadow:_0_0_10px_#FFD8FD] md:text-[5rem]">
+          <h2 className="m-4 mt-14 text-center text-xxl font-medium text-[#B479FF] [text-shadow:_0_0_10px_#FFD8FD] md:text-[5rem]">
             Contact Us
           </h2>
           <p className="font-medium">fullyhacks@gmail.com</p>

@@ -28,7 +28,7 @@ const ApplyAuth: React.FC<ApplyAuthProps> = ({ children }) => {
       {applicationOpen ? (
         children
       ) : (
-        <div className="mt-10 flex flex-col items-center justify-center text-center font-rubik text-lg font-semibold text-white md:text-[2.5rem]">
+        <div className="mt-10 flex flex-col items-center justify-center text-center text-lg font-semibold text-white md:text-[2.5rem]">
           {new Date(now) < new Date(openDate) && (
             <div className="flex flex-col items-center gap-12 text-center">
               <p className="w-[80%]">

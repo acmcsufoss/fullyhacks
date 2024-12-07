@@ -52,13 +52,7 @@ export const NavBarLanding: React.FC = () => {
     <nav className="navbar z-[30] text-lg font-semibold text-white lg:grid lg:grid-cols-4 lg:pl-8 lg:pt-2">
       <div className="navbar-start">
         <Link href="/" className="hidden items-center gap-2 lg:flex">
-          <img
-            src="/assets/logo.svg"
-            alt="Fully logo"
-            width={240}
-            height={240}
-            className="hidden lg:inline-flex"
-          />
+          FullyHacks 2025
         </Link>
         <div className="dropdown">
           <label tabIndex={0} className="btn-ghost btn lg:hidden">
@@ -112,7 +106,7 @@ export const NavBarLanding: React.FC = () => {
                   id={item.id}
                   href={item.href}
                   className="flex items-center">
-                  <p className="cursor-pointer font-rubik hover:text-purple_main_hover hover:duration-200 hover:ease-in-out">
+                  <p className="cursor-pointer hover:text-purple_main_hover hover:duration-200 hover:ease-in-out">
                     {item.name}
                   </p>
                 </a>
@@ -265,7 +259,7 @@ export const FeedSideBar: React.FC<FeedSideBarProps> = ({ setLocation }) => {
       <div
         className={`fixed top-0 transition-all duration-200 ease-in md:hidden ${
           isOpen ? "left-0" : "-left-80"
-        } z-30 h-screen basis-1/6 bg-purple_dark p-8 font-rubik text-sm font-semibold text-[#EF4DB3]`}>
+        } z-30 h-screen basis-1/6 bg-purple_dark p-8 text-sm font-semibold text-[#EF4DB3]`}>
         <AiOutlineClose
           onClick={() => setOpen(false)}
           size={20}
@@ -297,7 +291,7 @@ export const FeedSideBar: React.FC<FeedSideBarProps> = ({ setLocation }) => {
       </div>
 
       {/* For desktop */}
-      <div className="mx-4 mt-12 hidden basis-1/5 font-rubik text-sm font-semibold text-[#EF4DB3] md:mx-10 md:block md:text-md">
+      <div className="mx-4 mt-12 hidden basis-1/5 text-sm font-semibold text-[#EF4DB3] md:mx-10 md:block md:text-md">
         <ul className="border-b-2 p-2">
           {feedItems.map((item, idx) => {
             return (

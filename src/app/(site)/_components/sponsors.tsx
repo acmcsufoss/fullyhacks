@@ -34,7 +34,7 @@ const Sponsors: React.FC<SponsorProps> = (props) => {
   const { companies } = props;
   return (
     <div className="flex flex-col items-center justify-center">
-      <h2 className="mt-10 text-center font-ohm text-xxl font-medium text-[#D7EEFF] [text-shadow:_0_0_10px_#719BCC] md:text-[5rem]">
+      <h2 className="mt-10 text-center text-xxl font-medium text-[#D7EEFF] [text-shadow:_0_0_10px_#719BCC] md:text-[5rem]">
         Sponsors
       </h2>
       <section className="my-10 grid grid-cols-2 items-center justify-center gap-4 md:gap-x-12 lg:grid-cols-3">

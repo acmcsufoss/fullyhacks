@@ -6,7 +6,7 @@ export default function NotFound() {
   return (
     <>
       <GenericNavBar />
-      <div className="mt-10 flex h-full w-full flex-col items-center justify-center font-rubik text-purple_main">
+      <div className="mt-10 flex h-full w-full flex-col items-center justify-center text-purple_main">
         <p className="text-center text-xl font-semibold md:text-xxl">
           404 Page Not Found :({" "}
         </p>
