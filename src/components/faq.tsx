@@ -1,6 +1,6 @@
 import { FAQType } from "@/types/interface";
 import React, { useEffect, useState } from "react";
-import { FaChevronDown } from "react-icons/fa";
+// import { FaChevronDown } from "react-icons/fa";
 
 interface FAQProps {
   faqs: FAQType[];
@@ -36,11 +36,11 @@ export const FAQDropDown: React.FC<FAQDropDownProps> = (props) => {
           className={`transition-all duration-500 ${
             opened ? "rotate-180" : ""
           }`}>
-          <FaChevronDown size={24} />
+          {/* <FaChevronDown size={24} /> */}
         </div>
       </div>
       <div
-        className={`collapse-content w-full overflow-hidden border-solid border-white bg-[#0C1B3A] shadow-lg shadow-pink_200 transition-[max-height] duration-500 ease-in-out ${
+        className={`collapse-content w-full overflow-hidden border-solid border-white bg-[#0C1B3A] shadow-lg transition-[max-height] duration-500 ease-in-out ${
           opened ? "max-h-screen border-t-2" : "max-h-0"
         }`}>
         <p className="my-4 text-white md:text-md">{answer}</p>
