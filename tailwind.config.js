@@ -65,6 +65,7 @@ module.exports = {
         purple_300: "#9EA8FF",
         purple_hover: "#3b3561",
         purple_500: "#4F38DF",
+        purple_shadow_blur: "#6F6795",
         pink_700: "#B438DF",
         pink_400: "#FF8F8F",
         pink_300: "#DF389C",

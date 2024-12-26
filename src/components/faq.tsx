@@ -65,10 +65,12 @@ const FAQ: React.FC<FAQProps> = (props) => {
           );
         })}
       </div>
-      <p className="mt-2 text-center">
+      <p className="mt-16 text-center">
         More questions? Reach out to us at
-        <a href="mailto:fullyhacks@gmail.com" className="font-bold">
-          {" fullyhacks@gmail.com "}
+        <a href="mailto:fullyhacks@gmail.com">
+          &nbsp;
+          <span className="underline">fullyhacks@gmail.com</span>
+          &nbsp;
         </a>
         and we&apos;ll get back to you ASAP!
       </p>
