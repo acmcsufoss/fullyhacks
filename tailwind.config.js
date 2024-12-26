@@ -79,7 +79,8 @@ module.exports = {
         beige: "#D9D9D9",
         white: "#FFF",
         purple_card: "#1E2D79",
-        cyan: "#46C8E5"
+        cyan: "#46C8E5",
+        mint: "#51FFCE"
       },
       textColor: {
         purple_main: "#EB6EFF",
