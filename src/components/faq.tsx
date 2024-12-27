@@ -14,11 +14,13 @@ export const FAQDropDown: React.FC<FAQDropDownProps> = ({
   question,
   answer
 }) => {
+  // Text shadow is somewhat accurate to the actual design in Figma. It's kinda hard to perfectly match it
+  const mintColorRgba = "rgba(81, 255, 206, 0.2)";
   return (
     <>
       <div className="rounded-full border-2 border-white">
         <div className="rounded-box flex w-full items-center justify-between rounded-b-none border-white p-2 px-4 md:px-6 text-sm text-mint md:p-4 md:text-md lg:text-lg">
-          <p className="text-start text-[1rem] normal-case leading-9 md:text-md lg:text-lg">
+          <p className="text-start text-[1rem] normal-case leading-9 md:text-md lg:text-lg" style={{ textShadow: `0px 4px 4px ${mintColorRgba}` }}>
             {question}
           </p>
         </div>
