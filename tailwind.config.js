@@ -97,6 +97,9 @@ module.exports = {
         inter: ["Inter", "sans-serif"],
         audiowide: ["Audiowide", "sans-serif"],
         bruno: ["Bruno Ace", "sans-serif"]
+      },
+      borderWidth: {
+        5: "5px"
       }
     }
   },

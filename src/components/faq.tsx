@@ -32,12 +32,12 @@ export const FAQDropDown: React.FC<FAQDropDownProps> = ({
   return (
     <div>
       <a
-        className="block rounded-full border-2 border-white"
+        className="block rounded-full border-5 border-white md:border-2"
         onClick={toggleOpen}>
         <input type="checkbox" className={mounted ? "hidden" : ""} />
-        <div className="rounded-box flex w-full items-center justify-between p-2 px-4 md:px-6 text-sm text-mint transition-all duration-500 ease-in-out hover:duration-200 hover:ease-in-out md:p-4 md:text-md lg:text-lg">
+        <div className="rounded-box flex w-full items-center justify-between rounded-b-none p-2 px-4 text-sm text-mint transition-all duration-500 ease-in-out hover:duration-200 hover:ease-in-out md:p-4 md:px-6 md:text-md lg:text-lg">
           <p
-            className="text-start text-[1rem] normal-case leading-9 md:text-md lg:text-lg"
+            className="text-start text-md normal-case leading-9 md:text-lg"
             style={{ textShadow: `0px 4px 4px ${mintColorRgba}` }}>
             {question}
           </p>
@@ -47,9 +47,7 @@ export const FAQDropDown: React.FC<FAQDropDownProps> = ({
         className={`overflow-hidden transition-[max-height] duration-500 ease-in-out ${
           opened ? "max-h-screen" : "max-h-0"
         }`}>
-        <p className="md:text-2xl/[28px] my-4 px-4 text-white md:px-8">
-          {answer}
-        </p>
+        <p className="my-4 px-6 text-md text-white md:px-8">{answer}</p>
       </div>
     </div>
   );
@@ -71,8 +69,12 @@ const FAQ: React.FC<FAQProps> = (props) => {
           );
         })}
       </div>
-      <p className="mt-16 text-center">
-        More questions? Reach out to us at
+      <p className="mt-16 text-left text-md tracking-wide md:text-center">
+        More questions?&nbsp;
+        {/* Add new line on mobile view */}
+        <br className="md:hidden" />
+        <br className="md:hidden" />
+        Reach out to us at
         <a href="mailto:fullyhacks@gmail.com">
           &nbsp;
           <span className="underline">fullyhacks@gmail.com</span>
