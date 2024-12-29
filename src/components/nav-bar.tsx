@@ -4,17 +4,17 @@ import { MenuType } from "@/types/interface";
 import { signOut } from "next-auth/react";
 import Link from "next/link";
 import React, { useState } from "react";
-import { IoArrowBackSharp } from "react-icons/io5";
-import { BiHomeAlt, BiCalendarEvent } from "react-icons/bi";
-import { SlEnergy } from "react-icons/sl";
-import { BsDiscord, BsLightbulb } from "react-icons/bs";
 import {
-  AiOutlineMenu,
   AiOutlineClose,
+  AiOutlineMenu,
   AiOutlineQuestionCircle
 } from "react-icons/ai";
+import { BiCalendarEvent, BiHomeAlt } from "react-icons/bi";
+import { BsDiscord, BsLightbulb } from "react-icons/bs";
 import { HiOutlineSpeakerphone } from "react-icons/hi";
 import { HiOutlineTrophy } from "react-icons/hi2";
+import { IoArrowBackSharp } from "react-icons/io5";
+import { SlEnergy } from "react-icons/sl";
 
 export const NavBarLanding: React.FC = () => {
   const menuList: MenuType[] = [
@@ -33,100 +33,73 @@ export const NavBarLanding: React.FC = () => {
       desktop: 24
     },
     {
-      id: "sponsor",
+      id: "sponsors",
       name: "Sponsors",
       href: "#sponsors",
       mobile: 24,
       desktop: 24
     },
     {
-      id: "portal",
-      name: "User Portal",
-      href: "/portal",
+      id: "team",
+      name: "Team",
+      href: "#team",
+      mobile: 24,
+      desktop: 24
+    },
+    {
+      id: "login",
+      name: "Log In",
+      href: "/signin",
       mobile: 24,
       desktop: 24
     }
   ];
 
   return (
-    <nav className="navbar z-[30] text-lg font-semibold text-white lg:grid lg:grid-cols-4 lg:pl-8 lg:pt-2">
+    <nav className="navbar z-[30] text-lg text-white lg:grid lg:grid-cols-4 lg:pl-8 lg:pt-2">
       <div className="navbar-start">
-        <Link href="/" className="hidden items-center gap-2 lg:flex">
+        <Link href="/" className="hidden items-center gap-2 lg:flex hover:text-purple_main_hover transition-colors duration-200">
           FullyHacks 2025
         </Link>
         <div className="dropdown">
           <label tabIndex={0} className="btn-ghost btn lg:hidden">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor">
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M4 6h16M4 12h8m-8 6h16"
-              />
-            </svg>
+            <AiOutlineMenu className="h-5 w-5" />
           </label>
-          <ul
-            tabIndex={0}
-            className="dropdown-content menu rounded-box menu-compact z-[3] ml-4 mt-3 w-52 bg-purple_300 p-2 text-[1rem] shadow">
-            {menuList.map((item) => {
-              return (
-                <div key={item.id} className="my-2 flex gap-4">
-                  <Link
-                    key={item.id}
-                    href={item.href}
-                    className="m-2 flex items-center gap-2">
-                    <p className="cursor-pointer"> {item.name} </p>
-                  </Link>
-                </div>
-              );
-            })}
+          <ul tabIndex={0} className="dropdown-content menu rounded-box menu-compact z-[3] ml-4 mt-3 w-52 bg-purple_300 p-2 text-[1rem] shadow">
+            {menuList.map((item) => (
+              <div key={item.id} className="my-2 flex gap-4">
+                <Link href={item.href} className="m-2 flex items-center gap-2">
+                  <p className="cursor-pointer hover:text-purple_main_hover transition-colors duration-200">
+                    {item.name}
+                  </p>
+                </Link>
+              </div>
+            ))}
           </ul>
         </div>
       </div>
-      <div className="navbar-center mr-36 mb-20 hidden lg:col-span-3 xl:flex">
-        <ul className="menu menu-horizontal flex w-[100%] items-center justify-end">
-          {menuList.map((item, index) => {
-            return (
-              <div
-                key={item.id}
-                style={{ marginRight: "-40px" }}
-                className="my-2 flex">
-                {/* Placeholder div or remove entirely */}
-                <div
-                  style={{ width: item.desktop, height: item.desktop }}
-                  className="ml-12"
-                />
-                <a
-                  key={item.id}
-                  id={item.id}
-                  href={item.href}
-                  className="flex items-center">
-                  <p className="cursor-pointer hover:text-purple_main_hover hover:duration-200 hover:ease-in-out">
-                    {item.name}
-                  </p>
-                </a>
-                {index < menuList.length - 1 && (
-                  <span
-                    className="ml-7"
-                    style={{
-                      borderLeft: "4px solid #E149A9",
-                      height: "32px"
-                    }}></span>
-                )}{" "}
-              </div>
-            );
-          })}
+
+      <div className="navbar-center hidden lg:col-span-3 xl:flex">
+        <ul className="menu menu-horizontal flex w-[100%] items-center justify-end gap-2">
+          {menuList.map((item, index) => (
+            <div key={item.id} className="my-2 flex items-center">
+              <Link
+                href={item.href}
+                className="flex items-center px-4 py-2 hover:text-purple_main_hover transition-colors duration-200">
+                <p className="cursor-pointer">
+                  {item.name}
+                </p>
+              </Link>
+              {index < menuList.length - 1 && (
+                <span className="h-6 border-l-4 border-white" />
+              )}
+            </div>
+          ))}
         </ul>
       </div>
+
       <div className="navbar-end lg:hidden">
-        <>
-          <img src="/assets/logo.svg" alt="Fully logo" width={36} height={36} />
-        </>
+        <img src="/assets/logo.svg" alt="Fully logo" width={36} height={36} />
       </div>
     </nav>
   );

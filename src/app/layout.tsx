@@ -1,7 +1,16 @@
-import { Metadata } from "next";
-import React from "react";
 import "@/styles/globals.css";
+import { Metadata } from "next";
+import { Audiowide } from "next/font/google";
+import React from "react";
 import Providers from "./providers";
+
+const audiowide = Audiowide({
+  weight: "400",
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-audiowide",
+  preload: true
+});
 
 export const metadata: Metadata = {
   title: "Fullyhacks 2025",
@@ -23,8 +32,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body>
+    <html lang="en" className={audiowide.variable}>
+      <body className={`${audiowide.className} font-audiowide`}>
         <Providers>{children}</Providers>
       </body>
     </html>

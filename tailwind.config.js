@@ -92,8 +92,7 @@ module.exports = {
         md: "700px"
       },
       fontFamily: {
-        inter: ["Inter", "sans-serif"],
-        audiowide: ["Audiowide", "sans-serif"],
+        audiowide: ["var(--font-audiowide)", "sans-serif"],
         bruno: ["Bruno Ace", "sans-serif"]
       }
     }
