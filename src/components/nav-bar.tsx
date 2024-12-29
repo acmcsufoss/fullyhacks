@@ -58,9 +58,6 @@ export const NavBarLanding: React.FC = () => {
   return (
     <nav className="navbar z-[30] text-lg text-white md:grid md:grid-cols-4 md:pl-8 md:pt-2">
       <div className="navbar-start">
-        <Link href="/" className="hidden items-center gap-2 md:flex hover:text-purple_main_hover transition-colors duration-200">
-          FullyHacks 2025
-        </Link>
         <div className="dropdown">
           <label tabIndex={0} className="btn-ghost btn md:hidden">
             <AiOutlineMenu className="h-5 w-5" />
