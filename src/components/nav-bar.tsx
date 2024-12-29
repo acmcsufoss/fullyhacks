@@ -56,13 +56,13 @@ export const NavBarLanding: React.FC = () => {
   ];
 
   return (
-    <nav className="navbar z-[30] text-lg text-white lg:grid lg:grid-cols-4 lg:pl-8 lg:pt-2">
+    <nav className="navbar z-[30] text-lg text-white md:grid md:grid-cols-4 md:pl-8 md:pt-2">
       <div className="navbar-start">
-        <Link href="/" className="hidden items-center gap-2 lg:flex hover:text-purple_main_hover transition-colors duration-200">
+        <Link href="/" className="hidden items-center gap-2 md:flex hover:text-purple_main_hover transition-colors duration-200">
           FullyHacks 2025
         </Link>
         <div className="dropdown">
-          <label tabIndex={0} className="btn-ghost btn lg:hidden">
+          <label tabIndex={0} className="btn-ghost btn md:hidden">
             <AiOutlineMenu className="h-5 w-5" />
           </label>
           <ul tabIndex={0} className="dropdown-content menu rounded-box menu-compact z-[3] ml-4 mt-3 w-52 bg-purple_300 p-2 text-[1rem] shadow">
@@ -79,26 +79,26 @@ export const NavBarLanding: React.FC = () => {
         </div>
       </div>
 
-      <div className="navbar-center hidden lg:col-span-3 xl:flex">
-        <ul className="menu menu-horizontal flex w-[100%] items-center justify-end gap-2">
+      <div className="navbar-center hidden md:col-span-3 md:flex">
+        <ul className="menu menu-horizontal flex w-full items-center justify-end gap-1 lg:gap-2">
           {menuList.map((item, index) => (
-            <div key={item.id} className="my-2 flex items-center">
+            <div key={item.id} className="flex items-center whitespace-nowrap">
               <Link
                 href={item.href}
-                className="flex items-center px-4 py-2 hover:text-purple_main_hover transition-colors duration-200">
-                <p className="cursor-pointer">
+                className="flex items-center px-2 lg:px-4 py-2 hover:text-purple_main_hover transition-colors duration-200">
+                <p className="cursor-pointer text-sm lg:text-lg">
                   {item.name}
                 </p>
               </Link>
               {index < menuList.length - 1 && (
-                <span className="h-6 border-l-4 border-white" />
+                <span className="h-6 border-l-2 border-white" />
               )}
             </div>
           ))}
         </ul>
       </div>
 
-      <div className="navbar-end lg:hidden">
+      <div className="navbar-end md:hidden">
         <img src="/assets/logo.svg" alt="Fully logo" width={36} height={36} />
       </div>
     </nav>
