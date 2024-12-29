@@ -62,11 +62,11 @@ export const NavBarLanding: React.FC = () => {
           <label tabIndex={0} className="btn-ghost btn md:hidden">
             <AiOutlineMenu className="h-5 w-5" />
           </label>
-          <ul tabIndex={0} className="dropdown-content menu rounded-box menu-compact z-[3] ml-4 mt-3 w-52 bg-purple_300 p-2 text-[1rem] shadow">
+          <ul tabIndex={0} className="dropdown-content menu rounded-box menu-compact z-[3] ml-4 mt-3 min-w-max bg-[#27233f] p-2 text-[1rem] shadow">
             {menuList.map((item) => (
-              <div key={item.id} className="my-2 flex gap-4">
-                <Link href={item.href} className="m-2 flex items-center gap-2">
-                  <p className="cursor-pointer hover:text-purple_main_hover transition-colors duration-200">
+              <div key={item.id} className="flex">
+                <Link href={item.href} className="w-full px-4 py-1.5">
+                  <p className="cursor-pointer whitespace-nowrap hover:text-purple_main_hover transition-colors duration-200">
                     {item.name}
                   </p>
                 </Link>
