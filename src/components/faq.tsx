@@ -69,19 +69,22 @@ const FAQ: React.FC<FAQProps> = (props) => {
           );
         })}
       </div>
-      <p className="mt-16 text-left text-md tracking-wide md:text-center">
-        More questions?&nbsp;
-        {/* Add new line on mobile view */}
-        <br className="md:hidden" />
-        <br className="md:hidden" />
-        Reach out to us at
-        <a href="mailto:fullyhacks@gmail.com">
-          &nbsp;
-          <span className="underline">fullyhacks@gmail.com</span>
-          &nbsp;
-        </a>
-        and we&apos;ll get back to you ASAP!
-      </p>
+      <div className="relative mt-16">
+        <div className="hidden md:block absolute inset-0 h-8 rounded-md bg-purple_shadow_blur opacity-70 blur-2xl"></div>
+        <p className="relative text-left text-md tracking-wide md:text-center">
+          More questions?&nbsp;
+          {/* Add new line on mobile view */}
+          <br className="md:hidden" />
+          <br className="md:hidden" />
+          Reach out to us at
+          <a href="mailto:fullyhacks@gmail.com">
+            &nbsp;
+            <span className="underline">fullyhacks@gmail.com</span>
+            &nbsp;
+          </a>
+          and we&apos;ll get back to you ASAP!
+        </p>
+      </div>{" "}
     </>
   );
 };
