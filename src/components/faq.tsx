@@ -26,19 +26,16 @@ export const FAQDropDown: React.FC<FAQDropDownProps> = ({
     setOpen(!opened);
   };
 
-  // Text shadow is somewhat accurate to the actual design in Figma. It's kinda hard to perfectly match it
-  const mintColorRgba = "rgba(81, 255, 206, 0.2)";
-
   return (
     <div>
       <a
-        className="block rounded-full border-5 border-white md:border-2"
+        className="block rounded-full border-5 border-white"
         onClick={toggleOpen}>
         <input type="checkbox" className={mounted ? "hidden" : ""} />
-        <div className="rounded-box flex w-full items-center justify-between rounded-b-none p-2 px-4 text-sm text-mint transition-all duration-500 ease-in-out hover:duration-200 hover:ease-in-out md:p-4 md:px-6 md:text-md lg:text-lg">
+        <div className="rounded-box flex w-full items-center justify-between rounded-b-none p-2 px-4 text-sm text-mint transition-all duration-500 ease-in-out hover:duration-200 hover:ease-in-out md:p-6 md:px-6 md:text-md lg:text-lg">
           <p
-            className="text-start text-md normal-case leading-9 md:text-lg"
-            style={{ textShadow: `0px 4px 4px ${mintColorRgba}` }}>
+            className="text-start text-md normal-case leading-9 md:text-[2.5rem]"
+            style={{ textShadow: `0px 4px 4px mint` }}>
             {question}
           </p>
         </div>
@@ -47,7 +44,7 @@ export const FAQDropDown: React.FC<FAQDropDownProps> = ({
         className={`overflow-hidden transition-[max-height] duration-500 ease-in-out ${
           opened ? "max-h-screen" : "max-h-0"
         }`}>
-        <p className="my-4 px-6 text-md text-white md:px-8">{answer}</p>
+        <p className="my-4 px-6 text-md md:text-[1.5rem] text-white md:px-8">{answer}</p>
       </div>
     </div>
   );
@@ -57,13 +54,13 @@ const FAQ: React.FC<FAQProps> = (props) => {
   const { faqs } = props;
   return (
     <>
-      <p className="mb-4 mt-14 text-xxl font-normal text-white md:text-[5rem]">
+      <p className="mb-6 md:mb-24 mt-14 text-xxl font-normal text-white md:text-[5rem]">
         FAQ
       </p>
       <div className="flex flex-col items-center">
         {faqs.map((faq: FAQType) => {
           return (
-            <div key={faq.id} className="my-4 w-full">
+            <div key={faq.id} className="my-5 md:my-12 w-full">
               <FAQDropDown question={faq.question} answer={faq.answer} />
             </div>
           );
