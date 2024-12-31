@@ -10,7 +10,7 @@ export const faqs: FAQType[] = [
   {
     id: "faq2",
     question: "When is FullyHacks?",
-    answer: "Feb 24th to Feb 25th. The hackathon will be 100% in-person."
+    answer: "April 12th to April 13th. The hackathon will be 100% in-person."
   },
   {
     id: "faq3",
@@ -28,13 +28,13 @@ export const faqs: FAQType[] = [
     id: "faq5",
     question: "What can I build?",
     answer:
-      "Anything your heart desires! Web, mobile, gaming, VR... You name it, we will support it. We offer different tracks that you can be inspired and build your project"
+      "Anything your heart desires! Web, mobile, gaming, VR... You name it, we will support it. We offer different tracks to inspire you and help you build your project."
   },
   {
     id: "faq6",
     question: "Do I need to have a team?",
     answer:
-      "Not at all! You can do solo, come with a team (no more than four people), or join some teams at FullyHacks. We will also have team building activities to help you find the right teammates!"
+      "Not at all! You can go solo, come with a team (no more than four people), or join some teams at FullyHacks. We will also have team building activities to help you find the right teammates!"
   },
   {
     id: "faq7",
@@ -45,17 +45,18 @@ export const faqs: FAQType[] = [
   {
     id: "faq8",
     question: "What should I bring?",
-    answer: "Sleeping bag, laptop, chargers, snacks & drinks, hygiene items,..."
+    answer:
+      "Bring a sleeping bag, laptop, chargers, snacks and drinks, hygiene items, and anything else you might need for a 24-hour event."
   },
   {
     id: "faq9",
     question: "When are applications due?",
-    answer: "Before 23:59 Feb 10th, 2024"
+    answer: "Applications are due by 11:59 PM (PDT) on March 24, 2025."
   },
   {
     id: "faq10",
     question: "When will I know my application status?",
     answer:
-      "All applications will be reviewed on a rolling basis until Feb 10th, you can check application status in your user portal"
+      "All applications will be reviewed on a rolling basis until March 24th, you can check application status in your user portal."
   }
 ];
