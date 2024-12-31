@@ -1,6 +1,7 @@
 import { FAQType } from "@/types/interface";
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FaChevronDown } from "react-icons/fa";
+// import { FaChevronDown } from "react-icons/fa";
 
 interface FAQProps {
   faqs: FAQType[];
@@ -11,8 +12,10 @@ interface FAQDropDownProps {
   answer: string;
 }
 
-export const FAQDropDown: React.FC<FAQDropDownProps> = (props) => {
-  const { question, answer } = props;
+export const FAQDropDown: React.FC<FAQDropDownProps> = ({
+  question,
+  answer
+}) => {
   const [opened, setOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
 
@@ -23,13 +26,16 @@ export const FAQDropDown: React.FC<FAQDropDownProps> = (props) => {
   const toggleOpen = () => {
     setOpen(!opened);
   };
+
   return (
-    <a
-      className="rounded-box collapse border-2 border-pink_200"
+    <div
+      className={`collapse border-2 border-white ${opened ? "rounded-box" : "rounded-full delay-150"}`}
       onClick={toggleOpen}>
       <input type="checkbox" className={mounted ? "hidden" : ""} />
-      <div className="collapse-title rounded-box flex w-full items-center justify-between rounded-b-none border-pink_200 bg-[#0C1B3A] bg-opacity-50 p-2 px-4 text-sm text-white transition-all duration-500 ease-in-out hover:bg-purple_hover hover:text-white hover:duration-200 hover:ease-in-out md:p-4 md:text-md lg:text-lg">
-        <p className="text-start text-[1rem] normal-case leading-9 md:text-md lg:text-lg">
+      <div className="collapse-title flex w-full items-center justify-between rounded-b-none p-2 px-4 text-mint transition-all ease-in-out hover:bg-white/10 hover:duration-200 hover:ease-in-out md:p-4 md:px-6">
+        <p
+          className="text-start normal-case md:text-md"
+          style={{ textShadow: `0px 4px 4px mint` }}>
           {question}
         </p>
         <div
@@ -40,12 +46,12 @@ export const FAQDropDown: React.FC<FAQDropDownProps> = (props) => {
         </div>
       </div>
       <div
-        className={`collapse-content w-full overflow-hidden border-solid border-pink_200 bg-[#0C1B3A] shadow-lg shadow-pink_200 transition-[max-height] duration-500 ease-in-out ${
+        className={`collapse-content w-full overflow-hidden border-solid border-white transition-[max-height] ease-in-out ${
           opened ? "max-h-screen border-t-2" : "max-h-0"
         }`}>
-        <p className="my-4 text-white md:text-md">{answer}</p>
+        <p className="my-4 px-6 text-white md:px-8 md:text-md">{answer}</p>
       </div>
-    </a>
+    </div>
   );
 };
 
@@ -53,9 +59,7 @@ const FAQ: React.FC<FAQProps> = (props) => {
   const { faqs } = props;
   return (
     <>
-      <p className="mb-4 mt-14 text-xxl font-medium text-[#B479FF] [text-shadow:_0_0_10px_#FFD8FD] md:text-[5rem]">
-        FAQ
-      </p>
+      <p className="mb-4 text-xxl font-normal text-white md:text-[5rem]">FAQ</p>
       <div className="flex flex-col items-center">
         {faqs.map((faq: FAQType) => {
           return (
@@ -65,13 +69,22 @@ const FAQ: React.FC<FAQProps> = (props) => {
           );
         })}
       </div>
-      <p className="mt-2 text-center">
-        More questions? Reach out to us at
-        <a href="mailto:fullyhacks@gmail.com" className="font-bold">
-          {" fullyhacks@gmail.com "}
-        </a>
-        and we&apos;ll get back to you ASAP!
-      </p>
+      <div className="relative mt-16">
+        <div className="absolute inset-0 hidden h-8 rounded-md bg-purple_shadow_blur opacity-70 blur-2xl md:block"></div>
+        <p className="relative text-left text-md tracking-wide md:text-center">
+          More questions?&nbsp;
+          {/* Add new line on mobile view */}
+          <br className="md:hidden" />
+          <br className="md:hidden" />
+          Reach out to us at
+          <a href="mailto:fullyhacks@gmail.com">
+            &nbsp;
+            <span className="underline">fullyhacks@gmail.com</span>
+            &nbsp;
+          </a>
+          and we&apos;ll get back to you ASAP!
+        </p>
+      </div>{" "}
     </>
   );
 };
