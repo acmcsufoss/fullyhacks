@@ -11,6 +11,7 @@ import About from "./about";
 import Sponsors from "./sponsors";
 import FAQ from "@/components/faq";
 import Team from "./team";
+import TeamConstellation from "./team-constellation";
 
 interface LandingPageProps {
   companyData: companyType[];
@@ -51,11 +52,12 @@ const LandingPage: React.FC<LandingPageProps> = (props) => {
           <Sponsors companies={companyData} />
         </div>
       </section>
-      <section className="team-container flex w-screen flex-col items-center overflow-hidden">
+      <section className="team-container flex w-screen flex-col items-center">
         <div
           id="team"
           className="mx-4 mt-8 flex max-w-[1048px] flex-col items-center justify-center font-normal md:mx-0 md:mt-40 md:text-md">
-          <Team team={teamData} />
+          <TeamConstellation />
+          {/* <Team team={teamData} /> */}
         </div>
       </section>
       <section className="relative flex w-[100vw] flex-col items-center justify-start overflow-hidden pb-40 font-normal md:pt-32 md:pb-24 md:text-md">
