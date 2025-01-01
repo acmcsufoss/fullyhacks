@@ -59,6 +59,26 @@ const LandingPage: React.FC<LandingPageProps> = (props) => {
         </div>
       </section>
       <section className="relative flex w-[100vw] flex-col items-center justify-start overflow-hidden pb-40 font-normal md:pt-32 md:pb-24 md:text-md">
+        <img
+          src="/assets/ring-galaxy.svg"
+          alt="Ring Galaxy"
+          className="absolute -left-[40%] top-[5%] w-[800px] md:-left-[25%] lg:-left-[15%]"
+        />
+        <img
+          src="/assets/ring-planet.svg"
+          alt="Planet"
+          className="absolute -right-[20%] top-1/2 w-[400px] md:top-[55%] md:-right-[25%] md:w-[600px] lg:-right-[15%] lg:w-[800px]"
+        />
+        <img
+          src="/assets/constellation.svg"
+          alt="Constellation"
+          className="absolute top-[20%] right-0 w-[300px] rotate-180 -scale-x-100 overflow-visible blur-sm brightness-110 md:w-[500px]"
+        />
+        <img
+          src="/assets/constellation.svg"
+          alt="Constellation"
+          className="absolute top-[40%] left-0 w-[300px] overflow-visible blur-sm brightness-110 md:w-[500px]"
+        />
         <div
           id="frequently-asked-questions"
           className="relative mx-4 flex max-w-[1048px] flex-col items-center justify-center font-normal md:mt-40 md:text-md">
