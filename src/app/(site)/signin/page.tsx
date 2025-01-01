@@ -1,5 +1,4 @@
 import PopUp from "@/components/pop-up";
-import Flower from "@/components/flower";
 import AuthButton from "./_components/auth-button";
 import { GenericNavBar } from "@/components/nav-bar";
 import { redirect } from "next/navigation";
@@ -13,48 +12,28 @@ export default async function SignIn() {
   }
 
   return (
-    <section className="bg-[#0B062B] text-md text-purple_main">
+    <section className="text-md text-white">
       <GenericNavBar />
-      <Flower
-        top="top-[20em] hidden md:block"
-        left="left-48"
-        width="w-36"
-        height="h-36"
-      />
-      <Flower
-        top="top-[6em] hidden md:block"
-        left="left-12"
-        width="w-36"
-        height="h-36"
-      />
-      <Flower
-        top="top-[6em] hidden md:block"
-        left="right-[4em]"
-        width="w-36"
-        height="h-36"
-      />
-      <Flower
-        top="top-[22em] hidden md:block"
-        left="right-[10em]"
-        width="w-36"
-        height="h-36"
-      />
       <PopUp
         title="Before you continue"
-        content="FullyHacks only open to college students 18 years old or older 🐘"
+        content="FullyHacks is only open to college students 18 years old or older 🐘"
         action="I understand"
       />
       <div className="relative mx-4 mt-10 flex flex-col items-center justify-center">
-        <div className="mb-16 flex flex-col items-center rounded-lg border-4 border-[#373DCB] bg-blue_rgba p-4">
-          <div className="flex flex-col items-center text-center font-normal text-white">
-            <img src="/assets/signin.svg" alt="Sign In" className="w-[320px]" />
-            <p className="mt-14 text-[2rem] font-bold md:text-[3rem]">
+        <div className="mb-16 flex flex-col items-center rounded-lg border border-white bg-gradient-to-b from-[#FFA167D9] to-[#7D22CCD9] py-8 px-16">
+          <div className="flex flex-col items-center text-center">
+            <img
+              src="/assets/plane_capybara.svg"
+              alt="Sign In Icon"
+              className="w-32 md:w-56"
+            />
+            <h2 className="mt-4 font-bruno text-lg [text-shadow:_0px_3px_3px_rgba(146,_240,_255,_0.75)] md:text-4xl">
               Welcome to FullyHacks!
-            </p>
+            </h2>
             <p>Let&apos;s sign in and start your application</p>
           </div>
           <AuthButton />
-          <p className="mt-6 text-center text-[1rem]">
+          <p className="mt-2 text-center text-[1rem]">
             Note: We use Github to keep track of your submission
           </p>
         </div>
