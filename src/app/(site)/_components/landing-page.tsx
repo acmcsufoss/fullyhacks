@@ -3,20 +3,20 @@
 import React from "react";
 import Link from "next/link";
 // import Image from "next/image";
-import { companyType, FAQType, TeamType } from "@/types/interface";
+import { companyType, FAQType, Team } from "@/types/interface";
 import { LandingFooter } from "@/components/footer";
 import Hero from "./hero";
 import CountDown from "./count-down";
 import About from "./about";
 import Sponsors from "./sponsors";
 import FAQ from "@/components/faq";
-import Team from "./team";
+// import Team from "./team";
 import TeamConstellation from "./team-constellation";
 
 interface LandingPageProps {
   companyData: companyType[];
   faqData: FAQType[];
-  teamData: TeamType[];
+  teamData: Team[];
 }
 
 const LandingPage: React.FC<LandingPageProps> = (props) => {
@@ -56,7 +56,7 @@ const LandingPage: React.FC<LandingPageProps> = (props) => {
         <div
           id="team"
           className="mx-4 mt-8 flex max-w-[1048px] flex-col items-center justify-center font-normal md:mx-0 md:mt-40 md:text-md">
-          <TeamConstellation />
+          <TeamConstellation team={teamData} />
           {/* <Team team={teamData} /> */}
         </div>
       </section>

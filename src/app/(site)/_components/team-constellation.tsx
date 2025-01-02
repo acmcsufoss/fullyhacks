@@ -427,7 +427,7 @@ function Constellation({
   );
 }
 
-const TeamConstellation = () => {
+const TeamConstellation = ({ team }: { team: Team[] }) => {
   const [teamIndex, setTeamIndex] = useState(0);
   return (
     <div className="relative">
