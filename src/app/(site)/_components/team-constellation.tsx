@@ -39,34 +39,34 @@ export const team: Team[] = [
       {
         id: "director1",
         name: "Sama",
-        image: "/",
+        image: "/team/sama.jpeg",
         role: "Director",
-        href: "https://google.com",
+        href: "https://www.linkedin.com/in/sama-ahmedd",
         vertex: { x: 400, y: 100 },
         textBelow: false
       },
       {
         id: "director2",
         name: "Eric",
-        image: "/",
+        image: "/team/eric.jpg",
         role: "Director + Finance",
-        href: "https://google.com",
+        href: "https://linkedin.com/in/lyyeric",
         vertex: { x: 250, y: 550 },
         textBelow: true
       },
       {
         id: "director3",
         name: "Joel",
-        image: "/",
+        image: "/team/joel.jpg",
         role: "Director",
-        href: "https://google.com",
+        href: "https://www.linkedin.com/in/joeldanielrico/",
         vertex: { x: 650, y: 270 },
         textBelow: false
       },
       {
         id: "director4",
         name: "Pillow",
-        image: "/",
+        image: "",
         role: "Director",
         href: "https://google.com",
         vertex: { x: 750, y: 550 },
@@ -80,7 +80,7 @@ export const team: Team[] = [
       {
         id: "web1",
         name: "Tomas",
-        image: "/",
+        image: "",
         role: "Web Team Lead",
         href: "https://google.com",
         vertex: { x: 100, y: 150 },
@@ -89,7 +89,7 @@ export const team: Team[] = [
       {
         id: "web2",
         name: "Jeremiah",
-        image: "/",
+        image: "",
         role: "Web Officer",
         href: "https://google.com",
         vertex: { x: 300, y: 120 },
@@ -98,7 +98,7 @@ export const team: Team[] = [
       {
         id: "web3",
         name: "John",
-        image: "/",
+        image: "",
         role: "Web Officer",
         href: "https://google.com",
         vertex: { x: 450, y: 190 },
@@ -107,7 +107,7 @@ export const team: Team[] = [
       {
         id: "web4",
         name: "Andres",
-        image: "/",
+        image: "",
         role: "Web Officer",
         href: "https://google.com",
         vertex: { x: 500, y: 320 },
@@ -116,7 +116,7 @@ export const team: Team[] = [
       {
         id: "web5",
         name: "Jordan",
-        image: "/",
+        image: "",
         role: "Web Officer",
         href: "https://google.com",
         vertex: { x: 530, y: 550 },
@@ -125,7 +125,7 @@ export const team: Team[] = [
       {
         id: "web6",
         name: "Gustavo",
-        image: "/",
+        image: "",
         role: "Web Officer",
         href: "https://google.com",
         vertex: { x: 850, y: 390 },
@@ -134,7 +134,7 @@ export const team: Team[] = [
       {
         id: "web7",
         name: "Daniel",
-        image: "/",
+        image: "",
         role: "Web Officer",
         href: "https://google.com",
         vertex: { x: 880, y: 620 },
@@ -148,7 +148,7 @@ export const team: Team[] = [
       {
         id: "web1",
         name: "Tomas",
-        image: "/",
+        image: "",
         role: "Web Team Lead",
         href: "https://google.com",
         vertex: { x: 100, y: 150 },
@@ -157,7 +157,7 @@ export const team: Team[] = [
       {
         id: "web2",
         name: "Jeremiah",
-        image: "/",
+        image: "",
         role: "Web Officer",
         href: "https://google.com",
         vertex: { x: 300, y: 120 },
@@ -166,7 +166,7 @@ export const team: Team[] = [
       {
         id: "web3",
         name: "John",
-        image: "/",
+        image: "",
         role: "Web Officer",
         href: "https://google.com",
         vertex: { x: 450, y: 190 },
@@ -175,7 +175,7 @@ export const team: Team[] = [
       {
         id: "web4",
         name: "Andres",
-        image: "/",
+        image: "",
         role: "Web Officer",
         href: "https://google.com",
         vertex: { x: 500, y: 320 },
@@ -184,7 +184,7 @@ export const team: Team[] = [
       {
         id: "web5",
         name: "Jordan",
-        image: "/",
+        image: "",
         role: "Web Officer",
         href: "https://google.com",
         vertex: { x: 530, y: 550 },
@@ -193,7 +193,7 @@ export const team: Team[] = [
       {
         id: "web6",
         name: "Gustavo",
-        image: "/",
+        image: "",
         role: "Web Officer",
         href: "https://google.com",
         vertex: { x: 850, y: 390 },
@@ -202,7 +202,7 @@ export const team: Team[] = [
       {
         id: "web7",
         name: "Daniel",
-        image: "/",
+        image: "",
         role: "Web Officer",
         href: "https://google.com",
         vertex: { x: 880, y: 620 },
@@ -216,7 +216,7 @@ export const team: Team[] = [
       {
         id: "marketing1",
         name: "Tomas",
-        image: "/",
+        image: "",
         role: "Web Team Lead",
         href: "https://google.com",
         vertex: { x: 100, y: 150 },
@@ -225,7 +225,7 @@ export const team: Team[] = [
       {
         id: "marketing2",
         name: "Jeremiah",
-        image: "/",
+        image: "",
         role: "Web Officer",
         href: "https://google.com",
         vertex: { x: 300, y: 120 },
@@ -234,7 +234,7 @@ export const team: Team[] = [
       {
         id: "marketing3",
         name: "John",
-        image: "/",
+        image: "",
         role: "Web Officer",
         href: "https://google.com",
         vertex: { x: 450, y: 190 },
@@ -243,7 +243,7 @@ export const team: Team[] = [
       {
         id: "marketing4",
         name: "Andres",
-        image: "/",
+        image: "",
         role: "Web Officer",
         href: "https://google.com",
         vertex: { x: 500, y: 320 },
@@ -252,7 +252,7 @@ export const team: Team[] = [
       {
         id: "marketing5",
         name: "Jordan",
-        image: "/",
+        image: "",
         role: "Web Officer",
         href: "https://google.com",
         vertex: { x: 530, y: 550 },
@@ -261,7 +261,7 @@ export const team: Team[] = [
       {
         id: "marketing6",
         name: "Gustavo",
-        image: "/",
+        image: "",
         role: "Web Officer",
         href: "https://google.com",
         vertex: { x: 850, y: 390 },
@@ -270,7 +270,7 @@ export const team: Team[] = [
       {
         id: "marketing7",
         name: "Daniel",
-        image: "/",
+        image: "",
         role: "Web Officer",
         href: "https://google.com",
         vertex: { x: 880, y: 620 },
@@ -358,6 +358,7 @@ function Constellation({
 }) {
   return (
     <motion.svg
+      className="z-10"
       key={teamIndex}
       width={1024}
       height={800}
@@ -368,7 +369,7 @@ function Constellation({
         return <LineConnector key={"Line " + i} start={start} end={end} />;
       })}
       {team.map((officer) => (
-        <a href={officer.href} key={officer.id}>
+        <a target="_blank" href={officer.href} key={officer.id}>
           <motion.svg
             whileHover="hover"
             initial="initial"
@@ -384,8 +385,13 @@ function Constellation({
               y={officer.vertex.y - 35}
               width={70}
               height={70}
-              href="/team/tuffy_rocket.svg"
+              href={
+                officer.image.length !== 0
+                  ? officer.image
+                  : "/team/tuffy_rocket.svg"
+              }
               clipPath={`url(#clip-circle-${officer.id})`}
+              preserveAspectRatio="xMidYMid slice"
             />
             {/* Name & Role */}
             <motion.text
@@ -438,7 +444,7 @@ const TeamConstellation = () => {
       />
       <div className="flex w-full items-center">
         <button
-          className={`absolute left-[15%] top-1/2 transition-transform hover:scale-110 lg:left-0 ${teamIndex === 0 ? "invisible" : ""}`}
+          className={`absolute left-[15%] top-1/2 z-20 transition-transform hover:scale-110 lg:left-0 ${teamIndex === 0 ? "invisible" : ""}`}
           onClick={() => setTeamIndex(teamIndex - 1)}>
           <MdOutlineKeyboardArrowLeft size={64} className="text-mint" />
         </button>
@@ -448,7 +454,7 @@ const TeamConstellation = () => {
           edges={teamEdges[teamIndex]}
         />
         <button
-          className={`absolute right-[15%] top-1/2 transition-transform hover:scale-110 lg:right-0 ${teamIndex === team.length - 1 ? "invisible" : ""}`}
+          className={`absolute right-[15%] top-1/2 z-20 transition-transform hover:scale-110 lg:right-0 ${teamIndex === team.length - 1 ? "invisible" : ""}`}
           onClick={() => setTeamIndex(teamIndex + 1)}>
           <MdOutlineKeyboardArrowRight size={64} className="text-mint" />
         </button>

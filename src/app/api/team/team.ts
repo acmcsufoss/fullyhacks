@@ -1,4 +1,116 @@
-import { TeamType } from "@/types/interface";
+import { Team, TeamType } from "@/types/interface";
+
+export const newTeam: Team[] = [
+  {
+    tag: "Directors",
+    teamMembers: [
+      {
+        id: "director1",
+        name: "Sama",
+        image: "/team/sama.jpeg",
+        role: "Director",
+        href: "https://www.linkedin.com/in/sama-ahmedd",
+        vertex: { x: 400, y: 100 },
+        textBelow: false
+      },
+      {
+        id: "director2",
+        name: "Eric",
+        image: "/team/eric.jpg",
+        role: "Director + Finance",
+        href: "https://linkedin.com/in/lyyeric",
+        vertex: { x: 250, y: 550 },
+        textBelow: true
+      },
+      {
+        id: "director3",
+        name: "Joel",
+        image: "/team/joel.jpg",
+        role: "Director",
+        href: "https://www.linkedin.com/in/joeldanielrico/",
+        vertex: { x: 650, y: 270 },
+        textBelow: false
+      },
+      {
+        id: "director4",
+        name: "Pillow",
+        image: "",
+        role: "Director",
+        href: "https://google.com",
+        vertex: { x: 750, y: 550 },
+        textBelow: true
+      }
+    ]
+  },
+  {
+    tag: "Web Team",
+    teamMembers: [
+      {
+        id: "web1",
+        name: "Tomas",
+        image: "",
+        role: "Web Team Lead",
+        href: "https://google.com",
+        vertex: { x: 100, y: 150 },
+        textBelow: true
+      },
+      {
+        id: "web2",
+        name: "Jeremiah",
+        image: "",
+        role: "Web Officer",
+        href: "https://google.com",
+        vertex: { x: 300, y: 120 },
+        textBelow: true
+      },
+      {
+        id: "web3",
+        name: "John",
+        image: "",
+        role: "Web Officer",
+        href: "https://google.com",
+        vertex: { x: 450, y: 190 },
+        textBelow: true
+      },
+      {
+        id: "web4",
+        name: "Andres",
+        image: "",
+        role: "Web Officer",
+        href: "https://google.com",
+        vertex: { x: 500, y: 320 },
+        textBelow: true
+      },
+      {
+        id: "web5",
+        name: "Jordan",
+        image: "",
+        role: "Web Officer",
+        href: "https://google.com",
+        vertex: { x: 530, y: 550 },
+        textBelow: true
+      },
+      {
+        id: "web6",
+        name: "Gustavo",
+        image: "",
+        role: "Web Officer",
+        href: "https://google.com",
+        vertex: { x: 850, y: 390 },
+        textBelow: true
+      },
+      {
+        id: "web7",
+        name: "Daniel",
+        image: "",
+        role: "Web Officer",
+        href: "https://google.com",
+        vertex: { x: 880, y: 620 },
+        textBelow: true
+      }
+    ]
+  }
+];
 
 export const team: TeamType[] = [
   {

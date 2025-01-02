@@ -22,6 +22,31 @@ export interface TeamType {
   href: string;
 }
 
+export interface TeamMemberCoordinates {
+  x: number;
+  y: number;
+}
+
+export interface TeamEdge {
+  start: TeamMemberCoordinates;
+  end: TeamMemberCoordinates;
+}
+
+export interface TeamMember {
+  id: string;
+  name: string;
+  role: string;
+  href: string;
+  image: string;
+  vertex: TeamMemberCoordinates;
+  textBelow: boolean;
+}
+
+export interface Team {
+  tag: string;
+  teamMembers: TeamMember[];
+}
+
 export interface FAQType {
   id: string;
   question: string;
