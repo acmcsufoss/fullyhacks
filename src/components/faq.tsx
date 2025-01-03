@@ -32,7 +32,7 @@ export const FAQDropDown: React.FC<FAQDropDownProps> = ({
       className={`collapse border-2 border-white ${opened ? "rounded-box" : "rounded-full delay-150"}`}
       onClick={toggleOpen}>
       <input type="checkbox" className={mounted ? "hidden" : ""} />
-      <div className="text-mint collapse-title flex w-full items-center justify-between rounded-b-none p-2 px-4 transition-all ease-in-out hover:bg-white/10 hover:duration-200 hover:ease-in-out md:p-4 md:px-6">
+      <div className="collapse-title flex w-full items-center justify-between rounded-b-none p-2 px-4 text-mint transition-all ease-in-out hover:bg-white/10 hover:duration-200 hover:ease-in-out md:p-4 md:px-6">
         <p
           className="text-start normal-case md:text-md"
           style={{ textShadow: `0px 4px 4px mint` }}>
@@ -70,7 +70,7 @@ const FAQ: React.FC<FAQProps> = (props) => {
         })}
       </div>
       <div className="relative mt-16">
-        <div className="bg-purple_shadow_blur absolute inset-0 z-10 hidden h-8 rounded-md opacity-70 blur-2xl md:block"></div>
+        <div className="absolute inset-0 z-10 hidden h-8 rounded-md bg-purple_shadow_blur opacity-70 blur-2xl md:block"></div>
         <p className="relative z-10 text-left text-md tracking-wide md:text-center">
           More questions?&nbsp;
           {/* Add new line on mobile view */}
