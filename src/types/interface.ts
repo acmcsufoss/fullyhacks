@@ -13,15 +13,6 @@ export interface MenuType {
   desktop: number;
 }
 
-export interface TeamType {
-  id: string;
-  name: string;
-  image: string;
-  role: string;
-  tag?: string;
-  href: string;
-}
-
 export interface TeamMemberCoordinates {
   x: number;
   y: number;
@@ -42,7 +33,7 @@ export interface TeamMember {
   textBelow: boolean;
 }
 
-export interface Team {
+export interface TeamType {
   tag: string;
   teamMembers: TeamMember[];
 }

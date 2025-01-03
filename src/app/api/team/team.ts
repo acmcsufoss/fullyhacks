@@ -1,6 +1,6 @@
-import { Team } from "@/types/interface";
+import { TeamType } from "@/types/interface";
 
-export const team: Team[] = [
+export const team: TeamType[] = [
   {
     tag: "Directors",
     teamMembers: [

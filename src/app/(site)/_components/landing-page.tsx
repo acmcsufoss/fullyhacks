@@ -2,21 +2,19 @@
 
 import React from "react";
 import Link from "next/link";
-// import Image from "next/image";
-import { companyType, FAQType, Team } from "@/types/interface";
+import { companyType, FAQType, TeamType } from "@/types/interface";
 import { LandingFooter } from "@/components/footer";
 import Hero from "./hero";
 import CountDown from "./count-down";
 import About from "./about";
 import Sponsors from "./sponsors";
+import Team from "./team";
 import FAQ from "@/components/faq";
-// import Team from "./team";
-import TeamConstellation from "./team-constellation";
 
 interface LandingPageProps {
   companyData: companyType[];
   faqData: FAQType[];
-  teamData: Team[];
+  teamData: TeamType[];
 }
 
 const LandingPage: React.FC<LandingPageProps> = (props) => {
@@ -56,8 +54,7 @@ const LandingPage: React.FC<LandingPageProps> = (props) => {
         <div
           id="team"
           className="mx-4 mt-8 flex max-w-[1048px] flex-col items-center justify-center font-normal md:mx-0 md:mt-40 md:text-md">
-          <TeamConstellation team={teamData} />
-          {/* <Team team={teamData} /> */}
+          <Team team={teamData} />
         </div>
       </section>
       <section className="relative flex w-[100vw] flex-col items-center justify-start overflow-hidden pb-40 font-normal md:pt-32 md:pb-24 md:text-md">
