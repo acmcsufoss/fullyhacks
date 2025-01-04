@@ -67,10 +67,9 @@ const TeamMemberComponent: React.FC<TeamMemberProps> = ({ member }) => {
   const color = TeamMemberTagColor.Director;
 
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col items-center w-[190px]">
       <a target="_blank" href={member.href}>
         <div className="rounded-full bg-gray-200 p-[0.3rem]">
-          {/* <div className="rounded-[50%] bg-gradient-to-b from-${color} to-purple_gradient_2 p-[0.5rem]"> */}
             <img
               src={
                 member.image.length !== 0
@@ -78,10 +77,9 @@ const TeamMemberComponent: React.FC<TeamMemberProps> = ({ member }) => {
                   : "/team/tuffy_rocket.svg"
               }
               alt={member.name}
-              className={`cursor-pointer rounded-full ${color} h-24 w-24 object-cover p-1 md:h-28 md:w-28`}
+              className={`cursor-pointer rounded-full h-24 w-24 object-cover md:h-28 md:w-28`}
             />
         </div>
-        {/* </div> */}
       </a>
       <div className="mt-2 text-center text-white">
         <p className="font-semibold">{member.name}</p>
@@ -117,7 +115,7 @@ const TeamGrid: React.FC<TeamProps> = ({ team }) => {
               key={"tag" + (i + 1)}
               onClick={() => handleTeamFiltering(tag)}
               className={`rounded-box flex cursor-pointer items-center justify-between border-2 px-4 py-2 text-white transition-all duration-500 hover:brightness-110 ${
-                filteredTag === tag ? "bg-gray-200 text-gray-800 " : "bg-gray-800 text-white"
+                filteredTag === tag ? "bg-gray-200 text-dark " : "bg-gray-800 text-white"
               }`}>
               <span>{tag}</span>
             </div>
