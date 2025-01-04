@@ -119,8 +119,8 @@ export const team: TeamType[] = [
         image: "",
         role: "Design Team Lead",
         href: "https://www.linkedin.com/in/kristenportillo",
-        vertex: { x: 880, y: 620 },
-        textBelow: true
+        vertex: { x: 250, y: 100 },
+        textBelow: false
       },
       {
         id: "design2",
@@ -128,7 +128,7 @@ export const team: TeamType[] = [
         image: "",
         role: "Design Team Lead",
         href: "https://elzie.me",
-        vertex: { x: 880, y: 620 },
+        vertex: { x: 470, y: 140 },
         textBelow: true
       },
       {
@@ -137,7 +137,7 @@ export const team: TeamType[] = [
         image: "",
         role: "Design Officer",
         href: "",
-        vertex: { x: 880, y: 620 },
+        vertex: { x: 200, y: 220 },
         textBelow: true
       },
       {
@@ -146,7 +146,7 @@ export const team: TeamType[] = [
         image: "",
         role: "Design Officer",
         href: "",
-        vertex: { x: 880, y: 620 },
+        vertex: { x: 410, y: 420 },
         textBelow: true
       },
       {
@@ -155,7 +155,7 @@ export const team: TeamType[] = [
         image: "",
         role: "Design Officer",
         href: "",
-        vertex: { x: 880, y: 620 },
+        vertex: { x: 580, y: 380 },
         textBelow: true
       },
       {
@@ -164,7 +164,7 @@ export const team: TeamType[] = [
         image: "",
         role: "Design Officer",
         href: "",
-        vertex: { x: 880, y: 620 },
+        vertex: { x: 430, y: 700 },
         textBelow: true
       },
       {
@@ -187,7 +187,7 @@ export const team: TeamType[] = [
         image: "",
         role: "Marketing Team Lead",
         href: "",
-        vertex: { x: 880, y: 620 },
+        vertex: { x: 630, y: 60 },
         textBelow: true
       },
       {
@@ -196,7 +196,7 @@ export const team: TeamType[] = [
         image: "",
         role: "Marketing Officer",
         href: "",
-        vertex: { x: 880, y: 620 },
+        vertex: { x: 290, y: 270 },
         textBelow: true
       },
       {
@@ -205,7 +205,7 @@ export const team: TeamType[] = [
         image: "",
         role: "Marketing Officer",
         href: "",
-        vertex: { x: 880, y: 620 },
+        vertex: { x: 790, y: 370 },
         textBelow: true
       },
       {
@@ -214,7 +214,7 @@ export const team: TeamType[] = [
         image: "",
         role: "Marketing Officer",
         href: "",
-        vertex: { x: 880, y: 620 },
+        vertex: { x: 200, y: 690 },
         textBelow: true
       },
       {
@@ -223,7 +223,7 @@ export const team: TeamType[] = [
         image: "",
         role: "Marketing Officer",
         href: "",
-        vertex: { x: 880, y: 620 },
+        vertex: { x: 740, y: 650 },
         textBelow: true
       }
     ]
@@ -238,7 +238,7 @@ export const team: TeamType[] = [
         image: "",
         role: "Operations Team Lead",
         href: "",
-        vertex: { x: 880, y: 620 },
+        vertex: { x: 340, y: 50 },
         textBelow: true
       },
       {
@@ -247,7 +247,7 @@ export const team: TeamType[] = [
         image: "",
         role: "Operations Officer",
         href: "",
-        vertex: { x: 880, y: 620 },
+        vertex: { x: 500, y: 100 },
         textBelow: true
       },
       {
@@ -256,7 +256,7 @@ export const team: TeamType[] = [
         image: "",
         role: "Operations Officer",
         href: "",
-        vertex: { x: 880, y: 620 },
+        vertex: { x: 680, y: 70 },
         textBelow: true
       },
       {
@@ -265,7 +265,7 @@ export const team: TeamType[] = [
         image: "",
         role: "Operations Officer",
         href: "",
-        vertex: { x: 880, y: 620 },
+        vertex: { x: 300, y: 240 },
         textBelow: true
       },
       {
@@ -274,7 +274,7 @@ export const team: TeamType[] = [
         image: "",
         role: "Operations Officer",
         href: "",
-        vertex: { x: 880, y: 620 },
+        vertex: { x: 740, y: 220 },
         textBelow: true
       },
       {
@@ -283,7 +283,7 @@ export const team: TeamType[] = [
         image: "",
         role: "Operations Officer",
         href: "",
-        vertex: { x: 880, y: 620 },
+        vertex: { x: 220, y: 380 },
         textBelow: true
       },
       {
@@ -292,7 +292,7 @@ export const team: TeamType[] = [
         image: "",
         role: "Operations Officer",
         href: "",
-        vertex: { x: 880, y: 620 },
+        vertex: { x: 320, y: 520 },
         textBelow: true
       },
       {
@@ -301,7 +301,7 @@ export const team: TeamType[] = [
         image: "",
         role: "Operations Officer",
         href: "",
-        vertex: { x: 880, y: 620 },
+        vertex: { x: 480, y: 390 },
         textBelow: true
       },
       {
@@ -310,7 +310,7 @@ export const team: TeamType[] = [
         image: "",
         role: "Operations Officer",
         href: "",
-        vertex: { x: 880, y: 620 },
+        vertex: { x: 680, y: 410 },
         textBelow: true
       },
       {
@@ -319,7 +319,7 @@ export const team: TeamType[] = [
         image: "",
         role: "Operations Officer",
         href: "",
-        vertex: { x: 880, y: 620 },
+        vertex: { x: 840, y: 470 },
         textBelow: true
       },
       {
@@ -328,7 +328,7 @@ export const team: TeamType[] = [
         image: "",
         role: "Operations Officer",
         href: "",
-        vertex: { x: 880, y: 620 },
+        vertex: { x: 460, y: 640 },
         textBelow: true
       },
       {
@@ -337,7 +337,7 @@ export const team: TeamType[] = [
         image: "",
         role: "Operations Officer",
         href: "",
-        vertex: { x: 880, y: 620 },
+        vertex: { x: 690, y: 680 },
         textBelow: true
       },
       {
@@ -346,7 +346,7 @@ export const team: TeamType[] = [
         image: "",
         role: "Operations Officer",
         href: "",
-        vertex: { x: 880, y: 620 },
+        vertex: { x: 820, y: 620 },
         textBelow: true
       }
     ]
@@ -360,7 +360,7 @@ export const team: TeamType[] = [
         image: "",
         role: "Operations Officer",
         href: "",
-        vertex: { x: 880, y: 620 },
+        vertex: { x: 250, y: 70 },
         textBelow: true
       },
       {
@@ -369,7 +369,7 @@ export const team: TeamType[] = [
         image: "",
         role: "Operations Officer",
         href: "",
-        vertex: { x: 880, y: 620 },
+        vertex: { x: 200, y: 220 },
         textBelow: true
       },
       {
@@ -378,7 +378,7 @@ export const team: TeamType[] = [
         image: "",
         role: "Operations Officer",
         href: "",
-        vertex: { x: 880, y: 620 },
+        vertex: { x: 410, y: 50 },
         textBelow: true
       },
       {
@@ -387,7 +387,7 @@ export const team: TeamType[] = [
         image: "",
         role: "Operations Officer",
         href: "",
-        vertex: { x: 880, y: 620 },
+        vertex: { x: 520, y: 120 },
         textBelow: true
       },
       {
@@ -396,7 +396,7 @@ export const team: TeamType[] = [
         image: "",
         role: "Operations Officer",
         href: "",
-        vertex: { x: 880, y: 620 },
+        vertex: { x: 390, y: 250 },
         textBelow: true
       },
       {
@@ -405,7 +405,7 @@ export const team: TeamType[] = [
         image: "",
         role: "Operations Officer",
         href: "",
-        vertex: { x: 880, y: 620 },
+        vertex: { x: 420, y: 370 },
         textBelow: true
       },
       {
@@ -414,7 +414,7 @@ export const team: TeamType[] = [
         image: "",
         role: "Operations Officer",
         href: "",
-        vertex: { x: 880, y: 620 },
+        vertex: { x: 550, y: 390 },
         textBelow: true
       },
       {
@@ -423,7 +423,7 @@ export const team: TeamType[] = [
         image: "",
         role: "Operations Officer",
         href: "",
-        vertex: { x: 880, y: 620 },
+        vertex: { x: 560, y: 520 },
         textBelow: true
       },
       {
@@ -432,7 +432,7 @@ export const team: TeamType[] = [
         image: "",
         role: "Operations Officer",
         href: "",
-        vertex: { x: 880, y: 620 },
+        vertex: { x: 720, y: 490 },
         textBelow: true
       },
       {
@@ -441,7 +441,7 @@ export const team: TeamType[] = [
         image: "",
         role: "Operations Officer",
         href: "",
-        vertex: { x: 880, y: 620 },
+        vertex: { x: 400, y: 620 },
         textBelow: true
       },
       {
@@ -450,7 +450,7 @@ export const team: TeamType[] = [
         image: "",
         role: "Operations Officer",
         href: "",
-        vertex: { x: 880, y: 620 },
+        vertex: { x: 850, y: 440 },
         textBelow: true
       },
       {
@@ -468,7 +468,7 @@ export const team: TeamType[] = [
         image: "",
         role: "Operations Officer",
         href: "",
-        vertex: { x: 880, y: 620 },
+        vertex: { x: 570, y: 690 },
         textBelow: true
       },
       {
@@ -477,7 +477,7 @@ export const team: TeamType[] = [
         image: "",
         role: "Operations Officer",
         href: "",
-        vertex: { x: 880, y: 620 },
+        vertex: { x: 720, y: 700 },
         textBelow: true
       }
     ]
