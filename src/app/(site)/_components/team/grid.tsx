@@ -117,7 +117,7 @@ const TeamGrid: React.FC<TeamProps> = ({ team }) => {
               key={"tag" + (i + 1)}
               onClick={() => handleTeamFiltering(tag)}
               className={`rounded-box flex cursor-pointer items-center justify-between border-2 px-4 py-2 text-white transition-all duration-500 hover:brightness-110 ${
-                filteredTag === tag ? "bg-gray-200 text-gray-900 " : "bg-gray-800 text-white"
+                filteredTag === tag ? "bg-gray-200 text-gray-800 " : "bg-gray-800 text-white"
               }`}>
               <span>{tag}</span>
             </div>
