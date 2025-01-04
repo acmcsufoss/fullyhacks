@@ -70,8 +70,8 @@ const FAQ: React.FC<FAQProps> = (props) => {
         })}
       </div>
       <div className="relative mt-16">
-        <div className="absolute inset-0 hidden h-8 rounded-md bg-purple_shadow_blur opacity-70 blur-2xl md:block"></div>
-        <p className="relative text-left text-md tracking-wide md:text-center">
+        <div className="absolute inset-0 z-10 hidden h-8 rounded-md bg-purple_shadow_blur opacity-70 blur-2xl md:block"></div>
+        <p className="relative z-10 text-left text-md tracking-wide md:text-center">
           More questions?&nbsp;
           {/* Add new line on mobile view */}
           <br className="md:hidden" />

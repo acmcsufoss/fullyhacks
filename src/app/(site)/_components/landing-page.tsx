@@ -10,6 +10,7 @@ import About from "./about";
 import Sponsors from "./sponsors";
 import Team from "./team";
 import FAQ from "@/components/faq";
+import { FAQBackgroundEffects } from "./background-effects";
 
 interface LandingPageProps {
   companyData: companyType[];
@@ -57,7 +58,8 @@ const LandingPage: React.FC<LandingPageProps> = (props) => {
           <Team team={teamData} />
         </div>
       </section>
-      <section className="relative flex w-[100vw] flex-col items-center justify-start overflow-hidden pb-40 font-normal md:pt-32 md:pb-24 md:text-md">
+      <section className="relative flex w-[100vw] flex-col items-center justify-start overflow-visible pb-40 font-normal md:pt-32 md:pb-24 md:text-md">
+        <FAQBackgroundEffects />
         <div
           id="frequently-asked-questions"
           className="relative mx-4 flex max-w-[1048px] flex-col items-center justify-center font-normal md:mt-40 md:text-md">
