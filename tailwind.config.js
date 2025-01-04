@@ -90,9 +90,6 @@ module.exports = {
       backgroundColor: {
         body_bg: "#FFFAF1"
       },
-      screens: {
-        md: "700px"
-      },
       fontFamily: {
         inter: ["Inter", "sans-serif"],
         audiowide: ["Audiowide", "sans-serif"],
