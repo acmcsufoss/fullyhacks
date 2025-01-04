@@ -63,13 +63,13 @@ const filterTeamMembers = (team: TeamType[], tag: string): TeamMember[] => {
 };
 
 const TeamMemberComponent: React.FC<TeamMemberProps> = ({ member }) => {
+  // const color = TeamMemberTagColor[tag as keyof typeof TeamMemberTagColor];
   const color = TeamMemberTagColor.Director;
 
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col items-center w-[190px]">
       <a target="_blank" href={member.href}>
-        <div className="rounded-[50%] bg-white p-1 [box-shadow:_0_0_10px_#FFFFFF]">
-          <div className="rounded-[50%] bg-gradient-to-b from-purple_gradient_1 to-purple_gradient_2 p-[0.75rem]">
+        <div className="rounded-full bg-gray-200 p-[0.3rem]">
             <img
               src={
                 member.image.length !== 0
@@ -77,14 +77,13 @@ const TeamMemberComponent: React.FC<TeamMemberProps> = ({ member }) => {
                   : "/team/tuffy_rocket.svg"
               }
               alt={member.name}
-              className={`cursor-pointer rounded-[50%] ${color} h-20 w-20 object-cover p-1 md:h-28 md:w-28`}
+              className={`cursor-pointer rounded-full h-24 w-24 object-cover md:h-28 md:w-28`}
             />
-          </div>
         </div>
       </a>
-      <div className="mt-4 text-white">
+      <div className="mt-2 text-center text-white">
         <p className="font-semibold">{member.name}</p>
-        <p className="font-light">{member.role}</p>
+        <p className="text-sm opacity-80">{member.role}</p>
       </div>
     </div>
   );
@@ -92,7 +91,7 @@ const TeamMemberComponent: React.FC<TeamMemberProps> = ({ member }) => {
 
 const TeamGrid: React.FC<TeamProps> = ({ team }) => {
   const [filteredTeam, setFilteredTeam] = useState<TeamMember[][]>(
-    listToMatrix(filterTeamMembers(team, "All"))
+    listToMatrix(filterTeamMembers(team, "All"), 4)
   );
   const [filteredTag, setFilteredTag] = useState("");
   const [carouselIndex, setCarouselIndex] = useState(0);
@@ -100,10 +99,12 @@ const TeamGrid: React.FC<TeamProps> = ({ team }) => {
   // Handle all team filtering options
   const handleTeamFiltering = (tag: string) => {
     setFilteredTag(tag);
-    const newFilteredTeam = listToMatrix(filterTeamMembers(team, tag));
+    const newFilteredTeam = listToMatrix(filterTeamMembers(team, tag), 4);
     setFilteredTeam(newFilteredTeam);
     setCarouselIndex(0);
   };
+
+  const progress = ((carouselIndex + 1) / filteredTeam.length) * 100;
 
   return (
     <>
@@ -113,28 +114,28 @@ const TeamGrid: React.FC<TeamProps> = ({ team }) => {
             <div
               key={"tag" + (i + 1)}
               onClick={() => handleTeamFiltering(tag)}
-              className={`rounded-box flex cursor-pointer items-center justify-between border-2 border-pink_200 px-4 py-2 text-white transition-all duration-500 hover:brightness-110 ${
-                filteredTag === tag ? "bg-pink_200" : ""
+              className={`rounded-box flex cursor-pointer items-center justify-between border-2 px-4 py-2 text-white transition-all duration-500 hover:brightness-110 ${
+                filteredTag === tag ? "bg-gray-200 text-dark " : "bg-gray-800 text-white"
               }`}>
               <span>{tag}</span>
             </div>
           );
         })}
       </div>
-
+      
       {carouselIndex > 0 && (
         <button
           onClick={() => setCarouselIndex(carouselIndex - 1)}
-          className="absolute top-[26rem] -left-3 flex cursor-pointer items-center justify-between rounded-full border-2 border-pink_200 p-4 text-white transition-all duration-500 hover:bg-purple_hover md:top-96 md:-left-6 lg:-left-12">
-          <FaChevronLeft className="h-2 w-2 md:h-4 md:w-4" />
+          className="absolute top-[30rem] -left-3 flex cursor-pointer items-center justify-between rounded-full p-4 text-white transition-all duration-500 hover:bg-purple_hover md:top-96 md:-left-6 lg:-left-12">
+          <FaChevronLeft className="h-4 w-4 md:h-6 md:w-6" />
         </button>
       )}
 
       {carouselIndex < filteredTeam.length - 1 && (
         <button
           onClick={() => setCarouselIndex(carouselIndex + 1)}
-          className="absolute top-[26rem] -right-3 flex cursor-pointer items-center justify-between rounded-full border-2 border-pink_200 p-4 text-white transition-all duration-500 hover:bg-purple_hover md:top-96 md:-right-6 lg:-right-12">
-          <FaChevronRight className="h-2 w-2 md:h-4 md:w-4" />
+          className="absolute top-[30rem] -right-3 flex cursor-pointer items-center justify-between rounded-full p-4 text-white transition-all duration-500 hover:bg-purple_hover md:top-96 md:-right-6 lg:-right-12">
+          <FaChevronRight className="h-4 w-4 md:h-6 md:w-6" />
         </button>
       )}
 
@@ -146,6 +147,17 @@ const TeamGrid: React.FC<TeamProps> = ({ team }) => {
           });
         })}
       </section>
+
+      {filteredTeam.length > 1 && (
+          <div className="relative mt-8 h-3 w-96 bg-gray-600 rounded-full overflow-hidden">
+          {/* Progress bar fill */}
+          <div
+            className="absolute rounded-full left-0 top-0 h-full bg-white transition-all duration-300"
+            style={{ width: `${progress}%` }}
+          />
+        </div>
+        )}
+
     </>
   );
 };
