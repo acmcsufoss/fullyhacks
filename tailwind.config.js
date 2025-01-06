@@ -40,11 +40,17 @@ module.exports = {
           "40%, 60%": {
             transform: "translate3d(4px, 0, 0)"
           }
+        },
+        flicker: {
+          '0%, 100%': { opacity: '0.7' },
+          '50%': {opacity: '0.2'}
+
         }
       },
       animation: {
         float: "float 3s infinite ease-in-out",
-        shake: "shake 0.82s cubic-bezier(.36,.07,.19,.97) both"
+        shake: "shake 0.82s cubic-bezier(.36,.07,.19,.97) both",
+        flicker: "flicker 1.5s infinite"
       },
       fontSize: {
         md: "1.25rem",

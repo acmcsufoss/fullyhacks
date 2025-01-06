@@ -1,27 +1,16 @@
 import { companyType } from "@/types/interface";
 import React from "react";
 
-interface SponsorBalloonProps {
+interface SponsorAsteroidProps {
   company: companyType;
 }
 
-const SponsorBalloon: React.FC<SponsorBalloonProps> = (props) => {
+const SponsorAsteroid: React.FC<SponsorAsteroidProps> = (props) => {
   const { company } = props;
 
   return (
-    <div className="relative w-52 animate-float motion-reduce:animate-none md:w-72">
-      <img src="/assets/sponsor_balloon.svg" alt="Sponsor Balloon" />
-      <a
-        className="text-center"
-        target="_blank"
-        href={company.href}
-        title={company.name}>
-        <img
-          className="absolute top-0 bottom-14 left-0 right-0 z-20 m-auto w-24 md:bottom-20 md:w-32"
-          src={company.image}
-          alt={company.name}
-        />
-      </a>
+    <div className="relative">
+      <img src="/assets/sponsor_asteroid.svg" alt="Sponsor Asteroid" />
     </div>
   );
 };
@@ -32,16 +21,71 @@ interface SponsorProps {
 
 const Sponsors: React.FC<SponsorProps> = (props) => {
   const { companies } = props;
+
+  // Predefined positions for larger screens
+  const zones = [
+    { top: "20%", left: "40%" },
+    { top: "35%", left: "20%" },
+    { top: "50%", left: "50%" },
+    { top: "60%", left: "10%" },
+    { top: "70%", left: "30%" },
+    { top: "25%", left: "70%" },
+  ];
+
   return (
-    <div className="flex flex-col items-center justify-center">
-      <h2 className="mt-10 text-center text-xxl font-medium text-[#D7EEFF] [text-shadow:_0_0_10px_#719BCC] md:text-[5rem]">
-        Sponsors
-      </h2>
-      <section className="my-10 grid grid-cols-2 items-center justify-center gap-4 md:gap-x-12 lg:grid-cols-3">
-        {companies.map((company: companyType) => {
-          return <SponsorBalloon key={company.id} company={company} />;
-        })}
-      </section>
+    <div className="relative h-[90vh] w-full overflow-hidden">
+      {/* UFO and Light Cone (Visible Only on Larger Screens) */}
+      <div className="hidden md:block absolute top-0 left-0">
+        <div className="relative">
+          {/* UFO */}
+          <img
+            src="/assets/combined_ufo.png"
+            alt="UFO"
+            className="w-[40vw] md:w-[30vw] lg:w-[25vw]"
+          />
+          {/* Cone */}
+          <img
+            src="/assets/cone.svg"
+            alt="Light Cone"
+            className="absolute top-[66%] left-[80%] transform -translate-x-1/2 w-[50vw] md:w-[40vw] lg:w-[35vw] opacity-70 animate-flicker"
+          />
+        </div>
+      </div>
+
+      {/* Sponsors Section */}
+      <div className="relative h-full w-full">
+        {/* Larger Screens: Random Asteroid Placement */}
+        <div className="hidden md:block">
+          {companies.map((company: companyType, index) => {
+            const position = zones[index % zones.length]; // Cycle through zones
+
+            return (
+              <div
+                key={company.id}
+                style={{
+                  position: "absolute",
+                  top: position.top,
+                  left: position.left,
+                }}
+                className="w-[15vw] md:w-[12vw] lg:w-[10vw]"
+              >
+                <SponsorAsteroid company={company} />
+              </div>
+            );
+          })}
+        </div>
+
+        {/* Smaller Screens: Stacked Asteroids */}
+        <div className="block md:hidden">
+          <div className="flex flex-col items-center gap-6">
+            {companies.map((company: companyType) => (
+              <div key={company.id} className="w-[120px]">
+                <SponsorAsteroid company={company} />
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
