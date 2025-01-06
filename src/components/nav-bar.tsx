@@ -11,7 +11,7 @@ import {
 } from "react-icons/ai";
 import { BiCalendarEvent, BiHomeAlt, BiLogOut, BiUserCircle } from "react-icons/bi";
 import { BsDiscord, BsLightbulb } from "react-icons/bs";
-import { HiOutlineSpeakerphone } from "react-icons/hi";
+import { HiMenu, HiOutlineSpeakerphone } from "react-icons/hi";
 import { HiOutlineTrophy } from "react-icons/hi2";
 import { IoArrowBackSharp } from "react-icons/io5";
 import { SlEnergy } from "react-icons/sl";
@@ -88,8 +88,8 @@ export const NavBarLanding: React.FC = () => {
       {/* Mobile Navigation */}
       <div className="flex lg:hidden w-full items-center justify-between px-4 py-2">
         <div className="dropdown">
-          <label tabIndex={0} className="btn-ghost btn">
-            <AiOutlineMenu className="h-6 w-6 stroke-[2]" />
+          <label tabIndex={0} className="btn-ghost btn p-2">
+            <HiMenu className="h-10 w-10 opacity-80" />
           </label>
           <ul tabIndex={0} className="dropdown-content menu rounded-box menu-compact z-[3] mt-3 min-w-max bg-[#27233f] p-2 shadow">
             {menuList.map((item) => (
