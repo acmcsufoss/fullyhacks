@@ -65,6 +65,7 @@ module.exports = {
         purple_300: "#9EA8FF",
         purple_hover: "#3b3561",
         purple_500: "#4F38DF",
+        purple_shadow_blur: "#6F6795",
         pink_700: "#B438DF",
         pink_400: "#FF8F8F",
         pink_300: "#DF389C",
@@ -79,7 +80,8 @@ module.exports = {
         beige: "#D9D9D9",
         white: "#FFF",
         purple_card: "#1E2D79",
-        cyan: "#46C8E5"
+        cyan: "#46C8E5",
+        mint: "#51FFCE"
       },
       textColor: {
         purple_main: "#EB6EFF",
@@ -88,15 +90,12 @@ module.exports = {
       backgroundColor: {
         body_bg: "#FFFAF1"
       },
-      screens: {
-        'sm': '640px',
-        'md': '700px',
-        'lg': '1024px',
-        'xl': '1280px'
-      },
       fontFamily: {
         audiowide: ["var(--font-audiowide)", "sans-serif"],
         bruno: ["Bruno Ace", "sans-serif"]
+      },
+      borderWidth: {
+        5: "5px"
       }
     }
   },
