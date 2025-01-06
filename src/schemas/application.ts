@@ -1,6 +1,6 @@
-import uniJson from "@/data/usuni.json";
+import uniJson from "@/lib/data/usuni.json";
 import { University } from "@/types/interface";
-import { bool, InferType, number, object, string } from "yup";
+import { InferType, number, object, string } from "yup";
 
 const usUni: University[] = uniJson.usUniveristies;
 export const applicationSchema = object({

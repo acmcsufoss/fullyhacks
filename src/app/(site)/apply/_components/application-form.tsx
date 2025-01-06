@@ -7,8 +7,6 @@ import * as yup from "yup";
 import axios from "axios";
 import Loading from "@/components/loading";
 import SchoolSuggestion from "./school-suggestion";
-import uniJson from "@/data/usuni.json";
-import { University } from "@/types/interface";
 import { redirect } from "next/navigation";
 
 interface ApplicationState {

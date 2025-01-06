@@ -19,15 +19,6 @@ interface TeamMemberProps {
   member: TeamMember;
 }
 
-enum TeamMemberTagColor {
-  "Director" = "bg-[#C614E4]",
-  "Web" = "bg-[#EE9292]",
-  "Design" = "bg-[#FB3E3E]",
-  "Marketing" = "bg-[rgb(20,71,255)]",
-  "Finance" = "bg-[#FCFF60]",
-  "Operation" = "bg-[#56FF71]"
-}
-
 const listToMatrix = (list: TeamMember[], n: number = 8) => {
   // separate the all list into groups of n elements
   let matrix: TeamMember[][] = [];
@@ -63,9 +54,6 @@ const filterTeamMembers = (team: TeamType[], tag: string): TeamMember[] => {
 };
 
 const TeamMemberComponent: React.FC<TeamMemberProps> = ({ member }) => {
-  // const color = TeamMemberTagColor[tag as keyof typeof TeamMemberTagColor];
-  const color = TeamMemberTagColor.Director;
-
   return (
     <div className="flex w-[190px] flex-col items-center">
       <a target="_blank" href={member.href}>
@@ -114,7 +102,7 @@ const TeamGrid: React.FC<TeamProps> = ({ team }) => {
             <div
               key={"tag" + (i + 1)}
               onClick={() => handleTeamFiltering(tag)}
-              className={`rounded-box flex cursor-pointer items-center justify-between border-2 px-4 py-2 text-white transition-all duration-500 hover:brightness-110 ${
+              className={`rounded-box flex cursor-pointer items-center justify-between border-2 px-4 py-2 transition-all duration-500 hover:brightness-110 ${
                 filteredTag === tag
                   ? "bg-gray-200 text-gray-800"
                   : "bg-gray-800 text-white"

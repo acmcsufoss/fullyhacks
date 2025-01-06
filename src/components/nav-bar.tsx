@@ -66,7 +66,7 @@ export const NavBarLanding: React.FC = () => {
       <div className="hidden w-full items-center justify-between px-4 py-4 sm:px-6 lg:flex lg:px-8">
         <Link href="/" className="flex-shrink-0">
           <img
-            src="/assets/fullyhacks_navbar_logo.png"
+            src="/assets/fullyhacks_logo.png"
             alt="FullyHacks 2025"
             className="w-16 md:w-24"
           />
