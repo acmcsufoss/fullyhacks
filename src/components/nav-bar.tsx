@@ -86,16 +86,16 @@ export const NavBarLanding: React.FC = () => {
       </div>
 
       {/* Mobile Navigation */}
-      <div className="flex lg:hidden w-full items-center justify-between px-4 py-2">
+      <div className="flex lg:hidden w-full items-center justify-between px-4">
         <div className="dropdown">
           <label tabIndex={0} className="btn-ghost btn p-2">
-            <HiMenu className="h-10 w-10 opacity-80" />
+            <HiMenu className="h-12 w-12 opacity-80" />
           </label>
-          <ul tabIndex={0} className="dropdown-content menu rounded-box menu-compact z-[3] mt-3 min-w-max bg-[#27233f] p-2 shadow">
+          <ul tabIndex={0} className="dropdown-content menu rounded-box menu-compact z-[3] mt-3 min-w-max bg-[#27233f] p-4 shadow scale-110">
             {menuList.map((item) => (
               <div key={item.id} className="flex">
-                <Link href={item.href} className="w-full px-4 py-1.5">
-                  <p className="cursor-pointer whitespace-nowrap text-sm sm:text-base hover:text-purple_main_hover transition-all duration-200">
+                <Link href={item.href} className="w-full px-6 py-2.5">
+                  <p className="cursor-pointer whitespace-nowrap text-base sm:text-lg hover:text-purple_main_hover transition-all duration-200">
                     {item.name}
                   </p>
                 </Link>
@@ -107,7 +107,7 @@ export const NavBarLanding: React.FC = () => {
         <img
           src="/assets/fullyhacks_navbar_logo.png"
           alt="FullyHacks 2025"
-          className="h-12 w-12 sm:h-14 sm:w-14 transition-all duration-200"
+          className="h-16 w-16 sm:h-20 sm:w-20 transition-all duration-200"
         />
       </div>
     </nav>
