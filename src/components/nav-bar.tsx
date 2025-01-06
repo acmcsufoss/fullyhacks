@@ -76,7 +76,7 @@ export const NavBarLanding: React.FC = () => {
                 {item.name}
               </Link>
               {index < menuList.length - 1 && (
-                <span className="h-6 border-l-2 border-white" />
+                <span className="mx-2 h-6 w-[2px] self-center bg-white" />
               )}
             </div>
           ))}
