@@ -89,7 +89,10 @@ module.exports = {
         body_bg: "#FFFAF1"
       },
       screens: {
-        md: "700px"
+        'sm': '640px',
+        'md': '700px',
+        'lg': '1024px',
+        'xl': '1280px'
       },
       fontFamily: {
         audiowide: ["var(--font-audiowide)", "sans-serif"],

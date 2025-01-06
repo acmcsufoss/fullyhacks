@@ -56,13 +56,40 @@ export const NavBarLanding: React.FC = () => {
   ];
 
   return (
-    <nav className="navbar z-[30] text-lg text-white md:grid md:grid-cols-4 md:pl-8 md:pt-2">
-      <div className="navbar-start">
+    <nav className="navbar z-[30] text-lg text-white">
+      {/* Desktop Navigation */}
+      <div className="hidden lg:flex w-full items-center justify-between px-8 py-4">
+        <Link href="/" className="flex-shrink-0">
+          <img
+            src="/assets/fullyhacks_navbar_logo.png"
+            alt="FullyHacks 2025"
+            className="aspect-square h-20 w-20 xl:h-24 xl:w-24"
+          />
+        </Link>
+
+        <ul className="flex items-center space-x-2">
+          {menuList.map((item, index) => (
+            <div key={item.id} className="flex items-center whitespace-nowrap">
+              <Link
+                href={item.href}
+                className="flex items-center px-4 py-2 text-base hover:text-purple_main_hover transition-colors duration-200 xl:text-lg">
+                {item.name}
+              </Link>
+              {index < menuList.length - 1 && (
+                <span className="h-6 border-l-2 border-white" />
+              )}
+            </div>
+          ))}
+        </ul>
+      </div>
+
+      {/* Mobile Navigation */}
+      <div className="flex lg:hidden w-full items-center justify-between px-4 py-2">
         <div className="dropdown">
-          <label tabIndex={0} className="btn-ghost btn md:hidden">
+          <label tabIndex={0} className="btn-ghost btn">
             <AiOutlineMenu className="h-6 w-6 stroke-[2]" />
           </label>
-          <ul tabIndex={0} className="dropdown-content menu rounded-box menu-compact z-[3] ml-4 mt-3 min-w-max bg-[#27233f] p-2 text-[1rem] shadow">
+          <ul tabIndex={0} className="dropdown-content menu rounded-box menu-compact z-[3] mt-3 min-w-max bg-[#27233f] p-2 text-[1rem] shadow">
             {menuList.map((item) => (
               <div key={item.id} className="flex">
                 <Link href={item.href} className="w-full px-4 py-1.5">
@@ -74,29 +101,12 @@ export const NavBarLanding: React.FC = () => {
             ))}
           </ul>
         </div>
-      </div>
 
-      <div className="navbar-center hidden md:col-span-3 md:flex">
-        <ul className="menu menu-horizontal flex w-full items-center justify-end gap-1 lg:gap-2">
-          {menuList.map((item, index) => (
-            <div key={item.id} className="flex items-center whitespace-nowrap">
-              <Link
-                href={item.href}
-                className="flex items-center px-2 lg:px-4 py-2 hover:text-purple_main_hover transition-colors duration-200">
-                <p className="cursor-pointer text-sm lg:text-lg">
-                  {item.name}
-                </p>
-              </Link>
-              {index < menuList.length - 1 && (
-                <span className="h-6 border-l-2 border-white" />
-              )}
-            </div>
-          ))}
-        </ul>
-      </div>
-
-      <div className="navbar-end md:hidden">
-        <img src="/assets/logo.svg" alt="Fully logo" width={36} height={36} />
+        <img
+          src="/assets/fullyhacks_navbar_logo.png"
+          alt="FullyHacks 2025"
+          className="h-16 w-16"
+        />
       </div>
     </nav>
   );
