@@ -40,7 +40,7 @@ const LandingPage: React.FC<LandingPageProps> = (props) => {
         </div>
         <div
           id="about-fullyhacks"
-          className="relative mt-40 flex max-w-[1048px] flex-col items-center justify-center font-normal md:flex-row md:text-md">
+          className="relative mt-40 flex min-w-[300px] max-w-[1048px] flex-col items-center justify-center font-normal md:flex-row md:text-md">
           <About />
         </div>
       </section>
