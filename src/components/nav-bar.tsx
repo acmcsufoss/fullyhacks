@@ -56,27 +56,29 @@ export const NavBarLanding: React.FC = () => {
   ];
 
   return (
-    <nav className="navbar z-[30] text-lg text-white">
+    <nav className="navbar relative z-[30] text-white">
       {/* Desktop Navigation */}
-      <div className="hidden lg:flex w-full items-center justify-between px-8 py-4">
+      <div className="hidden w-full lg:flex items-center justify-between px-4 sm:px-6 lg:px-8 py-4">
         <Link href="/" className="flex-shrink-0">
           <img
             src="/assets/fullyhacks_navbar_logo.png"
             alt="FullyHacks 2025"
-            className="aspect-square h-20 w-20 xl:h-24 xl:w-24"
+            className="h-20 w-20 sm:h-22 sm:w-22 lg:h-24 lg:w-24 xl:h-28 xl:w-28 transition-all duration-200"
           />
         </Link>
 
-        <ul className="flex items-center space-x-2">
+        <ul className="flex items-center">
           {menuList.map((item, index) => (
             <div key={item.id} className="flex items-center whitespace-nowrap">
               <Link
                 href={item.href}
-                className="flex items-center px-4 py-2 text-base hover:text-purple_main_hover transition-colors duration-200 xl:text-lg">
+                className="flex items-center px-2 sm:px-3 lg:px-4 py-2 text-sm sm:text-base lg:text-lg xl:text-xl transition-all duration-200 hover:text-purple_main_hover">
                 {item.name}
               </Link>
               {index < menuList.length - 1 && (
-                <span className="mx-2 h-6 border-r-2 border-white" />
+                <div className="flex items-center mx-1 sm:mx-1.5 lg:mx-2">
+                  <span className="w-[3px] h-[1.5em] bg-white" />
+                </div>
               )}
             </div>
           ))}
@@ -89,11 +91,11 @@ export const NavBarLanding: React.FC = () => {
           <label tabIndex={0} className="btn-ghost btn">
             <AiOutlineMenu className="h-6 w-6 stroke-[2]" />
           </label>
-          <ul tabIndex={0} className="dropdown-content menu rounded-box menu-compact z-[3] mt-3 min-w-max bg-[#27233f] p-2 text-[1rem] shadow">
+          <ul tabIndex={0} className="dropdown-content menu rounded-box menu-compact z-[3] mt-3 min-w-max bg-[#27233f] p-2 shadow">
             {menuList.map((item) => (
               <div key={item.id} className="flex">
                 <Link href={item.href} className="w-full px-4 py-1.5">
-                  <p className="cursor-pointer whitespace-nowrap hover:text-purple_main_hover transition-colors duration-200">
+                  <p className="cursor-pointer whitespace-nowrap text-sm sm:text-base hover:text-purple_main_hover transition-all duration-200">
                     {item.name}
                   </p>
                 </Link>
@@ -105,7 +107,7 @@ export const NavBarLanding: React.FC = () => {
         <img
           src="/assets/fullyhacks_navbar_logo.png"
           alt="FullyHacks 2025"
-          className="h-16 w-16"
+          className="h-12 w-12 sm:h-14 sm:w-14 transition-all duration-200"
         />
       </div>
     </nav>
