@@ -14,7 +14,7 @@ const Hero: React.FC = () => {
         alt="stars"
         className="absolute left-1/2 -top-12 w-full -translate-x-1/2 animate-pulse"
       />
-      <section className="z-[2] mt-20 text-center text-purple_main">
+      <section className="z-[2] mt-8 text-center text-purple_main">
         <h1 className="relative text-xxl font-medium text-white md:text-[6rem]">
           FullyHacks 2025
         </h1>

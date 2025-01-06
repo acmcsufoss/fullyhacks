@@ -47,6 +47,10 @@ module.exports = {
         shake: "shake 0.82s cubic-bezier(.36,.07,.19,.97) both"
       },
       fontSize: {
+        "fluid-sm": "clamp(0.875rem, 0.8rem + 0.25vw, 1rem)",
+        "fluid-base": "clamp(1rem, 0.9rem + 0.3vw, 1.125rem)",
+        "fluid-lg": "clamp(1.125rem, 1rem + 0.5vw, 1.25rem)",
+        "fluid-xl": "clamp(1.25rem, 1.1rem + 0.75vw, 1.5rem)",
         md: "1.25rem",
         lg: "1.5rem",
         xl: "2rem",

@@ -9,9 +9,14 @@ import {
   AiOutlineMenu,
   AiOutlineQuestionCircle
 } from "react-icons/ai";
-import { BiCalendarEvent, BiHomeAlt, BiLogOut, BiUserCircle } from "react-icons/bi";
+import {
+  BiCalendarEvent,
+  BiHomeAlt,
+  BiLogOut,
+  BiUserCircle
+} from "react-icons/bi";
 import { BsDiscord, BsLightbulb } from "react-icons/bs";
-import { HiOutlineSpeakerphone } from "react-icons/hi";
+import { HiMenu, HiOutlineSpeakerphone } from "react-icons/hi";
 import { HiOutlineTrophy } from "react-icons/hi2";
 import { IoArrowBackSharp } from "react-icons/io5";
 import { SlEnergy } from "react-icons/sl";
@@ -56,27 +61,29 @@ export const NavBarLanding: React.FC = () => {
   ];
 
   return (
-    <nav className="navbar z-[30] text-lg text-white">
+    <nav className="navbar relative z-[30] text-white">
       {/* Desktop Navigation */}
-      <div className="hidden lg:flex w-full items-center justify-between px-8 py-4">
+      <div className="hidden w-full items-center justify-between px-4 py-4 sm:px-6 lg:flex lg:px-8">
         <Link href="/" className="flex-shrink-0">
           <img
             src="/assets/fullyhacks_navbar_logo.png"
             alt="FullyHacks 2025"
-            className="aspect-square h-20 w-20 xl:h-24 xl:w-24"
+            className="w-16 md:w-24"
           />
         </Link>
 
-        <ul className="flex items-center space-x-2">
+        <ul className="flex items-center">
           {menuList.map((item, index) => (
             <div key={item.id} className="flex items-center whitespace-nowrap">
               <Link
                 href={item.href}
-                className="flex items-center px-4 py-2 text-base hover:text-purple_main_hover transition-colors duration-200 xl:text-lg">
+                className="flex items-center px-2 py-2 text-sm transition-all duration-200 sm:px-3 sm:text-base lg:px-4 lg:text-lg xl:text-xl">
                 {item.name}
               </Link>
               {index < menuList.length - 1 && (
-                <span className="mx-2 h-6 w-[2px] self-center bg-white" />
+                <div className="mx-1 flex items-center sm:mx-1.5 lg:mx-2">
+                  <span className="h-[1.5em] w-[3px] bg-white" />
+                </div>
               )}
             </div>
           ))}
@@ -84,16 +91,18 @@ export const NavBarLanding: React.FC = () => {
       </div>
 
       {/* Mobile Navigation */}
-      <div className="flex lg:hidden w-full items-center justify-between px-4 py-2">
+      <div className="flex w-full items-center justify-between px-4 lg:hidden">
         <div className="dropdown">
-          <label tabIndex={0} className="btn-ghost btn">
-            <AiOutlineMenu className="h-6 w-6 stroke-[2]" />
+          <label tabIndex={0} className="btn-ghost btn p-2">
+            <HiMenu className="h-12 w-12 opacity-80" />
           </label>
-          <ul tabIndex={0} className="dropdown-content menu rounded-box menu-compact z-[3] mt-3 min-w-max bg-[#27233f] p-2 text-[1rem] shadow">
+          <ul
+            tabIndex={0}
+            className="dropdown-content menu rounded-box menu-compact z-[3] mt-3 min-w-max scale-110 bg-[#27233f] p-4 shadow">
             {menuList.map((item) => (
               <div key={item.id} className="flex">
-                <Link href={item.href} className="w-full px-4 py-1.5">
-                  <p className="cursor-pointer whitespace-nowrap hover:text-purple_main_hover transition-colors duration-200">
+                <Link href={item.href} className="w-full px-6 py-2.5">
+                  <p className="cursor-pointer whitespace-nowrap text-base transition-all duration-200 hover:text-purple_main_hover sm:text-lg">
                     {item.name}
                   </p>
                 </Link>
@@ -105,7 +114,7 @@ export const NavBarLanding: React.FC = () => {
         <img
           src="/assets/fullyhacks_navbar_logo.png"
           alt="FullyHacks 2025"
-          className="h-16 w-16"
+          className="h-16 w-16 transition-all duration-200 sm:h-20 sm:w-20"
         />
       </div>
     </nav>
@@ -225,15 +234,15 @@ export const FeedSideBar: React.FC<FeedSideBarProps> = ({ setLocation }) => {
       {!isOpen && (
         <AiOutlineMenu
           onClick={() => setOpen(true)}
-          className="fixed top-[5rem] left-4 z-20 cursor-pointer text-[#EF4DB3] stroke-[2]"
+          className="fixed top-[5rem] left-4 z-20 cursor-pointer stroke-[2] text-[#EF4DB3]"
           size={24}
         />
       )}
 
       {/* Blur overlay */}
       <div
-        className={`fixed inset-0 z-40 backdrop-blur-sm bg-purple_dark/40 transition-opacity duration-300 ${
-          isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
+        className={`fixed inset-0 z-40 bg-purple_dark/40 backdrop-blur-sm transition-opacity duration-300 ${
+          isOpen ? "opacity-100" : "pointer-events-none opacity-0"
         }`}
         onClick={() => setOpen(false)}
       />
@@ -244,8 +253,12 @@ export const FeedSideBar: React.FC<FeedSideBarProps> = ({ setLocation }) => {
           isOpen ? "translate-x-0" : "-translate-x-full"
         }`}>
         <div className="h-full w-80 bg-purple_dark p-8 text-sm font-semibold text-[#EF4DB3]">
-          <div className="flex justify-between items-center mb-8">
-            <img src="/assets/logo.svg" alt="Fully logo" className="h-10 w-10" />
+          <div className="mb-8 flex items-center justify-between">
+            <img
+              src="/assets/logo.svg"
+              alt="Fully logo"
+              className="h-10 w-10"
+            />
             <AiOutlineClose
               onClick={() => setOpen(false)}
               size={24}
@@ -273,10 +286,10 @@ export const FeedSideBar: React.FC<FeedSideBarProps> = ({ setLocation }) => {
             ))}
           </ul>
 
-          <div className="mt-8 pt-8 border-t border-[#EF4DB3]">
+          <div className="mt-8 border-t border-[#EF4DB3] pt-8">
             <button
               onClick={() => signOut()}
-              className="flex w-full items-center rounded-lg p-3 text-red-400 hover:bg-red-400/10 transition-colors duration-200">
+              className="flex w-full items-center rounded-lg p-3 text-red-400 transition-colors duration-200 hover:bg-red-400/10">
               <BiLogOut size={28} />
               <span className="ml-4">Sign Out</span>
             </button>
@@ -287,7 +300,7 @@ export const FeedSideBar: React.FC<FeedSideBarProps> = ({ setLocation }) => {
             <a
               target="_blank"
               href="https://discord.gg/XKNZxHEnJj"
-              className="text-white hover:text-[#EF4DB3] transition-colors duration-200">
+              className="text-white transition-colors duration-200 hover:text-[#EF4DB3]">
               Discord Server
             </a>
           </div>
