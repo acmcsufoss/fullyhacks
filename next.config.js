@@ -80,7 +80,7 @@ const nextConfig = {
         permanent: true
       }
     ];
-  }
+  },
 };
 
 module.exports = nextConfig;
