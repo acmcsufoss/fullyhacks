@@ -111,9 +111,8 @@ export const NavBarLanding: React.FC = () => {
             ))}
           </ul>
         </div>
-
         <img
-          src="/assets/fullyhacks_navbar_logo.png"
+          src="/assets/fullyhacks_logo.png"
           alt="FullyHacks 2025"
           className="h-16 w-16 transition-all duration-200 sm:h-20 sm:w-20"
         />

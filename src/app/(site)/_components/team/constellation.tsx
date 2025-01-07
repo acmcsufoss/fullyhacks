@@ -10,6 +10,7 @@ export const teamEdges: TeamEdge[][] = [
   ],
   [
     { start: { x: 100, y: 150 }, end: { x: 300, y: 120 } },
+    { start: { x: 100, y: 150 }, end: { x: 200, y: 350 } },
     { start: { x: 300, y: 120 }, end: { x: 450, y: 190 } },
     { start: { x: 450, y: 190 }, end: { x: 500, y: 320 } },
     { start: { x: 500, y: 320 }, end: { x: 530, y: 550 } },
