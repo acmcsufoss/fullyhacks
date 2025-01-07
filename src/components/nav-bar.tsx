@@ -20,6 +20,7 @@ import { HiMenu, HiOutlineSpeakerphone } from "react-icons/hi";
 import { HiOutlineTrophy } from "react-icons/hi2";
 import { IoArrowBackSharp } from "react-icons/io5";
 import { SlEnergy } from "react-icons/sl";
+import links from "@/lib/data/links.json";
 
 export const NavBarLanding: React.FC = () => {
   const menuList: MenuType[] = [
@@ -299,7 +300,7 @@ export const FeedSideBar: React.FC<FeedSideBarProps> = ({ setLocation }) => {
             <BsDiscord size={28} />
             <a
               target="_blank"
-              href="https://discord.gg/XKNZxHEnJj"
+              href={links.discord}
               className="text-white transition-colors duration-200 hover:text-[#EF4DB3]">
               Discord Server
             </a>
@@ -328,10 +329,7 @@ export const FeedSideBar: React.FC<FeedSideBarProps> = ({ setLocation }) => {
         </ul>
         <div className="mt-4 flex items-center gap-4 text-center">
           <BsDiscord size={28} />
-          <a
-            target={"_blank"}
-            href="https://discord.gg/XKNZxHEnJj"
-            className="text-white">
+          <a target={"_blank"} href={links.discord} className="text-white">
             Discord Server
           </a>
         </div>

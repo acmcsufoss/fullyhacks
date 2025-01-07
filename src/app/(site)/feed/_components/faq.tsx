@@ -1,6 +1,8 @@
 import { FAQType } from "@/types/interface";
 import React from "react";
 import { FAQDropDown } from "@/components/faq";
+import links from "@/lib/data/links.json";
+
 const faqs: FAQType[] = [
   {
     id: "faq0",
@@ -105,10 +107,7 @@ const FAQs = () => {
       </div>
       <p className="my-2 text-center">
         More questions? Reach out to us in
-        <a
-          target={"_blank"}
-          href="https://discord.gg/XKNZxHEnJj"
-          className="font-bold">
+        <a target={"_blank"} href={links.discord} className="font-bold">
           {" our Discord server "}
         </a>
         and we&apos;ll get back to you ASAP!
