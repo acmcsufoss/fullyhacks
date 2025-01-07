@@ -42,15 +42,20 @@ module.exports = {
           }
         },
         flicker: {
-          '0%, 100%': { opacity: '0.7' },
-          '50%': {opacity: '0.2'}
-
+          "0%": { opacity: "0.8" },
+          "10%": { opacity: "0.2" },
+          "20%": { opacity: "0.9" },
+          "30%": { opacity: "0.4" },
+          "50%": { opacity: "1" },
+          "70%": { opacity: "0.3" },
+          "90%": { opacity: "0.7" },
+          "100%": { opacity: "0.5" },
         }
       },
       animation: {
         float: "float 3s infinite ease-in-out",
         shake: "shake 0.82s cubic-bezier(.36,.07,.19,.97) both",
-        flicker: "flicker 1.5s infinite"
+        flicker: "flicker 3s infinite"
       },
       fontSize: {
         md: "1.25rem",
