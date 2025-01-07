@@ -2,7 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
-import { companyType, FAQType, TeamType } from "@/types/interface";
+import { CompanyType, FAQType, TeamType } from "@/types/interface";
 import { LandingFooter } from "@/components/footer";
 import Hero from "./hero";
 import CountDown from "./count-down";
@@ -13,7 +13,7 @@ import FAQ from "@/components/faq";
 import { FAQBackgroundEffects } from "./background-effects";
 
 interface LandingPageProps {
-  companyData: companyType[];
+  companyData: CompanyType[];
   faqData: FAQType[];
   teamData: TeamType[];
 }
@@ -48,7 +48,7 @@ const LandingPage: React.FC<LandingPageProps> = (props) => {
         <div
           id="sponsors"
           className="mt-8 flex w-full max-w-[1048px] flex-col items-center justify-center font-normal md:mt-40 md:text-md">
-          <Sponsors />
+          <Sponsors sponsors={companyData} />
         </div>
       </section>
       <section className="team-container flex w-screen flex-col items-center">

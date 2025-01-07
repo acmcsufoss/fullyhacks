@@ -1,3 +1,4 @@
+import { CompanyType } from "@/types/interface";
 import React from "react";
 
 const LittleAsteroids: React.FC = () => {
@@ -58,15 +59,11 @@ const LittleAsteroids: React.FC = () => {
 };
 
 interface SponsorAsteroidProps {
-  asteroid: {
-    src: string;
-    href: string;
-    styles: {
-      top: string;
-      left: string;
-      width: string;
-    };
-  };
+  asteroid: CompanyType;
+}
+
+interface SponsorsProps {
+  sponsors: CompanyType[];
 }
 
 const SponsorAsteroid: React.FC<SponsorAsteroidProps> = (props) => {
@@ -76,60 +73,13 @@ const SponsorAsteroid: React.FC<SponsorAsteroidProps> = (props) => {
       target="_blank"
       href={asteroid.href}
       className={`absolute z-20 block max-w-max ${asteroid.styles.left} ${asteroid.styles.top} ${asteroid.styles.width}`}>
-      <img src={asteroid.src} alt="Asteroid" className="object-cover" />
+      <img src={asteroid.imageSrc} alt="Asteroid" className="object-cover" />
     </a>
   );
 };
 
-const Sponsors: React.FC = () => {
-  const sponsors = [
-    {
-      src: "/companies/nordvpn.svg",
-      href: "https://nordvpn.com/hackathons",
-      styles: {
-        top: "top-[20rem] md:top-[28rem] lg:top-[25%]",
-        left: "-left-[2rem] md:left-[5rem] lg:left-[15rem]",
-        width: "w-[18rem] sm:w-[21rem] lg:w-[25rem]"
-      }
-    },
-    {
-      src: "/companies/nordpass.svg",
-      href: "https://nordpass.com/",
-      styles: {
-        top: "top-[30rem] md:top-[35rem] lg:top-[35%]",
-        left: "left-[12rem] sm:left-[25rem] md:left-[30rem] lg:left-[45rem]",
-        width: "w-[15rem] sm:w-[18rem] lg:w-[22rem]"
-      }
-    },
-    {
-      src: "/companies/wolfram.svg",
-      href: "https://company.wolfram.com/press-center/wolfram-corporate/",
-      styles: {
-        top: "top-[32rem] md:top-[40rem] lg:top-[45%]",
-        left: "-left-[5rem] md:left-[2rem] lg:left-[25rem]",
-        width: "w-[18rem] sm:w-[20rem] lg:w-[24rem]"
-      }
-    },
-    {
-      src: "/companies/incogni.svg",
-      href: "https://incogni.com/",
-      styles: {
-        top: "top-[42rem] lg:top-[58%] md:top-[48rem]",
-        left: "left-[10rem] sm:left-[20rem] md:left-[25rem] lg:left-[50rem]",
-        width: "w-[9rem] sm:w-[11rem] lg:w-[14rem]"
-      }
-    },
-    {
-      src: "/companies/saily.svg",
-      href: "https://saily.com/",
-      styles: {
-        top: "top-[48rem] lg:top-[64%] md:top-[55rem]",
-        left: "sm:left-[5rem] md:left-[10rem] lg:left-[20rem]",
-        width: "w-[17rem] sm:w-[20rem] lg:w-[24rem]"
-      }
-    }
-  ];
-
+const Sponsors: React.FC<SponsorsProps> = (props) => {
+  const { sponsors } = props;
   return (
     <div className="min-h-[1100px] w-full overflow-hidden">
       <h2 className="text-center text-xxl [text-shadow:_0_0_10px_#719BCC] md:text-[5rem] lg:text-right">

@@ -1,7 +1,13 @@
-export interface companyType {
+export interface CompanyType {
   id: string;
   name: string;
+  imageSrc: string;
   href: string;
+  styles: {
+    top: string;
+    left: string;
+    width: string;
+  };
 }
 
 export interface MenuType {
