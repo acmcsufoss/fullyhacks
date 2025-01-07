@@ -29,7 +29,7 @@ const Team = ({ team }: { team: TeamType[] }) => {
         Our Teams
       </h2>
       <img
-        src="/assets/constellation1.svg"
+        src="/assets/constellation.svg"
         alt="Constellation Image"
         className="absolute -bottom-[166px] right-0 w-[400px] overflow-visible blur-md brightness-110 md:-bottom-[280px] md:w-[640px]"
       />

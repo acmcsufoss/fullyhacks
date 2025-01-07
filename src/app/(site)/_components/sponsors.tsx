@@ -89,7 +89,7 @@ const Sponsors: React.FC<SponsorsProps> = (props) => {
       <div className="absolute top-[7rem] left-4 rotate-12 sm:-left-12 sm:rotate-0 md:left-0 md:top-[15rem] lg:top-8">
         <div className="relative">
           <img
-            src="/assets/combined_ufo.png"
+            src="/assets/ufo.png"
             alt="UFO"
             className="w-[25rem] sm:w-[30rem] lg:w-[40rem]"
           />
