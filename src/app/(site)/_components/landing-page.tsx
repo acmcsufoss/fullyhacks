@@ -2,15 +2,15 @@
 
 import React from "react";
 import Link from "next/link";
-// import Image from "next/image";
 import { companyType, FAQType, TeamType } from "@/types/interface";
 import { LandingFooter } from "@/components/footer";
 import Hero from "./hero";
 import CountDown from "./count-down";
 import About from "./about";
 import Sponsors from "./sponsors";
-import FAQ from "@/components/faq";
 import Team from "./team";
+import FAQ from "@/components/faq";
+import { FAQBackgroundEffects } from "./background-effects";
 
 interface LandingPageProps {
   companyData: companyType[];
@@ -25,22 +25,22 @@ const LandingPage: React.FC<LandingPageProps> = (props) => {
       <section className="top-section relative flex w-full flex-col items-center">
         <Hero />
         <CountDown />
-        <div className="relative mt-24 flex items-center gap-8 text-md font-medium">
+        <div className="relative mt-14 flex items-center gap-12 text-md font-medium">
           <Link href="/signin" className="">
-            <button className="apply-btn z-[11] mx-0 cursor-pointer">
+            <button className="z-[11] mx-0 box-border flex cursor-pointer flex-row items-center justify-center rounded-[20px] border-[3px] border-[#926BAF] py-2 px-4 text-[#926BAF] md:text-xl">
               Apply
             </button>
           </Link>
           <a
             target="_blank"
             href="https://drive.google.com/file/d/1nw2_POGSUO0qCj24TT-fwW7hjqzBQpLW/view?usp=sharing"
-            className="sponsor-btn z-[11] font-normal">
+            className="z-[11] mx-0 box-border flex cursor-pointer flex-row items-center justify-center rounded-[20px] border-[3px] border-[#4A47CD] py-2 px-4 text-[#4A47CD] md:text-xl">
             Sponsor Us!
           </a>
         </div>
         <div
           id="about-fullyhacks"
-          className="relative mt-40 flex max-w-[1048px] flex-col items-center justify-center font-normal md:flex-row md:text-md">
+          className="relative mt-40 flex min-w-[300px] max-w-[1048px] flex-col items-center justify-center font-normal md:flex-row md:text-md">
           <About />
         </div>
       </section>
@@ -51,17 +51,18 @@ const LandingPage: React.FC<LandingPageProps> = (props) => {
           <Sponsors />
         </div>
       </section>
-      <section className="team-container flex w-screen flex-col items-center overflow-hidden">
+      <section className="team-container flex w-screen flex-col items-center">
         <div
           id="team"
           className="mx-4 mt-8 flex max-w-[1048px] flex-col items-center justify-center font-normal md:mx-0 md:mt-40 md:text-md">
           <Team team={teamData} />
         </div>
       </section>
-      <section className="relative flex w-[100vw] max-w-screen-2xl flex-col items-center justify-start overflow-hidden pb-40 font-normal md:pt-32 md:pb-24 md:text-md">
+      <section className="relative flex w-[100vw] flex-col items-center justify-start overflow-visible pb-40 font-normal md:pt-32 md:pb-24 md:text-md">
+        <FAQBackgroundEffects />
         <div
           id="frequently-asked-questions"
-          className="relative mx-4 flex max-w-[1048px] flex-col items-center justify-center font-normal md:mx-0 md:mt-40 md:text-md">
+          className="relative mx-4 flex max-w-[1048px] flex-col items-center justify-center font-normal md:mt-40 md:text-md">
           <FAQ faqs={faqData} />
         </div>
         <LandingFooter />

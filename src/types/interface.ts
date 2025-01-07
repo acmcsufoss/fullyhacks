@@ -12,13 +12,29 @@ export interface MenuType {
   desktop: number;
 }
 
-export interface TeamType {
+export interface TeamMemberCoordinates {
+  x: number;
+  y: number;
+}
+
+export interface TeamEdge {
+  start: TeamMemberCoordinates;
+  end: TeamMemberCoordinates;
+}
+
+export interface TeamMember {
   id: string;
   name: string;
-  image: string;
   role: string;
-  tag?: string;
   href: string;
+  image: string;
+  vertex: TeamMemberCoordinates;
+  textBelow: boolean;
+}
+
+export interface TeamType {
+  tag: string;
+  teamMembers: TeamMember[];
 }
 
 export interface FAQType {

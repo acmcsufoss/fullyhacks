@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { AiOutlineSearch } from "react-icons/ai";
-import uniJson from "@/data/usuni.json";
+import uniJson from "@/lib/data/usuni.json";
 import { University } from "@/types/interface";
 
 interface SchoolSuggestionProps {

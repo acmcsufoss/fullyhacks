@@ -58,6 +58,10 @@ module.exports = {
         flicker: "flicker 3s infinite"
       },
       fontSize: {
+        "fluid-sm": "clamp(0.875rem, 0.8rem + 0.25vw, 1rem)",
+        "fluid-base": "clamp(1rem, 0.9rem + 0.3vw, 1.125rem)",
+        "fluid-lg": "clamp(1.125rem, 1rem + 0.5vw, 1.25rem)",
+        "fluid-xl": "clamp(1.25rem, 1.1rem + 0.75vw, 1.5rem)",
         md: "1.25rem",
         lg: "1.5rem",
         xl: "2rem",
@@ -76,6 +80,7 @@ module.exports = {
         purple_300: "#9EA8FF",
         purple_hover: "#3b3561",
         purple_500: "#4F38DF",
+        purple_shadow_blur: "#6F6795",
         pink_700: "#B438DF",
         pink_400: "#FF8F8F",
         pink_300: "#DF389C",
@@ -90,7 +95,8 @@ module.exports = {
         beige: "#D9D9D9",
         white: "#FFF",
         purple_card: "#1E2D79",
-        cyan: "#46C8E5"
+        cyan: "#46C8E5",
+        mint: "#51FFCE"
       },
       textColor: {
         purple_main: "#EB6EFF",
@@ -99,13 +105,12 @@ module.exports = {
       backgroundColor: {
         body_bg: "#FFFAF1"
       },
-      screens: {
-        md: "700px"
-      },
       fontFamily: {
-        inter: ["Inter", "sans-serif"],
-        audiowide: ["Audiowide", "sans-serif"],
+        audiowide: ["var(--font-audiowide)", "sans-serif"],
         bruno: ["Bruno Ace", "sans-serif"]
+      },
+      borderWidth: {
+        5: "5px"
       }
     }
   },
