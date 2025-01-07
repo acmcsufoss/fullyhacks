@@ -48,7 +48,7 @@ const LandingPage: React.FC<LandingPageProps> = (props) => {
         <div
           id="sponsors"
           className="mt-8 flex w-full max-w-[1048px] flex-col items-center justify-center font-normal md:mt-40 md:text-md">
-          <Sponsors companies={companyData} />
+          <Sponsors />
         </div>
       </section>
       <section className="team-container flex w-screen flex-col items-center">

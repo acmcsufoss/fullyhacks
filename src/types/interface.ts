@@ -2,7 +2,6 @@ export interface companyType {
   id: string;
   name: string;
   href: string;
-  image: string;
 }
 
 export interface MenuType {

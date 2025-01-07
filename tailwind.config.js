@@ -40,11 +40,22 @@ module.exports = {
           "40%, 60%": {
             transform: "translate3d(4px, 0, 0)"
           }
+        },
+        flicker: {
+          "0%": { opacity: "0.8" },
+          "10%": { opacity: "0.2" },
+          "20%": { opacity: "0.9" },
+          "30%": { opacity: "0.4" },
+          "50%": { opacity: "1" },
+          "70%": { opacity: "0.3" },
+          "90%": { opacity: "0.7" },
+          "100%": { opacity: "0.5" }
         }
       },
       animation: {
         float: "float 3s infinite ease-in-out",
-        shake: "shake 0.82s cubic-bezier(.36,.07,.19,.97) both"
+        shake: "shake 0.82s cubic-bezier(.36,.07,.19,.97) both",
+        flicker: "flicker 3s infinite"
       },
       fontSize: {
         "fluid-sm": "clamp(0.875rem, 0.8rem + 0.25vw, 1rem)",
