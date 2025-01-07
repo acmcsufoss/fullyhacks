@@ -1,6 +1,46 @@
 import { companyType } from "@/types/interface";
 import React from "react";
 
+const LittleAsteroids: React.FC = () => {
+  console.log("Little asteroids rendering...")
+  const littleAsteroids = [
+    { src: "/assets/little_asteroid.svg", top: "350px", left: "280px", size: "1vw" },
+    { src: "/assets/tiny_asteroid.svg", top: "490px", left: "440px", size: "1vw" },
+    { src: "/assets/little_asteroid.svg", top: "600px", left: "570px", size: "1vw" },
+    { src: "/assets/tiny_asteroid.svg", top: "580px", left: "0px", size: "2vw" },
+    { src: "/assets/radial_star.svg", top: "700px", left: "30px", size: "4vw" },
+    { src: "/assets/radial_star.svg", top: "700px", left: "200px", size: "4vw" },
+  ];
+
+  return (
+    <div className="relative hidden md:block">
+      {littleAsteroids.map((asteroid, index) => (
+
+        <div
+          key={index}
+          style={{
+            position: "absolute",
+            top: asteroid.top,
+            left: asteroid.left,
+            width: asteroid.size,
+            height: asteroid.size,
+          }}
+        >
+          <img
+            src={asteroid.src}
+            alt={`Little Asteroid ${index}`}
+            style={{
+              width: "100%",
+              height: "auto",
+              objectFit: "cover",
+            }}
+          />
+        </div>
+      ))}
+    </div>
+  );
+};
+
 interface SponsorAsteroidProps {
   asteroid: { src: string; top: string; left: string; size: string, glow: boolean};
 }
@@ -76,6 +116,8 @@ const Sponsors: React.FC = () => {
           ))}
         </div>
 
+        <LittleAsteroids />
+
         {/* Stacked Asteroids for Smaller Screens */}
         <div className="block md:hidden">
           <div className="flex flex-col items-center gap-6">
@@ -88,6 +130,8 @@ const Sponsors: React.FC = () => {
         </div>
       </div>
     </div>
+
+
   );
 };
 
