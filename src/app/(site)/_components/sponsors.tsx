@@ -2,20 +2,39 @@ import { companyType } from "@/types/interface";
 import React from "react";
 
 const LittleAsteroids: React.FC = () => {
-  console.log("Little asteroids rendering...")
+  console.log("Little asteroids rendering...");
   const littleAsteroids = [
-    { src: "/assets/little_asteroid.svg", top: "350px", left: "280px", size: "1vw" },
-    { src: "/assets/tiny_asteroid.svg", top: "490px", left: "440px", size: "1vw" },
-    { src: "/assets/little_asteroid.svg", top: "600px", left: "570px", size: "1vw" },
-    { src: "/assets/tiny_asteroid.svg", top: "580px", left: "0px", size: "2vw" },
+    {
+      src: "/assets/little_asteroid.svg",
+      top: "350px",
+      left: "280px",
+      size: "1vw"
+    },
+    {
+      src: "/assets/tiny_asteroid.svg",
+      top: "490px",
+      left: "440px",
+      size: "1vw"
+    },
+    {
+      src: "/assets/little_asteroid.svg",
+      top: "600px",
+      left: "570px",
+      size: "1vw"
+    },
+    {
+      src: "/assets/tiny_asteroid.svg",
+      top: "580px",
+      left: "0px",
+      size: "2vw"
+    },
     { src: "/assets/radial_star.svg", top: "700px", left: "30px", size: "4vw" },
-    { src: "/assets/radial_star.svg", top: "700px", left: "200px", size: "4vw" },
+    { src: "/assets/radial_star.svg", top: "700px", left: "200px", size: "4vw" }
   ];
 
   return (
     <div className="relative hidden md:block">
       {littleAsteroids.map((asteroid, index) => (
-
         <div
           key={index}
           style={{
@@ -23,16 +42,15 @@ const LittleAsteroids: React.FC = () => {
             top: asteroid.top,
             left: asteroid.left,
             width: asteroid.size,
-            height: asteroid.size,
-          }}
-        >
+            height: asteroid.size
+          }}>
           <img
             src={asteroid.src}
             alt={`Little Asteroid ${index}`}
             style={{
               width: "100%",
               height: "auto",
-              objectFit: "cover",
+              objectFit: "cover"
             }}
           />
         </div>
@@ -42,7 +60,13 @@ const LittleAsteroids: React.FC = () => {
 };
 
 interface SponsorAsteroidProps {
-  asteroid: { src: string; top: string; left: string; size: string, glow: boolean};
+  asteroid: {
+    src: string;
+    top: string;
+    left: string;
+    size: string;
+    glow: boolean;
+  };
 }
 
 const SponsorAsteroid: React.FC<SponsorAsteroidProps> = (props) => {
@@ -56,14 +80,13 @@ const SponsorAsteroid: React.FC<SponsorAsteroidProps> = (props) => {
         position: "absolute",
         top: asteroid.top,
         left: asteroid.left,
-        width: isGlowing ? asteroid.size : "auto", 
-        height: isGlowing ? asteroid.size : "auto", 
+        width: isGlowing ? asteroid.size : "auto",
+        height: isGlowing ? asteroid.size : "auto",
         boxShadow: isGlowing
-          ? "0 0 30px 15px rgba(255, 255, 0, 0.8)" 
+          ? "0 0 30px 15px rgba(255, 255, 0, 0.8)"
           : undefined,
-        borderRadius: isGlowing ? "50%" : undefined, 
-      }}
-    >
+        borderRadius: isGlowing ? "50%" : undefined
+      }}>
       <img
         src={asteroid.src}
         alt="Asteroid"
@@ -71,7 +94,7 @@ const SponsorAsteroid: React.FC<SponsorAsteroidProps> = (props) => {
           width: isGlowing ? "100%" : "40%",
           height: "auto",
           objectFit: "cover",
-          borderRadius: isGlowing ? "50%" : undefined, 
+          borderRadius: isGlowing ? "50%" : undefined
         }}
       />
     </div>
@@ -86,13 +109,19 @@ const Sponsors: React.FC = () => {
     { src: "/assets/sponsor_asteroid.svg", top: "55%", left: "40%" },
     { src: "/assets/sponsor_asteroid1.svg", top: "40%", left: "5%" },
     { src: "/assets/sponsor_asteroid.svg", top: "65%", left: "25%" },
-    { src: "/assets/sponsor_star.svg", top: "60%", left: "10%", size: "6vw", glow: true},
+    {
+      src: "/assets/sponsor_star.svg",
+      top: "60%",
+      left: "10%",
+      size: "6vw",
+      glow: true
+    }
   ];
 
   return (
     <div className="min-h-screen w-full overflow-hidden">
       {/* UFO and Light Cone */}
-      <div className="hidden md:block absolute top-20 left-[15%]">
+      <div className="absolute top-20 left-[15%] hidden md:block">
         <div className="relative">
           <img
             src="/assets/combined_ufo.png"
@@ -102,8 +131,8 @@ const Sponsors: React.FC = () => {
           <img
             src="/assets/cone.svg"
             alt="Light Cone"
-            style={{ width: "400%", height: "auto"}}
-            className="absolute top-[66%] left-[80%] transform -translate-x-1/2 opacity-70 animate-flicker"
+            style={{ width: "400%", height: "auto" }}
+            className="absolute top-[66%] left-[80%] -translate-x-1/2 transform animate-flicker opacity-70"
           />
         </div>
       </div>
@@ -130,8 +159,6 @@ const Sponsors: React.FC = () => {
         </div>
       </div>
     </div>
-
-
   );
 };
 

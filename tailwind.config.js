@@ -49,7 +49,7 @@ module.exports = {
           "50%": { opacity: "1" },
           "70%": { opacity: "0.3" },
           "90%": { opacity: "0.7" },
-          "100%": { opacity: "0.5" },
+          "100%": { opacity: "0.5" }
         }
       },
       animation: {
