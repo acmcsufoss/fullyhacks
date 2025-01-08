@@ -193,7 +193,7 @@ export const team: TeamType[] = [
       {
         id: "marketing1",
         name: "Mark",
-        image: "",
+        image: "/team/mark.jpg",
         role: "Marketing Team Lead",
         href: "https://www.linkedin.com/in/mark-garcia-aa9b2b306",
         vertex: { x: 630, y: 60 },
@@ -202,7 +202,7 @@ export const team: TeamType[] = [
       {
         id: "marketing2",
         name: "Evan",
-        image: "",
+        image: "/team/evan.jpg",
         role: "Marketing Officer",
         href: "https://www.linkedin.com/in/evan-jimenez-b50755297",
         vertex: { x: 290, y: 270 },
@@ -211,7 +211,7 @@ export const team: TeamType[] = [
       {
         id: "marketing3",
         name: "Sarah",
-        image: "",
+        image: "/team/sarah.jpg",
         role: "Marketing Officer",
         href: "https://www.linkedin.com/in/sarahagnihotri",
         vertex: { x: 790, y: 370 },
@@ -220,7 +220,7 @@ export const team: TeamType[] = [
       {
         id: "marketing4",
         name: "Kenny",
-        image: "",
+        image: "/team/kenny.jpg",
         role: "Marketing Officer",
         href: "https://www.linkedin.com/in/Lekenny43",
         vertex: { x: 200, y: 690 },
@@ -229,7 +229,7 @@ export const team: TeamType[] = [
       {
         id: "marketing5",
         name: "Zheng",
-        image: "",
+        image: "/team/zheng.jpg",
         role: "Marketing Officer",
         href: "https://www.linkedin.com/in/keangzhengtaing",
         vertex: { x: 740, y: 650 },
@@ -244,7 +244,7 @@ export const team: TeamType[] = [
       {
         id: "operations1",
         name: "Max",
-        image: "",
+        image: "/team/max.jpg",
         role: "Operations Team Lead",
         href: "https://www.linkedin.com/in/maximiliano-rivas-114720268",
         vertex: { x: 340, y: 50 },
@@ -253,7 +253,7 @@ export const team: TeamType[] = [
       {
         id: "operations2",
         name: "Cyril",
-        image: "",
+        image: "/team/cyril.jpg",
         role: "Operations Officer",
         href: "https://www.linkedin.com/in/cyril-youssef",
         vertex: { x: 500, y: 100 },
@@ -262,7 +262,7 @@ export const team: TeamType[] = [
       {
         id: "operations3",
         name: "Casey",
-        image: "",
+        image: "/team/casey.jpg",
         role: "Operations Officer",
         href: "www.linkedin.com/in/casey-dane",
         vertex: { x: 680, y: 70 },
@@ -271,7 +271,7 @@ export const team: TeamType[] = [
       {
         id: "operations4",
         name: "Brian",
-        image: "",
+        image: "/team/brian.jpg",
         role: "Operations Officer",
         href: "https://www.linkedin.com/in/brian-milian",
         vertex: { x: 300, y: 240 },
@@ -280,7 +280,7 @@ export const team: TeamType[] = [
       {
         id: "operations5",
         name: "Owen",
-        image: "",
+        image: "/team/owen.jpg",
         role: "Operations Officer",
         href: "https://www.linkedin.com/in/owen-sterling-b60a06298",
         vertex: { x: 740, y: 220 },
@@ -289,7 +289,7 @@ export const team: TeamType[] = [
       {
         id: "operations6",
         name: "Trang",
-        image: "",
+        image: "/team/trang.jpg",
         role: "Operations Officer",
         href: "https://www.linkedin.com/in/trangn03",
         vertex: { x: 220, y: 380 },
@@ -298,7 +298,7 @@ export const team: TeamType[] = [
       {
         id: "operations7",
         name: "Timothy",
-        image: "",
+        image: "/team/timothy.jpg",
         role: "Operations Officer",
         href: "https://www.linkedin.com/in/timothy-ou-2b3a0133b",
         vertex: { x: 320, y: 520 },
@@ -307,7 +307,7 @@ export const team: TeamType[] = [
       {
         id: "operations8",
         name: "Taymas",
-        image: "",
+        image: "/team/taymas.jpg",
         role: "Operations Officer",
         href: "https://www.linkedin.com/in/taymas-nguyen-204282332",
         vertex: { x: 480, y: 390 },
@@ -316,7 +316,7 @@ export const team: TeamType[] = [
       {
         id: "operations9",
         name: "Alexander",
-        image: "",
+        image: "/team/alex.jpg",
         role: "Operations Officer",
         href: "https://www.linkedin.com/in/a1exanderk",
         vertex: { x: 680, y: 410 },
@@ -325,7 +325,7 @@ export const team: TeamType[] = [
       {
         id: "operations10",
         name: "Nick",
-        image: "",
+        image: "/team/nick.jpg",
         role: "Operations Officer",
         href: "https://www.linkedin.com/in/nickgoulart",
         vertex: { x: 840, y: 470 },
@@ -334,7 +334,7 @@ export const team: TeamType[] = [
       {
         id: "operations11",
         name: "Celine",
-        image: "",
+        image: "/team/celine.jpg",
         role: "Operations Officer",
         href: "https://www.linkedin.com/in/celine-ann-truong",
         vertex: { x: 460, y: 640 },
@@ -343,7 +343,7 @@ export const team: TeamType[] = [
       {
         id: "operations12",
         name: "Patrick",
-        image: "",
+        image: "/team/patrick.jpg",
         role: "Operations Officer",
         href: "https://www.linkedin.com/in/patrick-smith-ld",
         vertex: { x: 690, y: 680 },
@@ -352,7 +352,7 @@ export const team: TeamType[] = [
       {
         id: "operations13",
         name: "Mariia",
-        image: "",
+        image: "/team/mariia.jpg",
         role: "Operations Officer",
         href: "https://www.linkedin.com/in/mariia-grushina-6871b1326",
         vertex: { x: 820, y: 620 },
@@ -366,7 +366,7 @@ export const team: TeamType[] = [
       {
         id: "operations14",
         name: "Demi",
-        image: "",
+        image: "/team/demi.jpg",
         role: "Operations Officer",
         href: "https://www.linkedin.com/in/ziqi-chen-demi",
         vertex: { x: 250, y: 70 },
@@ -375,7 +375,7 @@ export const team: TeamType[] = [
       {
         id: "operations15",
         name: "Ashley",
-        image: "",
+        image: "/team/ashley.jpg",
         role: "Operations Officer",
         href: "https://www.linkedin.com/in/ashley-chan12",
         vertex: { x: 200, y: 220 },
@@ -384,7 +384,7 @@ export const team: TeamType[] = [
       {
         id: "operations16",
         name: "Nestor",
-        image: "",
+        image: "/team/nestor.jpg",
         role: "Operations Officer",
         href: "https://www.linkedin.com/in/nestor-remo",
         vertex: { x: 410, y: 50 },
@@ -393,7 +393,7 @@ export const team: TeamType[] = [
       {
         id: "operations17",
         name: "Gabe",
-        image: "",
+        image: "/team/gabe.jpg",
         role: "Operations Officer",
         href: "https://www.linkedin.com/in/gabrielius-gintalas-a3523a252",
         vertex: { x: 520, y: 120 },
@@ -411,25 +411,25 @@ export const team: TeamType[] = [
       {
         id: "operations19",
         name: "Yves",
-        image: "",
+        image: "/team/yves.jpg",
         role: "Operations Officer",
-        href: "",
+        href: "https://www.linkedin.com/in/yves-velasquez-06122a242",
         vertex: { x: 420, y: 370 },
         textBelow: true
       },
       {
         id: "operations20",
         name: "Syon",
-        image: "",
+        image: "/team/syon.jpg",
         role: "Operations Officer",
-        href: "",
+        href: "http://linkedin.com/in/syon-chau",
         vertex: { x: 550, y: 390 },
         textBelow: true
       },
       {
         id: "operations21",
         name: "Kent",
-        image: "",
+        image: "/team/kent.jpg",
         role: "Operations Officer",
         href: "https://www.linkedin.com/in/kent-tran-cs",
         vertex: { x: 560, y: 520 },
@@ -456,7 +456,7 @@ export const team: TeamType[] = [
       {
         id: "operations24",
         name: "Kayla",
-        image: "",
+        image: "/team/kayla.jpg",
         role: "Operations Officer",
         href: "https://www.linkedin.com/in/kayla-gutierrez17",
         vertex: { x: 850, y: 440 },
@@ -474,7 +474,7 @@ export const team: TeamType[] = [
       {
         id: "operations26",
         name: "David",
-        image: "",
+        image: "/team/david.jpg",
         role: "Operations Officer",
         href: "https://www.linkedin.com/in/david-solano787",
         vertex: { x: 570, y: 690 },
@@ -483,7 +483,7 @@ export const team: TeamType[] = [
       {
         id: "operations27",
         name: "Angel",
-        image: "",
+        image: "/team/angel.jpg",
         role: "Operations Officer",
         href: "",
         vertex: { x: 720, y: 700 },
