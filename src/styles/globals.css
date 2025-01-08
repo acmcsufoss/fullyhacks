@@ -76,7 +76,7 @@
       rgba(32, 28, 51, 0) 85%,
       #201c33 100%
     ),
-    url("/assets/stars-background.png") no-repeat center;
+    url("/assets/stars-background.svg") no-repeat center;
   background-size: cover;
   overflow: hidden;
 }
