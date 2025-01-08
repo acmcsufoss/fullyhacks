@@ -82,7 +82,7 @@ const Sponsors: React.FC<SponsorsProps> = (props) => {
   const { sponsors } = props;
   return (
     <div className="min-h-[1100px] w-full overflow-hidden">
-      <h2 className="text-center text-xxl [text-shadow:_0_0_10px_#719BCC] md:text-[5rem] lg:text-right">
+      <h2 className="custom-text-shadow text-center text-xxl md:text-[5rem] lg:text-right">
         Sponsors
       </h2>
       {/* UFO and Light Cone */}
@@ -97,7 +97,7 @@ const Sponsors: React.FC<SponsorsProps> = (props) => {
             src="/assets/cone.svg"
             alt="Light Cone"
             style={{ width: "400%", height: "auto" }}
-            className="absolute top-[65.5%] left-[80%] z-10 -translate-x-1/2 -rotate-2 transform animate-flicker opacity-70"
+            className="animate-flicker absolute top-[65.5%] left-[80%] z-10 -translate-x-1/2 -rotate-2 transform opacity-70"
           />
         </div>
       </div>
@@ -108,6 +108,9 @@ const Sponsors: React.FC<SponsorsProps> = (props) => {
       ))}
 
       <LittleAsteroids />
+      <p className="custom-text-shadow absolute left-24 bottom-32 md:text-xl">
+        More coming soon...
+      </p>
     </div>
   );
 };

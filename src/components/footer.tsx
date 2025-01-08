@@ -8,9 +8,8 @@ export const LandingFooter: React.FC = () => {
     <>
       <div className="relative mt-[10rem] flex pt-80 lg:mt-[30rem]">
         <div className="flex w-full flex-grow flex-col items-center">
-          {/* Contact Us */}
           <div className="relative inline-block">
-            <h2 className="m-4 mt-14 text-center font-audiowide text-[2rem] font-normal text-[#ECECEC] md:text-[3rem] lg:block lg:text-[5rem]">
+            <h2 className="custom-text-shadow m-4 mt-14 text-center font-audiowide text-[2rem] font-normal text-white md:text-[3rem] lg:block lg:text-[5rem]">
               CONTACT US
             </h2>
             {/* capy on the C */}

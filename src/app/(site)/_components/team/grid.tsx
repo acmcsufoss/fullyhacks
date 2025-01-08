@@ -116,7 +116,7 @@ const TeamGrid: React.FC<TeamProps> = ({ team }) => {
       {carouselIndex > 0 && (
         <button
           onClick={() => setCarouselIndex(carouselIndex - 1)}
-          className="absolute top-[20rem] -left-3 flex cursor-pointer items-center justify-between rounded-full p-4 text-white transition-all duration-500 hover:bg-purple_hover sm:left-12">
+          className="absolute top-[20rem] -left-3 flex cursor-pointer items-center justify-between rounded-full p-4 text-mint transition-all duration-500 hover:bg-purple_hover sm:left-12">
           <FaChevronLeft className="h-4 w-4 md:h-6 md:w-6" />
         </button>
       )}
@@ -124,7 +124,7 @@ const TeamGrid: React.FC<TeamProps> = ({ team }) => {
       {carouselIndex < filteredTeam.length - 1 && (
         <button
           onClick={() => setCarouselIndex(carouselIndex + 1)}
-          className="absolute top-[20rem] -right-3 flex cursor-pointer items-center justify-between rounded-full p-4 text-white transition-all duration-500 hover:bg-purple_hover sm:right-12">
+          className="absolute top-[20rem] -right-3 flex cursor-pointer items-center justify-between rounded-full p-4 text-mint transition-all duration-500 hover:bg-purple_hover sm:right-12">
           <FaChevronRight className="h-4 w-4 md:h-6 md:w-6" />
         </button>
       )}

@@ -10,7 +10,12 @@ import About from "./about";
 import Sponsors from "./sponsors";
 import Team from "./team";
 import FAQ from "@/components/faq";
-import { FAQBackgroundEffects } from "./background-effects";
+import {
+  FAQBackgroundEffects,
+  FooterBackgroundEffects,
+  SponsorsBackgroundEffects,
+  TeamBackgroundEffects
+} from "./background-effects";
 
 interface LandingPageProps {
   companyData: CompanyType[];
@@ -48,13 +53,15 @@ const LandingPage: React.FC<LandingPageProps> = (props) => {
         <div
           id="sponsors"
           className="mt-8 flex w-full max-w-[1048px] flex-col items-center justify-center font-normal md:mt-40 md:text-md">
+          <SponsorsBackgroundEffects />
           <Sponsors sponsors={companyData} />
         </div>
       </section>
-      <section className="team-container flex w-screen flex-col items-center">
+      <section className="team-container flex w-screen flex-col items-center overflow-visible">
         <div
           id="team"
-          className="mx-4 mt-8 flex max-w-[1048px] flex-col items-center justify-center font-normal md:mx-0 md:mt-40 md:text-md">
+          className="relative mx-4 mt-8 flex max-w-[1048px] flex-col items-center justify-center font-normal md:mx-0 md:mt-40 md:text-md">
+          <TeamBackgroundEffects />
           <Team team={teamData} />
         </div>
       </section>
@@ -65,91 +72,7 @@ const LandingPage: React.FC<LandingPageProps> = (props) => {
           className="relative mx-4 flex max-w-[1048px] flex-col items-center justify-center font-normal md:mt-40 md:text-md">
           <FAQ faqs={faqData} />
         </div>
-        {/* footer */}
-        {/* Stars footer*/}
-        <img
-          src="/assets/footer/stars.svg"
-          alt="stars"
-          className="absolute hidden lg:left-[48%] lg:bottom-0 lg:block lg:h-[73rem] lg:w-full lg:-translate-x-1/2 lg:animate-pulse"
-        />
-
-        {/* comets */}
-        <img
-          src="/assets/footer/shootingStars.svg"
-          alt="shooting stars"
-          className="absolute hidden w-full lg:bottom-[5rem] lg:block"
-        />
-
-        {/* capystroid */}
-        <img
-          src="/assets/footer/capyAstroid.svg"
-          alt="astroid capybara"
-          className="absolute bottom-[25rem] right-[4rem] h-[8rem] md:right-[7rem] md:h-[9rem] lg:bottom-[10rem] lg:right-[13rem] lg:h-[13rem] lg:w-auto"
-        />
-
-        {/* Satellite */}
-        <img
-          src="/assets/footer/satellite.svg"
-          alt="satellite"
-          className="absolute bottom-[32rem] right-[-1rem] h-[18rem] md:h-[20rem] lg:bottom-[25rem] lg:h-[34rem]"
-        />
-
-        {/* constellation 1 */}
-        <img
-          src="/assets/constellation.svg"
-          alt="constellation"
-          className="absolute hidden lg:bottom-[0rem] lg:left-[-20rem] lg:block lg:h-[65rem] lg:blur-md"
-        />
-
-        {/* Constellation 2 */}
-        <img
-          src="/assets/constellation.svg"
-          alt="constellation"
-          className="absolute hidden lg:bottom-[-35rem] lg:right-[-28rem] lg:block lg:h-[53rem] lg:rotate-[75deg] lg:blur-md"
-        />
-
-        {/* cloud haze */}
-        <img
-          src="/assets/footer/cloudy.svg"
-          alt="background"
-          className="absolute hidden lg:bottom-[-30rem] lg:block lg:h-[rem] lg:w-full"
-        />
-
-        {/* rocketboost */}
-        <img
-          src="/assets/footer/rocketBoost.svg"
-          alt="rocketboost"
-          className="absolute hidden lg:bottom-[27rem] lg:left-[2.5rem] lg:block lg:h-[14rem] lg:w-auto"
-        />
-
-        {/* Capybara on Spaceship */}
-        <img
-          src="/assets/footer/capyShip.svg"
-          alt="Spaceship"
-          className="absolute bottom-[36rem] left-[-2.5rem] h-[8.5rem] w-auto md:h-[10rem] lg:left-[3rem] lg:bottom-[30rem] lg:h-[22rem]"
-        />
-
-        {/* mobile bg */}
-        {/* constellation  */}
-        <img
-          src="/assets/footer/mobile/constellation.svg"
-          alt="constellations"
-          className="absolute bottom-[4rem] right-1 blur-lg md:right-[1rem] md:bottom-[-5rem] md:h-[70rem] lg:hidden"
-        />
-
-        {/* constellations multiple */}
-        <img
-          src="/assets/footer/mobile/constellationGroup.svg"
-          alt="constellations"
-          className="absolute bottom-[23rem] left-[0.25rem] h-[30rem] blur-lg md:bottom-[15rem] md:h-[40rem] lg:hidden"
-        />
-
-        {/* stars */}
-        <img
-          src="/assets/footer/mobile/mobileStars.svg"
-          alt="constellations"
-          className="absolute bottom-[20rem] left-[-2rem] h-[35rem] w-full animate-pulse md:bottom-[9rem] md:left-[-9rem] md:h-[50rem] lg:hidden"
-        />
+        <FooterBackgroundEffects />
         <LandingFooter />
       </section>
     </main>

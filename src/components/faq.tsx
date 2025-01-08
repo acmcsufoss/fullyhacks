@@ -59,7 +59,9 @@ const FAQ: React.FC<FAQProps> = (props) => {
   const { faqs } = props;
   return (
     <>
-      <p className="mb-4 text-xxl font-normal text-white md:text-[5rem]">FAQ</p>
+      <p className="custom-text-shadow mb-4 text-xxl font-normal text-white md:text-[5rem]">
+        FAQ
+      </p>
       <div className="flex flex-col items-center">
         {faqs.map((faq: FAQType) => {
           return (

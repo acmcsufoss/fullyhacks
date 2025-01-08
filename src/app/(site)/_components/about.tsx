@@ -8,8 +8,6 @@ export default function About() {
         alt="moon"
         className="block min-w-[768px] md:min-w-[1024px] lg:max-w-[1360px]"
       />
-
-      {/* Text Content */}
       <div
         id="about"
         className="absolute left-1/2 top-[45%] z-10 max-w-[300px] -translate-x-1/2 -translate-y-1/2 text-black sm:top-[52%] sm:max-w-[768px] md:top-1/2">

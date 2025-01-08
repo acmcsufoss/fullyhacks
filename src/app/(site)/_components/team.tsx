@@ -25,14 +25,9 @@ const Team = ({ team }: { team: TeamType[] }) => {
 
   return (
     <div className="relative">
-      <h2 className="mt-10 text-center text-xxl font-medium md:text-[5rem]">
+      <h2 className="custom-text-shadow mt-10 text-center text-xxl font-medium md:text-[5rem]">
         Our Teams
       </h2>
-      <img
-        src="/assets/constellation.svg"
-        alt="Constellation Image"
-        className="absolute -bottom-[166px] right-0 w-[400px] overflow-visible blur-md brightness-110 md:-bottom-[280px] md:w-[640px]"
-      />
       <div className="flex w-full flex-col items-center">
         {screenWidth > 768 ? (
           <>
