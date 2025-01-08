@@ -58,7 +58,7 @@ const LandingPage: React.FC<LandingPageProps> = (props) => {
           <Team team={teamData} />
         </div>
       </section>
-      <section className="relative flex w-[100vw] flex-col items-center justify-start overflow-visible pb-40 font-normal md:pt-32 md:pb-24 md:text-md">
+      <section className="relative flex w-[100vw] flex-col items-center justify-start overflow-hidden pb-32 font-normal md:pt-32 md:pb-24 md:text-md">
         <FAQBackgroundEffects />
         <div
           id="frequently-asked-questions"
@@ -84,7 +84,7 @@ const LandingPage: React.FC<LandingPageProps> = (props) => {
         <img
           src="/assets/footer/capyAstroid.svg"
           alt="astroid capybara"
-          className="absolute bottom-[25rem] right-[4rem] h-[8rem] md:right-[7rem] md:h-[9rem] lg:bottom-[19rem] lg:right-[21rem] lg:h-[13rem] lg:w-auto"
+          className="absolute bottom-[25rem] right-[4rem] h-[8rem] md:right-[7rem] md:h-[9rem] lg:bottom-[10rem] lg:right-[13rem] lg:h-[13rem] lg:w-auto"
         />
 
         {/* Satellite */}
@@ -148,7 +148,7 @@ const LandingPage: React.FC<LandingPageProps> = (props) => {
         <img
           src="/assets/footer/mobile/mobileStars.svg"
           alt="constellations"
-          className="absolute bottom-[20rem] left-[-2rem] h-[35rem] w-full animate-pulse lg:hidden md:h-[50rem] md:bottom-[9rem] md:left-[-9rem]"
+          className="absolute bottom-[20rem] left-[-2rem] h-[35rem] w-full animate-pulse md:bottom-[9rem] md:left-[-9rem] md:h-[50rem] lg:hidden"
         />
         <LandingFooter />
       </section>

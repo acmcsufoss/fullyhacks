@@ -6,7 +6,7 @@ import links from "@/lib/data/links.json";
 export const LandingFooter: React.FC = () => {
   return (
     <>
-      <div className="relative mt-[25rem] flex pt-80 lg:mt-[50rem]">
+      <div className="relative mt-[10rem] flex pt-80 lg:mt-[30rem]">
         <div className="flex w-full flex-grow flex-col items-center">
           {/* Contact Us */}
           <div className="relative inline-block">
@@ -22,22 +22,20 @@ export const LandingFooter: React.FC = () => {
           </div>
           {/* email */}
           <p className="py-[1rem] pb-[3rem] font-bruno text-[1.5rem] font-normal md:text-[2rem] lg:pb-[4rem] lg:text-[2rem]">
-            fullyhacks@gmail.com
+            {links.email}
           </p>
 
           {/* Frame for icons */}
           <div className="flex flex-grow items-center justify-center gap-6 text-[#ECECEC]">
-            <a
-              target="_blank"
-              href="https://www.linkedin.com/company/fullyhacks/">
+            <a target="_blank" href={links.linkedin}>
               <BsLinkedin className="h-[2.75rem] w-12 md:h-14 md:w-14" />
             </a>
-            <a target="_blank" href="https://discord.gg/3NvZKuQxJY">
+            <a target="_blank" href={links.discord}>
               <BsDiscord className="h-[3rem] w-12 md:h-16 md:w-16" />
             </a>
             <div className="relative inline-block">
               {/* ACM text */}
-              <a target="_blank" href="https://acmcsuf.com/">
+              <a target="_blank" href={links.acmcsuf}>
                 <img
                   src="/assets/footer/capyACM.svg"
                   alt="capybara ACM"
@@ -50,15 +48,15 @@ export const LandingFooter: React.FC = () => {
                 />
               </a>
             </div>
-            <a target="_blank" href="https://www.instagram.com/fullyhacks/">
+            <a target="_blank" href={links.instagram}>
               {<PiInstagramLogoFill className="h-12 w-12 md:h-16 md:w-16" />}
             </a>
           </div>
         </div>
       </div>
       {/* Footer Text */}
-      <div className="bottom-0 w-full pt-10 text-center lg:hidden">
-        <p className="text-sm text-gray-400 lg:hidden">
+      <div className="bottom-0 w-full pt-10 text-center">
+        <p className="text-sm text-gray-400">
           © 2025 FullyHacks. All Rights Reserved.
         </p>
       </div>
