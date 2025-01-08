@@ -29,7 +29,7 @@ const calculateTimeLeft = (targetDate: Date) => {
   return timeLeft;
 };
 const CountDown = () => {
-  const targetDate = new Date("2024-02-24T13:00:00");
+  const targetDate = new Date("2025-04-12T00:00:00");
   const [time, setTimeLeft] = useState(calculateTimeLeft(targetDate));
 
   useEffect(() => {
@@ -42,32 +42,45 @@ const CountDown = () => {
   });
 
   return (
-    <div className="z-[11] mt-12 grid auto-cols-max gap-2 text-center font-medium md:grid-flow-col md:gap-10 lg:grid-flow-col">
-      <div className="flex flex-col items-center justify-center rounded-xl bg-blue_dark p-3 text-blue_neon">
-        <span className="countdown text-4xl md:text-6xl">
-          <span style={{ "--value": time.days } as CSSProperties}></span>
-        </span>
+    <div className="z-[11] mt-12 flex flex-col items-center justify-center text-center font-medium">
+      <div>
+        <p>TIME UNTIL LIFTOFF</p>
       </div>
-      <span className="colon text-5xl md:text-7xl">:</span>
-      <div className="flex flex-col items-center justify-center rounded-xl bg-blue_dark p-3 text-blue_neon">
-        <span className="countdown text-4xl md:text-6xl">
-          <span style={{ "--value": time.hours } as CSSProperties}></span>
-        </span>
-      </div>
-      <span className="colon text-5xl md:text-7xl">:</span>
-      <div className="flex flex-col items-center justify-center rounded-xl bg-blue_dark p-3 text-blue_neon">
-        <div className="flex items-center">
-          <span className="countdown text-4xl md:text-6xl">
-            <span style={{ "--value": time.minutes } as CSSProperties}></span>
+      <div className="z-[11] grid auto-cols-max grid-flow-col text-center font-medium">
+        <div className="flex flex-col items-center justify-center rounded-xl">
+          <span className="countdown text-lg md:text-5xl">
+            <span style={{ "--value": time.days } as CSSProperties}></span>d
           </span>
         </div>
-      </div>
-      <span className="colon text-5xl md:text-7xl">:</span>
-      <div className="flex flex-col items-center justify-center rounded-xl bg-blue_dark p-3 text-blue_neon">
-        <div className="flex items-center">
-          <span className="countdown text-4xl md:text-6xl">
-            <span style={{ "--value": time.seconds } as CSSProperties}></span>
+        <span className="mx-2 flex h-full items-center justify-center pb-1 text-4xl md:mx-4 md:pb-2 md:text-6xl">
+          :
+        </span>
+        <div className="flex flex-col items-center justify-center rounded-xl">
+          <span className="countdown text-lg md:text-5xl">
+            <span style={{ "--value": time.hours } as CSSProperties}></span>h
           </span>
+        </div>
+        <span className="mx-2 flex h-full items-center justify-center pb-1 text-4xl md:mx-4 md:pb-2 md:text-6xl">
+          :
+        </span>
+        <div className="flex flex-col items-center justify-center rounded-xl">
+          <div className="flex items-center">
+            <span className="countdown text-lg md:text-5xl">
+              <span style={{ "--value": time.minutes } as CSSProperties}></span>
+              m
+            </span>
+          </div>
+        </div>
+        <span className="mx-2 flex h-full items-center justify-center pb-1 text-4xl md:mx-4 md:pb-2 md:text-6xl">
+          :
+        </span>
+        <div className="rounded-xltext-blue_neon flex flex-col items-center justify-center">
+          <div className="flex items-center">
+            <span className="countdown text-lg md:text-5xl">
+              <span style={{ "--value": time.seconds } as CSSProperties}></span>
+              s
+            </span>
+          </div>
         </div>
       </div>
     </div>

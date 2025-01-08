@@ -1,8 +1,7 @@
-import { NextAuthOptions } from "next-auth";
-import { prisma } from "db";
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
+import { prisma } from "db";
+import { getServerSession, NextAuthOptions } from "next-auth";
 import GitHubProvider from "next-auth/providers/github";
-import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
 
 export const authOptions: NextAuthOptions = {
@@ -13,6 +12,11 @@ export const authOptions: NextAuthOptions = {
       clientSecret: process.env.GITHUB_SECRET_DEV!
     })
   ],
+  session: {
+    strategy: "database",
+    maxAge: 30 * 24 * 60 * 60, // 30 days
+    updateAge: 24 * 60 * 60 // 24 hours
+  },
   callbacks: {
     session: async ({ session, user }) => ({
       ...session,

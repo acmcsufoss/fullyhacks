@@ -1,47 +1,113 @@
-import { companyType } from "@/types/interface";
+import { CompanyType } from "@/types/interface";
 import React from "react";
 
-interface SponsorBalloonProps {
-  company: companyType;
-}
-
-const SponsorBalloon: React.FC<SponsorBalloonProps> = (props) => {
-  const { company } = props;
+const LittleAsteroids: React.FC = () => {
+  const littleAsteroids = [
+    {
+      src: "/assets/little_asteroid.svg",
+      top: "350px",
+      left: "280px",
+      size: "1vw"
+    },
+    {
+      src: "/assets/tiny_asteroid.svg",
+      top: "490px",
+      left: "440px",
+      size: "1vw"
+    },
+    {
+      src: "/assets/little_asteroid.svg",
+      top: "600px",
+      left: "570px",
+      size: "1vw"
+    },
+    {
+      src: "/assets/tiny_asteroid.svg",
+      top: "580px",
+      left: "0px",
+      size: "2vw"
+    },
+    { src: "/assets/radial_star.svg", top: "700px", left: "30px", size: "4vw" },
+    { src: "/assets/radial_star.svg", top: "700px", left: "200px", size: "4vw" }
+  ];
 
   return (
-    <div className="relative w-52 animate-float motion-reduce:animate-none md:w-72">
-      <img src="/assets/sponsor_balloon.svg" alt="Sponsor Balloon" />
-      <a
-        className="text-center"
-        target="_blank"
-        href={company.href}
-        title={company.name}>
-        <img
-          className="absolute top-0 bottom-14 left-0 right-0 z-20 m-auto w-24 md:bottom-20 md:w-32"
-          src={company.image}
-          alt={company.name}
-        />
-      </a>
+    <div className="relative hidden md:block">
+      {littleAsteroids.map((asteroid, index) => (
+        <div
+          key={index}
+          style={{
+            position: "absolute",
+            top: asteroid.top,
+            left: asteroid.left,
+            width: asteroid.size,
+            height: asteroid.size
+          }}>
+          <img
+            src={asteroid.src}
+            alt={`Little Asteroid ${index}`}
+            style={{
+              width: "100%",
+              height: "auto",
+              objectFit: "cover"
+            }}
+          />
+        </div>
+      ))}
     </div>
   );
 };
 
-interface SponsorProps {
-  companies: companyType[];
+interface SponsorAsteroidProps {
+  asteroid: CompanyType;
 }
 
-const Sponsors: React.FC<SponsorProps> = (props) => {
-  const { companies } = props;
+interface SponsorsProps {
+  sponsors: CompanyType[];
+}
+
+const SponsorAsteroid: React.FC<SponsorAsteroidProps> = (props) => {
+  const { asteroid } = props;
   return (
-    <div className="flex flex-col items-center justify-center">
-      <h2 className="mt-10 text-center text-xxl font-medium text-[#D7EEFF] [text-shadow:_0_0_10px_#719BCC] md:text-[5rem]">
+    <a
+      target="_blank"
+      href={asteroid.href}
+      className={`absolute z-20 block max-w-max ${asteroid.styles.left} ${asteroid.styles.top} ${asteroid.styles.width}`}>
+      <img src={asteroid.imageSrc} alt="Asteroid" className="object-cover" />
+    </a>
+  );
+};
+
+const Sponsors: React.FC<SponsorsProps> = (props) => {
+  const { sponsors } = props;
+  return (
+    <div className="min-h-[1100px] w-full overflow-hidden">
+      <h2 className="text-center text-xxl [text-shadow:_0_0_10px_#719BCC] md:text-[5rem] lg:text-right">
         Sponsors
       </h2>
-      <section className="my-10 grid grid-cols-2 items-center justify-center gap-4 md:gap-x-12 lg:grid-cols-3">
-        {companies.map((company: companyType) => {
-          return <SponsorBalloon key={company.id} company={company} />;
-        })}
-      </section>
+      {/* UFO and Light Cone */}
+      <div className="absolute top-[7rem] left-4 rotate-12 sm:-left-12 sm:rotate-0 md:left-0 md:top-[15rem] lg:top-8">
+        <div className="relative">
+          <img
+            src="/assets/ufo.png"
+            alt="UFO"
+            className="w-[25rem] sm:w-[30rem] lg:w-[40rem]"
+          />
+          <img
+            src="/assets/cone.svg"
+            alt="Light Cone"
+            style={{ width: "400%", height: "auto" }}
+            className="absolute top-[65.5%] left-[80%] z-10 -translate-x-1/2 -rotate-2 transform animate-flicker opacity-70"
+          />
+        </div>
+      </div>
+
+      {/* Asteroids Section */}
+      {sponsors.map((asteroid, index) => (
+        <SponsorAsteroid key={index} asteroid={asteroid} />
+      ))}
+
+      <LittleAsteroids />
     </div>
   );
 };

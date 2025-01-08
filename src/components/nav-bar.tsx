@@ -4,17 +4,23 @@ import { MenuType } from "@/types/interface";
 import { signOut } from "next-auth/react";
 import Link from "next/link";
 import React, { useState } from "react";
-import { IoArrowBackSharp } from "react-icons/io5";
-import { BiHomeAlt, BiCalendarEvent } from "react-icons/bi";
-import { SlEnergy } from "react-icons/sl";
-import { BsDiscord, BsLightbulb } from "react-icons/bs";
 import {
-  AiOutlineMenu,
   AiOutlineClose,
+  AiOutlineMenu,
   AiOutlineQuestionCircle
 } from "react-icons/ai";
-import { HiOutlineSpeakerphone } from "react-icons/hi";
+import {
+  BiCalendarEvent,
+  BiHomeAlt,
+  BiLogOut,
+  BiUserCircle
+} from "react-icons/bi";
+import { BsDiscord, BsLightbulb } from "react-icons/bs";
+import { HiMenu, HiOutlineSpeakerphone } from "react-icons/hi";
 import { HiOutlineTrophy } from "react-icons/hi2";
+import { IoArrowBackSharp } from "react-icons/io5";
+import { SlEnergy } from "react-icons/sl";
+import links from "@/lib/data/links.json";
 
 export const NavBarLanding: React.FC = () => {
   const menuList: MenuType[] = [
@@ -33,100 +39,83 @@ export const NavBarLanding: React.FC = () => {
       desktop: 24
     },
     {
-      id: "sponsor",
+      id: "sponsors",
       name: "Sponsors",
       href: "#sponsors",
       mobile: 24,
       desktop: 24
     },
     {
-      id: "portal",
-      name: "User Portal",
-      href: "/portal",
+      id: "team",
+      name: "Team",
+      href: "#team",
+      mobile: 24,
+      desktop: 24
+    },
+    {
+      id: "login",
+      name: "Log In",
+      href: "/signin",
       mobile: 24,
       desktop: 24
     }
   ];
 
   return (
-    <nav className="navbar z-[30] text-lg font-semibold text-white lg:grid lg:grid-cols-4 lg:pl-8 lg:pt-2">
-      <div className="navbar-start">
-        <Link href="/" className="hidden items-center gap-2 lg:flex">
-          FullyHacks 2025
+    <nav className="navbar relative z-[30] text-white">
+      {/* Desktop Navigation */}
+      <div className="hidden w-full items-center justify-between px-4 py-4 sm:px-6 lg:flex lg:px-8">
+        <Link href="/" className="flex-shrink-0">
+          <img
+            src="/assets/fullyhacks_logo.png"
+            alt="FullyHacks 2025"
+            className="w-16 md:w-24"
+          />
         </Link>
+
+        <ul className="flex items-center">
+          {menuList.map((item, index) => (
+            <div key={item.id} className="flex items-center whitespace-nowrap">
+              <Link
+                href={item.href}
+                className="flex items-center px-2 py-2 text-sm transition-all duration-200 sm:px-3 sm:text-base lg:px-4 lg:text-lg xl:text-xl">
+                {item.name}
+              </Link>
+              {index < menuList.length - 1 && (
+                <div className="mx-1 flex items-center sm:mx-1.5 lg:mx-2">
+                  <span className="h-[1.5em] w-[3px] bg-white" />
+                </div>
+              )}
+            </div>
+          ))}
+        </ul>
+      </div>
+
+      {/* Mobile Navigation */}
+      <div className="flex w-full items-center justify-between px-4 lg:hidden">
         <div className="dropdown">
-          <label tabIndex={0} className="btn-ghost btn lg:hidden">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor">
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M4 6h16M4 12h8m-8 6h16"
-              />
-            </svg>
+          <label tabIndex={0} className="btn-ghost btn p-2">
+            <HiMenu className="h-12 w-12 opacity-80" />
           </label>
           <ul
             tabIndex={0}
-            className="dropdown-content menu rounded-box menu-compact z-[3] ml-4 mt-3 w-52 bg-purple_300 p-2 text-[1rem] shadow">
-            {menuList.map((item) => {
-              return (
-                <div key={item.id} className="my-2 flex gap-4">
-                  <Link
-                    key={item.id}
-                    href={item.href}
-                    className="m-2 flex items-center gap-2">
-                    <p className="cursor-pointer"> {item.name} </p>
-                  </Link>
-                </div>
-              );
-            })}
-          </ul>
-        </div>
-      </div>
-      <div className="navbar-center mr-36 mb-20 hidden lg:col-span-3 xl:flex">
-        <ul className="menu menu-horizontal flex w-[100%] items-center justify-end">
-          {menuList.map((item, index) => {
-            return (
-              <div
-                key={item.id}
-                style={{ marginRight: "-40px" }}
-                className="my-2 flex">
-                {/* Placeholder div or remove entirely */}
-                <div
-                  style={{ width: item.desktop, height: item.desktop }}
-                  className="ml-12"
-                />
-                <a
-                  key={item.id}
-                  id={item.id}
-                  href={item.href}
-                  className="flex items-center">
-                  <p className="cursor-pointer hover:text-purple_main_hover hover:duration-200 hover:ease-in-out">
+            className="dropdown-content menu rounded-box menu-compact z-[3] mt-3 min-w-max scale-110 bg-[#27233f] p-4 shadow">
+            {menuList.map((item) => (
+              <div key={item.id} className="flex">
+                <Link href={item.href} className="w-full px-6 py-2.5">
+                  <p className="cursor-pointer whitespace-nowrap text-base transition-all duration-200 hover:text-purple_main_hover sm:text-lg">
                     {item.name}
                   </p>
-                </a>
-                {index < menuList.length - 1 && (
-                  <span
-                    className="ml-7"
-                    style={{
-                      borderLeft: "4px solid #E149A9",
-                      height: "32px"
-                    }}></span>
-                )}{" "}
+                </Link>
               </div>
-            );
-          })}
-        </ul>
-      </div>
-      <div className="navbar-end lg:hidden">
-        <>
-          <img src="/assets/logo.svg" alt="Fully logo" width={36} height={36} />
-        </>
+            ))}
+          </ul>
+        </div>
+        <img
+          src="/assets/fullyhacks_logo.png"
+          alt="FullyHacks 2025"
+          className="h-16 w-16 transition-all duration-200 sm:h-20 sm:w-20"
+        />
       </div>
     </nav>
   );
@@ -232,65 +221,93 @@ export const FeedSideBar: React.FC<FeedSideBarProps> = ({ setLocation }) => {
       id: "feed08",
       name: "FAQs",
       icon: <AiOutlineQuestionCircle size={28} />
+    },
+    {
+      id: "feed06",
+      name: "Profile",
+      icon: <BiUserCircle size={28} />
     }
-    // {
-    //   id: 'feed06',
-    //   name: 'Profile',
-    //   icon: <BiUserCircle size={28} />
-    // }
   ];
+
   return (
     <>
       {!isOpen && (
         <AiOutlineMenu
           onClick={() => setOpen(true)}
-          className="fixed top-[5rem] left-4 z-20 cursor-pointer text-[#EF4DB3] md:hidden"
-          size={20}
+          className="fixed top-[5rem] left-4 z-20 cursor-pointer stroke-[2] text-[#EF4DB3]"
+          size={24}
         />
       )}
 
-      {/* For mobile */}
+      {/* Blur overlay */}
       <div
-        className={`pointer-events-none fixed left-0 top-0 z-20 h-screen w-screen bg-purple_dark/40 md:hidden ${
-          isOpen ? "block" : "hidden"
+        className={`fixed inset-0 z-40 bg-purple_dark/40 backdrop-blur-sm transition-opacity duration-300 ${
+          isOpen ? "opacity-100" : "pointer-events-none opacity-0"
         }`}
+        onClick={() => setOpen(false)}
       />
 
+      {/* Mobile menu */}
       <div
-        className={`fixed top-0 transition-all duration-200 ease-in md:hidden ${
-          isOpen ? "left-0" : "-left-80"
-        } z-30 h-screen basis-1/6 bg-purple_dark p-8 text-sm font-semibold text-[#EF4DB3]`}>
-        <AiOutlineClose
-          onClick={() => setOpen(false)}
-          size={20}
-          className="cursor-pointer"
-        />
-        <ul className="border-b-2 border-[#EF4DB3] p-2">
-          {feedItems.map((item, idx) => {
-            return (
+        className={`fixed inset-0 z-50 transform transition-transform duration-300 ease-in-out ${
+          isOpen ? "translate-x-0" : "-translate-x-full"
+        }`}>
+        <div className="h-full w-80 bg-purple_dark p-8 text-sm font-semibold text-[#EF4DB3]">
+          <div className="mb-8 flex items-center justify-between">
+            <img
+              src="/assets/logo.svg"
+              alt="Fully logo"
+              className="h-10 w-10"
+            />
+            <AiOutlineClose
+              onClick={() => setOpen(false)}
+              size={24}
+              className="cursor-pointer"
+            />
+          </div>
+
+          <ul className="space-y-4">
+            {feedItems.map((item, idx) => (
               <button
                 key={item.id}
                 onClick={() => {
-                  setLocation(item.name), setIdx(idx), setOpen(false);
+                  setLocation(item.name);
+                  setIdx(idx);
+                  setOpen(false);
                 }}
-                className={`my-2 flex w-full items-center rounded-lg p-2 ${
-                  currIdx == idx ? "bg-[rgba(255,136,229,0.4)] text-white" : ""
+                className={`flex w-full items-center rounded-lg p-3 transition-colors duration-200 ${
+                  currIdx === idx
+                    ? "bg-[rgba(255,136,229,0.4)] text-white"
+                    : "hover:bg-[rgba(255,136,229,0.2)]"
                 }`}>
                 {item.icon}
-                <li className="ml-4 text-white">{item.name}</li>
+                <span className="ml-4 text-white">{item.name}</span>
               </button>
-            );
-          })}
-        </ul>
-        <div className="mt-4 flex items-center gap-4 text-center">
-          <BsDiscord size={28} />
-          <a target={"_blank"} href="https://discord.gg/XKNZxHEnJj">
-            Discord Server
-          </a>
+            ))}
+          </ul>
+
+          <div className="mt-8 border-t border-[#EF4DB3] pt-8">
+            <button
+              onClick={() => signOut()}
+              className="flex w-full items-center rounded-lg p-3 text-red-400 transition-colors duration-200 hover:bg-red-400/10">
+              <BiLogOut size={28} />
+              <span className="ml-4">Sign Out</span>
+            </button>
+          </div>
+
+          <div className="absolute bottom-8 left-8 flex items-center gap-4">
+            <BsDiscord size={28} />
+            <a
+              target="_blank"
+              href={links.discord}
+              className="text-white transition-colors duration-200 hover:text-[#EF4DB3]">
+              Discord Server
+            </a>
+          </div>
         </div>
       </div>
 
-      {/* For desktop */}
+      {/* Desktop sidebar*/}
       <div className="mx-4 mt-12 hidden basis-1/5 text-sm font-semibold text-[#EF4DB3] md:mx-10 md:block md:text-md">
         <ul className="border-b-2 p-2">
           {feedItems.map((item, idx) => {
@@ -311,10 +328,7 @@ export const FeedSideBar: React.FC<FeedSideBarProps> = ({ setLocation }) => {
         </ul>
         <div className="mt-4 flex items-center gap-4 text-center">
           <BsDiscord size={28} />
-          <a
-            target={"_blank"}
-            href="https://discord.gg/XKNZxHEnJj"
-            className="text-white">
+          <a target={"_blank"} href={links.discord} className="text-white">
             Discord Server
           </a>
         </div>

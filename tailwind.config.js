@@ -40,13 +40,28 @@ module.exports = {
           "40%, 60%": {
             transform: "translate3d(4px, 0, 0)"
           }
+        },
+        flicker: {
+          "0%": { opacity: "0.8" },
+          "10%": { opacity: "0.2" },
+          "20%": { opacity: "0.9" },
+          "30%": { opacity: "0.4" },
+          "50%": { opacity: "1" },
+          "70%": { opacity: "0.3" },
+          "90%": { opacity: "0.7" },
+          "100%": { opacity: "0.5" }
         }
       },
       animation: {
         float: "float 3s infinite ease-in-out",
-        shake: "shake 0.82s cubic-bezier(.36,.07,.19,.97) both"
+        shake: "shake 0.82s cubic-bezier(.36,.07,.19,.97) both",
+        flicker: "flicker 3s infinite"
       },
       fontSize: {
+        "fluid-sm": "clamp(0.875rem, 0.8rem + 0.25vw, 1rem)",
+        "fluid-base": "clamp(1rem, 0.9rem + 0.3vw, 1.125rem)",
+        "fluid-lg": "clamp(1.125rem, 1rem + 0.5vw, 1.25rem)",
+        "fluid-xl": "clamp(1.25rem, 1.1rem + 0.75vw, 1.5rem)",
         md: "1.25rem",
         lg: "1.5rem",
         xl: "2rem",
@@ -90,12 +105,8 @@ module.exports = {
       backgroundColor: {
         body_bg: "#FFFAF1"
       },
-      screens: {
-        md: "700px"
-      },
       fontFamily: {
-        inter: ["Inter", "sans-serif"],
-        audiowide: ["Audiowide", "sans-serif"],
+        audiowide: ["var(--font-audiowide)", "sans-serif"],
         bruno: ["Bruno Ace", "sans-serif"]
       },
       borderWidth: {

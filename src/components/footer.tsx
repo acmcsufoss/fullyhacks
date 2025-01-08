@@ -1,6 +1,7 @@
 import React from "react";
 import { BsLinkedin, BsDiscord } from "react-icons/bs";
 import { PiInstagramLogoFill } from "react-icons/pi";
+import links from "@/lib/data/links.json";
 
 export const LandingFooter: React.FC = () => {
   return (
