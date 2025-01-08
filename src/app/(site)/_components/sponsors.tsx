@@ -97,7 +97,7 @@ const Sponsors: React.FC<SponsorsProps> = (props) => {
             src="/assets/cone.svg"
             alt="Light Cone"
             style={{ width: "400%", height: "auto" }}
-            className="animate-flicker absolute top-[65.5%] left-[80%] z-10 -translate-x-1/2 -rotate-2 transform opacity-70"
+            className="absolute top-[65.5%] left-[80%] z-10 -translate-x-1/2 -rotate-2 transform animate-flicker opacity-70"
           />
         </div>
       </div>

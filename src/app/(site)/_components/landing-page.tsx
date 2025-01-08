@@ -31,15 +31,15 @@ const LandingPage: React.FC<LandingPageProps> = (props) => {
         <Hero />
         <CountDown />
         <div className="relative mt-14 flex items-center gap-12 text-md font-medium">
-          <Link href="/signin" className="">
-            <button className="z-[11] mx-0 box-border flex cursor-pointer flex-row items-center justify-center rounded-[20px] border-[3px] border-[#926BAF] py-2 px-4 text-[#926BAF] md:text-xl">
+          <Link href="/signin">
+            <button className="z-[11] mx-0 box-border rounded-[20px] bg-[#926BAF] py-2 px-4 text-white transition-all hover:brightness-110 focus:brightness-110 md:text-xl">
               Apply
             </button>
           </Link>
           <a
             target="_blank"
-            href="https://drive.google.com/file/d/1nw2_POGSUO0qCj24TT-fwW7hjqzBQpLW/view?usp=sharing"
-            className="z-[11] mx-0 box-border flex cursor-pointer flex-row items-center justify-center rounded-[20px] border-[3px] border-[#4A47CD] py-2 px-4 text-[#4A47CD] md:text-xl">
+            href="https://drive.google.com/file/d/1KgINevhJUq9wNlkT_m716dFldZ8NTwPO/view"
+            className="z-[11] mx-0 cursor-pointer rounded-[20px] border-[3px] border-[#4A47CD] py-2 px-4 text-[#4A47CD] transition-all hover:brightness-110 focus:brightness-110 md:text-xl">
             Sponsor Us!
           </a>
         </div>

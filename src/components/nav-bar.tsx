@@ -73,18 +73,19 @@ export const NavBarLanding: React.FC = () => {
           />
         </Link>
 
-        <ul className="flex items-center">
+        <ul className="flex items-center gap-4">
           {menuList.map((item, index) => (
-            <div key={item.id} className="flex items-center whitespace-nowrap">
+            <div
+              key={item.id}
+              className="flex items-center gap-4 whitespace-nowrap">
               <Link
                 href={item.href}
-                className="flex items-center px-2 py-2 text-sm transition-all duration-200 sm:px-3 sm:text-base lg:px-4 lg:text-lg xl:text-xl">
+                className="group relative py-2 text-sm sm:text-base lg:text-lg xl:text-xl">
                 {item.name}
+                <span className="absolute bottom-0 block h-0.5 w-0 bg-white transition-all duration-300 group-hover:w-full group-focus:w-full" />
               </Link>
               {index < menuList.length - 1 && (
-                <div className="mx-1 flex items-center sm:mx-1.5 lg:mx-2">
-                  <span className="h-[1.5em] w-[3px] bg-white" />
-                </div>
+                <span className="h-[1.5em] w-[3px] bg-white" />
               )}
             </div>
           ))}
