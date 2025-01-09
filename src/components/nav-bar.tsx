@@ -32,13 +32,6 @@ export const NavBarLanding: React.FC = () => {
       desktop: 24
     },
     {
-      id: "faq",
-      name: "FAQ",
-      href: "#frequently-asked-questions",
-      mobile: 24,
-      desktop: 24
-    },
-    {
       id: "sponsors",
       name: "Sponsors",
       href: "#sponsors",
@@ -53,9 +46,16 @@ export const NavBarLanding: React.FC = () => {
       desktop: 24
     },
     {
-      id: "login",
-      name: "Log In",
-      href: "/signin",
+      id: "faq",
+      name: "FAQ",
+      href: "#frequently-asked-questions",
+      mobile: 24,
+      desktop: 24
+    },
+    {
+      id: "portal",
+      name: "User Portal",
+      href: "/portal",
       mobile: 24,
       desktop: 24
     }
