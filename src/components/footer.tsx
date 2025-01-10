@@ -14,7 +14,7 @@ export const LandingFooter: React.FC = () => {
             </h2>
             {/* capy on the C */}
             <img
-              src="/assets/footer/capyC.svg"
+              src="/assets/capy-c.svg"
               alt="Capybara"
               className="absolute hidden w-auto sm:hidden lg:top-[1.65rem] lg:left-[0.6rem] lg:block lg:h-[4.5rem]"
             />
@@ -33,7 +33,7 @@ export const LandingFooter: React.FC = () => {
               {/* ACM text */}
               <a target="_blank" href={links.acmcsuf}>
                 <img
-                  src="/assets/footer/capyACM.svg"
+                  src="/assets/capy-acm.svg"
                   alt="capybara ACM"
                   className="absolute hidden h-[3rem] w-auto lg:top-[-1.5rem] lg:left-[-0.7rem] lg:block"
                 />

@@ -2,7 +2,7 @@ export const SponsorsBackgroundEffects = () => {
   return (
     <>
       <img
-        src="/assets/footer/shootingStars.svg"
+        src="/assets/shooting-stars.svg"
         alt="Shooting Stars"
         className="absolute top-[5rem] w-[800px]"
       />
@@ -68,22 +68,22 @@ export const FooterBackgroundEffects = () => {
   return (
     <>
       <img
-        src="/assets/footer/stars.svg"
+        src="/assets/footer-stars.svg"
         alt="stars"
         className="absolute hidden lg:left-[48%] lg:bottom-0 lg:block lg:h-[73rem] lg:w-full lg:-translate-x-1/2 lg:animate-pulse"
       />
       <img
-        src="/assets/footer/shootingStars.svg"
+        src="/assets/shooting-stars.svg"
         alt="shooting stars"
         className="absolute hidden min-w-[200%] lg:bottom-[5rem] lg:block"
       />
       <img
-        src="/assets/footer/capyAstroid.svg"
+        src="/assets/capy-astroid.svg"
         alt="astroid capybara"
         className="animate-tilt animation-delay-1000 absolute bottom-[25rem] right-[4rem] h-[8rem] motion-reduce:animate-none md:right-[7rem] md:h-[9rem] lg:bottom-[10rem] lg:right-[13rem] lg:h-[13rem] lg:w-auto"
       />
       <img
-        src="/assets/footer/satellite.svg"
+        src="/assets/satellite.svg"
         alt="satellite"
         className="absolute bottom-[32rem] right-[-1rem] h-[18rem] md:h-[20rem] lg:bottom-[25rem] lg:h-[34rem]"
       />
@@ -98,32 +98,32 @@ export const FooterBackgroundEffects = () => {
         className="absolute hidden lg:bottom-[-35rem] lg:right-[-28rem] lg:block lg:h-[53rem] lg:rotate-[75deg] lg:blur-md"
       />
       <img
-        src="/assets/footer/cloudy.svg"
+        src="/assets/cloudy.svg"
         alt="background"
         className="absolute hidden lg:bottom-[-30rem] lg:block lg:h-[rem] lg:w-full"
       />
       <img
-        src="/assets/footer/rocketBoost.svg"
+        src="/assets/rocket-boost.svg"
         alt="rocketboost"
         className="animate-tilt absolute hidden motion-reduce:animate-none lg:bottom-[27rem] lg:left-[2.5rem] lg:block lg:h-[14rem] lg:w-auto"
       />
       <img
-        src="/assets/footer/capyShip.svg"
+        src="/assets/capy-ship.svg"
         alt="Spaceship"
         className="animate-tilt animation-delay-2000 absolute bottom-[36rem] left-[-2.5rem] h-[8.5rem] w-auto motion-reduce:animate-none md:h-[10rem] lg:left-[3rem] lg:bottom-[30rem] lg:h-[22rem]"
       />
       <img
-        src="/assets/footer/mobile/constellation.svg"
+        src="/assets/constellation2.svg"
         alt="constellations"
         className="absolute bottom-[4rem] right-1 blur-lg md:right-[1rem] md:bottom-[-5rem] md:h-[70rem] lg:hidden"
       />
       <img
-        src="/assets/footer/mobile/constellationGroup.svg"
+        src="/assets/constellation-and-stars.svg"
         alt="constellations"
         className="absolute bottom-[23rem] left-[0.25rem] h-[30rem] blur-lg md:bottom-[15rem] md:h-[40rem] lg:hidden"
       />
       <img
-        src="/assets/footer/mobile/mobileStars.svg"
+        src="/assets/footer-mobile-stars.svg"
         alt="constellations"
         className="absolute bottom-[20rem] left-[-2rem] h-[35rem] w-full animate-pulse md:bottom-[9rem] md:left-[-9rem] md:h-[50rem] lg:hidden"
       />
