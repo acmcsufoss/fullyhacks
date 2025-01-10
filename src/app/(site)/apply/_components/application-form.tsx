@@ -8,6 +8,7 @@ import axios from "axios";
 import Loading from "@/components/loading";
 import SchoolSuggestion from "./school-suggestion";
 import { redirect } from "next/navigation";
+import { applicationSchema } from "@/schemas/application";
 
 interface ApplicationState {
   name: string;
@@ -24,58 +25,23 @@ interface ApplicationState {
   food: string;
   agree: boolean;
 }
+
 interface FormAction {
   type: string;
   payload?: any;
 }
-const schema = yup
-  .object({
-    name: yup.string(),
-    email: yup
-      .string()
-      .email("Invalid email format")
-      //Matches any .edu email
-      .matches(/^[a-zA-Z0-9._%+-]+@([a-zA-Z0-9-]+\.)+(edu)$/, {
-        message: "Must be a .edu email",
-        excludeEmptyString: true
-      }),
-    preferredEmail: yup.string().email("Invalid email format").required(),
-    phone: yup
-      .string()
-      .matches(
-        /^\D?(\d{3})\D?\D?(\d{3})\D?(\d{4})$/,
-        "Invalid phone number format"
-      ),
-    major: yup.string().min(2),
-    school: yup.string().min(4),
-    gradYear: yup
-      .number()
-      .typeError("Must be number")
-      .positive()
-      .integer()
-      .min(2023, "Invalid grad year")
-      .max(2030),
-    response: yup
-      .string()
-      .test("wordCount50", "Must be at least 50 words", (value) => {
-        if (value) {
-          const wordCount = value.trim().split(/\s+/).length;
-          return wordCount >= 50;
-        }
-        return false;
-      })
-      .test("wordCount500", "Must be less than 500 words", (value) => {
-        if (value) {
-          const wordCount = value.trim().split(/\s+/).length;
-          return wordCount <= 500;
-        }
-        return false;
-      }),
+
+// Reuse existing application schema from /schemas
+// and include additional fields
+const schema = applicationSchema.concat(
+  yup.object({
     over18: yup.bool().oneOf([true], "You must be 18 or older!"),
     waiver: yup.bool().oneOf([true], "You must agree to the waiver!")
   })
-  .required();
+);
+
 type FormData = yup.InferType<typeof schema>;
+
 const initialState: ApplicationState = {
   name: "",
   email: "",
@@ -91,6 +57,7 @@ const initialState: ApplicationState = {
   food: "Vegan",
   agree: false
 };
+
 const reducer = (
   state: ApplicationState,
   action: FormAction
@@ -210,6 +177,7 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
       redirect("/error");
     }
   };
+
   return (
     <>
       <form className="md:w-full" onSubmit={handleSubmit(onSubmit)}>
