@@ -4,12 +4,21 @@ import { getServerSession, NextAuthOptions } from "next-auth";
 import GitHubProvider from "next-auth/providers/github";
 import { redirect } from "next/navigation";
 
+const clientId =
+  process.env.NODE_ENV === "production"
+    ? process.env.GITHUB_ID
+    : process.env.GITHUB_ID_DEV;
+const clientSecret =
+  process.env.NODE_ENV === "production"
+    ? process.env.GITHUB_SECRET
+    : process.env.GITHUB_SECRET_DEV;
+
 export const authOptions: NextAuthOptions = {
   adapter: PrismaAdapter(prisma),
   providers: [
     GitHubProvider({
-      clientId: process.env.GITHUB_ID!,
-      clientSecret: process.env.GITHUB_SECRET!
+      clientId: clientId!,
+      clientSecret: clientSecret!
     })
   ],
   session: {

@@ -3,96 +3,96 @@
 //
 
 generator client {
-    provider = "prisma-client-js"
+  provider = "prisma-client-js"
 }
 
 datasource db {
-    provider = "mongodb"
-    url      = env("DATABASE_URL")
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
 }
 
 model Announcement {
-    id          String   @id @default(auto()) @map("_id") @db.ObjectId
-    title       String
-    content     String
-    submittedAt DateTime @default(now())
-    updatedAt   DateTime @updatedAt
-    userId      String
-    user        User     @relation(fields: [userId], references: [id])
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  title       String
+  content     String
+  submittedAt DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  userId      String   @db.ObjectId
+  user        User     @relation(fields: [userId], references: [id])
 }
 
 model Application {
-    id             String   @id @default(auto()) @map("_id") @db.ObjectId
-    name           String
-    email          String?
-    preferredEmail String
-    major          String
-    food           String
-    github         String
-    class          Int
-    phone          String
-    degree         String
-    pronouns       String
-    school         String
-    approved       Boolean  @default(false)
-    rejected       Boolean  @default(false)
-    skillLevel     Int
-    submittedAt    DateTime @default(now())
-    updatedAt      DateTime @updatedAt
-    userId         String   @unique
-    user           User     @relation(fields: [userId], references: [id])
-    applied        Boolean  @default(false)
-    status         String   @default("submitted")
-    requirement    Boolean  @default(false)
-    response       String
+  id             String   @id @default(auto()) @map("_id") @db.ObjectId
+  name           String
+  email          String?
+  preferredEmail String
+  major          String
+  food           String
+  github         String
+  class          Int
+  phone          String
+  degree         String
+  pronouns       String
+  school         String
+  approved       Boolean  @default(false)
+  rejected       Boolean  @default(false)
+  skillLevel     Int
+  submittedAt    DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+  userId         String   @unique @db.ObjectId
+  user           User     @relation(fields: [userId], references: [id])
+  applied        Boolean  @default(false)
+  status         String   @default("submitted")
+  requirement    Boolean  @default(false)
+  response       String
 }
 
 model Account {
-    id                String  @id @default(auto()) @map("_id") @db.ObjectId
-    userId            String
-    type              String
-    provider          String
-    providerAccountId String
-    refresh_token     String? @db.String
-    access_token      String? @db.String
-    expires_at        Int?
-    token_type        String?
-    scope             String?
-    id_token          String? @db.String
-    session_state     String?
+  id                String  @id @default(auto()) @map("_id") @db.ObjectId
+  userId            String  @db.ObjectId
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String? @db.String
+  access_token      String? @db.String
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String? @db.String
+  session_state     String?
 
-    user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
-    @@unique([provider, providerAccountId])
+  @@unique([provider, providerAccountId])
 }
 
 model Session {
-    id           String   @id @default(auto()) @map("_id") @db.ObjectId
-    sessionToken String   @unique
-    userId       String
-    expires      DateTime
-    user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  id           String   @id @default(auto()) @map("_id") @db.ObjectId
+  sessionToken String   @unique
+  userId       String   @db.ObjectId
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
 model User {
-    id            String         @id @default(auto()) @map("_id") @db.ObjectId
-    name          String?
-    email         String?        @unique
-    discordId     String?
-    bio           String?
-    emailVerified DateTime?
-    image         String?
-    isAdmin       Boolean        @default(false)
-    accounts      Account[]
-    sessions      Session[]
-    application   Application?
-    Announcements Announcement[]
+  id            String         @id @default(auto()) @map("_id") @db.ObjectId
+  name          String?
+  email         String?        @unique
+  discordId     String?
+  bio           String?
+  emailVerified DateTime?
+  image         String?
+  isAdmin       Boolean        @default(false)
+  accounts      Account[]
+  sessions      Session[]
+  application   Application?
+  Announcements Announcement[]
 }
 
 model VerificationToken {
-    identifier String   @id @default(auto()) @map("_id") @db.ObjectId
-    token      String   @unique
-    expires    DateTime
+  identifier String   @id @default(auto()) @map("_id") @db.ObjectId
+  token      String   @unique
+  expires    DateTime
 
-    @@unique([identifier, token])
+  @@unique([identifier, token])
 }
