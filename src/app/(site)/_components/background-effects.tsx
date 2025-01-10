@@ -80,7 +80,7 @@ export const FooterBackgroundEffects = () => {
       <img
         src="/assets/footer/capyAstroid.svg"
         alt="astroid capybara"
-        className="absolute bottom-[25rem] right-[4rem] h-[8rem] md:right-[7rem] md:h-[9rem] lg:bottom-[10rem] lg:right-[13rem] lg:h-[13rem] lg:w-auto"
+        className="animate-tilt animation-delay-1000 absolute bottom-[25rem] right-[4rem] h-[8rem] motion-reduce:animate-none md:right-[7rem] md:h-[9rem] lg:bottom-[10rem] lg:right-[13rem] lg:h-[13rem] lg:w-auto"
       />
       <img
         src="/assets/footer/satellite.svg"
@@ -105,12 +105,12 @@ export const FooterBackgroundEffects = () => {
       <img
         src="/assets/footer/rocketBoost.svg"
         alt="rocketboost"
-        className="absolute hidden lg:bottom-[27rem] lg:left-[2.5rem] lg:block lg:h-[14rem] lg:w-auto"
+        className="animate-tilt absolute hidden motion-reduce:animate-none lg:bottom-[27rem] lg:left-[2.5rem] lg:block lg:h-[14rem] lg:w-auto"
       />
       <img
         src="/assets/footer/capyShip.svg"
         alt="Spaceship"
-        className="absolute bottom-[36rem] left-[-2.5rem] h-[8.5rem] w-auto md:h-[10rem] lg:left-[3rem] lg:bottom-[30rem] lg:h-[22rem]"
+        className="animate-tilt animation-delay-2000 absolute bottom-[36rem] left-[-2.5rem] h-[8.5rem] w-auto motion-reduce:animate-none md:h-[10rem] lg:left-[3rem] lg:bottom-[30rem] lg:h-[22rem]"
       />
       <img
         src="/assets/footer/mobile/constellation.svg"

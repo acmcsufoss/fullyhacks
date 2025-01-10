@@ -7,6 +7,7 @@ export interface CompanyType {
     top: string;
     left: string;
     width: string;
+    animation: string;
   };
 }
 

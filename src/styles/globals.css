@@ -110,3 +110,33 @@
   font-weight: 400;
   line-height: normal;
 }
+
+.animate-tilt {
+  animation: tilt 10s linear infinite;
+}
+
+.animation-delay-100 {
+  animation-delay: 100ms;
+}
+
+.animation-delay-500 {
+  animation-delay: 500ms;
+}
+
+.animation-delay-1000 {
+  animation-delay: 1000ms;
+}
+
+.animation-delay-2000 {
+  animation-delay: 2000ms;
+}
+
+.animation-delay-5000 {
+  animation-delay: 5000ms;
+}
+
+@keyframes tilt {
+  50% {
+    rotate: 10deg;
+  }
+}

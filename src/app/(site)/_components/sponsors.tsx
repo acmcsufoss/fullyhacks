@@ -72,7 +72,7 @@ const SponsorAsteroid: React.FC<SponsorAsteroidProps> = (props) => {
     <a
       target="_blank"
       href={asteroid.href}
-      className={`absolute z-20 block max-w-max ${asteroid.styles.left} ${asteroid.styles.top} ${asteroid.styles.width}`}>
+      className={`${asteroid.styles.left} ${asteroid.styles.top} ${asteroid.styles.width} ${asteroid.styles.animation} absolute z-20 block max-w-max transition-transform duration-500 hover:scale-105 motion-reduce:animate-none`}>
       <img src={asteroid.imageSrc} alt="Asteroid" className="object-cover" />
     </a>
   );
