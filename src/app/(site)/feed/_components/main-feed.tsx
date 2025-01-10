@@ -16,7 +16,7 @@ const MainFeed: React.FC<MainFeedProps> = (props) => {
   );
   return (
     <section className="mr-[2rem] mt-14 flex w-full grow flex-col items-start overflow-x-hidden md:mx-10">
-      {currentUser?.bio == null && <FeedPopUp />}
+      {/* {currentUser?.bio == null && <FeedPopUp />} */}
       <p className="feed-title">Homepage</p>
       {filteredFeedUsers.map((user: feedUsers) => {
         return (
