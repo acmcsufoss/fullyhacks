@@ -47,17 +47,17 @@ async function getFeedData(session: Session) {
 }
 
 export default async function FeedPage() {
-  const session = await getAuthSession();
-  const { user, feedUsers, announcements } = await getFeedData(session);
+  // const session = await getAuthSession();
+  // const { user, feedUsers, announcements } = await getFeedData(session);
 
-  return (
-    <section className="bg-purple_dark">
-      <FeedNavBar />
-      <Feed
-        currentUser={user}
-        feedUsers={feedUsers}
-        announcements={announcements}
-      />
-    </section>
-  );
+  const testUser = {
+    id: "1",
+    name: "Tomas",
+    email: "some@example.com",
+    school: "CSUF",
+    image: "",
+    isAdmin: true
+  };
+
+  return <Feed currentUser={testUser} feedUsers={[]} announcements={[]} />;
 }

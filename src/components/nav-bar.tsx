@@ -21,6 +21,7 @@ import { HiOutlineTrophy } from "react-icons/hi2";
 import { IoArrowBackSharp } from "react-icons/io5";
 import { SlEnergy } from "react-icons/sl";
 import links from "@/lib/data/links.json";
+import { usePathname } from "next/navigation";
 
 export const NavBarLanding: React.FC = () => {
   const menuList: MenuType[] = [
@@ -165,67 +166,73 @@ export const AuthNavBar = () => {
 
 export const FeedNavBar = () => {
   return (
-    <nav className="flex items-center text-purple_main">
+    <nav className="flex items-center justify-between">
       <Link href="/">
         <img
           alt="nav bar logo"
-          src="/assets/logo.svg"
-          className="my-4 ml-4 h-16 w-16 cursor-pointer md:ml-10 md:h-20 md:w-20"
+          src="/assets/fullyhacks_logo.png"
+          className="my-4 ml-4 w-16 md:ml-10 md:w-20"
         />
-        <div className="mr-4 ml-auto text-md text-white md:mr-10">
-          <button onClick={() => signOut()}> Sign out</button>
-        </div>
       </Link>
+      <div className="mr-4 text-md text-white md:mr-10">
+        <button onClick={() => signOut()}>Sign out</button>
+      </div>
     </nav>
   );
 };
 
-interface FeedSideBarProps {
-  setLocation: React.Dispatch<React.SetStateAction<string>>;
-}
-
-export const FeedSideBar: React.FC<FeedSideBarProps> = ({ setLocation }) => {
-  const [currIdx, setIdx] = useState(0);
+export const FeedSideBar: React.FC = () => {
   const [isOpen, setOpen] = useState(false);
+  const pathname = usePathname();
+  console.log(pathname);
+
   const feedItems = [
     {
       id: "feed01",
       name: "Home",
+      href: "/feed/home",
       icon: <BiHomeAlt size={28} />
     },
     {
       id: "feed02",
       name: "Announcements",
+      href: "/feed/announcements",
       icon: <HiOutlineSpeakerphone size={28} />
     },
     {
       id: "feed03",
       name: "Events",
+      href: "/feed/events",
       icon: <BiCalendarEvent size={28} />
     },
     {
       id: "feed07",
       name: "Tracks & Prizes",
+      href: "/feed/prizes",
       icon: <HiOutlineTrophy size={28} />
     },
     {
       id: "feed04",
       name: "FullyPacks",
+      href: "/feed/fullypacks",
       icon: <SlEnergy size={28} />
     },
     {
       id: "feed05",
       name: "Resources",
+      href: "/feed/resources",
       icon: <BsLightbulb size={28} />
     },
     {
       id: "feed08",
       name: "FAQs",
+      href: "/feed/faq",
       icon: <AiOutlineQuestionCircle size={28} />
     },
     {
       id: "feed06",
       name: "Profile",
+      href: "/feed/profile",
       icon: <BiUserCircle size={28} />
     }
   ];
@@ -268,22 +275,14 @@ export const FeedSideBar: React.FC<FeedSideBarProps> = ({ setLocation }) => {
           </div>
 
           <ul className="space-y-4">
-            {feedItems.map((item, idx) => (
-              <button
+            {feedItems.map((item) => (
+              <Link
                 key={item.id}
-                onClick={() => {
-                  setLocation(item.name);
-                  setIdx(idx);
-                  setOpen(false);
-                }}
-                className={`flex w-full items-center rounded-lg p-3 transition-colors duration-200 ${
-                  currIdx === idx
-                    ? "bg-[rgba(255,136,229,0.4)] text-white"
-                    : "hover:bg-[rgba(255,136,229,0.2)]"
-                }`}>
+                href={item.href}
+                className={`flex w-full items-center rounded-lg p-3 text-white transition-colors duration-200 ${pathname === item.href ? "bg-[rgba(255,136,229,0.4)]" : ""}`}>
                 {item.icon}
                 <span className="ml-4 text-white">{item.name}</span>
-              </button>
+              </Link>
             ))}
           </ul>
 
@@ -313,17 +312,13 @@ export const FeedSideBar: React.FC<FeedSideBarProps> = ({ setLocation }) => {
         <ul className="border-b-2 p-2">
           {feedItems.map((item, idx) => {
             return (
-              <button
+              <Link
                 key={item.id}
-                onClick={() => {
-                  setLocation(item.name), setIdx(idx);
-                }}
-                className={`my-4 flex w-full items-center rounded-lg p-2 ${
-                  currIdx == idx ? "bg-[rgba(255,136,229,0.4)] text-white" : ""
-                }`}>
+                href={item.href}
+                className={`my-4 flex w-full items-center rounded-lg p-2 text-white ${pathname === item.href ? "bg-[rgba(255,136,229,0.4)]" : ""}`}>
                 {item.icon}
                 <li className="ml-4 text-white">{item.name}</li>
-              </button>
+              </Link>
             );
           })}
         </ul>
