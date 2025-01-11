@@ -19,8 +19,7 @@ const Hero: React.FC = () => {
           FullyHacks 2025
         </h1>
         <p className="text-[1rem] font-normal text-[#72D6E6] md:text-lg">
-          CS BUILDING: <time dateTime="2023-02-17">APR 12</time> -{" "}
-          <time dateTime="2023-02-18">APR 13</time>
+          CS BUILDING: SPRING 2025
         </p>
       </section>
     </>

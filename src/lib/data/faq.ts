@@ -48,10 +48,5 @@ export const faqs: FAQType[] = [
     question: "What should I bring?",
     answer:
       "Bring a sleeping bag, laptop, chargers, snacks and drinks, hygiene items, and anything else you might need for a 24-hour event."
-  },
-  {
-    id: "faq9",
-    question: "When are applications due?",
-    answer: "Applications are due by 11:59 PM (PDT) on March 24, 2025."
   }
 ];
