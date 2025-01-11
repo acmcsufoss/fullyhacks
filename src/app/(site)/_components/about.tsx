@@ -15,7 +15,7 @@ export default function About() {
         <p className="rounded-2xl bg-[#BAB9B9] p-2 pb-6 font-semibold sm:mt-2 sm:bg-[#7F7F7F] sm:leading-relaxed md:text-[1.25rem] lg:text-lg">
           We are Cal State University Fullerton&apos;s (CSUF) student-run
           hackathon. We plan to host 600 students for a 24-hour coding event in
-          April 2025.
+          Spring 2025.
           <br />
           <br />
           Our goal is to bring together students interested in building

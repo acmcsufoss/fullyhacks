@@ -10,7 +10,8 @@ export const faqs: FAQType[] = [
   {
     id: "faq2",
     question: "When is FullyHacks?",
-    answer: "April 12th to April 13th. The hackathon will be 100% in-person."
+    answer:
+      "Hackathon as well as application dates will be revealed very soon :)"
   },
   {
     id: "faq3",
@@ -52,11 +53,5 @@ export const faqs: FAQType[] = [
     id: "faq9",
     question: "When are applications due?",
     answer: "Applications are due by 11:59 PM (PDT) on March 24, 2025."
-  },
-  {
-    id: "faq10",
-    question: "When will I know my application status?",
-    answer:
-      "All applications will be reviewed on a rolling basis until March 24th, you can check application status in your user portal."
   }
 ];
