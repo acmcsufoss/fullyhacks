@@ -3,6 +3,10 @@ import { University } from "@/types/interface";
 import { InferType, number, object, string } from "yup";
 
 const usUni: University[] = uniJson.usUniveristies;
+
+const minGradYear = 2023;
+const maxGradYear = 2030;
+
 export const applicationSchema = object({
   name: string(),
   email: string()
@@ -23,8 +27,8 @@ export const applicationSchema = object({
     .typeError("Must be number")
     .positive()
     .integer()
-    .min(2023, "Invalid grad year")
-    .max(2030),
+    .min(minGradYear, "Invalid grad year")
+    .max(maxGradYear),
   school: string().test("validSchool", "Invalid school", (value) => {
     if (value) {
       return usUni.some((uni) => uni.institution === value);
