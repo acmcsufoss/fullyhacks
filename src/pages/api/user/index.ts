@@ -2,6 +2,7 @@ import { rateLimitMiddleware } from "@/middleware/profileUpdateMiddleware";
 import { prisma } from "db";
 import { NextApiRequest, NextApiResponse } from "next";
 import { getSession } from "next-auth/react";
+
 async function handler(req: NextApiRequest, res: NextApiResponse) {
   // Only authorized user able to update their bio, discordId
   const session = await getSession({ req });
