@@ -1,8 +1,8 @@
-import React from "react";
-import { BsShield, BsMap, BsGift, BsMusicPlayer } from "react-icons/bs";
+import { mainCategory, subCategory } from "@/lib/data/prizes";
+import { tracksType } from "@/types/interface";
+import { BsMusicPlayer } from "react-icons/bs";
 import { CgSmartphoneChip } from "react-icons/cg";
 import { MdOutlineRecycling } from "react-icons/md";
-import { tracksType } from "@/types/interface";
 import { TbAccessible } from "react-icons/tb";
 
 const tracks: tracksType[] = [
@@ -36,78 +36,7 @@ const tracks: tracksType[] = [
   }
 ];
 
-const mainCategory: tracksType[] = [
-  {
-    id: "cat1",
-    name: "Best Beginner Project",
-    team: 1,
-    description: "Logitech G305"
-  },
-  {
-    id: "cat2",
-    name: "Most Technical Project",
-    team: 1,
-    description: "Keychron K8"
-  },
-  {
-    id: "cat3",
-    name: "Best UI/UX Project",
-    team: 1,
-    description: "JBL G03 Wireless Speaker"
-  },
-  {
-    id: "cat4",
-    name: "Best AI/ML Project",
-    team: 1,
-    description: "Sony WH-CH520"
-  },
-  {
-    id: "cat5",
-    name: "Best Mobile App",
-    team: 1,
-    description: "Mini Mobile Projector"
-  }
-];
-const subCategory: tracksType[] = [
-  {
-    id: "sub1",
-    name: "Organizer Favorite",
-    team: 1,
-    description: "Vercel Hats"
-  },
-  {
-    id: "sub2",
-    name: "Cutest Project",
-    team: 1,
-    description: "Cute Stuff Animal"
-  },
-  {
-    id: "sub4",
-    name: "Cool Game Project",
-    team: 2,
-    description: "Steam key for Grounded by Obsidian"
-  },
-  {
-    id: "sub3",
-    name: "Best use of Wolfram",
-    team: 7,
-    description:
-      "1 year of Wolfram|One Personal Edition + 1 year of Wolfram|Alpha Pro (375$ value)"
-  },
-  {
-    id: "sub5",
-    name: "Best Mobile App with Swift",
-    team: 1,
-    description:
-      "StickerGiant fun pack (drawing book, webcam cover, poppin game,...)"
-  }
-];
-
-interface TrackProps {
-  track: tracksType;
-}
-
-const Card: React.FC<TrackProps> = ({ track }) => {
+function Card({ track }: { track: tracksType }) {
   return (
     <div className="flex h-[300px] max-w-xs cursor-pointer flex-col rounded-lg border border-gray-300 border-opacity-25 bg-purple_card p-6 shadow-xl backdrop-blur-md backdrop-filter duration-200 ease-in-out hover:bg-[rgb(52,11,103)] hover:text-white md:h-[350px] md:max-w-sm md:p-8">
       <div className="flex flex-col">
@@ -128,9 +57,9 @@ const Card: React.FC<TrackProps> = ({ track }) => {
       </div>
     </div>
   );
-};
+}
 
-const Prizes = () => {
+export default function Prizes() {
   return (
     <section className="my-14 mr-8 w-full text-white">
       <p className="feed-title">Tracks & Prizes</p>
@@ -189,6 +118,4 @@ const Prizes = () => {
       </div>
     </section>
   );
-};
-
-export default Prizes;
+}

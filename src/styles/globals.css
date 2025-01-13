@@ -59,6 +59,15 @@
   color-scheme: dark;
 }
 
+html {
+  min-height: 100%;
+  position: relative;
+}
+
+body {
+  height: 100%;
+}
+
 .top-section {
   background: linear-gradient(180deg, #000, #3f3865 90%);
 }
@@ -87,6 +96,18 @@
 
 .custom-text-shadow {
   text-shadow: 0 0 10px #97bae1;
+}
+
+.feed-background-container {
+  /* position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background:
+    url("/assets/feed-stars-background.svg"),
+    linear-gradient(180deg, #122a58 0%, #201c33 100%) repeat center;
+  background-size: cover; */
 }
 
 .feed-title {

@@ -1,7 +1,8 @@
+"use client";
+
 import { FAQType } from "@/types/interface";
 import React, { useState, useEffect } from "react";
 import { FaChevronDown } from "react-icons/fa";
-// import { FaChevronDown } from "react-icons/fa";
 
 interface FAQProps {
   faqs: FAQType[];
