@@ -1,5 +1,4 @@
 import { sponsorGiftType } from "@/types/interface";
-import React from "react";
 
 const balsamiqAccess = (
   <p>
@@ -23,6 +22,7 @@ const echo3DAccess = (
     Register here
   </a>
 );
+
 const sponsorGifts: sponsorGiftType[] = [
   {
     id: "gift0",
@@ -59,7 +59,7 @@ const sponsorGifts: sponsorGiftType[] = [
   }
 ];
 
-const Resources = () => {
+export default function Resources() {
   return (
     <section className="mt-14 mr-8 w-full text-white">
       <div className="feed-title">Fully Gifts</div>
@@ -83,6 +83,4 @@ const Resources = () => {
       </div>
     </section>
   );
-};
-
-export default Resources;
+}

@@ -1,6 +1,7 @@
 import { fullyPacksType } from "@/types/interface";
 import React from "react";
 import { BsGithub, BsLink } from "react-icons/bs";
+
 const flaskDescription = (
   <>
     <p>
@@ -95,6 +96,7 @@ const discordBot: fullyPacksType[] = [
 interface FullyPackProps {
   fullypack: fullyPacksType;
 }
+
 const FullyPack: React.FC<FullyPackProps> = ({ fullypack }) => {
   return (
     <div className="flex flex-col items-start rounded-lg bg-purple_card p-4">
@@ -128,7 +130,7 @@ const FullyPack: React.FC<FullyPackProps> = ({ fullypack }) => {
   );
 };
 
-const FullyPacks = () => {
+export default function FullyPacks() {
   return (
     <section className="mt-14 mr-8 w-full text-white">
       <p className="feed-title">FullyPacks</p>
@@ -175,6 +177,4 @@ const FullyPacks = () => {
       </div>
     </section>
   );
-};
-
-export default FullyPacks;
+}

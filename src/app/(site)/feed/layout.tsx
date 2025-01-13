@@ -7,7 +7,7 @@ export default function FeedLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div>
+    <div className="feed-background-container">
       <FeedNavBar />
       <div className="relative mx-4 mb-8 flex w-full">
         <FeedSideBar />
