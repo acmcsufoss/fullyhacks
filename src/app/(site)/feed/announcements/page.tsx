@@ -1,6 +1,6 @@
-import { announcementsType } from "@/types/interface";
-import TimeAgo from "react-timeago";
 import { prisma } from "db";
+import { announcementsType } from "@/types/interface";
+import Announcement from "./_components/announcement";
 
 async function getAnnouncements() {
   const announcements = await prisma.announcement.findMany({
@@ -9,16 +9,6 @@ async function getAnnouncements() {
     }
   });
   return JSON.parse(JSON.stringify(announcements));
-}
-
-function Announcement({ announcement }: { announcement: announcementsType }) {
-  return (
-    <div className="my-10 rounded-lg bg-sky-100 p-4">
-      <p className="text-lg font-semibold">{announcement.title}</p>
-      <p>{announcement.content}</p>
-      <TimeAgo date={announcement.submittedAt} className="mt-4 font-semibold" />
-    </div>
-  );
 }
 
 export default async function AnnouncementsPage() {
