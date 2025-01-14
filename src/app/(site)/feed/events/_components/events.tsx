@@ -9,7 +9,7 @@ export default function Events() {
   const [filteredEvent, setFilteredEvent] = useState<eventsType[]>(events);
   return (
     <>
-      {/* For mobile */}
+      {/* Mobile View */}
       <div className="mb-6 flex flex-col gap-4 md:hidden">
         <div className="mb-4 flex flex-row flex-wrap gap-4 text-[0.85rem]">
           <EventLabel events={events} setFilteredEvent={setFilteredEvent} />
@@ -38,7 +38,7 @@ export default function Events() {
           );
         })}
       </div>
-      {/* For laptop */}
+      {/* Desktop View */}
       <div className="hidden md:block">
         <Calendar
           filteredEvent={filteredEvent}

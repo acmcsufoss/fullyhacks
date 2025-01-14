@@ -34,9 +34,9 @@ export default async function FeedHome() {
   const feedUsers: feedUsers[] = await getFeedUsers();
 
   return (
-    <section className="mr-[2rem] mt-14 flex w-full grow flex-col items-start overflow-x-hidden md:mx-10">
+    <div>
       <h1 className="feed-title">Homepage</h1>
       <FeedUsers feedUsers={feedUsers} />
-    </section>
+    </div>
   );
 }

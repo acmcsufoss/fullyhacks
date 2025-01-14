@@ -61,7 +61,7 @@ function Card({ track }: { track: tracksType }) {
 
 export default function Prizes() {
   return (
-    <section className="my-14 mr-8 w-full text-white">
+    <div>
       <p className="feed-title">Tracks & Prizes</p>
       <p className="md:text-md">
         Find all details about tracks, prize categories here
@@ -116,6 +116,6 @@ export default function Prizes() {
           })}
         </div>
       </div>
-    </section>
+    </div>
   );
 }

@@ -5,6 +5,8 @@ import { prisma } from "db";
 import { redirect } from "next/navigation";
 import React from "react";
 
+export const dynamic = "force-dynamic";
+
 async function getUser() {
   const session = await getAuthSession();
   const user = await prisma.user.findUnique({
@@ -27,13 +29,14 @@ export default async function FeedLayout({
   const user = await getUser();
 
   return (
-    <div className="feed-background-container">
+    <main className="flex flex-col gap-8">
+      <div className="feed-background-container"></div>
       <FeedNavBar />
       {user.bio == null && <FeedPopUp />}
-      <div className="relative mx-4 mb-8 flex w-full">
+      <div className="relative mb-8 flex w-full gap-12 px-4 md:px-8">
         <FeedSideBar />
-        {children}
+        <section className="flex-1">{children}</section>
       </div>
-    </div>
+    </main>
   );
 }

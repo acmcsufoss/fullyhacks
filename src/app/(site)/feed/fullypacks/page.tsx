@@ -132,7 +132,7 @@ const FullyPack: React.FC<FullyPackProps> = ({ fullypack }) => {
 
 export default function FullyPacks() {
   return (
-    <section className="mt-14 mr-8 w-full text-white">
+    <div>
       <p className="feed-title">FullyPacks</p>
       <p className="md:text-md">Beginner-friendly templates for participants</p>
       <div className="mt-10">
@@ -175,6 +175,6 @@ export default function FullyPacks() {
           })}
         </div>
       </div>
-    </section>
+    </div>
   );
 }

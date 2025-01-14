@@ -26,7 +26,7 @@ export default async function Profile() {
   const user = await getUser();
 
   return (
-    <section className="mt-14 mr-8 w-full overflow-x-auto">
+    <div>
       <h1 className="feed-title">{user.name}&apos;s Profile</h1>
       <UserForm />
       {user.isAdmin && (
@@ -37,6 +37,6 @@ export default async function Profile() {
           <AnnouncementForm />
         </>
       )}
-    </section>
+    </div>
   );
 }
