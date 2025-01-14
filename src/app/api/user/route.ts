@@ -7,8 +7,9 @@ import { profileUpdateWithRateLimit } from "@/middleware/profileUpdateMiddleware
 export async function PUT(req: NextRequest) {
   try {
     const data = await req.json();
-    const handleProfileRoute = await profileUpdateWithRateLimit(handleProfileUpdate);
-    return await handleProfileRoute(data, req)
+    const handleProfileRoute =
+      await profileUpdateWithRateLimit(handleProfileUpdate);
+    return await handleProfileRoute(data, req);
   } catch (error) {
     return NextResponse.json(error, { status: 500 });
   }
