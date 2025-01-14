@@ -1,7 +1,7 @@
 import { FeedNavBar, FeedSideBar } from "@/components/nav-bar";
+import { FeedPopUp } from "@/components/pop-up";
 import { getAuthSession } from "@/lib/auth";
 import { prisma } from "db";
-import { Session } from "next-auth";
 import { redirect } from "next/navigation";
 import React from "react";
 
@@ -13,7 +13,7 @@ async function getUser() {
       application: true
     }
   });
-  if (user?.application?.approved) {
+  if (user?.application?.status !== "approved") {
     redirect("/apply");
   }
   return user;
@@ -24,11 +24,12 @@ export default async function FeedLayout({
 }: {
   children: React.ReactNode;
 }) {
-  // const user = await getUser();
+  const user = await getUser();
 
   return (
     <div className="feed-background-container">
       <FeedNavBar />
+      {user.bio == null && <FeedPopUp />}
       <div className="relative mx-4 mb-8 flex w-full">
         <FeedSideBar />
         {children}
