@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState } from "react";
 import { yupResolver } from "@hookform/resolvers/yup";
 import axios from "axios";

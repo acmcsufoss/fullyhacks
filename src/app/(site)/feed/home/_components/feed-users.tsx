@@ -1,24 +1,14 @@
-import { feedUsers, User } from "@/types/interface";
-import React, { useState } from "react";
+"use client";
+
+import { feedUsers } from "@/types/interface";
+import { useState } from "react";
 import { BsDiscord, BsGithub } from "react-icons/bs";
-import { FeedPopUp } from "@/components/pop-up";
 
-interface MainFeedProps {
-  feedUsers: feedUsers[];
-  currentUser: User;
-}
-
-const MainFeed: React.FC<MainFeedProps> = (props) => {
-  const { feedUsers, currentUser } = props;
+export default function FeedUsers({ feedUsers }: { feedUsers: feedUsers[] }) {
   const [isOpen, setOpen] = useState(false);
-  const filteredFeedUsers = feedUsers?.filter(
-    (user) => user.bio !== null && user.application.approved == true
-  );
   return (
-    <section className="mr-[2rem] mt-14 flex w-full grow flex-col items-start overflow-x-hidden md:mx-10">
-      {/* {currentUser?.bio == null && <FeedPopUp />} */}
-      <p className="feed-title">Homepage</p>
-      {filteredFeedUsers.map((user: feedUsers) => {
+    <>
+      {feedUsers.map((user: feedUsers) => {
         return (
           <div
             key={user.id}
@@ -82,8 +72,6 @@ const MainFeed: React.FC<MainFeedProps> = (props) => {
           </div>
         );
       })}
-    </section>
+    </>
   );
-};
-
-export default MainFeed;
+}
