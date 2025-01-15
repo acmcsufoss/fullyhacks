@@ -38,22 +38,47 @@ const tracks: tracksType[] = [
 
 function Card({ track }: { track: tracksType }) {
   return (
-    <div className="flex h-[300px] max-w-xs cursor-pointer flex-col rounded-lg border border-gray-300 border-opacity-25 bg-purple_card p-6 shadow-xl backdrop-blur-md backdrop-filter duration-200 ease-in-out hover:bg-[rgb(52,11,103)] hover:text-white md:h-[350px] md:max-w-sm md:p-8">
-      <div className="flex flex-col">
-        <div className="flex gap-4 text-lg font-bold">
-          <p>{track.name}</p>
-          <p>{track.icon}</p>
+    <div
+      className="flex h-[494px] w-[505px] cursor-pointer flex-col items-center rounded-[61.64px] bg-[#173162] p-6 shadow-xl duration-200 ease-in-out hover:bg-[rgb(52,11,103)] hover:text-white"
+    >
+      {/* Top Section with Track Name and SVGs */}
+      <div className="relative flex items-center justify-center w-full h-[61px] mt-6">
+        {/* Left SVG */}
+        <div className="absolute left-0 flex h-[61px] w-[61px]">
+          <img
+          src="/assets/circles.svg"
+          alt="circles"
+          ></img>
         </div>
-        <div className="mt-4 md:text-md">
-          {track.team && (
-            <p className="text-20 mb-4 font-normal leading-7 text-white">
-              Total: {track.team} team(s)
-            </p>
-          )}
-          <p className="text-20 mb-4 font-normal leading-7 text-white">
-            {track.description}
+
+        {/* Track Name */}
+        <p className="w-[355px] text-center text-lg font-bold text-white">
+          {track.name}
+        </p>
+
+        {/* Right SVG */}
+        <div className="absolute right-0 flex h-[61px] w-[61px]">
+          <img
+          src="/assets/circles.svg"
+          alt="circles"
+          >
+          </img>
+        </div>
+      </div>
+
+      {/* Track Description */}
+      <div className="mt-6 flex h-[180px] w-[273px] flex-col items-center text-center">
+        {track.team && (
+          <p className="mb-4 font-normal leading-7 text-white">
+            Total: {track.team} team(s)
           </p>
-        </div>
+        )}
+        <p
+          className="font-audiowide text-[20px] font-[400] leading-[30px] text-white"
+          style={{ width: "273px", lineHeight: "30px", height: "180px" }}
+        >
+          {track.description}
+        </p>
       </div>
     </div>
   );
