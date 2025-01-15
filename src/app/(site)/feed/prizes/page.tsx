@@ -95,38 +95,38 @@ export default function Prizes() {
         })}
       </div>
       <div className="mt-14">
-        <div className="mb-4 flex items-center gap-4">
-          <p className="text-lg font-bold leading-normal text-purple-500">
-            PRIZES
+        <div className="mb-8">
+          <p className="font-rubik text-[27px] font-[700] leading-[20px] text-[#72D6E6]">
+            Prizes
+          </p>
+          <p className="mt-4 font-audiowide text-[20px] leading-[30px] text-white">
+            Each team has to sign up for one prize category in order to be
+            considered for the corresponding prize.
           </p>
         </div>
-        <p className="font-normal leading-normal md:text-md">
-          Each team has to sign up for 1 category in order to be considered for
-          the corresponding prize. Sign up will begin during the hackathon team
-          forming event
-        </p>
-      </div>
-      <div className="mt-10">
-        <p className="text-lg font-bold leading-normal text-purple-500">
-          MAIN CATEGORY
-        </p>
-        <div className="mt-10 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-2">
-          {mainCategory.map((category: tracksType) => {
-            return <Card key={category.id} track={category} />;
-          })}
-        </div>
-      </div>
-      <div className="mt-10">
-        <p className="text-lg font-bold leading-normal text-purple-500">
-          SUB CATEGORY
-        </p>
-        <p className="font-normal leading-normal md:text-md">
-          You can choose ONE sub category along with your project
-        </p>
-        <div className="mt-10 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-2">
-          {subCategory.map((category: tracksType) => {
-            return <Card key={category.id} track={category} />;
-          })}
+
+        <div
+          className="relative mx-auto rounded-[61.64px] bg-[#173162] px-4 py-4"
+          style={{ width: "1060px", height: "499px" }}>
+          <div className="grid h-full grid-cols-2 place-items-center gap-x-3 gap-y-2">
+            {mainCategory.slice(0, 4).map((prize: tracksType) => (
+              <div
+                key={prize.id}
+                className="flex flex-col items-center justify-center space-y-4">
+                <p className="font-audiowide text-[36px] font-[400] text-[#72D6E6]">
+                  {prize.name}
+                </p>
+
+                <div
+                  className="rounded-[20px] bg-[#C5C5C5] text-center"
+                  style={{ width: "497px", height: "155px" }}>
+                  <p className="mt-4 px-4 text-sm font-normal">
+                    {prize.description}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
