@@ -4,15 +4,25 @@ import { feedUsers } from "@/types/interface";
 import { useState } from "react";
 import { BsDiscord, BsGithub } from "react-icons/bs";
 
+function getUppercaseLetters(str: string) {
+  let result = "";
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] >= "A" && str[i] <= "Z") {
+      result += str[i];
+    }
+  }
+  return result;
+}
+
 export default function FeedUsers({ feedUsers }: { feedUsers: feedUsers[] }) {
   const [isOpen, setOpen] = useState(false);
   return (
-    <>
+    <div className="mt-8 flex flex-col gap-4">
       {feedUsers.map((user: feedUsers) => {
         return (
           <div
             key={user.id}
-            className="my-4 flex w-full gap-4 border-b-2 border-[#5A75FF] pb-6 text-purple_main [box-shadow:_0_4px_8px_-2px_#5A75FF] md:text-md">
+            className="flex w-full flex-col gap-4 rounded-lg border-2 border-[#448592] p-4 pb-6 text-white transition-colors hover:border-[#7AD4E7] md:text-md">
             {isOpen && (
               <div
                 className="toast cursor-pointer"
@@ -24,54 +34,61 @@ export default function FeedUsers({ feedUsers }: { feedUsers: feedUsers[] }) {
                 </div>
               </div>
             )}
-            <p className="h-[40px] w-[40px] self-start rounded-[50%] bg-[#B7EEFF] p-2 text-center font-semibold text-black md:h-12 md:w-12 md:text-lg">
-              {user.application.name[0].toUpperCase()}
-            </p>
-            <div className="flex w-full flex-col">
-              <div className="md:tems-center mb-2 flex flex-col items-start gap-1 md:flex-row">
-                <p className="mr-4 font-semibold text-[#66D4EC]">
-                  {user.application.name}
-                </p>
-                <a
-                  href={`https://github.com/${user.application.github}`}
-                  target="_blank"
-                  className="mr-4 flex items-center gap-2">
-                  <BsGithub color="#EF4DB3" />
-                  <p className="text-white"> {user.application.github}</p>
-                </a>
-                <div
-                  onClick={() => {
-                    navigator.clipboard.writeText(user.discordId),
-                      setOpen(true);
-                  }}
-                  className="flex cursor-pointer items-center gap-2">
-                  <BsDiscord color="#EF4DB3" />
-                  {!user.discordId ? (
-                    <p>Not added</p>
-                  ) : (
-                    <p className="text-white"> {user.discordId}</p>
-                  )}
+            <div className="flex gap-4">
+              <div className="relative flex aspect-square w-[40px] flex-shrink-0 items-center justify-center self-start rounded-[50%] bg-[#7AD4E7] text-black md:w-[55px] md:text-lg">
+                <div className="absolute aspect-square w-[50px] items-center rounded-[50%] border-2 border-[#7AD4E7] md:w-[70px]" />
+                {user.application.name[0].toUpperCase()}
+              </div>
+              <div className="flex flex-col gap-2">
+                <div className="flex flex-col gap-4 lg:flex-row">
+                  <h2 className="min-w-max text-lg md:text-xl">
+                    {user.application.name}
+                  </h2>
+                  <div className="font-rubik flex flex-wrap items-center gap-2 text-sm font-medium text-black">
+                    {user.isAdmin && (
+                      <span className="rounded-full bg-[#FF9EED] px-4 py-1">
+                        Admin
+                      </span>
+                    )}
+                    <span className="rounded-full bg-[#7BD7FF] px-4 py-1">
+                      {user.application.major}
+                    </span>
+                    <span className="rounded-full bg-[#7BD7FF] px-4 py-1">
+                      {user.application.class}
+                    </span>
+                    <span className="rounded-full bg-[#7BD7FF] px-4 py-1">
+                      {getUppercaseLetters(user.application.school)}
+                    </span>
+                  </div>
+                </div>
+                <div className="flex flex-wrap gap-x-4 gap-y-1">
+                  <a
+                    href={`https://github.com/${user.application.github}`}
+                    target="_blank"
+                    className="flex items-center gap-2 text-sm">
+                    <BsGithub color="#FF9C9C" size={24} />
+                    <p className="text-white">{user.application.github}</p>
+                  </a>
+                  <div
+                    onClick={() => {
+                      navigator.clipboard.writeText(user.discordId),
+                        setOpen(true);
+                    }}
+                    className="flex cursor-pointer items-center gap-2 text-sm">
+                    <BsDiscord color="#FF9C9C" size={24} />
+                    {!user.discordId ? (
+                      <p>Not added</p>
+                    ) : (
+                      <p className="text-white">{user.discordId}</p>
+                    )}
+                  </div>
                 </div>
               </div>
-              <div className="my-2 flex flex-wrap items-center gap-4 text-sm text-black">
-                {user.isAdmin && (
-                  <p className="rounded-xl bg-[#FCC14F] px-4">Admin</p>
-                )}
-                <p className="rounded-xl bg-[#00B3FF] px-4">
-                  {user.application.major}
-                </p>
-                <p className="rounded-xl bg-[#00B3FF] px-4">
-                  {user.application.class}
-                </p>
-                <p className="rounded-xl bg-[#00B3FF] px-4">
-                  {user.application.school}
-                </p>
-              </div>
-              <p className="mt-2 text-white"> {user.bio}</p>
             </div>
+            <p className="mt-2 text-white"> {user.bio}</p>
           </div>
         );
       })}
-    </>
+    </div>
   );
 }
