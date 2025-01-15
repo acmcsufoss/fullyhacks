@@ -36,6 +36,9 @@ export default async function FeedHome() {
   return (
     <div>
       <h1 className="feed-title">Homepage</h1>
+      <p className="custom-text-shadow mt-2 text-md text-white md:text-lg">
+        Meet fellow participants.
+      </p>
       <FeedUsers feedUsers={feedUsers} />
     </div>
   );

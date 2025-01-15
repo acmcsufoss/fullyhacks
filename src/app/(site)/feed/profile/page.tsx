@@ -31,9 +31,7 @@ export default async function Profile() {
       <UserForm />
       {user.isAdmin && (
         <>
-          <p className="feed-title-white mb-10">
-            ADMIN ONLY: Announcement Form
-          </p>
+          <p className="feed-title mb-10">ADMIN ONLY: Announcement Form</p>
           <AnnouncementForm />
         </>
       )}
