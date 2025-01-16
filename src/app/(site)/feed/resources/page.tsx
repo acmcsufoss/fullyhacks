@@ -61,18 +61,15 @@ const sponsorGifts: sponsorGiftType[] = [
 
 export default function Resources() {
   return (
-    <section className="mt-14 mr-8 w-full text-white">
-      <div className="feed-title">Fully Gifts</div>
-      <div className="md:text-md">Cool gifts from our great sponsors</div>
-
-      <div className="my-10 grid justify-center gap-8 lg:grid-cols-3">
-        {sponsorGifts.map((gift: sponsorGiftType, i) => {
+    <section className="mt-14 mr-20 w-full text-white">
+      <div className="feed-title">Resources</div>
+      <div className="md:text-md  ">Tools to succeed beyond FullyHacks</div>
+      <div className="my-16 grid justify-center gap-12 lg:grid-cols-1 border-[#72d6e6] border-t-2 pt-8">
+        {sponsorGifts.map((gift: sponsorGiftType) => {
           return (
             <div
               key={gift.id}
-              className={`rounded-xl bg-purple_card p-4 md:p-6 ${
-                i % 2 === 0 ? "bg-opacity-30" : ""
-              }`}>
+              className={`rounded-xl bg-purple_card/50 p-4 md:p-6`}>
               <p className="text-lg font-bold">{gift.company}</p>
               <p>{gift.content}</p>
               <p className="my-2 text-md font-semibold">How to access:</p>
