@@ -63,8 +63,8 @@ export default function Resources() {
   return (
     <section className="mt-14 mr-20 w-full text-white">
       <div className="feed-title">Resources</div>
-      <div className="md:text-md  ">Tools to succeed beyond FullyHacks</div>
-      <div className="my-16 grid justify-center gap-12 lg:grid-cols-1 border-[#72d6e6] border-t-2 pt-8">
+      <div className="md:text-md">Tools to succeed beyond FullyHacks</div>
+      <div className="my-8 grid justify-center gap-12 border-t-2 border-[#72d6e6] pt-8 lg:grid-cols-1">
         {sponsorGifts.map((gift: sponsorGiftType) => {
           return (
             <div
