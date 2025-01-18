@@ -102,7 +102,8 @@ export default function Prizes() {
       </p>
       <p
         className="h-[31px] w-[732px] font-audiowide text-[24px] font-[400] leading-[30.6px] text-white drop-shadow-[0_0_10px_rgba(255,255,255,1)]"
-        style={{ letterSpacing: "5%" }}>
+        style={{ letterSpacing: "5%" }}
+      >
         Find all details about tracks, prize categories here
       </p>
 
@@ -121,6 +122,7 @@ export default function Prizes() {
           return <Card key={track.id} track={track} />;
         })}
       </div>
+
       <div className="mt-14">
         <div className="mb-8">
           <p className="font-rubik text-[27px] font-[700] leading-[20px] text-[#72D6E6]">
@@ -134,19 +136,51 @@ export default function Prizes() {
 
         <div
           className="relative mx-auto rounded-[61.64px] bg-[#173162] px-4 py-4"
-          style={{ width: "1060px", height: "499px" }}>
+          style={{ width: "1060px", height: "499px" }}
+        >
+          {/* Hexagons at corners */}
+          <div className="absolute top-0 left-0 -translate-x-1/2 -translate-y-1/2">
+            <img src="/assets/hex.svg" alt="hex" className="h-8 w-8" />
+          </div>
+          <div className="absolute top-0 right-0 translate-x-1/2 -translate-y-1/2 rotate-90">
+            <img src="/assets/hex.svg" alt="hex" className="h-8 w-8" />
+          </div>
+          <div className="absolute bottom-0 left-0 -translate-x-1/2 translate-y-1/2 -rotate-90">
+            <img src="/assets/hex.svg" alt="hex" className="h-8 w-8" />
+          </div>
+          <div className="absolute bottom-0 right-0 translate-x-1/2 translate-y-1/2 rotate-180">
+            <img src="/assets/hex.svg" alt="hex" className="h-8 w-8" />
+          </div>
+
+          {/* Rectangles between hexagons */}
+          <div className="absolute top-[-12px] left-1/2 -translate-x-1/2 -translate-y-1/2">
+            <img src="/assets/rectangle.svg" alt="rectangle" />
+          </div>
+          <div className="absolute top-1/2 right-[-12px] -translate-y-1/2 translate-x-1/2 rotate-90">
+            <img src="/assets/rectangle.svg" alt="rectangle" />
+          </div>
+          <div className="absolute bottom-[-12px] left-1/2 -translate-x-1/2 translate-y-1/2 rotate-180">
+            <img src="/assets/rectangle.svg" alt="rectangle" />
+          </div>
+          <div className="absolute top-1/2 left-[-12px] -translate-y-1/2 -translate-x-1/2 -rotate-90">
+            <img src="/assets/rectangle.svg" alt="rectangle" />
+          </div>
+
+          {/* Content inside the box */}
           <div className="grid h-full grid-cols-2 place-items-center gap-x-3 gap-y-2">
             {mainCategory.slice(0, 4).map((prize: tracksType) => (
               <div
                 key={prize.id}
-                className="flex flex-col items-center justify-center space-y-4">
+                className="flex flex-col items-center justify-center space-y-4"
+              >
                 <p className="font-audiowide text-[36px] font-[400] text-[#72D6E6]">
                   {prize.name}
                 </p>
 
                 <div
                   className="rounded-[20px] bg-[#C5C5C5] text-center"
-                  style={{ width: "497px", height: "155px" }}>
+                  style={{ width: "497px", height: "155px" }}
+                >
                   <p className="mt-4 px-4 text-sm font-normal">
                     {prize.description}
                   </p>
