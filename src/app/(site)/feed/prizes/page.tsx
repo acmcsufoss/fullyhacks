@@ -97,12 +97,11 @@ function Card({ track }: { track: tracksType }) {
 export default function Prizes() {
   return (
     <section className="my-14 mr-8 w-full px-4 text-white lg:px-8">
-      <p className="h-[95px] w-[565px] font-audiowide text-[64px] font-[400] leading-[81.59px] text-[#72D6E6]">
+      <p className="h-[95px] w-[565px] font-audiowide text-[36px] sm:text-[48px] lg:text-[64px] font-[400] leading-[81.59px] text-[#72D6E6]">
         Tracks & Prizes
       </p>
       <p
-        className="h-[31px] w-[732px] font-audiowide text-[24px] font-[400] leading-[30.6px] text-white drop-shadow-[0_0_10px_rgba(255,255,255,1)]"
-        style={{ letterSpacing: "5%" }}
+        className="font-audiowide text-[16px] sm:text-[18px] lg:text-[24px] font-[400] leading-snug text-white drop-shadow-[0_0_10px_rgba(255,255,255,1)]"
       >
         Find all details about tracks, prize categories here
       </p>
@@ -138,7 +137,6 @@ export default function Prizes() {
           className="relative mx-auto rounded-[61.64px] bg-[#173162] px-4 py-4"
           style={{ width: "1060px", height: "499px" }}
         >
-          {/* Hexagons at corners */}
           <div className="absolute top-0 left-0 -translate-x-1/2 -translate-y-1/2">
             <img src="/assets/hex.svg" alt="hex" className="h-8 w-8" />
           </div>
@@ -152,7 +150,6 @@ export default function Prizes() {
             <img src="/assets/hex.svg" alt="hex" className="h-8 w-8" />
           </div>
 
-          {/* Rectangles between hexagons */}
           <div className="absolute top-[-12px] left-1/2 -translate-x-1/2 -translate-y-1/2">
             <img src="/assets/rectangle.svg" alt="rectangle" />
           </div>
@@ -166,7 +163,6 @@ export default function Prizes() {
             <img src="/assets/rectangle.svg" alt="rectangle" />
           </div>
 
-          {/* Content inside the box */}
           <div className="grid h-full grid-cols-2 place-items-center gap-x-3 gap-y-2">
             {mainCategory.slice(0, 4).map((prize: tracksType) => (
               <div
