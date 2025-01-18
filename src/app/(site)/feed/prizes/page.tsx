@@ -51,6 +51,21 @@ function Card({ track }: { track: tracksType }) {
       <div className="absolute bottom-0 right-0 translate-x-1/2 translate-y-1/2 rotate-180">
         <img src="/assets/hex.svg" alt="hex" className="h-8 w-8" />
       </div>
+
+      <div className="absolute top-[-12px] left-1/2 -translate-x-1/2 -translate-y-1/2">
+        <img src="/assets/rectangle.svg" alt="rectangle" />
+      </div>
+      <div className="absolute top-1/2 right-[-12px] -translate-y-1/2 translate-x-1/2 rotate-90">
+        <img src="/assets/rectangle.svg" alt="rectangle" />
+      </div>
+      <div className="absolute bottom-[-12px] left-1/2 -translate-x-1/2 translate-y-1/2 rotate-180">
+        <img src="/assets/rectangle.svg" alt="rectangle" />
+      </div>
+      <div className="absolute top-1/2 left-[-12px] -translate-y-1/2 -translate-x-1/2 -rotate-90">
+        <img src="/assets/rectangle.svg" alt="rectangle" />
+      </div>
+
+
       <div className="relative mt-6 flex h-[61px] w-full items-center justify-center">
         <div className="absolute left-0 flex h-[61px] w-[61px]">
           <img src="/assets/circles.svg" alt="circles" />
