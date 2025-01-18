@@ -38,7 +38,19 @@ const tracks: tracksType[] = [
 
 function Card({ track }: { track: tracksType }) {
   return (
-    <div className="flex h-[494px] w-full max-w-[480px] cursor-pointer flex-col items-center rounded-[61.64px] bg-[#173162] p-6 shadow-xl duration-200 ease-in-out hover:bg-[rgb(52,11,103)] hover:text-white">
+    <div className="relative flex h-[494px] w-full max-w-[480px] cursor-pointer flex-col items-center rounded-[61.64px] bg-[#173162] p-6 shadow-xl duration-200 ease-in-out hover:bg-[rgb(52,11,103)] hover:text-white">
+      <div className="absolute top-0 left-0 -translate-x-1/2 -translate-y-1/2">
+        <img src="/assets/hex.svg" alt="hex" className="h-8 w-8" />
+      </div>
+      <div className="absolute top-0 right-0 translate-x-1/2 -translate-y-1/2 rotate-90">
+        <img src="/assets/hex.svg" alt="hex" className="h-8 w-8" />
+      </div>
+      <div className="absolute bottom-0 left-0 -translate-x-1/2 translate-y-1/2 -rotate-90">
+        <img src="/assets/hex.svg" alt="hex" className="h-8 w-8" />
+      </div>
+      <div className="absolute bottom-0 right-0 translate-x-1/2 translate-y-1/2 rotate-180">
+        <img src="/assets/hex.svg" alt="hex" className="h-8 w-8" />
+      </div>
       <div className="relative mt-6 flex h-[61px] w-full items-center justify-center">
         <div className="absolute left-0 flex h-[61px] w-[61px]">
           <img src="/assets/circles.svg" alt="circles" />
@@ -89,7 +101,7 @@ export default function Prizes() {
           Hackers have to build their projects around one of these 4 tracks
         </p>
       </div>
-      <div className="mt-10 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-2">
+      <div className="mt-10 grid grid-cols-1 gap-y-16 gap-x-0 sm:grid-cols-2 lg:grid-cols-2">
         {tracks.map((track: tracksType) => {
           return <Card key={track.id} track={track} />;
         })}
