@@ -280,7 +280,10 @@ export const FeedSideBar: React.FC = () => {
                 key={item.id}
                 href={item.href}
                 className={`flex w-full items-center rounded-lg p-2 text-white transition-colors duration-200 ${
-                  pathname === item.href ? "bg-[#173162]" : ""
+                  pathname === item.href ||
+                  (item.name === "Home" && pathname.startsWith(item.href))
+                    ? "bg-[#173162]"
+                    : ""
                 }`}>
                 <span className="ml-4 text-white">{item.name}</span>
               </Link>
@@ -306,10 +309,11 @@ export const FeedSideBar: React.FC = () => {
               <Link
                 key={item.id}
                 href={item.href}
-                className={`flex w-full rounded-lg p-2 transition-colors duration-300 hover:text-white ${pathname === item.href ? "text-white" : ""}`}>
-                {pathname === item.href && (
-                  <MdArrowRight size={28} color="#c2f2ff" />
-                )}
+                className={`flex w-full rounded-lg p-2 transition-colors duration-300 hover:text-white ${pathname === item.href || (item.name === "Home" && pathname.startsWith(item.href)) ? "text-white" : ""}`}>
+                {pathname === item.href ||
+                  (item.name === "Home" && pathname.startsWith(item.href) && (
+                    <MdArrowRight size={28} color="#c2f2ff" />
+                  ))}
                 <li className="ml-auto">{item.name}</li>
               </Link>
             );

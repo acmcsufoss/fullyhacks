@@ -44,7 +44,7 @@ export default function FeedUsers({ feedUsers }: { feedUsers: feedUsers[] }) {
                   <h2 className="min-w-max text-lg md:text-xl">
                     {user.application.name}
                   </h2>
-                  <div className="font-rubik flex flex-wrap items-center gap-2 text-sm font-medium text-black">
+                  <div className="flex flex-wrap items-center gap-2 font-rubik text-sm font-medium text-black">
                     {user.isAdmin && (
                       <span className="rounded-full bg-[#FF9EED] px-4 py-1">
                         Admin
