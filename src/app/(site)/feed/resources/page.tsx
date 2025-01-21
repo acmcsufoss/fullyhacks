@@ -66,7 +66,7 @@ export default function Resources() {
       <div className="custom-text-shadow border-b-2 border-[#72d6e6] pb-12 md:text-md">
         Tools to succeed beyond FullyHacks.
       </div>
-      <div className="my-8 grid justify-center gap-12 lg:grid-cols-1">
+      <div className="my-8 grid justify-center gap-6 lg:grid-cols-1">
         {sponsorGifts.map((gift: sponsorGiftType) => {
           return (
             <div
