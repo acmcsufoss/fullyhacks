@@ -65,7 +65,6 @@ function Card({ track }: { track: tracksType }) {
         <img src="/assets/rectangle.svg" alt="rectangle" />
       </div>
 
-
       <div className="relative mt-6 flex h-[61px] w-full items-center justify-center">
         <div className="absolute left-0 flex h-[61px] w-[61px]">
           <img src="/assets/circles.svg" alt="circles" />
@@ -97,12 +96,10 @@ function Card({ track }: { track: tracksType }) {
 export default function Prizes() {
   return (
     <section className="my-14 mr-8 w-full px-4 text-white lg:px-8">
-      <p className="h-[95px] w-[565px] font-audiowide text-[36px] sm:text-[48px] lg:text-[64px] font-[400] leading-[81.59px] text-[#72D6E6]">
+      <p className="h-[95px] w-[565px] font-audiowide text-[36px] font-[400] leading-[81.59px] text-[#72D6E6] sm:text-[48px] lg:text-[64px]">
         Tracks & Prizes
       </p>
-      <p
-        className="font-audiowide text-[16px] sm:text-[18px] lg:text-[24px] font-[400] leading-snug text-white drop-shadow-[0_0_10px_rgba(255,255,255,1)]"
-      >
+      <p className="font-audiowide text-[16px] font-[400] leading-snug text-white drop-shadow-[0_0_10px_rgba(255,255,255,1)] sm:text-[18px] lg:text-[24px]">
         Find all details about tracks, prize categories here
       </p>
 
@@ -124,60 +121,35 @@ export default function Prizes() {
 
       <div className="mt-14">
         <div className="mb-8">
-          <p className="font-rubik text-[27px] font-[700] leading-[20px] text-[#72D6E6]">
+          <p className="font-rubik text-[20px] font-[700] leading-[20px] text-[#72D6E6] md:text-[27px]">
             Prizes
           </p>
-          <p className="mt-4 font-audiowide text-[20px] leading-[30px] text-white">
+          <p className="mt-4 font-audiowide text-[16px] leading-[22px] text-white md:text-[20px] md:leading-[30px]">
             Each team has to sign up for one prize category in order to be
             considered for the corresponding prize.
           </p>
         </div>
 
         <div
-          className="relative mx-auto rounded-[61.64px] bg-[#173162] px-4 py-4"
-          style={{ width: "1060px", height: "499px" }}
-        >
-          <div className="absolute top-0 left-0 -translate-x-1/2 -translate-y-1/2">
-            <img src="/assets/hex.svg" alt="hex" className="h-8 w-8" />
-          </div>
-          <div className="absolute top-0 right-0 translate-x-1/2 -translate-y-1/2 rotate-90">
-            <img src="/assets/hex.svg" alt="hex" className="h-8 w-8" />
-          </div>
-          <div className="absolute bottom-0 left-0 -translate-x-1/2 translate-y-1/2 -rotate-90">
-            <img src="/assets/hex.svg" alt="hex" className="h-8 w-8" />
-          </div>
-          <div className="absolute bottom-0 right-0 translate-x-1/2 translate-y-1/2 rotate-180">
-            <img src="/assets/hex.svg" alt="hex" className="h-8 w-8" />
-          </div>
-
-          <div className="absolute top-[-12px] left-1/2 -translate-x-1/2 -translate-y-1/2">
-            <img src="/assets/rectangle.svg" alt="rectangle" />
-          </div>
-          <div className="absolute top-1/2 right-[-12px] -translate-y-1/2 translate-x-1/2 rotate-90">
-            <img src="/assets/rectangle.svg" alt="rectangle" />
-          </div>
-          <div className="absolute bottom-[-12px] left-1/2 -translate-x-1/2 translate-y-1/2 rotate-180">
-            <img src="/assets/rectangle.svg" alt="rectangle" />
-          </div>
-          <div className="absolute top-1/2 left-[-12px] -translate-y-1/2 -translate-x-1/2 -rotate-90">
-            <img src="/assets/rectangle.svg" alt="rectangle" />
-          </div>
-
-          <div className="grid h-full grid-cols-2 place-items-center gap-x-3 gap-y-2">
+          className="relative mx-auto rounded-[20px] bg-[#173162] px-4 py-4 md:rounded-[61.64px]"
+          style={{ width: "100%", maxWidth: "1060px" }}>
+          <div className="grid h-full grid-cols-1 place-items-center gap-4 sm:grid-cols-2 md:gap-x-3 md:gap-y-2">
             {mainCategory.slice(0, 4).map((prize: tracksType) => (
               <div
                 key={prize.id}
-                className="flex flex-col items-center justify-center space-y-4"
-              >
-                <p className="font-audiowide text-[36px] font-[400] text-[#72D6E6]">
+                className="flex flex-col items-center justify-center space-y-4 p-4 sm:p-6">
+                <p className="font-audiowide text-[20px] font-[400] text-[#72D6E6] md:text-[36px]">
                   {prize.name}
                 </p>
 
                 <div
-                  className="rounded-[20px] bg-[#C5C5C5] text-center"
-                  style={{ width: "497px", height: "155px" }}
-                >
-                  <p className="mt-4 px-4 text-sm font-normal">
+                  className="w-full rounded-[10px] bg-[#C5C5C5] text-center md:rounded-[20px]"
+                  style={{
+                    maxWidth: "497px",
+                    height: "auto",
+                    padding: "1rem"
+                  }}>
+                  <p className="mt-4 px-2 text-sm font-normal md:px-4 md:text-base">
                     {prize.description}
                   </p>
                 </div>
