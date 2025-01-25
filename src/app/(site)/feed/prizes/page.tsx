@@ -96,10 +96,8 @@ function Card({ track }: { track: tracksType }) {
 export default function Prizes() {
   return (
     <div>
-      <h1 className="feed-title">
-        Tracks & Prizes
-      </p>
-      <p className="font-audiowide text-[16px] leading-snug text-white custom-text-shadow sm:text-[18px] lg:text-[24px]">
+      <h1 className="feed-title">Tracks & Prizes</h1>
+      <p className="custom-text-shadow font-audiowide text-[16px] leading-snug text-white sm:text-[18px] lg:text-[24px]">
         Find all details about tracks, prize categories here
       </p>
 
