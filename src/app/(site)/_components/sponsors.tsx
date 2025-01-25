@@ -1,3 +1,4 @@
+import { sponsors } from "@/lib/data/sponsors";
 import { CompanyType } from "@/types/interface";
 import React from "react";
 
@@ -62,10 +63,6 @@ interface SponsorAsteroidProps {
   asteroid: CompanyType;
 }
 
-interface SponsorsProps {
-  sponsors: CompanyType[];
-}
-
 const SponsorAsteroid: React.FC<SponsorAsteroidProps> = (props) => {
   const { asteroid } = props;
   return (
@@ -78,8 +75,7 @@ const SponsorAsteroid: React.FC<SponsorAsteroidProps> = (props) => {
   );
 };
 
-const Sponsors: React.FC<SponsorsProps> = (props) => {
-  const { sponsors } = props;
+export default function Sponsors() {
   return (
     <div className="min-h-[1100px] w-full overflow-hidden">
       <h2 className="custom-text-shadow text-center text-xxl md:text-[5rem] lg:text-right">
@@ -113,6 +109,4 @@ const Sponsors: React.FC<SponsorsProps> = (props) => {
       </p>
     </div>
   );
-};
-
-export default Sponsors;
+}

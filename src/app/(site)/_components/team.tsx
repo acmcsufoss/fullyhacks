@@ -1,6 +1,5 @@
 "use client";
 
-import { TeamType } from "@/types/interface";
 import Constellation from "./team/constellation";
 import { useEffect, useState } from "react";
 import {
@@ -8,8 +7,9 @@ import {
   MdOutlineKeyboardArrowRight
 } from "react-icons/md";
 import TeamGrid from "./team/grid";
+import { team } from "@/lib/data/team";
 
-const Team = ({ team }: { team: TeamType[] }) => {
+export default function Team() {
   const [teamIndex, setTeamIndex] = useState(0);
   const [screenWidth, setScreenWidth] = useState(0);
 
@@ -56,6 +56,4 @@ const Team = ({ team }: { team: TeamType[] }) => {
       </div>
     </div>
   );
-};
-
-export default Team;
+}

@@ -1,6 +1,6 @@
 import { CompanyType } from "@/types/interface";
 
-export const companies: CompanyType[] = [
+export const sponsors: CompanyType[] = [
   {
     id: "co1",
     name: "NordVPN",
