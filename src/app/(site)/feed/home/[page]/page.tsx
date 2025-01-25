@@ -7,6 +7,8 @@ import {
   MdOutlineKeyboardArrowRight
 } from "react-icons/md";
 
+export const dynamic = "force-dynamic";
+
 const PAGE_SIZE = 10;
 
 async function getFeedUsers(
@@ -16,12 +18,13 @@ async function getFeedUsers(
 
   const totalFeedUsers = await prisma.user.count({
     where: {
-      bio: { not: null },
       application: {
         approved: true
       }
     }
   });
+
+  console.log(skip, totalFeedUsers);
 
   // If out of range, return an empty array
   if (skip >= totalFeedUsers) {
