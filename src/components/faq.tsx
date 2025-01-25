@@ -1,12 +1,9 @@
 "use client";
 
+import { faqs } from "@/lib/data/faq";
 import { FAQType } from "@/types/interface";
 import React, { useState, useEffect } from "react";
 import { FaChevronDown } from "react-icons/fa";
-
-interface FAQProps {
-  faqs: FAQType[];
-}
 
 interface FAQDropDownProps {
   question: string;
@@ -56,8 +53,7 @@ export const FAQDropDown: React.FC<FAQDropDownProps> = ({
   );
 };
 
-const FAQ: React.FC<FAQProps> = (props) => {
-  const { faqs } = props;
+export default function FAQ() {
   return (
     <>
       <p className="custom-text-shadow mb-4 text-xxl font-normal text-white md:text-[5rem]">
@@ -90,6 +86,4 @@ const FAQ: React.FC<FAQProps> = (props) => {
       </div>{" "}
     </>
   );
-};
-
-export default FAQ;
+}
