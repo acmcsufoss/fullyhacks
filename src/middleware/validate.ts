@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from "next/server";
 type RouteHandler = (data: any, request: NextRequest) => Promise<NextResponse>;
 
 export function validate(schema: any, handler: RouteHandler) {
-  return async (data: any, request: NextRequest) => {
+  return async (data: any, request: NextRequest): Promise<NextResponse> => {
     if (request.method === "POST" || request.method === "PUT") {
       try {
         const validatedData = await schema.validate(data, {
