@@ -48,7 +48,7 @@ export const FAQBackgroundEffects = () => {
       <img
         src="/assets/ring-planet.svg"
         alt="Planet"
-        className="absolute -right-[20%] top-[1000px] w-[400px] md:top-[1214px] md:-right-[25%] md:w-[600px] lg:-right-[15%] lg:w-[800px]"
+        className="absolute -right-[20%] top-[1000px] z-10 w-[400px] md:top-[1214px] md:-right-[25%] md:w-[600px] lg:-right-[15%] lg:w-[800px]"
       />
       <img
         src="/assets/constellation.svg"

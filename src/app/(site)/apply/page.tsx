@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Flower from "@/components/flower";
 import { AuthNavBar } from "@/components/nav-bar";
 import ApplyAuth from "./_components/apply-auth";
 import ApplicationForm from "./_components/application-form";

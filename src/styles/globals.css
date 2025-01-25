@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Bruno+Ace&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -99,37 +100,34 @@ body {
 }
 
 .feed-background-container {
-  /* position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
   background:
     url("/assets/feed-stars-background.svg"),
     linear-gradient(180deg, #122a58 0%, #201c33 100%) repeat center;
-  background-size: cover; */
+  background-size: cover;
+  min-height: 100%;
+  position: fixed;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
 }
 
 .feed-title {
-  color: #d9d9d9;
-  text-shadow: 0px 0px 8px #2400ff;
-  -webkit-text-stroke-width: 1.2px;
-  -webkit-text-stroke-color: #002aff;
+  color: #72d6e6;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #99dbe6;
   font-size: 2.5rem;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+  text-shadow: 0 0 5px #97bae1;
 }
 
-.feed-title-white {
-  color: #d9d9d9;
-  text-shadow: 0px 0px 8px #2400ff;
-  -webkit-text-stroke-width: 0;
-  -webkit-text-stroke-color: #ffffff;
-  font-size: 49px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
+@media screen and (min-width: 640px) {
+  .feed-title {
+    font-size: 3.5rem;
+  }
 }
 
 .animate-tilt {

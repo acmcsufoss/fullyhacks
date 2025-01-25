@@ -3,7 +3,7 @@
 import { MenuType } from "@/types/interface";
 import { signOut } from "next-auth/react";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import {
   AiOutlineClose,
   AiOutlineMenu,
@@ -22,6 +22,7 @@ import { IoArrowBackSharp } from "react-icons/io5";
 import { SlEnergy } from "react-icons/sl";
 import links from "@/lib/data/links.json";
 import { usePathname } from "next/navigation";
+import { MdArrowRight } from "react-icons/md";
 
 export const NavBarLanding: React.FC = () => {
   const menuList: MenuType[] = [
@@ -166,15 +167,15 @@ export const AuthNavBar = () => {
 
 export const FeedNavBar = () => {
   return (
-    <nav className="flex items-center justify-between">
-      <Link href="/">
+    <nav className="z-10 flex flex-row-reverse items-center justify-between px-4 py-8 md:flex-row md:py-4">
+      <Link href="/" className="hidden md:block">
         <img
           alt="nav bar logo"
           src="/assets/fullyhacks_logo.png"
-          className="my-4 ml-4 w-16 md:ml-10 md:w-20"
+          className="w-16 md:w-24"
         />
       </Link>
-      <div className="mr-4 text-md text-white md:mr-10">
+      <div className="text-md text-white">
         <button onClick={() => signOut()}>Sign out</button>
       </div>
     </nav>
@@ -184,88 +185,88 @@ export const FeedNavBar = () => {
 export const FeedSideBar: React.FC = () => {
   const [isOpen, setOpen] = useState(false);
   const pathname = usePathname();
-  console.log(pathname);
+  const lastPathname = useRef(pathname);
+
+  useEffect(() => {
+    if (lastPathname.current !== pathname) {
+      setOpen(false);
+    }
+    lastPathname.current = pathname;
+  }, [pathname]);
 
   const feedItems = [
     {
       id: "feed01",
       name: "Home",
-      href: "/feed/home",
-      icon: <BiHomeAlt size={28} />
+      href: "/feed/home"
     },
     {
       id: "feed02",
       name: "Announcements",
-      href: "/feed/announcements",
-      icon: <HiOutlineSpeakerphone size={28} />
+      href: "/feed/announcements"
     },
     {
       id: "feed03",
       name: "Events",
-      href: "/feed/events",
-      icon: <BiCalendarEvent size={28} />
+      href: "/feed/events"
     },
     {
       id: "feed07",
       name: "Tracks & Prizes",
-      href: "/feed/prizes",
-      icon: <HiOutlineTrophy size={28} />
+      href: "/feed/prizes"
     },
     {
       id: "feed04",
       name: "FullyPacks",
-      href: "/feed/fullypacks",
-      icon: <SlEnergy size={28} />
+      href: "/feed/fullypacks"
     },
     {
       id: "feed05",
       name: "Resources",
-      href: "/feed/resources",
-      icon: <BsLightbulb size={28} />
+      href: "/feed/resources"
     },
     {
       id: "feed08",
       name: "FAQs",
-      href: "/feed/faq",
-      icon: <AiOutlineQuestionCircle size={28} />
+      href: "/feed/faq"
     },
     {
       id: "feed06",
       name: "Profile",
-      href: "/feed/profile",
-      icon: <BiUserCircle size={28} />
+      href: "/feed/profile"
     }
   ];
 
   return (
     <>
+      {/* Mobile View */}
       {!isOpen && (
         <AiOutlineMenu
           onClick={() => setOpen(true)}
-          className="fixed top-[5rem] left-4 z-20 cursor-pointer stroke-[2] text-[#EF4DB3]"
+          className="fixed top-9 left-4 z-20 block cursor-pointer stroke-[2] text-[#72d6e6] md:hidden"
           size={24}
         />
       )}
-
-      {/* Blur overlay */}
       <div
-        className={`fixed inset-0 z-40 bg-purple_dark/40 backdrop-blur-sm transition-opacity duration-300 ${
-          isOpen ? "opacity-100" : "pointer-events-none opacity-0"
-        }`}
-        onClick={() => setOpen(false)}
-      />
+        className={`fixed inset-0 z-50 ${isOpen ? "visible" : "invisible delay-300"} transition-[visibility]`}>
+        {/* Blur overlay */}
+        <div
+          className={`absolute inset-0 bg-purple_dark/40 backdrop-blur-sm transition-opacity duration-300 ${
+            isOpen ? "opacity-100" : "opacity-0"
+          }`}
+          onClick={() => setOpen(false)}
+        />
 
-      {/* Mobile menu */}
-      <div
-        className={`fixed inset-0 z-50 transform transition-transform duration-300 ease-in-out ${
-          isOpen ? "translate-x-0" : "-translate-x-full"
-        }`}>
-        <div className="h-full w-80 bg-purple_dark p-8 text-sm font-semibold text-[#EF4DB3]">
+        {/* Sidebar */}
+        <div
+          className={`absolute left-0 top-0 h-full w-80 bg-[#021230] p-8 text-sm font-semibold text-[#72d6e6] shadow-lg transition-transform duration-300 ease-in-out ${
+            isOpen ? "translate-x-0" : "-translate-x-full"
+          }`}>
           <div className="mb-8 flex items-center justify-between">
             <img
-              src="/assets/logo.svg"
+              src="/assets/fullyhacks_logo.png"
               alt="Fully logo"
-              className="h-10 w-10"
+              className="w-12"
             />
             <AiOutlineClose
               onClick={() => setOpen(false)}
@@ -273,56 +274,52 @@ export const FeedSideBar: React.FC = () => {
               className="cursor-pointer"
             />
           </div>
-
-          <ul className="space-y-4">
+          <ul className="space-y-2 border-b-2 border-[#72d6e6] py-2">
             {feedItems.map((item) => (
               <Link
                 key={item.id}
                 href={item.href}
-                className={`flex w-full items-center rounded-lg p-3 text-white transition-colors duration-200 ${pathname === item.href ? "bg-[rgba(255,136,229,0.4)]" : ""}`}>
-                {item.icon}
+                className={`flex w-full items-center rounded-lg p-2 text-white transition-colors duration-200 ${
+                  pathname === item.href ||
+                  (item.name === "Home" && pathname.startsWith(item.href))
+                    ? "bg-[#173162]"
+                    : ""
+                }`}>
                 <span className="ml-4 text-white">{item.name}</span>
               </Link>
             ))}
           </ul>
-
-          <div className="mt-8 border-t border-[#EF4DB3] pt-8">
-            <button
-              onClick={() => signOut()}
-              className="flex w-full items-center rounded-lg p-3 text-red-400 transition-colors duration-200 hover:bg-red-400/10">
-              <BiLogOut size={28} />
-              <span className="ml-4">Sign Out</span>
-            </button>
-          </div>
-
-          <div className="absolute bottom-8 left-8 flex items-center gap-4">
+          <div className="mt-4 flex items-center justify-center gap-4 text-[#72d6e6]">
             <BsDiscord size={28} />
             <a
               target="_blank"
               href={links.discord}
-              className="text-white transition-colors duration-200 hover:text-[#EF4DB3]">
+              className="text-white transition-colors duration-200">
               Discord Server
             </a>
           </div>
         </div>
       </div>
 
-      {/* Desktop sidebar*/}
-      <div className="mx-4 mt-12 hidden basis-1/5 text-sm font-semibold text-[#EF4DB3] md:mx-10 md:block md:text-md">
-        <ul className="border-b-2 p-2">
-          {feedItems.map((item, idx) => {
+      {/* Desktop View */}
+      <div className="hidden w-[250px] flex-shrink-0 text-sm font-semibold text-[#696969] md:block md:text-[1.125rem]">
+        <ul className="flex flex-col gap-4 border-b-2 border-[#72d6e6] p-2">
+          {feedItems.map((item) => {
             return (
               <Link
                 key={item.id}
                 href={item.href}
-                className={`my-4 flex w-full items-center rounded-lg p-2 text-white ${pathname === item.href ? "bg-[rgba(255,136,229,0.4)]" : ""}`}>
-                {item.icon}
-                <li className="ml-4 text-white">{item.name}</li>
+                className={`flex w-full rounded-lg p-2 transition-colors duration-300 hover:text-white ${pathname === item.href || (item.name === "Home" && pathname.startsWith(item.href)) ? "text-white" : ""}`}>
+                {pathname === item.href ||
+                  (item.name === "Home" && pathname.startsWith(item.href) && (
+                    <MdArrowRight size={28} color="#c2f2ff" />
+                  ))}
+                <li className="ml-auto">{item.name}</li>
               </Link>
             );
           })}
         </ul>
-        <div className="mt-4 flex items-center gap-4 text-center">
+        <div className="mt-4 flex items-center justify-center gap-4 text-[#72d6e6]">
           <BsDiscord size={28} />
           <a target={"_blank"} href={links.discord} className="text-white">
             Discord Server

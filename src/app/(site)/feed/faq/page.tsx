@@ -90,7 +90,7 @@ const faqs: FAQType[] = [
 
 export default function FAQ() {
   return (
-    <section className="mt-14 mr-8 w-full text-white">
+    <div>
       <p className="feed-title">Frequently Asked Questions</p>
       <p className="md:text-md">
         Answering all your questions for Fullyhacks 2024
@@ -111,6 +111,6 @@ export default function FAQ() {
         </a>
         and we&apos;ll get back to you ASAP!
       </p>
-    </section>
+    </div>
   );
 }

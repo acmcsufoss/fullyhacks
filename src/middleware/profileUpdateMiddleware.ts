@@ -1,39 +1,34 @@
-import { NextApiHandler, NextApiRequest, NextApiResponse } from "next";
-import cookie from "cookie";
+import { NextRequest, NextResponse } from "next/server";
 
-export const rateLimitMiddleware = (
-  handler: NextApiHandler
-): NextApiHandler => {
-  return (req: NextApiRequest, res: NextApiResponse) => {
-    // Get the last update time of the user from the cookie
-    const cookies = cookie.parse(req.headers.cookie ?? "");
-    const lastUpdateTime = cookies.lastUpdateTime;
+type RouteHandler = (data: any, req: NextRequest) => Promise<NextResponse>;
+
+export async function profileUpdateWithRateLimit(handler: RouteHandler) {
+  return async (data: any, req: NextRequest) => {
+    const lastUpdateTime = req.cookies.get("lastUpdateTime")?.value;
 
     if (lastUpdateTime) {
-      // Calculate the time since the last update
       const pastTime = Date.parse(lastUpdateTime);
       const timeSinceLastUpdate = Date.now() - pastTime;
-      // Set the time limit (in milliseconds)
-      const timeLimit = 60 * 60 * 1000; // 1 hour
-      // Check if the time limit has been exceeded
-      if (timeSinceLastUpdate < timeLimit) {
-        return res.status(429).json({
-          message: "You can only update your profile once every 1 hour."
-        });
+      const timeLimitMs = 60 * 60 * 1000; // 1 hour
+
+      if (timeSinceLastUpdate < timeLimitMs) {
+        return NextResponse.json(
+          { message: "You can only update your profile once every 1 hour." },
+          { status: 429 }
+        );
       }
-    } else {
-      console.log("No last update time found");
     }
 
-    // Update the cookie with the current time
-    const currentUpdateTime = new Date().toISOString();
-    const newCookies = cookie.serialize("lastUpdateTime", currentUpdateTime, {
-      maxAge: 30 * 24 * 60 * 60, // Set the cookie expiration time to 30 days
-      path: "/"
-    });
-    res.setHeader("Set-Cookie", newCookies);
+    const res = await handler(data, req);
 
-    // Call the original handler
-    return handler(req, res);
+    // only set cookie if response is successful
+    if (res.status === 200) {
+      const currentUpdateTime = new Date().toISOString();
+      res.cookies.set("lastUpdateTime", currentUpdateTime, {
+        maxAge: 30 * 24 * 60 * 60, // 30 days
+        path: "/"
+      });
+    }
+    return res;
   };
-};
+}

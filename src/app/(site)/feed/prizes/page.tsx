@@ -95,11 +95,11 @@ function Card({ track }: { track: tracksType }) {
 
 export default function Prizes() {
   return (
-    <section className="my-14 mr-8 w-full px-4 text-white lg:px-8">
-      <p className="h-[95px] w-[565px] font-audiowide text-[36px] font-[400] leading-[81.59px] text-[#72D6E6] sm:text-[48px] lg:text-[64px]">
+    <div>
+      <h1 className="feed-title">
         Tracks & Prizes
       </p>
-      <p className="font-audiowide text-[16px] font-[400] leading-snug text-white drop-shadow-[0_0_10px_rgba(255,255,255,1)] sm:text-[18px] lg:text-[24px]">
+      <p className="font-audiowide text-[16px] leading-snug text-white custom-text-shadow sm:text-[18px] lg:text-[24px]">
         Find all details about tracks, prize categories here
       </p>
 
@@ -158,6 +158,6 @@ export default function Prizes() {
           </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 }

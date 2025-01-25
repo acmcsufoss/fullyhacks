@@ -14,7 +14,7 @@ async function getAnnouncements() {
 export default async function AnnouncementsPage() {
   const announcements: announcementsType[] = await getAnnouncements();
   return (
-    <section className="mt-14 mr-8 w-full text-white">
+    <div>
       <p className="feed-title">Announcements</p>
       <p className="md:text-md">
         Official announcements from the Fullyhacks team
@@ -24,6 +24,6 @@ export default async function AnnouncementsPage() {
           <Announcement key={announcement.id} announcement={announcement} />
         );
       })}
-    </section>
+    </div>
   );
 }

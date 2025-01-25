@@ -25,7 +25,7 @@ const ApplyAuth: React.FC<ApplyAuthProps> = ({ children }) => {
     new Date(now) >= new Date(openDate) &&
     new Date(now) <= new Date(applicationCloseDate);
 
-  if (applicationOpen) {
+  if (applicationOpen || process.env.NODE_ENV !== "production") {
     return <>{children}</>;
   }
 

@@ -1,17 +1,21 @@
-import { NextApiHandler, NextApiRequest, NextApiResponse } from "next";
+import { NextRequest, NextResponse } from "next/server";
 
-export function validate(schema: any, handler: NextApiHandler) {
-  return async (req: NextApiRequest, res: NextApiResponse) => {
-    if (["POST", "PUT"].includes(req.method as string)) {
+type RouteHandler = (data: any, request: NextRequest) => Promise<NextResponse>;
+
+export function validate(schema: any, handler: RouteHandler) {
+  return async (data: any, request: NextRequest) => {
+    if (request.method === "POST" || request.method === "PUT") {
       try {
-        req.body = await schema.validate(req.body, {
+        const validatedData = await schema.validate(data, {
           strict: true,
           abortEarly: false
         });
+        // Update data with validated values
+        data = validatedData;
       } catch (error) {
-        return res.status(400).json(error);
+        return NextResponse.json(error, { status: 400 });
       }
     }
-    await handler(req, res);
+    return await handler(data, request);
   };
 }

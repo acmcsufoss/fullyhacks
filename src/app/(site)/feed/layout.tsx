@@ -1,9 +1,11 @@
 import { FeedNavBar, FeedSideBar } from "@/components/nav-bar";
+import { FeedPopUp } from "@/components/pop-up";
 import { getAuthSession } from "@/lib/auth";
 import { prisma } from "db";
-import { Session } from "next-auth";
 import { redirect } from "next/navigation";
 import React from "react";
+
+export const dynamic = "force-dynamic";
 
 async function getUser() {
   const session = await getAuthSession();
@@ -13,7 +15,7 @@ async function getUser() {
       application: true
     }
   });
-  if (user?.application?.approved) {
+  if (user?.application?.status !== "approved") {
     redirect("/apply");
   }
   return user;
@@ -24,15 +26,17 @@ export default async function FeedLayout({
 }: {
   children: React.ReactNode;
 }) {
-  // const user = await getUser();
+  const user = await getUser();
 
   return (
-    <div className="feed-background-container">
+    <main className="flex flex-col gap-8">
+      <div className="feed-background-container"></div>
       <FeedNavBar />
-      <div className="relative mx-4 mb-8 flex w-full">
+      {user.bio == null && <FeedPopUp />}
+      <div className="relative mb-8 flex w-full gap-12 px-4 md:px-8">
         <FeedSideBar />
-        {children}
+        <section className="flex-1">{children}</section>
       </div>
-    </div>
+    </main>
   );
 }
