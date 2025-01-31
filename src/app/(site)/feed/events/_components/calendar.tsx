@@ -19,8 +19,10 @@ const TimeStamp: React.FC<TimeProps> = (props) => {
       )}
       <div
         style={{ left: value }}
-        className="absolute top-10 h-[100%] w-[1px] bg-slate-400">
-        <p className="absolute top-[-25px] translate-x-[-50%]">{time}</p>
+        className="absolute top-10 h-[100%] w-[1px] bg-[#72D6E6]">
+        <p className="absolute top-[-33px] translate-x-[-50%] text-white">
+          {time}
+        </p>
       </div>
     </>
   );
@@ -100,40 +102,48 @@ export const EventLabel: React.FC<EventLableProps> = ({
   setFilteredEvent
 }) => {
   const eventLabels: eventLabel[] = [
-    {
-      id: "e1",
-      name: "All",
-      type: "all",
-      borderStyle: "w-[1rem] bg-white p-2 rounded-[50%]",
-      textStyle: "text-white font-bold"
-    },
+    // {
+    //   id: "e1",
+    //   name: "All",
+    //   type: "all",
+    //   borderStyle: "w-[1rem] bg-white p-2 rounded-[50%]",
+    //   textStyle: "text-white font-bold"
+    // },
     {
       id: "e2",
       name: "Main event",
       type: "event",
-      borderStyle: "w-[1rem] bg-sky_300 p-2 rounded-[50%]",
-      textStyle: "text-sky_300 font-bold"
+      borderStyle: "w-[1rem] bg-[#F5595C] p-2 rounded-[50%]",
+      textStyle: "text-[#F5595C] font-bold"
     },
     {
       id: "e3",
       name: "Workshops",
       type: "workshop",
-      borderStyle: "w-[1rem] bg-pink_300 p-2 rounded-[50%]",
-      textStyle: "text-pink_300 font-bold"
+      borderStyle: "w-[1rem] bg-[#7D22CC] p-2 rounded-[50%]",
+      textStyle: "text-[#7D22CC] font-bold"
     },
     {
       id: "e4",
       name: "Food",
       type: "food",
-      borderStyle: "w-[1rem] bg-orange-400 p-2 rounded-[50%]",
-      textStyle: "text-orange-400 font-bold"
+      borderStyle: "w-[1rem] bg-[#FFA167] p-2 rounded-[50%]",
+      textStyle: "text-[#FFA167] font-bold"
     },
+    // previously "fun"
     {
       id: "e5",
-      name: "Fun",
-      type: "fun",
-      borderStyle: "w-[1rem] bg-blue_300 p-2 rounded-[50%]",
-      textStyle: "text-blue_300 font-bold"
+      name: "CTF",
+      type: "ctf",
+      borderStyle: "w-[1rem] bg-[#00FFB2] p-2 rounded-[50%]",
+      textStyle: "text-[#00FFB2] font-bold"
+    },
+    {
+      id: "e6",
+      name: "Activity",
+      type: "activity",
+      borderStyle: "w-[1rem] bg-[#6060C2] p-2 rounded-[50%]",
+      textStyle: "text-[#6060C2] font-bold"
     }
   ];
 
@@ -184,29 +194,76 @@ const Calendar: React.FC<CalendarProps> = ({
     setFilteredEvent(events);
   };
   return (
-    <section className="mb-12 w-[70%] rounded-lg border border-gray-300 border-opacity-25 bg-opacity-25 p-4 font-semibold text-purple_main shadow-xl backdrop-blur-md backdrop-filter">
-      <div className="flex flex-wrap items-center gap-4 border-b-2 py-2 md:gap-8">
-        <p className="cursor-pointer" onClick={setAllEvent}>
-          All events
-        </p>
-        <EventLabel events={events} setFilteredEvent={setFilteredEvent} />
-      </div>
-      <div className="w-full gap-10 overflow-x-scroll">
-        <div className="relative ml-8 mt-8 h-[600px] w-[3200px] font-normal md:h-[800px]">
-          <p className="absolute left-[-15px] top-[-10px] font-bold">Sat</p>
-          {/* schedule marker */}
-          {hoursArray.map((hour) => {
-            return (
-              <TimeStamp key={hour.id} time={hour.name} value={hour.value} />
-            );
-          })}
-          {filteredEvent.map((event: eventsType) => {
-            return <Event key={event.id} event={event} />;
-          })}
+    <div className="relative w-full">
+      {/* svg container */}
+      <div className="relative mb-5 flex h-[100px] w-auto items-center justify-center lg:pr-[165rem]">
+        <img
+          src="/assets/borderEvents.svg"
+          alt="Event Label Border"
+          className="object-contain"
+        />
+        {/* Event labels */}
+        <div className="absolute flex items-center justify-center gap-8">
+          <EventLabel events={events} setFilteredEvent={setFilteredEvent} />
         </div>
       </div>
-    </section>
+
+      {/* Calendar section */}
+      <section className="mb-12 w-[45%] rounded-lg border border-gray-300 border-opacity-25 bg-opacity-25 p-4 font-semibold text-purple_main shadow-xl backdrop-blur-md backdrop-filter">
+        <div className="w-full gap-10 overflow-x-scroll">
+          <div className="relative ml-8 mt-8 h-[600px] w-[3200px] font-normal md:h-[800px]">
+            {/* <p className="absolute left-[-15px] top-[-10px] font-bold">Sat</p> */}
+            {/* Time markers */}
+            {hoursArray.map((hour) => (
+              <TimeStamp key={hour.id} time={hour.name} value={hour.value} />
+            ))}
+            {/* Event elements */}
+            {filteredEvent.map((event: eventsType) => (
+              <Event key={event.id} event={event} />
+            ))}
+          </div>
+        </div>
+      </section>
+    </div>
   );
 };
 
 export default Calendar;
+
+// <section className="mb-12 w-[70%] rounded-lg border border-gray-300 border-opacity-25 bg-opacity-25 p-4 font-semibold text-purple_main shadow-xl backdrop-blur-md backdrop-filter">
+//       <div className="flex flex-wrap items-center gap-4 border-b-2 py-2 md:gap-8">
+//         {/* <p className="cursor-pointer" onClick={setAllEvent}>
+//           All events
+//         </p> */}
+//         <EventLabel events={events} setFilteredEvent={setFilteredEvent} />
+//       </div>
+//       <div className="w-full gap-10 overflow-x-scroll">
+//         <div className="relative ml-8 mt-8 h-[600px] w-[3200px] font-normal md:h-[800px]">
+//           <p className="absolute left-[-15px] top-[-10px] font-bold">Sat</p>
+//           {/* schedule marker */}
+//           {hoursArray.map((hour) => {
+//             return (
+//               <TimeStamp key={hour.id} time={hour.name} value={hour.value} />
+//             );
+//           })}
+//           {filteredEvent.map((event: eventsType) => {
+//             return <Event key={event.id} event={event} />;
+//           })}
+//         </div>
+//       </div>
+//     </section>
+
+{
+  /* Labels outside the border */
+}
+{
+  /* <div className="lg:mb-2 absolute">
+        <img src="/assets/borderEvents.svg" alt="rando" />
+        <div className=" absolute flex flex-wrap gap-4 lg:right-3 ">
+          <EventLabel events={events} setFilteredEvent={setFilteredEvent} />
+        </div>
+      </div> */
+}
+{
+  /* svg container */
+}
