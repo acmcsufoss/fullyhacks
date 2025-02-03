@@ -7,7 +7,7 @@ import * as yup from "yup";
 import axios from "axios";
 import Loading from "@/components/loading";
 import SchoolSuggestion from "./school-suggestion";
-import { redirect } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { applicationSchema } from "@/schemas/application";
 
 interface ApplicationState {
@@ -114,6 +114,7 @@ interface ApplicationProps {
 
 const ApplicationForm: React.FC<ApplicationProps> = (props) => {
   const { url } = props;
+  const router = useRouter();
   const {
     register,
     handleSubmit,
@@ -171,10 +172,10 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
       };
       await axios.post("/api/application", newApplication);
       setLoading(false);
-      redirect("/portal");
+      router.push("/portal");
     } catch (error) {
       setLoading(false);
-      redirect("/error");
+      router.push("/error");
     }
   };
 
