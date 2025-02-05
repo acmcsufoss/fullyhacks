@@ -22,13 +22,18 @@ const SchoolSuggestion: React.FC<SchoolSuggestionProps> = ({
   const [filteredSchool, setfilteredSchool] = useState<University[]>([]);
   const universites: University[] = uniJson.usUniveristies;
 
+  // Cut down on the number of schools shown in the dropdown
+  const MAX_SCHOOLS_SHOWN = 30;
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const searchValue = e.target.value;
     setSearch(searchValue);
     setfilteredSchool(
-      universites.filter((item: University) =>
-        item.institution.toLowerCase().includes(searchValue.toLowerCase())
-      )
+      universites
+        .filter((item: University) =>
+          item.institution.toLowerCase().includes(searchValue.toLowerCase())
+        )
+        .slice(0, MAX_SCHOOLS_SHOWN)
     );
     dispatch({ type: "SET_SCHOOL", payload: searchValue });
     dispatch({
@@ -50,7 +55,7 @@ const SchoolSuggestion: React.FC<SchoolSuggestionProps> = ({
   };
 
   return (
-    <div className="">
+    <div>
       <div className="form-input mt-4 flex w-full items-center">
         <input
           {...register("school")}
