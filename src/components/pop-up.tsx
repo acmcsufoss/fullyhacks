@@ -26,14 +26,14 @@ export default function PopUp(props: PopUpProps) {
         className="modal-toggle"
       />
       <div className="modal">
-        <div className="modal-box border border-white bg-[#122a58]">
+        <div className="modal-box bg-[#201c33]">
           <h3 className="text-lg font-bold">{title}</h3>
           <p className="py-4">{content}</p>
           <div className="modal-action">
             <label
               htmlFor="my-modal"
               onClick={() => setCheck(false)}
-              className="btn border-none bg-[#201c33] normal-case text-white transition-colors duration-300 hover:bg-opacity-90">
+              className="btn border-none bg-[#122a58] normal-case text-white transition-colors duration-300 hover:bg-white hover:text-[#122a58]">
               {action}
             </label>
           </div>

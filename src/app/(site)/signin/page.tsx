@@ -18,23 +18,24 @@ export default async function SignIn() {
       <img
         src="/assets/portal-stars-1.svg"
         alt="Portal Stars 1"
-        className="fixed top-1/2 left-1/2 w-[80%] -translate-x-1/2 -translate-y-1/2 animate-pulse overflow-hidden md:top-[55%] lg:top-[60%]"
+        className="fixed top-[35%] left-1/2 w-full -translate-x-1/2 -translate-y-1/2 animate-pulse overflow-hidden sm:w-[80%] md:top-[46%] lg:top-[60%]"
       />
       <img
         src="/assets/portal-stars-2.svg"
         alt="Portal Stars 2"
-        className="animation-delay-500 fixed left-1/2 top-[55%] w-[80%] -translate-x-1/2 -translate-y-1/2 animate-pulse overflow-hidden blur-[2px] lg:top-[60%]"
+        className="animation-delay-500 fixed left-1/2 top-[40%] w-full -translate-x-1/2 -translate-y-1/2 animate-pulse overflow-hidden blur-[2px] sm:w-[80%] md:top-1/2 lg:top-[65%]"
       />
       <img
         src="/assets/radial-sphere.svg"
         alt="Radial Sphere"
-        className="fixed bottom-12 left-12 h-28 w-28"
+        className="fixed bottom-12 left-12 h-16 w-16 blur-[1px] md:h-28 md:w-28"
       />
       <img
         src="/assets/portal-shooting-star.svg"
         alt="Shooting Star"
         className="fixed right-12 top-1/4 w-[200px]"
       />
+
       <GenericNavBar />
       <PopUp
         title="Before you continue"

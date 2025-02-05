@@ -127,7 +127,7 @@ export const GenericNavBar = () => {
     <nav className="flex flex-row-reverse items-center justify-center px-4 py-8">
       <Link
         href="/"
-        className="z-10 ml-auto flex cursor-pointer items-center gap-4 rounded-md bg-gradient-to-r from-[#72D6E6] to-[#173162] p-2 text-white transition-colors duration-300">
+        className="z-10 ml-auto flex cursor-pointer items-center gap-4 rounded-md bg-gradient-to-r from-[#72D6E6] to-[#173162] p-2 text-white transition-all duration-300 hover:brightness-110">
         <button className="text-sm font-semibold md:text-md">
           Back to Home
         </button>
@@ -139,18 +139,16 @@ export const GenericNavBar = () => {
 
 export const AuthNavBar = () => {
   return (
-    <nav className="flex items-center text-purple_main">
-      <Link href="/">
+    <nav className="z-10 flex flex-row-reverse items-center justify-between px-4 py-8 md:flex-row md:py-4">
+      <Link href="/" className="z-10 hidden md:block">
         <img
-          src="/assets/logo.svg"
           alt="nav bar logo"
-          className="ml-2 h-24 w-24 cursor-pointer md:h-32 md:w-32"
+          src="/assets/fullyhacks_logo.png"
+          className="w-16 md:w-24"
         />
       </Link>
-      <div
-        onClick={() => signOut()}
-        className="mr-4 ml-auto cursor-pointer rounded-xl bg-[#E149A9] p-2 text-md text-white hover:bg-pink-500 hover:transition-all hover:duration-300">
-        <button>Sign out</button>
+      <div className="z-10 text-md text-white">
+        <button onClick={() => signOut()}>Sign out</button>
       </div>
     </nav>
   );
