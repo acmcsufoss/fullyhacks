@@ -148,7 +148,12 @@ export const AuthNavBar = () => {
         />
       </Link>
       <div className="z-10 text-md text-white">
-        <button onClick={() => signOut()}>Sign out</button>
+        <button
+          onClick={() => signOut()}
+          className="group relative py-1 text-md">
+          Sign out
+          <span className="absolute bottom-1 block h-0.5 w-0 bg-white transition-all duration-300 group-hover:w-full group-focus:w-full" />
+        </button>
       </div>
     </nav>
   );
