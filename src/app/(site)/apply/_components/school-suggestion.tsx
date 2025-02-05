@@ -8,30 +8,47 @@ interface SchoolSuggestionProps {
   errors: any;
   dispatch: any;
   application: any;
+  setValue: any;
 }
 
 const SchoolSuggestion: React.FC<SchoolSuggestionProps> = ({
   register,
   errors,
   dispatch,
-  application
+  application,
+  setValue
 }) => {
   const [search, setSearch] = useState<string>("");
   const [filteredSchool, setfilteredSchool] = useState<University[]>([]);
   const universites: University[] = uniJson.usUniveristies;
-  const handleChange = (e: any) => {
-    setSearch(e.target.value);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const searchValue = e.target.value;
+    setSearch(searchValue);
     setfilteredSchool(
       universites.filter((item: University) =>
-        item.institution.toLowerCase().includes(e.target.value.toLowerCase())
+        item.institution.toLowerCase().includes(searchValue.toLowerCase())
       )
     );
-    dispatch({ type: "SET_SCHOOL", payload: e.target.value });
+    dispatch({ type: "SET_SCHOOL", payload: searchValue });
     dispatch({
       type: "SAVE_DRAFT",
-      payload: { name: "school", value: e.target.value }
+      payload: { name: "school", value: searchValue }
     });
+    setValue("school", searchValue);
   };
+
+  const handleSchoolSelect = (school: string) => {
+    setSearch(school);
+    setfilteredSchool([]);
+    dispatch({ type: "SET_SCHOOL", payload: school });
+    dispatch({
+      type: "SAVE_DRAFT",
+      payload: { name: "school", value: school }
+    });
+    setValue("school", school);
+  };
+
   return (
     <div className="">
       <div className="form-input mt-4 flex w-full items-center">
@@ -51,15 +68,7 @@ const SchoolSuggestion: React.FC<SchoolSuggestionProps> = ({
       <div className="mt-4 max-h-[400px] overflow-scroll rounded-md">
         {filteredSchool.map((item: University, index) => (
           <div
-            onClick={() => {
-              setSearch(item.institution);
-              dispatch({
-                type: "SAVE_DRAFT",
-                payload: { name: "school", value: item.institution }
-              });
-              dispatch({ type: "SET_SCHOOL", payload: item.institution });
-              setfilteredSchool([]);
-            }}
+            onClick={() => handleSchoolSelect(item.institution)}
             key={index}
             className="border-t-1 cursor-pointer border bg-white p-1 font-semibold text-black">
             {item.institution}
