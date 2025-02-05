@@ -25,15 +25,15 @@ export default function PopUp(props: PopUpProps) {
         checked={isChecked}
         className="modal-toggle"
       />
-      <div className="modal text-white">
-        <div className="modal-box bg-[#AF5B98]">
+      <div className="modal">
+        <div className="modal-box bg-[#201c33]">
           <h3 className="text-lg font-bold">{title}</h3>
           <p className="py-4">{content}</p>
           <div className="modal-action">
             <label
               htmlFor="my-modal"
               onClick={() => setCheck(false)}
-              className="btn border-none bg-[#230D41] normal-case text-white hover:bg-[#8f467b] hover:transition-all hover:duration-300">
+              className="btn border-none bg-[#122a58] normal-case text-white transition-colors duration-300 hover:bg-white hover:text-[#122a58]">
               {action}
             </label>
           </div>

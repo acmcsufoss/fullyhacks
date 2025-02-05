@@ -89,6 +89,20 @@
   text-shadow: 0 0 10px #97bae1;
 }
 
+.portal-background-container {
+  background:
+    url("/assets/feed-stars-background.svg"),
+    linear-gradient(180deg, #122a58 0%, #201c33 100%) repeat center;
+  background-size: cover;
+  min-height: 100%;
+  position: fixed;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
 .feed-title {
   color: #d9d9d9;
   text-shadow: 0px 0px 8px #2400ff;
