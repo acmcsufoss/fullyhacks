@@ -124,17 +124,10 @@ export const NavBarLanding: React.FC = () => {
 
 export const GenericNavBar = () => {
   return (
-    <nav className="flex items-center justify-center text-purple_main">
-      <Link href="/">
-        <img
-          alt="nav bar logo"
-          src="/assets/logo.svg"
-          className="ml-4 h-24 w-24 cursor-pointer md:h-32 md:w-32"
-        />
-      </Link>
+    <nav className="flex flex-row-reverse items-center justify-center px-4 py-8">
       <Link
         href="/"
-        className="mr-4 ml-auto flex cursor-pointer items-center gap-4 rounded-xl bg-purple_main p-2 text-white hover:bg-pink-500 hover:transition-all hover:duration-300">
+        className="z-10 ml-auto flex cursor-pointer items-center gap-4 rounded-md bg-gradient-to-r from-[#72D6E6] to-[#173162] p-2 text-white transition-colors duration-300">
         <button className="text-sm font-semibold md:text-md">
           Back to Home
         </button>
