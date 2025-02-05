@@ -1,6 +1,7 @@
 import { fullyPacksType } from "@/types/interface";
-import React from "react";
+import React, { useState } from "react";
 import { BsGithub, BsLink } from "react-icons/bs";
+import FullyPackCard from "./_components/fully-pack-card";
 
 const flaskDescription = (
   <>
@@ -93,88 +94,26 @@ const discordBot: fullyPacksType[] = [
   }
 ];
 
-interface FullyPackProps {
-  fullypack: fullyPacksType;
-}
-
-const FullyPack: React.FC<FullyPackProps> = ({ fullypack }) => {
-  return (
-    <div className="flex flex-col items-start rounded-lg bg-purple_card p-4">
-      <p className="text-center text-lg font-bold leading-normal text-white">
-        {fullypack.name}
-      </p>
-      <div className="text-20 mb-4 font-normal leading-7 text-white">
-        {fullypack.description}
-      </div>
-      {"github" in fullypack ? (
-        <button className="mt-auto flex items-center gap-2 rounded-lg bg-cyan p-2 font-semibold text-purple_card">
-          <a target={"_blank"} href={fullypack.github}>
-            Github link
-          </a>
-          <BsGithub size={28} />
-        </button>
-      ) : (
-        <></>
-      )}
-      {"link" in fullypack ? (
-        <button className="mt-auto flex items-center gap-2 rounded-lg bg-[rgb(52,11,103)] p-2 font-semibold text-white">
-          <a target={"_blank"} href={fullypack.link}>
-            Link
-          </a>
-          <BsLink size={28} />
-        </button>
-      ) : (
-        <></>
-      )}
-    </div>
-  );
-};
+const fullypacks: fullyPacksType[] = [
+  ...webDev,
+  ...backendDev,
+  ...mobileDev,
+  ...dataScience,
+  ...discordBot
+];
 
 export default function FullyPacks() {
   return (
-    <div>
-      <p className="feed-title">FullyPacks</p>
-      <p className="md:text-md">Beginner-friendly templates for participants</p>
-      <div className="mt-10">
-        <p className="text-md font-bold text-purple-500">Web Development</p>
-        <div className="mt-4 grid justify-start gap-10 md:grid-cols-3">
-          {webDev.map((fullypack: fullyPacksType) => {
-            return <FullyPack key={fullypack.id} fullypack={fullypack} />;
-          })}
-        </div>
+    <section className="mr-20 w-full max-w-3xl text-white">
+      <div className="feed-title">FullyPacks</div>
+      <div className="custom-text-shadow border-b-2 border-[#72d6e6] pb-12 md:text-md">
+        Starter packs to help you get started with your project.
       </div>
-      <div className="mt-10">
-        <p className="text-md font-bold text-purple-500">Backend Development</p>
-        <div className="mt-4 grid justify-start gap-10 md:grid-cols-3">
-          {backendDev.map((fullypack: fullyPacksType) => {
-            return <FullyPack key={fullypack.id} fullypack={fullypack} />;
-          })}
-        </div>
+      <div className="my-8 grid justify-center gap-6 lg:grid-cols-1">
+        {fullypacks.map((fullypack) => (
+          <FullyPackCard key={fullypack.id} fullypack={fullypack} />
+        ))}
       </div>
-      <div className="mt-10">
-        <p className="text-md font-bold text-purple-500">Mobile Development</p>
-        <div className="mt-4 grid justify-start gap-10 md:grid-cols-3">
-          {mobileDev.map((fullypack: fullyPacksType) => {
-            return <FullyPack key={fullypack.id} fullypack={fullypack} />;
-          })}
-        </div>
-      </div>
-      <div className="my-10">
-        <p className="text-md font-bold text-purple-500">Data Science</p>
-        <div className="mt-4 grid justify-start gap-10 md:grid-cols-3">
-          {dataScience.map((fullypack: fullyPacksType) => {
-            return <FullyPack key={fullypack.id} fullypack={fullypack} />;
-          })}
-        </div>
-      </div>
-      <div className="my-10">
-        <p className="text-md font-bold text-purple-500">Discord Bot</p>
-        <div className="mt-4 grid justify-start gap-10 md:grid-cols-3">
-          {discordBot.map((fullypack: fullyPacksType) => {
-            return <FullyPack key={fullypack.id} fullypack={fullypack} />;
-          })}
-        </div>
-      </div>
-    </div>
+    </section>
   );
 }

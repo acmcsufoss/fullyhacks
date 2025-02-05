@@ -110,6 +110,9 @@ module.exports = {
       },
       borderWidth: {
         5: "5px"
+      },
+      boxShadow: {
+        glow: "0 0 8px rgba(70,200,229,0.6)"
       }
     }
   },
