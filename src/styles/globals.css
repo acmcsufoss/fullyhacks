@@ -101,6 +101,7 @@
   left: 0;
   width: 100vw;
   height: 100vh;
+  animation: rotate 30s infinite alternate ease-in-out;
 }
 
 .feed-title {
@@ -152,5 +153,11 @@
 @keyframes tilt {
   50% {
     rotate: 10deg;
+  }
+}
+
+@keyframes rotate {
+  100% {
+    background-position: 15% 50%;
   }
 }
