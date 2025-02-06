@@ -6,15 +6,24 @@ import { useState } from "react";
 import Calendar, { EventLabel } from "./calendar";
 
 export default function Events() {
-  const [filteredEvent, setFilteredEvent] = useState<eventsType[]>(events);
+  const [selectedFilter, setSelectedFilter] = useState<string>("all");
+
+  const filteredEvents =
+    selectedFilter === "all"
+      ? events
+      : events.filter((event: eventsType) => event.type === selectedFilter);
   return (
     <>
       {/* Mobile View */}
       <div className="mb-6 flex flex-col gap-4 md:hidden">
         <div className="mb-4 flex flex-row flex-wrap gap-4 text-[0.85rem]">
-          <EventLabel events={events} setFilteredEvent={setFilteredEvent} />
+          <EventLabel
+            events={events}
+            selectedFilter={selectedFilter}
+            setSelectedFilter={setSelectedFilter}
+          />
         </div>
-        {filteredEvent.map((event: eventsType) => {
+        {filteredEvents.map((event: eventsType) => {
           return (
             <div
               key={event.id}
@@ -22,14 +31,18 @@ export default function Events() {
               <div className="flex flex-row items-center justify-between">
                 <p className="text-lg font-bold">{event.name}</p>
                 <p
-                  className={`h-4 w-4 rounded-[50%] ${
+                  className={`h-4 w-4 flex-shrink-0 rounded-full ${
                     event.type == "event"
-                      ? "bg-sky_300"
+                      ? "bg-[#F5595C]"
                       : event.type == "workshop"
-                        ? "bg-pink_300"
+                        ? "bg-[#7D22CC]"
                         : event.type == "food"
-                          ? "bg-orange-400"
-                          : "bg-blue_300"
+                          ? "bg-[#FFA167]"
+                          : event.type == "ctf"
+                            ? "bg-[#00CC8E]"
+                            : event.type == "activity"
+                              ? "bg-[#6060C2]"
+                              : "#F5595C"
                   }`}></p>
               </div>
               <p> {event.timeString}</p>
@@ -41,12 +54,11 @@ export default function Events() {
       {/* Desktop View */}
       <div className="hidden md:block">
         <Calendar
-          filteredEvent={filteredEvent}
+          filteredEvent={filteredEvents}
           events={events}
-          setFilteredEvent={setFilteredEvent}
+          setFilteredEvent={undefined}
         />
       </div>
     </>
   );
 }
- 
