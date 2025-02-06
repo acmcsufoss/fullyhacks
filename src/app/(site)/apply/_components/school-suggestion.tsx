@@ -1,3 +1,8 @@
+
+[35m🌼 daisyUI components 2.51.1[0m [0m https://daisyui.com
+  [32m✔︎ Including:[0m [0m base, components, 29 themes, utilities
+  [32m❤︎ Support daisyUI: [0m https://opencollective.com/daisyui [0m
+  
 import React, { useState } from "react";
 import { AiOutlineSearch } from "react-icons/ai";
 import uniJson from "@/lib/data/usuni.json";
@@ -23,7 +28,7 @@ const SchoolSuggestion: React.FC<SchoolSuggestionProps> = ({
   const universites: University[] = uniJson.usUniveristies;
 
   // Cut down on the number of schools shown in the dropdown
-  const MAX_SCHOOLS_SHOWN = 30;
+  const MAX_SCHOOLS_SHOWN = 20;
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const searchValue = e.target.value;
