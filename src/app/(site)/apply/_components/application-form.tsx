@@ -118,6 +118,7 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
   const {
     register,
     handleSubmit,
+    setValue,
     formState: { errors }
   } = useForm<FormData>({ resolver: yupResolver(schema) });
   const [foodState, setFood] = useState("");
@@ -245,6 +246,7 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
             errors={errors}
             dispatch={dispatch}
             application={application}
+            setValue={setValue}
           />
           <p className="error-msg">{errors.school?.message}</p>
           <p className="font-medium">Github</p>
