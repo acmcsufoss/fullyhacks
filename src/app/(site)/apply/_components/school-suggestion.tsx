@@ -1,8 +1,3 @@
-
-[35m🌼 daisyUI components 2.51.1[0m [0m https://daisyui.com
-  [32m✔︎ Including:[0m [0m base, components, 29 themes, utilities
-  [32m❤︎ Support daisyUI: [0m https://opencollective.com/daisyui [0m
-  
 import React, { useState } from "react";
 import { AiOutlineSearch } from "react-icons/ai";
 import uniJson from "@/lib/data/usuni.json";
