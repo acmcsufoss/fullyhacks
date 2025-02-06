@@ -99,7 +99,7 @@ body {
   text-shadow: 0 0 10px #97bae1;
 }
 
-.feed-background-container {
+.portal-background-container {
   background:
     url("/assets/feed-stars-background.svg"),
     linear-gradient(180deg, #122a58 0%, #201c33 100%) repeat center;
@@ -111,6 +111,7 @@ body {
   left: 0;
   width: 100vw;
   height: 100vh;
+  animation: rotate 30s infinite alternate ease-in-out;
 }
 
 .feed-title {
@@ -157,5 +158,11 @@ body {
 @keyframes tilt {
   50% {
     rotate: 10deg;
+  }
+}
+
+@keyframes rotate {
+  100% {
+    background-position: 15% 50%;
   }
 }

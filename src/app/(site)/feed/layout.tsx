@@ -30,7 +30,7 @@ export default async function FeedLayout({
 
   return (
     <main className="flex flex-col gap-8">
-      <div className="feed-background-container"></div>
+      <div className="portal-background-container motion-reduce:animate-none"></div>
       <FeedNavBar />
       {user.bio == null && <FeedPopUp />}
       <div className="relative mb-8 flex w-full gap-12 px-4 md:px-8">
