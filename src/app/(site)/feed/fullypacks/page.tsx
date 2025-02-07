@@ -1,5 +1,6 @@
+"use client";
 import { fullyPacksType } from "@/types/interface";
-import React from "react";
+import React, { useState } from "react";
 import FullyPackCard from "./_components/fully-pack-card";
 
 const flaskDescription = (
@@ -101,6 +102,11 @@ const fullypacks: fullyPacksType[] = [
   ...discordBot
 ];
 
+export const LightspeedContext = React.createContext({
+  enabled: true,
+  toggleLightspeed: () => {}
+});
+
 // Helper function to group fullypacks by category
 const groupedFullypacks = {
   "Web Development": webDev,
@@ -111,32 +117,49 @@ const groupedFullypacks = {
 };
 
 export default function FullyPacks() {
+  const [lightspeedEnabled, setLightspeedEnabled] = React.useState(true);
+
   return (
-    <section className="mr-20 w-full max-w-7xl text-white">
-      <div className="feed-title">FullyPacks</div>
-      <div className="custom-text-shadow border-b-2 border-[#72d6e6] pb-12 md:text-md">
-        Starter packs to help you get started with your project.
-      </div>
+    <LightspeedContext.Provider
+      value={{
+        enabled: lightspeedEnabled,
+        toggleLightspeed: () => setLightspeedEnabled((prev) => !prev)
+      }}>
+      <section className="mr-20 w-full max-w-7xl text-white">
+        <div className="feed-title">FullyPacks</div>
+        <div className="w-full border-b-2 border-[#72d6e6] pb-12">
+          <div className="custom-text-shadow md:text-md">
+            Starter packs to help you get started with your project.
+          </div>
+          {/* Effects Button
+            <button
+              onClick={() => setLightspeedEnabled((prev) => !prev)}
+              className="ml-4 rounded-lg bg-cyan px-4 py-2 text-purple_card hover:opacity-90">
+              {lightspeedEnabled ? "Disable" : "Enable"} Effects
+            </button>
+          */}
+        </div>
 
-      {/* Sections */}
-      <div className="space-y-12 py-8">
-        {Object.entries(groupedFullypacks).map(
-          ([category, packs]) =>
-            packs.length > 0 && (
-              <div key={category} className="space-y-4">
-                <h2 className="mb-6 text-center text-2xl font-semibold text-cyan">
-                  {category}
-                </h2>
+        {/* Sections */}
+        <div className="space-y-12 py-8">
+          {Object.entries(groupedFullypacks).map(
+            ([category, packs]) =>
+              packs.length > 0 && (
+                <div key={category} className="space-y-4">
+                  <h2 className="mb-6 text-center text-2xl font-semibold text-cyan">
+                    {category}
+                  </h2>
 
-                <div className="grid grid-cols-1 items-start gap-20 md:grid-cols-2 lg:grid-cols-3">
-                  {packs.map((fullypack) => (
-                    <FullyPackCard key={fullypack.id} fullypack={fullypack} />
-                  ))}
+                  <div className="grid grid-cols-1 items-start gap-20 md:grid-cols-2 lg:grid-cols-3">
+                    {packs.map((fullypack) => (
+                      <FullyPackCard key={fullypack.id} fullypack={fullypack} />
+                    ))}
+                  </div>
                 </div>
-              </div>
-            )
-        )}
-      </div>
-    </section>
+              )
+          )}
+        </div>
+      </section>
+    </LightspeedContext.Provider>
   );
 }

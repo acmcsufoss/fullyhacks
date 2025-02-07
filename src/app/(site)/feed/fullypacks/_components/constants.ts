@@ -1,7 +1,7 @@
 export const PARTICLE_CONFIG = {
   // Particle appearance
   MIN_SIZE: 0.5,
-  MAX_SIZE: 2,
+  MAX_SIZE: 1.5,
   COUNT: 150,
   CYAN_COLOR: "rgba(70,200,229,0.8)" as const,
   WHITE_COLOR: "rgba(255,255,255,0.8)" as const,
