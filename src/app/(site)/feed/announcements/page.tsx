@@ -16,7 +16,7 @@ export default async function AnnouncementsPage() {
   return (
     <div>
       <p className="feed-title">Announcements</p>
-      <p className="md:text-md">
+      <p className="custom-text-shadow font-audiowide text-white md:text-md">
         Official announcements from the Fullyhacks team
       </p>
       {announcements.map((announcement: announcementsType) => {
