@@ -125,11 +125,11 @@ export default function FullyPacks() {
         enabled: lightspeedEnabled,
         toggleLightspeed: () => setLightspeedEnabled((prev) => !prev)
       }}>
-      <section className="mr-20 w-full max-w-7xl text-white">
-        <div className="feed-title">FullyPacks</div>
-        <div className="w-full border-b-2 border-[#72d6e6] pb-12">
+      <section className="w-full max-w-7xl px-4 text-white sm:px-6 md:px-8">
+        <div className="feed-title">FULLYPACKS</div>
+        <div className="w-full pb-8">
           <div className="custom-text-shadow md:text-md">
-            Starter packs to help you get started with your project.
+            beginner friendly templates for participants
           </div>
           {/* Effects Button
             <button
@@ -141,16 +141,16 @@ export default function FullyPacks() {
         </div>
 
         {/* Sections */}
-        <div className="space-y-12 py-8">
+        <div className="space-y-16 py-8">
           {Object.entries(groupedFullypacks).map(
             ([category, packs]) =>
               packs.length > 0 && (
-                <div key={category} className="space-y-4">
-                  <h2 className="mb-6 text-center text-2xl font-semibold text-cyan">
+                <div key={category} className="space-y-8">
+                  <h2 className="mb-10 text-center text-3xl font-semibold text-purple_main">
                     {category}
                   </h2>
 
-                  <div className="grid grid-cols-1 items-start gap-20 md:grid-cols-2 lg:grid-cols-3">
+                  <div className="mx-auto grid grid-cols-1 items-start gap-8 sm:gap-12 md:grid-cols-2 lg:grid-cols-3">
                     {packs.map((fullypack) => (
                       <FullyPackCard key={fullypack.id} fullypack={fullypack} />
                     ))}
