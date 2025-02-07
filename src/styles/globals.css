@@ -160,47 +160,6 @@ body {
   }
 }
 
-@keyframes float {
-  0% {
-    transform: translateY(0) scale(1);
-    opacity: 0;
-  }
-  50% {
-    transform: translateY(-100px) scale(0.3);
-    opacity: 0.6;
-  }
-  100% {
-    transform: translateY(-200px) scale(0);
-    opacity: 0;
-  }
-}
-
-.group:hover .animate-particle {
-  animation: float 3s infinite;
-}
-
-@keyframes floatParticle {
-  0% {
-    transform: translateY(0) translateX(0);
-    opacity: 0;
-  }
-  25% {
-    opacity: 1;
-  }
-  50% {
-    transform: translateY(-100px) translateX(20px);
-    opacity: 0.6;
-  }
-  75% {
-    transform: translateY(-150px) translateX(-20px);
-    opacity: 0.4;
-  }
-  100% {
-    transform: translateY(-200px) translateX(0);
-    opacity: 0;
-  }
-}
-
 @keyframes starfield {
   0% {
     transform: translate(0, 0) scale(0);
