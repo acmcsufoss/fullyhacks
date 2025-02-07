@@ -18,7 +18,7 @@ const FullyPackCard: React.FC<FullyPackProps> = ({ fullypack }) => {
   const particles = useMemo(() => generateParticles(PARTICLE_CONFIG.COUNT), []);
 
   return (
-    <div className="inline-block w-full">
+    <div className="inline-block w-full max-w-md">
       <div
         className="group relative"
         onMouseEnter={() => setIsHovered(true)}
