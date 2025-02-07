@@ -79,29 +79,36 @@ export default function UserForm() {
       onSubmit={handleSubmit(updateUserProfile)}
       className="flex w-full flex-col items-start text-white"
       action="">
-      <p className="mb-2 font-bold text-purple_main">YOUR BIO:</p>
+      <p className="custom-text-shadow mb-20 font-audiowide text-[16px] font-bold leading-snug text-white sm:text-[18px] lg:text-[24px]">
+        Edit your profile.
+      </p>
+      <p className="mb-2 text-[18px] text-[#72D6E6] sm:text-[20px] lg:text-[26px]">
+        YOUR BIO
+      </p>
       <textarea
         {...register("bio")}
         name="bio"
         value={updatedProfile.bio}
-        className={`feed-form-input rounded-md ${
+        className={`feed-form-input h-[300px] w-[800px] max-w-[80%] rounded-md mb-[15px]${
           errors.bio ? "error-form" : ""
         }`}
         onChange={handleInfoChange}
-        placeholder="Hi, I loveee web development, add me on Discord to talk more :)"
+        placeholder="Type your bio here."
       />
       <p className="error-msg">{errors.bio?.message}</p>
-      <p className="mb-2 font-bold text-purple_main">DISCORD ID:</p>
+      <p className="mb-2 text-[18px] text-[#72D6E6] sm:text-[20px] lg:text-[26px]">
+        DISCORD ID
+      </p>
       <input
         {...register("discordId")}
         name="discordId"
         value={updatedProfile.discordId}
-        className={`feed-form-input rounded-md ${
+        className={`feed-form-input mb-[15px] w-[800px] max-w-[80%] rounded-md ${
           errors.discordId ? "error-form" : ""
         }`}
         onChange={handleInfoChange}
         type="text"
-        placeholder="Fully #456"
+        placeholder="Fully #4567"
       />
       <p className="error-msg">{errors.discordId?.message}</p>
       <p className="text-white">

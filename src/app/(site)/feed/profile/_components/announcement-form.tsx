@@ -55,25 +55,29 @@ const AnnouncementForm: React.FC = () => {
       onSubmit={handleSubmit(postAnnouncement)}
       className="mb-10 flex w-full flex-col items-start text-purple_main"
       action="">
-      <p className="mb-2 font-bold">ANNOUNCEMENT TITLE:</p>
+      <p className="lg:text-[26px mb-2 text-[18px] text-[#72D6E6] sm:text-[20px]">
+        ANNOUNCEMENT TITLE
+      </p>
       <input
         {...register("title")}
         name="title"
         value={newAnnouncement.title}
         onChange={handleInfoChange}
-        className={`feed-form-input rounded-md ${
+        className={`feed-form-input mb-[15px] w-[800px] max-w-[80%] rounded-md rounded-md${
           errors.title ? "error-form" : ""
         }`}
         type="text"
         placeholder="Your announcement title"
       />
       <p className="error-msg">{errors.title?.message}</p>
-      <p className="mb-2 font-bold">ANNOUNCEMENT CONTENT:</p>
+      <p className="lg:text-[26px mb-2 text-[18px] text-[#72D6E6] sm:text-[20px]">
+        ANNOUNCEMENT CONTENT
+      </p>
       <textarea
         {...register("content")}
         name="content"
         value={newAnnouncement.content}
-        className={`feed-form-input h-52 rounded-md ${
+        className={`feed-form-input mb-[15px] h-52 w-[800px] max-w-[80%] rounded-md rounded-md${
           errors.content ? "error-form" : ""
         }`}
         onChange={handleInfoChange}
@@ -89,7 +93,7 @@ const AnnouncementForm: React.FC = () => {
           <button
             type="submit"
             className="btn mt-4 self-start border-none bg-[#46C8E5] normal-case text-[#1E2D79] hover:bg-sky-200 hover:duration-200 hover:ease-in-out">
-            POST
+            Submit
           </button>
         </>
       )}
