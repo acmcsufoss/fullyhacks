@@ -1,6 +1,5 @@
 import { fullyPacksType } from "@/types/interface";
-import React, { useState } from "react";
-import { BsGithub, BsLink } from "react-icons/bs";
+import React from "react";
 import FullyPackCard from "./_components/fully-pack-card";
 
 const flaskDescription = (
@@ -102,17 +101,41 @@ const fullypacks: fullyPacksType[] = [
   ...discordBot
 ];
 
+// Helper function to group fullypacks by category
+const groupedFullypacks = {
+  "Web Development": webDev,
+  "Backend Development": backendDev,
+  "Mobile Development": mobileDev,
+  "Data Science": dataScience,
+  "Discord Bots": discordBot
+};
+
 export default function FullyPacks() {
   return (
-    <section className="mr-20 w-full max-w-3xl text-white">
+    <section className="mr-20 w-full max-w-7xl text-white">
       <div className="feed-title">FullyPacks</div>
       <div className="custom-text-shadow border-b-2 border-[#72d6e6] pb-12 md:text-md">
         Starter packs to help you get started with your project.
       </div>
-      <div className="my-8 grid justify-center gap-6 lg:grid-cols-1">
-        {fullypacks.map((fullypack) => (
-          <FullyPackCard key={fullypack.id} fullypack={fullypack} />
-        ))}
+
+      {/* Sections */}
+      <div className="space-y-12 py-8">
+        {Object.entries(groupedFullypacks).map(
+          ([category, packs]) =>
+            packs.length > 0 && (
+              <div key={category} className="space-y-4">
+                <h2 className="mb-6 text-center text-2xl font-semibold text-cyan">
+                  {category}
+                </h2>
+
+                <div className="grid grid-cols-1 items-start gap-20 md:grid-cols-2 lg:grid-cols-3">
+                  {packs.map((fullypack) => (
+                    <FullyPackCard key={fullypack.id} fullypack={fullypack} />
+                  ))}
+                </div>
+              </div>
+            )
+        )}
       </div>
     </section>
   );
