@@ -14,28 +14,13 @@ export const PARTICLE_CONFIG = {
 
   // Movement
   DISTANCE: 800,
-  INITIAL_SCALE: 0,
-  FINAL_SCALE: 2,
 
   // Glow effect
   GLOW_SIZE_MULTIPLIER: 2,
   GLOW_SPREAD_MULTIPLIER: 2,
 
   // Opacity
-  START_OPACITY: 0,
-  PEAK_OPACITY: 0.7,
-  END_OPACITY: 0,
-
-  // Animation keyframes (as percentages)
-  FADE_IN_POINT: 10,
-  FADE_OUT_START: 90
-} as const;
-
-export const STYLE_CONFIG = {
-  CORNER_SIZE: "1.5rem",
-  CORNER_OFFSET: "-0.75rem",
-  GLOW_OPACITY: 0.7,
-  BORDER_WIDTH: "4px"
+  START_OPACITY: 0
 } as const;
 
 export const CORNER_POSITIONS = [
