@@ -54,7 +54,8 @@ export const Application: React.FC<ApplicationProps> = (props) => {
       <td className="whitespace-normal text-sm font-medium leading-5">
         {application.skillLevel}
       </td>
-      <td className="whitespace-normal text-sm font-medium leading-5">
+      {/* Manually increase width of the response column */}
+      <td className="whitespace-normal text-sm font-medium leading-5 min-w-[250px] md:min-w-[300px]">
         {application.response}
       </td>
       {/* Button logic, if application has already been approved/rejected, it'll display that */}
