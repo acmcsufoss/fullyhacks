@@ -30,17 +30,20 @@
   .feed-form-input {
     @apply w-[min(30rem,_100%)] border-2 border-[#1E2D79] bg-[#0E0E30] bg-opacity-70 p-4 outline-none focus:border-[#414f94] active:border-[#414f94];
   }
+  .form-label {
+    @apply font-medium uppercase text-[#72D6E6] md:text-md;
+  }
   .form-input {
-    @apply mt-2 mb-4 rounded-md border-2 border-[#D9D9D9] bg-[#070710] p-2;
+    @apply mt-2 mb-4 rounded-md border-2 border-[#888888] bg-[#070710] p-2;
   }
   .form-option {
     @apply bg-black/80;
   }
   .error-msg {
-    @apply mb-2 font-medium text-red-600;
+    @apply mb-2 font-medium text-[#ff4949];
   }
   .error-form {
-    @apply animate-shake border-2 border-red-600 p-2;
+    @apply animate-shake border-2 border-[#ff4949] p-2;
   }
 }
 
