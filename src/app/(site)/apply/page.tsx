@@ -25,11 +25,12 @@ export default async function ApplyPage() {
   const { user, application } = await getApplicationData(session);
 
   return (
-    <section>
+    <section className="text-white">
+      <div className="portal-background-container"></div>
       <AuthNavBar />
       {application?.applied ? (
         <>
-          <div className="mt-10 flex flex-col items-center justify-center text-center text-purple_main">
+          <div className="mt-10 flex flex-col items-center justify-center text-center">
             <p className="text-lg font-semibold md:text-xl">
               You&apos;ve already submitted an application
             </p>
@@ -40,16 +41,18 @@ export default async function ApplyPage() {
         </>
       ) : (
         <ApplyAuth>
-          <div className="flex items-center justify-center">
-            <div className="z-10 mt-10 mb-32 flex w-[min(50rem,_90vw)] flex-col items-center rounded-lg border-8 border-blue_border_rgba bg-blue_rgba p-8 text-[#FF35EB] [box-shadow:_0_0_32px_#618AA8]">
-              <p className="text-lg font-semibold text-[#FF35EB] md:text-[3rem]">
+          <div className="z-10 flex w-full items-center justify-center">
+            <div className="relative z-10 mt-10 mb-32 flex w-[min(50rem,_90vw)] flex-col items-center rounded-xl bg-[#060606] bg-opacity-50 p-8">
+              <img
+                src="/assets/fullyhacks_logo.png"
+                alt="FullyHacks Logo"
+                className="absolute left-4 top-4 w-6 md:w-12"
+              />
+              <p className="text-lg font-semibold text-white md:text-[3rem]">
                 MY APPLICATION
               </p>
               <p className="font-light text-white md:text-[1.5rem]">
                 Draft will be saved
-              </p>
-              <p className="mt-4 text-[1.25rem] font-semibold text-white">
-                *Application due by Saturday, February 10th*
               </p>
               <ApplicationForm url={user?.image} />
             </div>
