@@ -5,13 +5,13 @@ import GitHubProvider from "next-auth/providers/github";
 import { redirect } from "next/navigation";
 
 const clientId =
-  process.env.NODE_ENV === "production"
-    ? process.env.GITHUB_ID
-    : process.env.GITHUB_ID_DEV;
+  process.env.NODE_ENV === "development"
+    ? process.env.GITHUB_ID_DEV
+    : process.env.GITHUB_ID;
 const clientSecret =
-  process.env.NODE_ENV === "production"
-    ? process.env.GITHUB_SECRET
-    : process.env.GITHUB_SECRET_DEV;
+  process.env.NODE_ENV === "development"
+    ? process.env.GITHUB_SECRET_DEV
+    : process.env.GITHUB_SECRET;
 
 export const authOptions: NextAuthOptions = {
   adapter: PrismaAdapter(prisma),
