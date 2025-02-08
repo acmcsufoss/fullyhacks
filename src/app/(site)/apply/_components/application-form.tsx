@@ -50,7 +50,7 @@ const initialState: ApplicationState = {
   school: "",
   phone: "",
   major: "",
-  gradYear: "2023",
+  gradYear: "2025",
   education: "Bachelor",
   skill: "0",
   response: "",
@@ -397,7 +397,9 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
               }}
               placeholder="50-500 words"
             />
-            <p className="absolute bottom-8 right-4">{wordCount} words</p>
+            <p className="absolute bottom-8 left-4 text-sm text-[#6F6F6F]">
+              {wordCount} words
+            </p>
             <p className="error-msg">{errors.response?.message}</p>
           </div>
           <p className="font-medium">Food choice</p>
@@ -435,16 +437,16 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
             type="text"
             placeholder="non-dairy,..."
           />
-          <div className="mt-4 flex flex-col gap-4">
+          <div className="mt-4 flex flex-col gap-4 font-rubik">
             <p>
               Because of limitations imposed by CSUF, we are legally not allowed
-              to host minors (those under 18) for Fullyhacks 2024. By checking
+              to host minors (those under 18) for Fullyhacks 2025. By checking
               the box, you affirm that you are and will be 18 years or older by
-              February 24th, 2024.{" "}
+              February 24th, 2025.{" "}
             </p>
-            <p className="font-medium text-white">
-              We will be checking School ID. If you are a minor, you won&apos;t
-              be allowed to attend.
+            <p className="font-rubik font-medium text-white">
+              We will be checking your School ID. If you are a minor, you
+              won&apos;t be allowed to attend.
             </p>
           </div>
           <div className="mt-4 flex items-center gap-4">
@@ -455,10 +457,10 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
                 dispatch({ type: "SET_AGREE", payload: e.target.checked });
               }}
               type="checkbox"
-              className="checkbox bg-[#F587FF]"
+              className="checkbox bg-[#72D6E6]"
             />
-            <p className="font-medium">
-              I&apos;m 18 or older by February 24th, 2024
+            <p className="font-rubik font-medium uppercase">
+              I&apos;m 18 or older by April 12th, 2025
             </p>
           </div>
           <p className="error-msg">{errors.over18?.message}</p>
@@ -470,9 +472,9 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
                 dispatch({ type: "SET_AGREE", payload: e.target.checked });
               }}
               type="checkbox"
-              className="checkbox bg-[#F587FF]"
+              className="checkbox bg-[#72D6E6]"
             />
-            <p className="font-medium">
+            <p className="font-rubik font-medium uppercase">
               I agree to
               <a className="font-semibold" target="_blank" href="/waiver">
                 {" the terms of the waiver"}
@@ -481,11 +483,11 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
           </div>
           <p className="error-msg">{errors.waiver?.message}</p>
           {isLoading ? (
-            <button className="mt-8 mr-auto flex w-[100px] justify-center rounded-md bg-[#E149A9] p-2 font-semibold hover:bg-[#ac307e] hover:duration-200 hover:ease-in-out">
+            <button className="mx-auto mt-8 flex w-[100px] justify-center rounded-md bg-[#72E680] p-2 font-semibold text-[#25652D] transition-all duration-200 hover:brightness-110 hover:ease-in-out">
               <Loading isLoading={isLoading} />
             </button>
           ) : (
-            <button className="mt-8 mr-auto w-[100px] rounded-md bg-[#E149A9] p-2 font-semibold text-white hover:bg-[#ac307e] hover:duration-200 hover:ease-in-out md:text-md">
+            <button className="mx-auto mt-8 w-[100px] rounded-md bg-[#72E680] p-2 text-[#25652D] duration-200 hover:brightness-110 hover:ease-in-out md:text-md">
               Submit
             </button>
           )}

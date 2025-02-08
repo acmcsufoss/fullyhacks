@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Bruno+Ace&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -30,7 +31,7 @@
     @apply w-[min(30rem,_100%)] border-2 border-[#1E2D79] bg-[#0E0E30] bg-opacity-70 p-4 outline-none focus:border-[#414f94] active:border-[#414f94];
   }
   .form-input {
-    @apply mt-2 mb-4 rounded-md border-2 border-[#FF49ED] bg-black/30 p-2 text-[#FFC7EA] [box-shadow:_0_0_10px_#FFC7EA];
+    @apply mt-2 mb-4 rounded-md border-2 border-[#D9D9D9] bg-[#070710] p-2;
   }
   .form-option {
     @apply bg-black/80;
@@ -89,6 +90,13 @@
   text-shadow: 0 0 10px #97bae1;
 }
 
+.application-container {
+  background:
+    url("/assets/feed-stars-background.svg"),
+    linear-gradient(180deg, #122a58 0%, #201c33 100%) repeat center;
+  background-size: cover;
+}
+
 .portal-background-container {
   background:
     url("/assets/feed-stars-background.svg"),
@@ -101,6 +109,7 @@
   left: 0;
   width: 100vw;
   height: 100vh;
+  pointer-events: none;
   animation: rotate 30s infinite alternate ease-in-out;
 }
 

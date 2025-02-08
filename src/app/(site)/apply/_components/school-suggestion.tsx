@@ -68,9 +68,9 @@ const SchoolSuggestion: React.FC<SchoolSuggestionProps> = ({
           value={search}
           onChange={handleChange}
         />
-        <AiOutlineSearch size={24} color="#FFC7EA" className="" />
+        <AiOutlineSearch size={24} className="" />
       </div>
-      <div className="mt-4 max-h-[400px] overflow-scroll rounded-md">
+      <div className="mt-4 max-h-[400px] overflow-y-scroll rounded-md">
         {filteredSchool.map((item: University, index) => (
           <div
             onClick={() => handleSchoolSelect(item.institution)}
