@@ -79,36 +79,43 @@ export default function UserForm() {
       onSubmit={handleSubmit(updateUserProfile)}
       className="flex w-full flex-col items-start text-white"
       action="">
-      <p className="mb-2 font-bold text-purple_main">YOUR BIO:</p>
+      <p className="custom-text-shadow mb-20 font-audiowide text-[16px] font-bold leading-snug sm:text-[18px] lg:text-[24px]">
+        Edit your profile.
+      </p>
+      <p className="mb-2 text-[18px] text-[#72D6E6] sm:text-[20px] lg:text-[26px]">
+        YOUR BIO
+      </p>
       <textarea
         {...register("bio")}
         name="bio"
         value={updatedProfile.bio}
-        className={`feed-form-input rounded-md ${
+        className={`feed-form-input h-[300px] w-[min(700px,_95%)] rounded-md mb-[15px]${
           errors.bio ? "error-form" : ""
         }`}
         onChange={handleInfoChange}
-        placeholder="Hi, I loveee web development, add me on Discord to talk more :)"
+        placeholder="Type your bio here."
       />
       <p className="error-msg">{errors.bio?.message}</p>
-      <p className="mb-2 font-bold text-purple_main">DISCORD ID:</p>
+      <p className="mb-2 text-[18px] text-[#72D6E6] sm:text-[20px] lg:text-[26px]">
+        DISCORD ID
+      </p>
       <input
         {...register("discordId")}
         name="discordId"
         value={updatedProfile.discordId}
-        className={`feed-form-input rounded-md ${
+        className={`feed-form-input mb-[15px] w-[min(700px,_95%)] rounded-md ${
           errors.discordId ? "error-form" : ""
         }`}
         onChange={handleInfoChange}
         type="text"
-        placeholder="Fully #456"
+        placeholder="Fully #4567"
       />
       <p className="error-msg">{errors.discordId?.message}</p>
       <p className="text-white">
         Note: You can only update your profile once an hour
       </p>
       {isLoading ? (
-        <button className="btn mt-4 self-start border-none bg-sky-100 normal-case text-purple_main hover:bg-sky-200 hover:duration-200 hover:ease-in-out">
+        <button className="btn mt-4 self-start border-none bg-sky-100 normal-case hover:bg-sky-200 hover:duration-200 hover:ease-in-out">
           <Loading isLoading={isLoading} />
         </button>
       ) : (
