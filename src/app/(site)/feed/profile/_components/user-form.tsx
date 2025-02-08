@@ -79,7 +79,7 @@ export default function UserForm() {
       onSubmit={handleSubmit(updateUserProfile)}
       className="flex w-full flex-col items-start text-white"
       action="">
-      <p className="custom-text-shadow mb-20 font-audiowide text-[16px] font-bold leading-snug text-white sm:text-[18px] lg:text-[24px]">
+      <p className="custom-text-shadow mb-20 font-audiowide text-[16px] font-bold leading-snug sm:text-[18px] lg:text-[24px]">
         Edit your profile.
       </p>
       <p className="mb-2 text-[18px] text-[#72D6E6] sm:text-[20px] lg:text-[26px]">
@@ -89,7 +89,7 @@ export default function UserForm() {
         {...register("bio")}
         name="bio"
         value={updatedProfile.bio}
-        className={`feed-form-input h-[300px] w-[800px] max-w-[80%] rounded-md mb-[15px]${
+        className={`feed-form-input h-[300px] w-[min(700px,_95%)] rounded-md mb-[15px]${
           errors.bio ? "error-form" : ""
         }`}
         onChange={handleInfoChange}
@@ -103,7 +103,7 @@ export default function UserForm() {
         {...register("discordId")}
         name="discordId"
         value={updatedProfile.discordId}
-        className={`feed-form-input mb-[15px] w-[800px] max-w-[80%] rounded-md ${
+        className={`feed-form-input mb-[15px] w-[min(700px,_95%)] rounded-md ${
           errors.discordId ? "error-form" : ""
         }`}
         onChange={handleInfoChange}
@@ -115,7 +115,7 @@ export default function UserForm() {
         Note: You can only update your profile once an hour
       </p>
       {isLoading ? (
-        <button className="btn mt-4 self-start border-none bg-sky-100 normal-case text-purple_main hover:bg-sky-200 hover:duration-200 hover:ease-in-out">
+        <button className="btn mt-4 self-start border-none bg-sky-100 normal-case hover:bg-sky-200 hover:duration-200 hover:ease-in-out">
           <Loading isLoading={isLoading} />
         </button>
       ) : (
