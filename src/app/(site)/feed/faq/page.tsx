@@ -1,3 +1,5 @@
+"use client";
+
 import { FAQType } from "@/types/interface";
 import { FAQDropDown } from "@/components/faq";
 import links from "@/lib/data/links.json";
