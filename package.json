@@ -33,6 +33,7 @@
     "react-icons": "^4.12.0",
     "react-query": "^3.39.3",
     "react-timeago": "^7.1.0",
+    "tailwind-scrollbar": "^3.0.0",
     "typescript": "4.9.5",
     "yup": "^1.0.2"
   },

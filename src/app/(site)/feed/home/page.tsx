@@ -1,5 +1,5 @@
 import { redirect } from "next/navigation";
 
-export default async function FeedPage() {
+export default function FeedHome() {
   redirect("/feed/home/1");
 }

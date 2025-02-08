@@ -1,10 +1,9 @@
 import { eventsType } from "@/types/interface";
-import React, { useState } from "react";
-import Calendar, { EventLabel } from "./calendar";
-const events: eventsType[] = [
+
+export const events: eventsType[] = [
   {
     id: "event1",
-    name: "Check-in (Joel & Angel)",
+    name: "Check-in",
     type: "event",
     date: 0,
     timeString: "1:00 - 3:00",
@@ -26,14 +25,14 @@ const events: eventsType[] = [
   },
   {
     id: "event4",
-    name: "CSUF Tour (Matt)",
+    name: "Team Forming",
     type: "event",
     date: 0,
-    timeString: "4:10 - 4:30",
-    location: "",
+    timeString: "4:10 - 5:30",
+    location: "ECS QUAD",
     startTime: 3.1,
-    endTime: 3.5,
-    row: 2.5
+    endTime: 4.5,
+    row: 2
   },
   {
     id: "event9",
@@ -43,7 +42,7 @@ const events: eventsType[] = [
     timeString: "4:40",
     location: "ECS Quad",
     startTime: 3.6,
-    endTime: 3.6,
+    endTime: 4.6,
     row: 4.5
   },
   {
@@ -52,9 +51,9 @@ const events: eventsType[] = [
     type: "event",
     date: 0,
     timeString: "5:00",
-    location: "CS102A,102B,104,110B,200,300",
+    location: "CS102A, 102B, 104, 110B, 200, 300",
     startTime: 4,
-    endTime: 4,
+    endTime: 5,
     row: 0.5
   },
   {
@@ -77,7 +76,7 @@ const events: eventsType[] = [
     date: 0,
     startTime: 5,
     endTime: 6,
-    row: 3.5
+    row: 3.6
   },
   {
     id: "food1",
@@ -110,7 +109,7 @@ const events: eventsType[] = [
     date: 0,
     startTime: 7,
     endTime: 8,
-    row: 5.5
+    row: 5.75
   },
   {
     id: "workshop41",
@@ -124,9 +123,9 @@ const events: eventsType[] = [
     row: 6.5
   },
   {
-    id: "fun10",
+    id: "activity1",
     name: "Blooket Social (David)",
-    type: "fun",
+    type: "activity",
     date: 0,
     timeString: "9:00 - 10:00",
     location: "CS-104",
@@ -142,7 +141,7 @@ const events: eventsType[] = [
     timeString: "10:00",
     location: "CS Building",
     startTime: 9,
-    endTime: 9,
+    endTime: 10,
     row: 0.5
   },
   {
@@ -165,7 +164,7 @@ const events: eventsType[] = [
     location: "CS-300",
     startTime: 9,
     endTime: 10,
-    row: 3.5
+    row: 4.13
   },
   {
     id: "event12",
@@ -174,7 +173,7 @@ const events: eventsType[] = [
     date: 0,
     timeString: "11:30",
     location: "CS110B, CS209",
-    startTime: 11.5,
+    startTime: 10.5,
     endTime: 11.5,
     row: 0.5
   },
@@ -187,7 +186,7 @@ const events: eventsType[] = [
     location: "CS-102A",
     startTime: 11,
     endTime: 12,
-    row: 5.5
+    row: 5.75
   },
   {
     id: "workshop8",
@@ -201,25 +200,25 @@ const events: eventsType[] = [
     row: 4.5
   },
   {
-    id: "fun2",
+    id: "activity2",
     name: "Movie Night",
-    type: "fun",
+    type: "activity",
     date: 0,
     timeString: "1:00",
     location: "CS-110B",
     startTime: 12,
     endTime: 13,
-    row: 1.5
+    row: 1.85
   },
   {
-    id: "fun3",
+    id: "activity3",
     name: "Watching Sunrise (Boushra)",
-    type: "fun",
+    type: "activity",
     date: 1,
     timeString: "6:00",
     location: "ECS Quad",
     startTime: 17,
-    endTime: 17,
+    endTime: 18,
     row: 1.5
   },
   {
@@ -263,7 +262,7 @@ const events: eventsType[] = [
     timeString: "4:00",
     location: "",
     startTime: 27,
-    endTime: 27,
+    endTime: 28,
     row: 0.5
   },
   {
@@ -275,7 +274,7 @@ const events: eventsType[] = [
     location: "CS-104",
     startTime: 27,
     endTime: 29,
-    row: 1.25
+    row: 1.45
   },
   {
     id: "event8",
@@ -285,59 +284,18 @@ const events: eventsType[] = [
     timeString: "6:00",
     location: "SGMH-1502",
     startTime: 29,
-    endTime: 29,
+    endTime: 30,
     row: 2
+  },
+  {
+    id: "hackctf1",
+    name: "CTF test",
+    type: "ctf",
+    date: 1,
+    timeString: "1:00 - 4:00",
+    location: "CS-104",
+    startTime: 12,
+    endTime: 15,
+    row: 3.5
   }
 ];
-
-const Events: React.FC = () => {
-  const [filteredEvent, setFilteredEvent] = useState<eventsType[]>(events);
-  return (
-    <section className="mr-8 mt-14 min-h-screen w-full bg-purple_dark text-white">
-      <p className="feed-title">Events</p>
-      <p className="md:text-md">Fullyhacks timeline for your reference</p>
-      <p className="mt-4 text-white/60 md:text-sm">Click the label to filter</p>
-      <div className="mt-10">
-        {/* For mobile */}
-        <div className="mb-6 flex flex-col gap-4 md:hidden">
-          <div className="mb-4 flex flex-row flex-wrap gap-4 text-[0.85rem]">
-            <EventLabel events={events} setFilteredEvent={setFilteredEvent} />
-          </div>
-          {filteredEvent.map((event: eventsType) => {
-            return (
-              <div
-                key={event.id}
-                className="relative rounded-md bg-purple_card p-4 text-white">
-                <div className="flex flex-row items-center justify-between">
-                  <p className="text-lg font-bold">{event.name}</p>
-                  <p
-                    className={`h-4 w-4 rounded-[50%] ${
-                      event.type == "event"
-                        ? "bg-sky_300"
-                        : event.type == "workshop"
-                          ? "bg-pink_300"
-                          : event.type == "food"
-                            ? "bg-orange-400"
-                            : "bg-blue_300"
-                    }`}></p>
-                </div>
-                <p> {event.timeString}</p>
-                <p> {event.location} </p>
-              </div>
-            );
-          })}
-        </div>
-        {/* For laptop */}
-        <div className="hidden md:block">
-          <Calendar
-            filteredEvent={filteredEvent}
-            events={events}
-            setFilteredEvent={setFilteredEvent}
-          />
-        </div>
-      </div>
-    </section>
-  );
-};
-
-export default Events;

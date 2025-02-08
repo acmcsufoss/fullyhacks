@@ -1,5 +1,6 @@
+"use client";
+
 import { FAQType } from "@/types/interface";
-import React from "react";
 import { FAQDropDown } from "@/components/faq";
 import links from "@/lib/data/links.json";
 
@@ -89,9 +90,9 @@ const faqs: FAQType[] = [
   }
 ];
 
-const FAQs = () => {
+export default function FAQ() {
   return (
-    <section className="mt-14 mr-8 w-full text-white">
+    <div>
       <p className="feed-title">Frequently Asked Questions</p>
       <p className="md:text-md">
         Answering all your questions for Fullyhacks 2024
@@ -112,8 +113,6 @@ const FAQs = () => {
         </a>
         and we&apos;ll get back to you ASAP!
       </p>
-    </section>
+    </div>
   );
-};
-
-export default FAQs;
+}

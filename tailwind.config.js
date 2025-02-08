@@ -105,12 +105,13 @@ module.exports = {
       },
       fontFamily: {
         audiowide: ["var(--font-audiowide)", "sans-serif"],
-        bruno: ["Bruno Ace", "sans-serif"]
+        bruno: ["Bruno Ace", "sans-serif"],
+        rubik: ["Rubik", "sans-serif"]
       },
       borderWidth: {
         5: "5px"
       }
     }
   },
-  plugins: [require("daisyui")]
+  plugins: [require("daisyui"), require("tailwind-scrollbar")]
 };
