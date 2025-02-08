@@ -4,7 +4,7 @@ import { InferType, number, object, string } from "yup";
 
 const usUni: University[] = uniJson.usUniveristies;
 
-const minGradYear = 2023;
+const minGradYear = 2025;
 const maxGradYear = 2030;
 
 export const applicationSchema = object({
