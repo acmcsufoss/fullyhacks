@@ -154,7 +154,7 @@ export const EventLabel: React.FC<EventLableProps> = ({
             </div>
             <p className={`${event.textStyle} text-[20px]`}>{event.name}</p>{" "}
             {/* Smaller Text */}{" "}
-          </div> 
+          </div>
         );
       })}
     </>
@@ -188,10 +188,10 @@ const Calendar: React.FC<CalendarProps> = ({ events }) => {
           <img
             src="/assets/borderEvents.svg"
             alt="Event Label Border"
-            className="h-auto w-full"
+            className="hidden h-auto w-full lg:block"
           />
           {/* Event Labels */}
-          <div className="absolute inset-0 flex items-center justify-center gap-6 px-5 text-xl">
+          <div className="static inset-0 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 px-5 text-xl lg:absolute lg:flex-nowrap">
             <EventLabel
               events={events}
               selectedFilter={selectedFilter}
