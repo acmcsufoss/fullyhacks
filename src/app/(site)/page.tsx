@@ -23,7 +23,7 @@ export default function Home() {
         <Hero />
         <CountDown />
         <div className="relative mt-14 flex items-center gap-12 text-md font-medium">
-          <Link href="/signin">
+          <Link href="/apply">
             <button className="z-[11] mx-0 box-border rounded-[20px] bg-[#926BAF] py-2 px-4 text-white transition-all focus:brightness-110 hover:brightness-110 md:text-xl">
               Apply
             </button>

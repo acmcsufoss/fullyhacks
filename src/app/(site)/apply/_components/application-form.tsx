@@ -46,7 +46,7 @@ const initialState: ApplicationState = {
   name: "",
   email: "",
   preferredEmail: "",
-  pronouns: "she/her",
+  pronouns: "",
   school: "",
   phone: "",
   major: "",
@@ -279,6 +279,9 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
             name="pronouns"
             value={application.pronouns}
             className="form-input">
+            <option className="form-option" value="" selected hidden>
+              Select your pronouns
+            </option>
             <option className="form-option" value="she/her">
               she/her
             </option>
@@ -449,7 +452,7 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
           <div className="mt-4 flex flex-col gap-4 font-rubik">
             <p>
               Because of limitations imposed by CSUF, we are legally not allowed
-              to host minors (those under 18) for Fullyhacks 2025. By checking
+              to host minors (those under 18) for FullyHacks 2025. By checking
               the box, you affirm that you are and will be 18 years or older by
               February 24th, 2025.{" "}
             </p>

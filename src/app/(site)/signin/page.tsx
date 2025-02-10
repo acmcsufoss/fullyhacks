@@ -39,7 +39,7 @@ export default async function SignIn() {
       <GenericNavBar />
       <PopUp
         title="Before you continue"
-        content="FullyHacks only open to college students 18 years old or older 🐘"
+        content="FullyHacks is only open to college students 18 years old or older 🐘"
         action="I understand"
       />
       <div className="md relative mx-8 mt-6 flex flex-col items-center justify-center">

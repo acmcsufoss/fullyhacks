@@ -49,9 +49,9 @@ const faqs: FAQType[] = [
   },
   {
     id: "faq1",
-    question: "Does Fullyhacks have just one theme or multiple themes?",
+    question: "Does FullyHacks have just one theme or multiple themes?",
     answer:
-      "Fullyhacks has multiple themes that are divided into four different tracks."
+      "FullyHacks has multiple themes that are divided into four different tracks."
   },
   {
     id: "faq11",
@@ -95,7 +95,7 @@ export default function FAQ() {
     <div>
       <p className="feed-title">Frequently Asked Questions</p>
       <p className="md:text-md">
-        Answering all your questions for Fullyhacks 2024
+        Answering all your questions for FullyHacks 2024
       </p>
       <div className="flex flex-col items-center">
         {faqs.map((faq: FAQType) => {

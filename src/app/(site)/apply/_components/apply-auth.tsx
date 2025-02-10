@@ -39,7 +39,7 @@ const ApplyAuth: React.FC<ApplyAuthProps> = ({ children }) => {
         </div>
       ) : new Date(now) >= new Date(closeDate) ? (
         <p className="custom-text-shadow">
-          Fullyhacks 2025 has ended, we&apos;ll see you next year 🐘.
+          FullyHacks 2025 has ended, we&apos;ll see you next year 🐘.
         </p>
       ) : (
         <p className="custom-text-shadow">

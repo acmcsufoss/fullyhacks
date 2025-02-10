@@ -33,6 +33,9 @@
   .form-label {
     @apply font-medium uppercase text-[#72D6E6] md:text-md;
   }
+  .form-label::placeholder {
+    @apply text-gray-500;
+  }
   .form-input {
     @apply mt-2 mb-4 rounded-md border-2 border-[#888888] bg-[#070710] p-2;
   }

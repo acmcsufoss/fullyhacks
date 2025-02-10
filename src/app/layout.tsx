@@ -13,10 +13,10 @@ const audiowide = Audiowide({
 });
 
 export const metadata: Metadata = {
-  title: "Fullyhacks 2025",
+  title: "FullyHacks 2025",
   description: "Welcome to FullyHacks 2025",
   openGraph: {
-    title: "Fullyhacks 2025",
+    title: "FullyHacks 2025",
     description: "Welcome to FullyHacks 2025, CSUF's largest 24-hour hackathon",
     images: "/assets/fullyhacks_logo.png"
   },
