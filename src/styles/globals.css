@@ -149,6 +149,10 @@ body {
   animation: tilt 10s linear infinite;
 }
 
+.animate-slight-tilt {
+  animation: slight-tilt 20s ease-in-out infinite;
+}
+
 .animation-delay-100 {
   animation-delay: 100ms;
 }
@@ -172,6 +176,12 @@ body {
 @keyframes tilt {
   50% {
     rotate: 10deg;
+  }
+}
+
+@keyframes slight-tilt {
+  50% {
+    rotate: 7deg;
   }
 }
 

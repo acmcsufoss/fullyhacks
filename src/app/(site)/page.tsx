@@ -30,7 +30,7 @@ export default function Home() {
           </Link>
           <a
             target="_blank"
-            href="https://drive.google.com/file/d/1KgINevhJUq9wNlkT_m716dFldZ8NTwPO/view"
+            href="https://drive.google.com/file/d/1VD3-67cy95E7RaM1rXaItzjYtk-ogb_r/view"
             className="z-[11] mx-0 cursor-pointer rounded-[20px] border-[3px] border-[#4A47CD] py-2 px-4 text-[#4A47CD] transition-all focus:brightness-110 hover:brightness-110 md:text-xl">
             Sponsor Us!
           </a>
