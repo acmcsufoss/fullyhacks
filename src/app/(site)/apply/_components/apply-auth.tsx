@@ -38,11 +38,11 @@ const ApplyAuth: React.FC<ApplyAuthProps> = ({ children }) => {
           <p>Applications for FullyHacks 2025 will open soon!</p>
         </div>
       ) : new Date(now) >= new Date(closeDate) ? (
-        <p className="custom-text-shadow">
+        <p className="custom-text-shadow z-10">
           FullyHacks 2025 has ended, we&apos;ll see you next year 🐘.
         </p>
       ) : (
-        <p className="custom-text-shadow">
+        <p className="custom-text-shadow z-10">
           Applications for FullyHacks 2025 have closed.
         </p>
       )}

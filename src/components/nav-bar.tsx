@@ -127,9 +127,7 @@ export const NavBarLanding: React.FC = () => {
 export const GenericNavBar = () => {
   return (
     <nav className="flex flex-row-reverse items-center justify-center px-4 py-8">
-      <Link
-        href="/"
-        className="z-10 ml-auto flex cursor-pointer items-center gap-4 rounded-md bg-gradient-to-r from-[#72D6E6] to-[#173162] p-2 text-white transition-all duration-300 hover:brightness-110">
+      <Link href="/" className="gradient-btn ml-auto">
         <button className="text-sm font-semibold md:text-md">
           Back to Home
         </button>

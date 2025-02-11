@@ -29,16 +29,14 @@ export default async function ApplyPage() {
       <div className="portal-background-container"></div>
       <AuthNavBar />
       {application?.applied ? (
-        <>
-          <div className="mt-10 flex flex-col items-center justify-center text-center">
-            <p className="text-lg font-semibold md:text-xl">
-              You&apos;ve already submitted an application
-            </p>
-            <Link href="/portal" className="purple-btn mt-10">
-              Go to User Portal
-            </Link>
-          </div>
-        </>
+        <div className="mt-10 flex flex-col items-center justify-center p-4 text-center">
+          <p className="custom-text-shadow z-10 text-lg font-semibold md:text-xl">
+            You&apos;ve already submitted an application
+          </p>
+          <Link href="/portal" className="gradient-btn mt-10">
+            Go to User Portal
+          </Link>
+        </div>
       ) : (
         <ApplyAuth>
           <div className="z-10 flex w-full items-center justify-center">

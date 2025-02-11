@@ -101,7 +101,7 @@ export function FeedPopUp() {
                 <label
                   htmlFor="my-modal"
                   onClick={() => goNextStep()}
-                  className="purple-btn normal-case">
+                  className="blue-btn normal-case">
                   Continue
                 </label>
               </div>
@@ -157,11 +157,11 @@ export function FeedPopUp() {
                 />
                 <p className="error-msg">{errors.discord?.message}</p>
                 {isLoading ? (
-                  <button type="submit" className="purple-btn mt-4 self-end">
+                  <button type="submit" className="blue-btn mt-4 self-end">
                     <Loading isLoading={isLoading} />
                   </button>
                 ) : (
-                  <button type="submit" className="purple-btn mt-4 self-end">
+                  <button type="submit" className="blue-btn mt-4 self-end">
                     Submit
                   </button>
                 )}

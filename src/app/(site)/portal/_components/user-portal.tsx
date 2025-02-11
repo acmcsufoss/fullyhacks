@@ -70,9 +70,7 @@ export default function UserPortal({ user }: UserProps) {
       </div>
       {application.status == "approved" && (
         <>
-          <Link
-            href="/feed"
-            className="mb-10 mt-8 flex w-[min(300px,_90vw)] items-center justify-center gap-4 rounded-xl bg-[#5BA0BD] p-2 font-semibold text-white transition-opacity duration-300 hover:opacity-90 hover:ease-in-out md:text-md lg:mb-4">
+          <Link href="/feed" className="blue-btn mb-10 mt-8 lg:mb-4">
             Continue to the Feed
             <BsArrowRight size={24} />
           </Link>
