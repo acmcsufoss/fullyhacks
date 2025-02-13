@@ -16,48 +16,52 @@ async function getFeedUsers(
 ): Promise<{ feedUsers: feedUsers[]; totalFeedUsers: number }> {
   const skip = (pageNumber - 1) * PAGE_SIZE;
 
-  const totalFeedUsers = await prisma.user.count({
+  const totalFeedUsers = await prisma.application.count({
     where: {
-      application: {
-        approved: true
-      }
+      approved: true
     }
   });
-
-  console.log(skip, totalFeedUsers);
 
   // If out of range, return an empty array
   if (skip >= totalFeedUsers) {
     return { feedUsers: [], totalFeedUsers };
   }
 
-  const feedUsers = await prisma.user.findMany({
+  const applications = await prisma.application.findMany({
     where: {
-      bio: { not: null },
-      application: {
-        approved: true
-      }
+      approved: true
     },
     skip: skip,
     take: PAGE_SIZE,
-    select: {
-      id: true,
-      isAdmin: true,
-      application: {
+    include: {
+      user: {
         select: {
+          id: true,
+          isAdmin: true,
           name: true,
-          major: true,
-          school: true,
-          approved: true,
-          github: true,
-          class: true
+          bio: true,
+          discordId: true
         }
-      },
-      name: true,
-      bio: true,
-      discordId: true
+      }
     }
   });
+
+  // Transform the returned data to match the UI
+  const feedUsers = applications.map((app) => ({
+    id: app.user.id,
+    isAdmin: app.user.isAdmin,
+    name: app.user.name,
+    bio: app.user.bio,
+    discordId: app.user.discordId,
+    application: {
+      name: app.name,
+      major: app.major,
+      school: app.school,
+      approved: app.approved,
+      github: app.github,
+      class: app.class
+    }
+  }));
   return { feedUsers: JSON.parse(JSON.stringify(feedUsers)), totalFeedUsers };
 }
 
@@ -95,7 +99,7 @@ export default async function FeedHome({
             {page}
           </span>
           <a
-            href={`/feed/home/${page - 1}`}
+            href={`/feed/home/${page + 1}`}
             className={`h-12 w-12 rounded-full p-3 ${page === Math.floor(totalFeedUsers / PAGE_SIZE) + 1 ? "pointer-events-none brightness-75" : ""}`}>
             <MdOutlineKeyboardArrowRight size={28} color="#7AD4E7" />
           </a>

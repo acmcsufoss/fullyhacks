@@ -16,7 +16,7 @@ async function getUser() {
     }
   });
   if (user?.application?.status !== "approved") {
-    redirect("/apply");
+    redirect("/portal");
   }
   return user;
 }

@@ -85,7 +85,7 @@ export default function FeedUsers({ feedUsers }: { feedUsers: feedUsers[] }) {
                 </div>
               </div>
             </div>
-            <p className="mt-2 text-white"> {user.bio}</p>
+            <p className="mt-2 text-white">{user.bio}</p>
           </div>
         );
       })}
