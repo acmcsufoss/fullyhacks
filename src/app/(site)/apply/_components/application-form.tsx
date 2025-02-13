@@ -359,13 +359,13 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
             name="education"
             className="form-input">
             <option className="form-option" value="Bachelor">
-              Bachelor's
+              Bachelor&apos;s
             </option>
             <option className="form-option" value="Associate">
               Associate
             </option>
             <option className="form-option" value="Master">
-              Master's
+              Master&apos;s
             </option>
             <option className="form-option" value="Doctoral">
               Doctoral

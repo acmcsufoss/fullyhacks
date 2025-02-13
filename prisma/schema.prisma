@@ -24,8 +24,8 @@ model Announcement {
 model Application {
   id             String   @id @default(auto()) @map("_id") @db.ObjectId
   name           String
-  email          String?
-  preferredEmail String
+  email          String
+  preferredEmail String?
   major          String
   food           String
   github         String
