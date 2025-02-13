@@ -27,25 +27,29 @@ export default function UserPortal({ user }: UserProps) {
           <img
             className="z-[30] h-24 w-24 rounded-md border-4 border-white md:h-48 md:w-48"
             src={`${user.image}`}
-            alt="Github's pfp"
+            alt="GitHub Profile Picture"
           />
-          <div className="z-[30] flex flex-col flex-wrap font-medium">
-            <p className="">
-              Name: <span className="font-normal"> {application.name} </span>
-            </p>
-            <p className="">
-              School:{" "}
-              <span className="font-normal"> {application.school} </span>
-            </p>
-            <p className="">
-              Github:
-              <span className="font-normal"> {application.github} </span>
-            </p>
-            <p className="">Email:</p>
-            <span className="break-all font-normal">
-              {" "}
-              {application.preferredEmail}{" "}
-            </span>
+          <div className="z-[30] flex flex-col flex-wrap">
+            <div>
+              <span className="underline underline-offset-2">Name:</span>{" "}
+              <span className="text-[#cdcdcd]">{application.name}</span>
+            </div>
+            <div>
+              <span className="underline underline-offset-2">School:</span>{" "}
+              <span className="text-[#cdcdcd]">{application.school}</span>
+            </div>
+            <div>
+              <span className="underline underline-offset-2">GitHub:</span>{" "}
+              <span className="text-[#cdcdcd]">{application.github}</span>
+            </div>
+            <div>
+              <span className="underline underline-offset-2">Email:</span>{" "}
+              <span className="text-[#cdcdcd]">
+                {application.preferredEmail !== ""
+                  ? application.preferredEmail
+                  : application.email}
+              </span>
+            </div>
           </div>
         </div>
         <div className="mt-4 font-semibold md:mt-8">

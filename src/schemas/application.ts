@@ -15,8 +15,9 @@ export const applicationSchema = object({
     .matches(/^[a-zA-Z0-9._%+-]+@([a-zA-Z0-9-]+\.)+(edu)$/, {
       message: "Must be a .edu email",
       excludeEmptyString: true
-    }),
-  preferredEmail: string().email("Invalid email format").required(),
+    })
+    .required(),
+  preferredEmail: string().email("Invalid email format"),
   phone: string().matches(
     /^\D?(\d{3})\D?\D?(\d{3})\D?(\d{4})$/,
     "Invalid phone number format"

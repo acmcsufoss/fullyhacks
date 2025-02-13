@@ -212,7 +212,7 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
             placeholder="John Doe"
           />
           <p className="error-msg">{errors.name?.message}</p>
-          <FormLabel label="School email (optional)" optional={true} />
+          <FormLabel label="School email" />
           <input
             {...register("email")}
             name="email"
@@ -229,7 +229,7 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
             placeholder="jdoe@csu.fullerton.edu"
           />
           <p className="error-msg">{errors.email?.message}</p>
-          <FormLabel label="Preferred email" />
+          <FormLabel label="Preferred email (optional)" optional={true} />
           <input
             {...register("preferredEmail")}
             name="preferredEmail"
@@ -359,10 +359,16 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
             name="education"
             className="form-input">
             <option className="form-option" value="Bachelor">
-              Bachelor
+              Bachelor's
+            </option>
+            <option className="form-option" value="Associate">
+              Associate
             </option>
             <option className="form-option" value="Master">
-              Master
+              Master's
+            </option>
+            <option className="form-option" value="Doctoral">
+              Doctoral
             </option>
           </select>
           <FormLabel label="Skill level" />
@@ -390,7 +396,7 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
               Intermediate
             </option>
             <option className="form-option" value={4}>
-              Master
+              Advanced
             </option>
           </select>
           <FormLabel label="Why do you want to attend FullyHacks?" />
@@ -438,7 +444,10 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
               Other
             </option>
           </select>
-          <FormLabel label="If you choose other, please specify or N/A" />
+          <FormLabel
+            label="If you chose other, please specify"
+            optional={true}
+          />
           <input
             name="food"
             value={foodState}
