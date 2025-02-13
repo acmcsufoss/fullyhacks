@@ -237,7 +237,7 @@ export const FeedSideBar: React.FC = () => {
       {!isOpen && (
         <AiOutlineMenu
           onClick={() => setOpen(true)}
-          className="fixed top-9 left-4 z-20 block cursor-pointer stroke-[2] text-[#72d6e6] md:hidden"
+          className="absolute -top-[5.5rem] left-4 z-20 block cursor-pointer stroke-[2] text-[#72d6e6] md:hidden"
           size={24}
         />
       )}
@@ -305,9 +305,9 @@ export const FeedSideBar: React.FC = () => {
                 href={item.href}
                 className={`flex w-full rounded-lg p-2 transition-colors duration-300 hover:text-white ${pathname === item.href || (item.name === "Home" && pathname.startsWith(item.href)) ? "text-white" : ""}`}>
                 {pathname === item.href ||
-                  (item.name === "Home" && pathname.startsWith(item.href) && (
-                    <MdArrowRight size={28} color="#c2f2ff" />
-                  ))}
+                (item.name === "Home" && pathname.startsWith(item.href)) ? (
+                  <MdArrowRight size={28} color="#c2f2ff" />
+                ) : null}
                 <li className="ml-auto">{item.name}</li>
               </Link>
             );

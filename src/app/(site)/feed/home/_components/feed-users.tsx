@@ -27,7 +27,7 @@ export default function FeedUsers({ feedUsers }: { feedUsers: feedUsers[] }) {
               <div
                 className="toast cursor-pointer"
                 onClick={() => setOpen(false)}>
-                <div className="alert bg-sky-100">
+                <div className="alert bg-[#021230]">
                   <div>
                     <span>Copied to clipboard</span>
                   </div>
