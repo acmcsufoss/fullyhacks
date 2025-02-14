@@ -50,11 +50,11 @@ const initialState: ApplicationState = {
   school: "",
   phone: "",
   major: "",
-  gradYear: "2025",
-  education: "Bachelor",
+  gradYear: "",
+  education: "",
   skill: "0",
   response: "",
-  food: "Vegan",
+  food: "",
   agree: false
 };
 
@@ -283,16 +283,16 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
               Select your pronouns
             </option>
             <option className="form-option" value="she/her">
-              she/her
+              She/Her
             </option>
             <option className="form-option" value="he/him">
-              he/him
+              He/Him
             </option>
             <option className="form-option" value="they/them">
-              they/them
+              They/Them
             </option>
             <option className="form-option" value="other">
-              other
+              Other
             </option>
           </select>
           <FormLabel label="Phone number" />
@@ -358,6 +358,9 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
             value={application.education}
             name="education"
             className="form-input">
+            <option className="form-option" value="" selected hidden>
+              Select your education level
+            </option>
             <option className="form-option" value="Bachelor">
               Bachelor&apos;s
             </option>
@@ -371,7 +374,7 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
               Doctoral
             </option>
           </select>
-          <FormLabel label="Skill level" />
+          <FormLabel label="Skill level" optional={true} />
           <select
             name="skill"
             value={application.skill}
@@ -386,6 +389,9 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
               });
             }}
             className="form-input">
+            <option className="form-option" value={0} selected hidden>
+              Select your skill level
+            </option>
             <option className="form-option" value={1}>
               No experience
             </option>
@@ -423,7 +429,7 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
             </p>
             <p className="error-msg">{errors.response?.message}</p>
           </div>
-          <FormLabel label="Food choice" />
+          <FormLabel label="Food choice" optional={true} />
           <select
             name="food"
             value={application.food}
@@ -431,14 +437,17 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
               dispatch({ type: "SET_FOOD", payload: e.target.value });
             }}
             className="form-input">
+            <option className="form-option" value="" selected hidden>
+              Select your food choice
+            </option>
             <option className="form-option" value="vegan">
               Vegan
             </option>
-            <option className="form-option" value="non-veg">
-              Non-veg
-            </option>
             <option className="form-option" value="vegetarian">
               Vegetarian
+            </option>
+            <option className="form-option" value="non-veg">
+              Non Vegetarian
             </option>
             <option className="form-option" value="other">
               Other
