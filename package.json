@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "format": "npx prettier --write .",
-    "vercel-build": "npx prisma generate && npx prisma migrate deploy && next build"
+    "vercel-build": "npx prisma generate && next build"
   },
   "dependencies": {
     "@hookform/resolvers": "^2.9.11",
