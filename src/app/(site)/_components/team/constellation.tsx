@@ -28,12 +28,10 @@ export const teamEdges: TeamEdge[][] = [
     { start: { x: 430, y: 700 }, end: { x: 880, y: 620 } }
   ],
   [
-    { start: { x: 630, y: 60 }, end: { x: 290, y: 270 } },
-    { start: { x: 630, y: 60 }, end: { x: 790, y: 370 } },
-    { start: { x: 290, y: 270 }, end: { x: 790, y: 370 } },
-    { start: { x: 290, y: 270 }, end: { x: 200, y: 690 } },
-    { start: { x: 790, y: 370 }, end: { x: 740, y: 650 } },
-    { start: { x: 200, y: 690 }, end: { x: 740, y: 650 } }
+    { start: { x: 530, y: 80 }, end: { x: 230, y: 350 } },
+    { start: { x: 530, y: 80 }, end: { x: 790, y: 320 } },
+    { start: { x: 230, y: 350 }, end: { x: 480, y: 620 } },
+    { start: { x: 790, y: 320 }, end: { x: 480, y: 620 } }
   ],
   [
     { start: { x: 340, y: 50 }, end: { x: 500, y: 100 } },

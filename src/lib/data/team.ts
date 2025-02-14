@@ -196,7 +196,7 @@ export const team: TeamType[] = [
         image: "/team/mark.jpg",
         role: "Marketing Team Lead",
         href: "https://www.linkedin.com/in/mark-garcia-aa9b2b306",
-        vertex: { x: 630, y: 60 },
+        vertex: { x: 530, y: 80 },
         textBelow: true
       },
       {
@@ -205,34 +205,25 @@ export const team: TeamType[] = [
         image: "/team/evan.jpg",
         role: "Marketing Officer",
         href: "https://www.linkedin.com/in/evan-jimenez-b50755297",
-        vertex: { x: 290, y: 270 },
+        vertex: { x: 230, y: 350 },
         textBelow: true
       },
       {
         id: "marketing3",
-        name: "Sarah",
-        image: "/team/sarah.jpg",
-        role: "Marketing Officer",
-        href: "https://www.linkedin.com/in/sarahagnihotri",
-        vertex: { x: 790, y: 370 },
-        textBelow: true
-      },
-      {
-        id: "marketing4",
         name: "Kenny",
         image: "/team/kenny.jpg",
         role: "Marketing Officer",
         href: "https://www.linkedin.com/in/Lekenny43",
-        vertex: { x: 200, y: 690 },
+        vertex: { x: 790, y: 320 },
         textBelow: true
       },
       {
-        id: "marketing5",
+        id: "marketing4",
         name: "Zheng",
         image: "/team/zheng.jpg",
         role: "Marketing Officer",
         href: "https://www.linkedin.com/in/keangzhengtaing",
-        vertex: { x: 740, y: 650 },
+        vertex: { x: 480, y: 620 },
         textBelow: true
       }
     ]
