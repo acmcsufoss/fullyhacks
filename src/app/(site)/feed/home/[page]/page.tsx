@@ -38,6 +38,7 @@ async function getFeedUsers(
         select: {
           id: true,
           isAdmin: true,
+          isOrganizer: true,
           name: true,
           bio: true,
           discordId: true
@@ -50,6 +51,7 @@ async function getFeedUsers(
   const feedUsers = applications.map((app) => ({
     id: app.user.id,
     isAdmin: app.user.isAdmin,
+    isOrganizer: app.user.isOrganizer,
     name: app.user.name,
     bio: app.user.bio,
     discordId: app.user.discordId,

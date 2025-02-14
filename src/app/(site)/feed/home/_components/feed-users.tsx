@@ -50,6 +50,11 @@ export default function FeedUsers({ feedUsers }: { feedUsers: feedUsers[] }) {
                         Admin
                       </span>
                     )}
+                    {user.isOrganizer && (
+                      <span className="rounded-full bg-[#fff36e] px-4 py-1">
+                        Organizer
+                      </span>
+                    )}
                     <span className="rounded-full bg-[#7BD7FF] px-4 py-1">
                       {user.application.major}
                     </span>
