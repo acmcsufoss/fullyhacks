@@ -472,7 +472,7 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
               Because of limitations imposed by CSUF, we are legally not allowed
               to host minors (those under 18) for FullyHacks 2025. By checking
               the box, you affirm that you are and will be 18 years or older by
-              February 24th, 2025.{" "}
+              April 12th, 2025.{" "}
             </p>
             <p className="font-rubik font-medium text-white">
               We will be checking your School ID. If you are a minor, you
