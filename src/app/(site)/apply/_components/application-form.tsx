@@ -153,6 +153,7 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
   const [githubLogin, setGithub] = useState("");
   const [isLoading, setLoading] = useState(false);
   const wordCount = application.response.trim().split(/\s+/).length;
+
   useEffect(() => {
     const getGithubLogin = async () => {
       const res = await axios.get(`https://api.github.com/user/${userId}`);
@@ -171,24 +172,19 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
   }, [userId]);
 
   const onSubmit = async () => {
-    try {
-      setLoading(true);
-      if (application.food == "other") {
-        application.food = foodState;
-      }
-      const newApplication = {
-        ...application,
-        gradYear: parseInt(application.gradYear),
-        skill: parseInt(application.skill),
-        github: githubLogin
-      };
-      await axios.post("/api/application", newApplication);
-      setLoading(false);
-      router.push("/portal");
-    } catch (error) {
-      setLoading(false);
-      router.push("/error");
+    setLoading(true);
+    if (application.food == "other") {
+      application.food = foodState;
     }
+    const newApplication = {
+      ...application,
+      gradYear: parseInt(application.gradYear),
+      skill: parseInt(application.skill),
+      github: githubLogin
+    };
+    await axios.post("/api/application", newApplication);
+    setLoading(false);
+    router.push("/portal");
   };
 
   return (

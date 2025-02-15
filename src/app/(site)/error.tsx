@@ -2,10 +2,18 @@
 
 import { AuthNavBar } from "@/components/nav-bar";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect } from "react";
 import { BsArrowLeft } from "react-icons/bs";
 
-export default function Error() {
+export default function Error({
+  error
+}: {
+  error: Error & { digest?: string };
+}) {
+  useEffect(() => {
+    console.error(error);
+  }, [error]);
+
   return (
     <div className="text-white">
       <div className="portal-background-container"></div>
