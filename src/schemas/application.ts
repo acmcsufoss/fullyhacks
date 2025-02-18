@@ -36,7 +36,7 @@ export const applicationSchema = object({
     }
     return false;
   }),
-  education: string().oneOf(["Bachelor", "Master"]),
+  education: string().oneOf(["Bachelor", "Associate", "Master", "Doctoral"]),
   response: string()
     .test("wordCount50", "Must be at least 50 words", (value) => {
       if (value) {
