@@ -44,12 +44,18 @@ export default function UserPortal({ user }: UserProps) {
             </div>
             <div>
               <span className="underline underline-offset-2">Email:</span>{" "}
-              <span className="text-[#cdcdcd]">
-                {application.preferredEmail !== ""
-                  ? application.preferredEmail
-                  : application.email}
-              </span>
+              <span className="text-[#cdcdcd]">{application.email}</span>
             </div>
+            {application.preferredEmail !== "" && (
+              <div>
+                <span className="underline underline-offset-2">
+                  Preferred Email:
+                </span>{" "}
+                <span className="text-[#cdcdcd]">
+                  {application.preferredEmail}
+                </span>
+              </div>
+            )}
           </div>
         </div>
         <div className="mt-4 font-semibold md:mt-8">
