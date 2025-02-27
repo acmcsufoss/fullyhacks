@@ -13,7 +13,7 @@ import {
 } from "./_components/background-effects";
 import Sponsors from "./_components/sponsors";
 import { LandingFooter } from "@/components/footer";
-import FAQ from "@/components/faq";
+import FAQ from "./_components/faq";
 import Team from "./_components/team";
 
 export default function Home() {

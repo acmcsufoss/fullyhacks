@@ -1,7 +1,7 @@
 "use client";
 
 import { FAQType } from "@/types/interface";
-import { FAQDropDown } from "@/components/faq";
+import { FAQDropDown } from "./_components/faq";
 import links from "@/lib/data/links.json";
 
 const faqs: FAQType[] = [
@@ -94,13 +94,13 @@ export default function FAQ() {
   return (
     <div>
       <p className="feed-title">Frequently Asked Questions</p>
-      <p className="md:text-md">
-        Answering all your questions for FullyHacks 2024
+      <p className="custom-text-shadow mt-4 font-audiowide text-white md:text-md">
+        Answering all your questions for FullyHacks 2025
       </p>
-      <div className="flex flex-col items-center">
+      <div className="mt-4 flex flex-col items-center gap-4 md:gap-6">
         {faqs.map((faq: FAQType) => {
           return (
-            <div key={faq.id} className="my-4 w-full">
+            <div key={faq.id} className="w-full">
               <FAQDropDown question={faq.question} answer={faq.answer} />
             </div>
           );
