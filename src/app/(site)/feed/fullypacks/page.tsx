@@ -1,6 +1,7 @@
+"use client";
 import { fullyPacksType } from "@/types/interface";
-import React from "react";
-import { BsGithub, BsLink } from "react-icons/bs";
+import React, { useState } from "react";
+import FullyPackCard from "./_components/fully-pack-card";
 
 const flaskDescription = (
   <>
@@ -93,88 +94,72 @@ const discordBot: fullyPacksType[] = [
   }
 ];
 
-interface FullyPackProps {
-  fullypack: fullyPacksType;
-}
+const fullypacks: fullyPacksType[] = [
+  ...webDev,
+  ...backendDev,
+  ...mobileDev,
+  ...dataScience,
+  ...discordBot
+];
 
-const FullyPack: React.FC<FullyPackProps> = ({ fullypack }) => {
-  return (
-    <div className="flex flex-col items-start rounded-lg bg-purple_card p-4">
-      <p className="text-center text-lg font-bold leading-normal text-white">
-        {fullypack.name}
-      </p>
-      <div className="text-20 mb-4 font-normal leading-7 text-white">
-        {fullypack.description}
-      </div>
-      {"github" in fullypack ? (
-        <button className="mt-auto flex items-center gap-2 rounded-lg bg-cyan p-2 font-semibold text-purple_card">
-          <a target={"_blank"} href={fullypack.github}>
-            Github link
-          </a>
-          <BsGithub size={28} />
-        </button>
-      ) : (
-        <></>
-      )}
-      {"link" in fullypack ? (
-        <button className="mt-auto flex items-center gap-2 rounded-lg bg-[rgb(52,11,103)] p-2 font-semibold text-white">
-          <a target={"_blank"} href={fullypack.link}>
-            Link
-          </a>
-          <BsLink size={28} />
-        </button>
-      ) : (
-        <></>
-      )}
-    </div>
-  );
+export const LightspeedContext = React.createContext({
+  enabled: true,
+  toggleLightspeed: () => {}
+});
+
+// Helper function to group fullypacks by category
+const groupedFullypacks = {
+  "Web Development": webDev,
+  "Backend Development": backendDev,
+  "Mobile Development": mobileDev,
+  "Data Science": dataScience,
+  "Discord Bots": discordBot
 };
 
 export default function FullyPacks() {
+  const [lightspeedEnabled, setLightspeedEnabled] = React.useState(true);
+
   return (
-    <div>
-      <p className="feed-title">FullyPacks</p>
-      <p className="md:text-md">Beginner-friendly templates for participants</p>
-      <div className="mt-10">
-        <p className="text-md font-bold text-purple-500">Web Development</p>
-        <div className="mt-4 grid justify-start gap-10 md:grid-cols-3">
-          {webDev.map((fullypack: fullyPacksType) => {
-            return <FullyPack key={fullypack.id} fullypack={fullypack} />;
-          })}
+    <LightspeedContext.Provider
+      value={{
+        enabled: lightspeedEnabled,
+        toggleLightspeed: () => setLightspeedEnabled((prev) => !prev)
+      }}>
+      <section className="w-full max-w-7xl px-4 text-white sm:px-6 md:px-8">
+        <div className="feed-title">FULLYPACKS</div>
+        <div className="w-full pb-8">
+          <div className="custom-text-shadow md:text-md">
+            beginner friendly templates for participants
+          </div>
+          {/* Effects Button
+            <button
+              onClick={() => setLightspeedEnabled((prev) => !prev)}
+              className="ml-4 rounded-lg bg-cyan px-4 py-2 text-purple_card hover:opacity-90">
+              {lightspeedEnabled ? "Disable" : "Enable"} Effects
+            </button>
+          */}
         </div>
-      </div>
-      <div className="mt-10">
-        <p className="text-md font-bold text-purple-500">Backend Development</p>
-        <div className="mt-4 grid justify-start gap-10 md:grid-cols-3">
-          {backendDev.map((fullypack: fullyPacksType) => {
-            return <FullyPack key={fullypack.id} fullypack={fullypack} />;
-          })}
+
+        {/* Sections */}
+        <div className="space-y-16 py-8">
+          {Object.entries(groupedFullypacks).map(
+            ([category, packs]) =>
+              packs.length > 0 && (
+                <div key={category} className="space-y-8">
+                  <h2 className="mb-10 text-center text-3xl font-semibold text-purple_main">
+                    {category}
+                  </h2>
+
+                  <div className="mx-auto grid grid-cols-1 items-start gap-8 sm:gap-12 md:grid-cols-2 lg:grid-cols-3">
+                    {packs.map((fullypack) => (
+                      <FullyPackCard key={fullypack.id} fullypack={fullypack} />
+                    ))}
+                  </div>
+                </div>
+              )
+          )}
         </div>
-      </div>
-      <div className="mt-10">
-        <p className="text-md font-bold text-purple-500">Mobile Development</p>
-        <div className="mt-4 grid justify-start gap-10 md:grid-cols-3">
-          {mobileDev.map((fullypack: fullyPacksType) => {
-            return <FullyPack key={fullypack.id} fullypack={fullypack} />;
-          })}
-        </div>
-      </div>
-      <div className="my-10">
-        <p className="text-md font-bold text-purple-500">Data Science</p>
-        <div className="mt-4 grid justify-start gap-10 md:grid-cols-3">
-          {dataScience.map((fullypack: fullyPacksType) => {
-            return <FullyPack key={fullypack.id} fullypack={fullypack} />;
-          })}
-        </div>
-      </div>
-      <div className="my-10">
-        <p className="text-md font-bold text-purple-500">Discord Bot</p>
-        <div className="mt-4 grid justify-start gap-10 md:grid-cols-3">
-          {discordBot.map((fullypack: fullyPacksType) => {
-            return <FullyPack key={fullypack.id} fullypack={fullypack} />;
-          })}
-        </div>
-      </div>
-    </div>
+      </section>
+    </LightspeedContext.Provider>
   );
 }
