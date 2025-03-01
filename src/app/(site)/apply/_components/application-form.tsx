@@ -7,7 +7,7 @@ import * as yup from "yup";
 import axios from "axios";
 import Loading from "@/components/loading";
 import SchoolSuggestion from "./school-suggestion";
-import { redirect } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { applicationSchema } from "@/schemas/application";
 
 interface ApplicationState {
@@ -46,15 +46,15 @@ const initialState: ApplicationState = {
   name: "",
   email: "",
   preferredEmail: "",
-  pronouns: "she/her",
+  pronouns: "",
   school: "",
   phone: "",
   major: "",
-  gradYear: "2023",
-  education: "Bachelor",
+  gradYear: "",
+  education: "",
   skill: "0",
   response: "",
-  food: "Vegan",
+  food: "",
   agree: false
 };
 
@@ -108,15 +108,28 @@ const reducer = (
   }
 };
 
+function FormLabel({ label, optional }: { label: string; optional?: boolean }) {
+  return (
+    <p className="form-label relative max-w-max">
+      {label}
+      {!optional && (
+        <span className="absolute -right-2 top-1 h-1.5 w-1.5 rounded-full bg-[#FF4A7E]" />
+      )}
+    </p>
+  );
+}
+
 interface ApplicationProps {
   url: string;
 }
 
 const ApplicationForm: React.FC<ApplicationProps> = (props) => {
   const { url } = props;
+  const router = useRouter();
   const {
     register,
     handleSubmit,
+    setValue,
     formState: { errors }
   } = useForm<FormData>({ resolver: yupResolver(schema) });
   const [foodState, setFood] = useState("");
@@ -140,6 +153,7 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
   const [githubLogin, setGithub] = useState("");
   const [isLoading, setLoading] = useState(false);
   const wordCount = application.response.trim().split(/\s+/).length;
+
   useEffect(() => {
     const getGithubLogin = async () => {
       const res = await axios.get(`https://api.github.com/user/${userId}`);
@@ -158,31 +172,26 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
   }, [userId]);
 
   const onSubmit = async () => {
-    try {
-      setLoading(true);
-      if (application.food == "other") {
-        application.food = foodState;
-      }
-      const newApplication = {
-        ...application,
-        gradYear: parseInt(application.gradYear),
-        skill: parseInt(application.skill),
-        github: githubLogin
-      };
-      await axios.post("/api/application", newApplication);
-      setLoading(false);
-      redirect("/portal");
-    } catch (error) {
-      setLoading(false);
-      redirect("/error");
+    setLoading(true);
+    if (application.food == "other") {
+      application.food = foodState;
     }
+    const newApplication = {
+      ...application,
+      gradYear: parseInt(application.gradYear),
+      skill: parseInt(application.skill),
+      github: githubLogin
+    };
+    await axios.post("/api/application", newApplication);
+    setLoading(false);
+    router.push("/portal");
   };
 
   return (
     <>
       <form className="md:w-full" onSubmit={handleSubmit(onSubmit)}>
         <div className="my-10 flex flex-col">
-          <p className="font-medium">Full name</p>
+          <FormLabel label="Full Name" />
           <input
             {...register("name")}
             name="name"
@@ -199,7 +208,7 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
             placeholder="John Doe"
           />
           <p className="error-msg">{errors.name?.message}</p>
-          <p className="font-medium">School email (optional)</p>
+          <FormLabel label="School email" />
           <input
             {...register("email")}
             name="email"
@@ -216,7 +225,7 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
             placeholder="jdoe@csu.fullerton.edu"
           />
           <p className="error-msg">{errors.email?.message}</p>
-          <p className="font-medium">Preferred email</p>
+          <FormLabel label="Preferred email (optional)" optional={true} />
           <input
             {...register("preferredEmail")}
             name="preferredEmail"
@@ -238,22 +247,23 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
             placeholder="john-doe@gmail.com"
           />
           <p className="error-msg">{errors.preferredEmail?.message}</p>
-          <p className="font-medium">School</p>
+          <FormLabel label="School" />
           <SchoolSuggestion
             register={register}
             errors={errors}
             dispatch={dispatch}
             application={application}
+            setValue={setValue}
           />
           <p className="error-msg">{errors.school?.message}</p>
-          <p className="font-medium">Github</p>
+          <FormLabel label="Github" />
           <input
             className="form-input"
             disabled
             type="text"
             value={githubLogin}
           />
-          <p className="font-medium">Pronouns</p>
+          <FormLabel label="Pronouns" />
           <select
             onChange={(e) => {
               dispatch({ type: "SET_PRONOUNS", payload: e.target.value });
@@ -265,20 +275,23 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
             name="pronouns"
             value={application.pronouns}
             className="form-input">
+            <option className="form-option" value="" selected hidden>
+              Select your pronouns
+            </option>
             <option className="form-option" value="she/her">
-              she/her
+              She/Her
             </option>
             <option className="form-option" value="he/him">
-              he/him
+              He/Him
             </option>
             <option className="form-option" value="they/them">
-              they/them
+              They/Them
             </option>
             <option className="form-option" value="other">
-              other
+              Other
             </option>
           </select>
-          <p className="font-medium">Phone number</p>
+          <FormLabel label="Phone number" />
           <input
             {...register("phone")}
             name="phone"
@@ -295,7 +308,7 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
             placeholder="000-111-2222"
           />
           <p className="error-msg">{errors.phone?.message}</p>
-          <p className="font-medium">Major</p>
+          <FormLabel label="Major" />
           <input
             {...register("major")}
             name="major"
@@ -312,7 +325,7 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
             placeholder="Computer Science"
           />
           <p className="error-msg">{errors.major?.message}</p>
-          <p className="font-medium">Graduation year</p>
+          <FormLabel label="Graduation year" />
           <input
             {...register("gradYear")}
             name="gradYear"
@@ -329,7 +342,7 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
             placeholder="2025"
           />
           <p className="error-msg">{errors.gradYear?.message}</p>
-          <p className="font-medium">Education level</p>
+          <FormLabel label="Education level" />
           <select
             onChange={(e) => {
               dispatch({ type: "SET_EDUCATION", payload: e.target.value });
@@ -341,14 +354,23 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
             value={application.education}
             name="education"
             className="form-input">
+            <option className="form-option" value="" selected hidden>
+              Select your education level
+            </option>
             <option className="form-option" value="Bachelor">
-              Bachelor
+              Bachelor&apos;s
+            </option>
+            <option className="form-option" value="Associate">
+              Associate
             </option>
             <option className="form-option" value="Master">
-              Master
+              Master&apos;s
+            </option>
+            <option className="form-option" value="Doctoral">
+              Doctoral
             </option>
           </select>
-          <p className="font-medium">Skill level</p>
+          <FormLabel label="Skill level" optional={true} />
           <select
             name="skill"
             value={application.skill}
@@ -363,6 +385,9 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
               });
             }}
             className="form-input">
+            <option className="form-option" value={0} selected hidden>
+              Select your skill level
+            </option>
             <option className="form-option" value={1}>
               No experience
             </option>
@@ -373,10 +398,10 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
               Intermediate
             </option>
             <option className="form-option" value={4}>
-              Master
+              Advanced
             </option>
           </select>
-          <p className="font-medium">Why do you want to attend FullyHacks?</p>
+          <FormLabel label="Why do you want to attend FullyHacks?" />
           <div className="relative flex flex-col">
             <textarea
               {...register("response")}
@@ -394,10 +419,13 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
               }}
               placeholder="50-500 words"
             />
-            <p className="absolute bottom-8 right-4">{wordCount} words</p>
+            <p
+              className={`absolute left-4 text-sm text-[#6F6F6F] ${errors.response?.message ? "bottom-14" : "bottom-8"}`}>
+              {wordCount} words
+            </p>
             <p className="error-msg">{errors.response?.message}</p>
           </div>
-          <p className="font-medium">Food choice</p>
+          <FormLabel label="Food choice" optional={true} />
           <select
             name="food"
             value={application.food}
@@ -405,23 +433,26 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
               dispatch({ type: "SET_FOOD", payload: e.target.value });
             }}
             className="form-input">
+            <option className="form-option" value="" selected hidden>
+              Select your food choice
+            </option>
             <option className="form-option" value="vegan">
               Vegan
             </option>
-            <option className="form-option" value="non-veg">
-              Non-veg
-            </option>
             <option className="form-option" value="vegetarian">
               Vegetarian
+            </option>
+            <option className="form-option" value="non-veg">
+              Non Vegetarian
             </option>
             <option className="form-option" value="other">
               Other
             </option>
           </select>
-          <p className="font-medium">
-            If you choose <span className="font-semibold">other</span>, please
-            specify or N/A
-          </p>
+          <FormLabel
+            label="If you chose other, please specify"
+            optional={true}
+          />
           <input
             name="food"
             value={foodState}
@@ -432,16 +463,16 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
             type="text"
             placeholder="non-dairy,..."
           />
-          <div className="mt-4 flex flex-col gap-4">
+          <div className="mt-4 flex flex-col gap-4 font-rubik">
             <p>
               Because of limitations imposed by CSUF, we are legally not allowed
-              to host minors (those under 18) for Fullyhacks 2024. By checking
+              to host minors (those under 18) for FullyHacks 2025. By checking
               the box, you affirm that you are and will be 18 years or older by
-              February 24th, 2024.{" "}
+              April 12th, 2025.{" "}
             </p>
-            <p className="font-medium text-white">
-              We will be checking School ID. If you are a minor, you won&apos;t
-              be allowed to attend.
+            <p className="font-rubik font-medium text-white">
+              We will be checking your School ID. If you are a minor, you
+              won&apos;t be allowed to attend.
             </p>
           </div>
           <div className="mt-4 flex items-center gap-4">
@@ -452,10 +483,10 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
                 dispatch({ type: "SET_AGREE", payload: e.target.checked });
               }}
               type="checkbox"
-              className="checkbox bg-[#F587FF]"
+              className="checkbox bg-[#72D6E6]"
             />
-            <p className="font-medium">
-              I&apos;m 18 or older by February 24th, 2024
+            <p className="font-rubik font-medium uppercase">
+              I&apos;m 18 or older by April 12th, 2025
             </p>
           </div>
           <p className="error-msg">{errors.over18?.message}</p>
@@ -467,9 +498,9 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
                 dispatch({ type: "SET_AGREE", payload: e.target.checked });
               }}
               type="checkbox"
-              className="checkbox bg-[#F587FF]"
+              className="checkbox bg-[#72D6E6]"
             />
-            <p className="font-medium">
+            <p className="font-rubik font-medium uppercase">
               I agree to
               <a className="font-semibold" target="_blank" href="/waiver">
                 {" the terms of the waiver"}
@@ -478,11 +509,11 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
           </div>
           <p className="error-msg">{errors.waiver?.message}</p>
           {isLoading ? (
-            <button className="mt-8 mr-auto flex w-[100px] justify-center rounded-md bg-[#E149A9] p-2 font-semibold hover:bg-[#ac307e] hover:duration-200 hover:ease-in-out">
+            <button className="mx-auto mt-8 flex w-[100px] justify-center rounded-md bg-[#72E680] p-2 font-semibold text-[#25652D] transition-all duration-200 hover:brightness-110 hover:ease-in-out">
               <Loading isLoading={isLoading} />
             </button>
           ) : (
-            <button className="mt-8 mr-auto w-[100px] rounded-md bg-[#E149A9] p-2 font-semibold text-white hover:bg-[#ac307e] hover:duration-200 hover:ease-in-out md:text-md">
+            <button className="mx-auto mt-8 w-[100px] rounded-md bg-[#72E680] p-2 text-[#25652D] duration-200 hover:brightness-110 hover:ease-in-out md:text-md">
               Submit
             </button>
           )}

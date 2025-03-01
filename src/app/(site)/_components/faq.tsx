@@ -1,5 +1,3 @@
-"use client";
-
 import { faqs } from "@/lib/data/faq";
 import { FAQType } from "@/types/interface";
 import React, { useState, useEffect } from "react";

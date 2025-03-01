@@ -139,7 +139,7 @@ const TeamGrid: React.FC<TeamProps> = ({ team }) => {
       </section>
 
       {filteredTeam.length > 1 && (
-        <div className="relative mt-8 h-3 w-96 overflow-hidden rounded-full bg-gray-600">
+        <div className="relative mt-8 h-3 w-[min(24rem,_90%)] overflow-hidden rounded-full bg-gray-600">
           {/* Progress bar fill */}
           <div
             className="absolute left-0 top-0 h-full rounded-full bg-white transition-all duration-300"

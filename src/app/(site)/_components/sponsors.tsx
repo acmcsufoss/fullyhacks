@@ -104,9 +104,6 @@ export default function Sponsors() {
       ))}
 
       <LittleAsteroids />
-      <p className="custom-text-shadow absolute left-24 bottom-32 md:text-xl">
-        More coming soon...
-      </p>
     </div>
   );
 }

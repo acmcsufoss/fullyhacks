@@ -27,7 +27,7 @@ export default function FeedUsers({ feedUsers }: { feedUsers: feedUsers[] }) {
               <div
                 className="toast cursor-pointer"
                 onClick={() => setOpen(false)}>
-                <div className="alert bg-sky-100">
+                <div className="alert bg-[#021230]">
                   <div>
                     <span>Copied to clipboard</span>
                   </div>
@@ -48,6 +48,11 @@ export default function FeedUsers({ feedUsers }: { feedUsers: feedUsers[] }) {
                     {user.isAdmin && (
                       <span className="rounded-full bg-[#FF9EED] px-4 py-1">
                         Admin
+                      </span>
+                    )}
+                    {user.isOrganizer && (
+                      <span className="rounded-full bg-[#fff36e] px-4 py-1">
+                        Organizer
                       </span>
                     )}
                     <span className="rounded-full bg-[#7BD7FF] px-4 py-1">
@@ -85,7 +90,7 @@ export default function FeedUsers({ feedUsers }: { feedUsers: feedUsers[] }) {
                 </div>
               </div>
             </div>
-            <p className="mt-2 text-white"> {user.bio}</p>
+            <p className="mt-2 text-white">{user.bio}</p>
           </div>
         );
       })}

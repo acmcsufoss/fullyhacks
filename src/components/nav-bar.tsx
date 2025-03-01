@@ -126,17 +126,8 @@ export const NavBarLanding: React.FC = () => {
 
 export const GenericNavBar = () => {
   return (
-    <nav className="flex items-center justify-center text-purple_main">
-      <Link href="/">
-        <img
-          alt="nav bar logo"
-          src="/assets/logo.svg"
-          className="ml-4 h-24 w-24 cursor-pointer md:h-32 md:w-32"
-        />
-      </Link>
-      <Link
-        href="/"
-        className="mr-4 ml-auto flex cursor-pointer items-center gap-4 rounded-xl bg-purple_main p-2 text-white hover:bg-pink-500 hover:transition-all hover:duration-300">
+    <nav className="flex flex-row-reverse items-center justify-center px-4 py-8">
+      <Link href="/" className="gradient-btn ml-auto">
         <button className="text-sm font-semibold md:text-md">
           Back to Home
         </button>
@@ -148,18 +139,21 @@ export const GenericNavBar = () => {
 
 export const AuthNavBar = () => {
   return (
-    <nav className="flex items-center text-purple_main">
-      <Link href="/">
+    <nav className="z-10 flex flex-row-reverse items-center justify-between px-4 py-8 md:flex-row md:py-4">
+      <Link href="/" className="z-10 hidden md:block">
         <img
-          src="/assets/logo.svg"
           alt="nav bar logo"
-          className="ml-2 h-24 w-24 cursor-pointer md:h-32 md:w-32"
+          src="/assets/fullyhacks_logo.png"
+          className="w-16 md:w-24"
         />
       </Link>
-      <div
-        onClick={() => signOut()}
-        className="mr-4 ml-auto cursor-pointer rounded-xl bg-[#E149A9] p-2 text-md text-white hover:bg-pink-500 hover:transition-all hover:duration-300">
-        <button>Sign out</button>
+      <div className="z-10 text-md text-white">
+        <button
+          onClick={() => signOut()}
+          className="group relative py-1 text-md">
+          Sign out
+          <span className="absolute bottom-1 block h-0.5 w-0 bg-white transition-all duration-300 group-hover:w-full group-focus:w-full" />
+        </button>
       </div>
     </nav>
   );
@@ -243,7 +237,7 @@ export const FeedSideBar: React.FC = () => {
       {!isOpen && (
         <AiOutlineMenu
           onClick={() => setOpen(true)}
-          className="fixed top-9 left-4 z-20 block cursor-pointer stroke-[2] text-[#72d6e6] md:hidden"
+          className="absolute -top-[5.5rem] left-4 z-20 block cursor-pointer stroke-[2] text-[#72d6e6] md:hidden"
           size={24}
         />
       )}
@@ -311,9 +305,9 @@ export const FeedSideBar: React.FC = () => {
                 href={item.href}
                 className={`flex w-full rounded-lg p-2 transition-colors duration-300 hover:text-white ${pathname === item.href || (item.name === "Home" && pathname.startsWith(item.href)) ? "text-white" : ""}`}>
                 {pathname === item.href ||
-                  (item.name === "Home" && pathname.startsWith(item.href) && (
-                    <MdArrowRight size={28} color="#c2f2ff" />
-                  ))}
+                (item.name === "Home" && pathname.startsWith(item.href)) ? (
+                  <MdArrowRight size={28} color="#c2f2ff" />
+                ) : null}
                 <li className="ml-auto">{item.name}</li>
               </Link>
             );

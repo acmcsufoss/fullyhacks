@@ -27,13 +27,13 @@ const sponsorGifts: sponsorGiftType[] = [
   {
     id: "gift0",
     company: "StickerMule",
-    content: "Free Fullyhacks stickers",
+    content: "Free FullyHacks stickers",
     access: "Grab it during event"
   },
   {
     id: "gift5",
     company: "StickerGiant",
-    content: "Free Fullyhacks stickers",
+    content: "Free FullyHacks stickers",
     access: "Grab it during event"
   },
   {

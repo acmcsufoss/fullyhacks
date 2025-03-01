@@ -6,41 +6,32 @@
 @tailwind utilities;
 
 @layer components {
-  .apply-btn {
-    @apply hover:bg-[#FC61FF]/[.2] hover:duration-200 hover:ease-in-out;
-    @apply relative mx-8 ml-12 rounded-lg border border-solid border-[#FF42F7] py-1 px-8 text-[#FC61FF] [text-shadow:_0_0_10px_#FC61FF];
-    @apply after:absolute after:top-12 after:left-2 after:h-[5px] after:w-full after:skew-x-[30deg] after:bg-[#FF42F7] after:opacity-[.7] after:blur-sm after:content-[''];
+  .gradient-btn {
+    @apply z-10 flex cursor-pointer items-center gap-4 rounded-md bg-gradient-to-r from-[#72D6E6] to-[#173162] p-2 text-white transition-all duration-300 hover:brightness-110;
   }
-
-  .sponsor-btn {
-    @apply hover:bg-[#8CEAFF]/[.2] hover:duration-200 hover:ease-in-out;
-    @apply relative rounded-lg border border-solid border-[#8CEAFF] py-1 px-8 text-[#8CEAFF] [text-shadow:_0_0_10px_#8CEAFF];
-    @apply after:absolute after:top-12 after:left-2 after:h-[5px] after:w-full after:skew-x-[30deg] after:bg-[#8CEAFF] after:opacity-[.7] after:blur-sm after:content-[''];
+  .blue-btn {
+    @apply flex w-[min(300px,_90vw)] items-center justify-center gap-4 rounded-xl bg-[#5BA0BD] p-2 font-semibold text-white transition-opacity duration-300 ease-in-out hover:opacity-90 md:text-md;
   }
-  .neon-text {
-    @apply text-purple_main [text-shadow:_0_0_10px_#FF49ED];
-  }
-  .purple-btn {
-    @apply rounded-md bg-purple_main p-2 text-white hover:bg-[#b63487] hover:duration-200 hover:ease-in-out;
-  }
-
   .feed-popup {
     @apply bg-purple_dark text-white [box-shadow:_0_0_10px_#E149A9];
   }
   .feed-form-input {
     @apply w-[min(30rem,_100%)] border-2 border-[#1E2D79] bg-[#0E0E30] bg-opacity-70 p-4 outline-none focus:border-[#414f94] active:border-[#414f94];
   }
+  .form-label {
+    @apply font-medium uppercase text-[#72D6E6] md:text-md;
+  }
   .form-input {
-    @apply mt-2 mb-4 rounded-md border-2 border-[#FF49ED] bg-black/30 p-2 text-[#FFC7EA] [box-shadow:_0_0_10px_#FFC7EA];
+    @apply mt-2 mb-4 rounded-md border-2 border-[#888888] bg-[#070710] p-2;
   }
   .form-option {
     @apply bg-black/80;
   }
   .error-msg {
-    @apply mb-2 font-medium text-red-600;
+    @apply mb-2 font-medium text-[#ff4949];
   }
   .error-form {
-    @apply animate-shake border-2 border-red-600 p-2;
+    @apply animate-shake border-2 border-[#ff4949] p-2;
   }
 }
 
@@ -99,7 +90,14 @@ body {
   text-shadow: 0 0 10px #97bae1;
 }
 
-.feed-background-container {
+.application-container {
+  background:
+    url("/assets/feed-stars-background.svg"),
+    linear-gradient(180deg, #122a58 0%, #201c33 100%) repeat center;
+  background-size: cover;
+}
+
+.portal-background-container {
   background:
     url("/assets/feed-stars-background.svg"),
     linear-gradient(180deg, #122a58 0%, #201c33 100%) repeat center;
@@ -111,6 +109,8 @@ body {
   left: 0;
   width: 100vw;
   height: 100vh;
+  pointer-events: none;
+  animation: rotate 30s infinite alternate ease-in-out;
 }
 
 .feed-title {
@@ -132,6 +132,10 @@ body {
 
 .animate-tilt {
   animation: tilt 10s linear infinite;
+}
+
+.animate-slight-tilt {
+  animation: slight-tilt 20s ease-in-out infinite;
 }
 
 .animation-delay-100 {
@@ -157,6 +161,18 @@ body {
 @keyframes tilt {
   50% {
     rotate: 10deg;
+  }
+}
+
+@keyframes slight-tilt {
+  50% {
+    rotate: 7deg;
+  }
+}
+
+@keyframes rotate {
+  100% {
+    background-position: 15% 50%;
   }
 }
 

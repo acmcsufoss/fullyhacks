@@ -4,7 +4,7 @@ import { InferType, number, object, string } from "yup";
 
 const usUni: University[] = uniJson.usUniveristies;
 
-const minGradYear = 2023;
+const minGradYear = 2025;
 const maxGradYear = 2030;
 
 export const applicationSchema = object({
@@ -15,8 +15,9 @@ export const applicationSchema = object({
     .matches(/^[a-zA-Z0-9._%+-]+@([a-zA-Z0-9-]+\.)+(edu)$/, {
       message: "Must be a .edu email",
       excludeEmptyString: true
-    }),
-  preferredEmail: string().email("Invalid email format").required(),
+    })
+    .required(),
+  preferredEmail: string().email("Invalid email format"),
   phone: string().matches(
     /^\D?(\d{3})\D?\D?(\d{3})\D?(\d{4})$/,
     "Invalid phone number format"
@@ -35,7 +36,7 @@ export const applicationSchema = object({
     }
     return false;
   }),
-  education: string().oneOf(["Bachelor", "Master"]),
+  education: string().oneOf(["Bachelor", "Associate", "Master", "Doctoral"]),
   response: string()
     .test("wordCount50", "Must be at least 50 words", (value) => {
       if (value) {

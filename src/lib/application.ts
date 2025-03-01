@@ -38,6 +38,7 @@ async function handleApplication(
 
   let applicationData = {
     name: data.name,
+    email: data.email,
     preferredEmail: data.preferredEmail,
     school: data.school,
     major: data.major,

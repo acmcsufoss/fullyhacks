@@ -19,38 +19,50 @@ export default function UserPortal({ user }: UserProps) {
 
   return (
     <div className="relative mx-4 flex flex-col items-center justify-center text-white">
-      <p className="neon-text text-[4rem]">User Portal</p>
-      <div className="mt-10 w-[min(400px,_90wv)] rounded-lg border-2 border-purple_main bg-[#100D21] bg-opacity-25 p-6 backdrop-blur-md backdrop-filter md:w-[500px] md:text-md lg:w-[720px]">
+      <h2 className="custom-text-shadow text-center text-5xl md:text-[4rem]">
+        USER PORTAL
+      </h2>
+      <div className="mt-4 w-[min(400px,_90wv)] rounded-xl bg-[#060606] bg-opacity-50 p-6 md:w-[500px] md:p-10 md:text-md lg:w-[720px]">
         <div className="flex flex-col items-center gap-4 lg:flex-row lg:items-start">
           <img
-            className="z-[30] h-24 w-24 rounded-md border-2 border-purple_main md:h-48 md:w-48"
+            className="z-[30] h-24 w-24 rounded-md border-4 border-white md:h-48 md:w-48"
             src={`${user.image}`}
-            alt="Github's pfp"
+            alt="GitHub Profile Picture"
           />
-          <div className="z-[30] flex flex-col flex-wrap font-medium">
-            <p className="">
-              Name: <span className="font-normal"> {application.name} </span>
-            </p>
-            <p className="">
-              School:{" "}
-              <span className="font-normal"> {application.school} </span>
-            </p>
-            <p className="">
-              Github:
-              <span className="font-normal"> {application.github} </span>
-            </p>
-            <p className="">Email:</p>
-            <span className="break-all font-normal">
-              {" "}
-              {application.preferredEmail}{" "}
-            </span>
+          <div className="z-[30] flex flex-col flex-wrap">
+            <div>
+              <span className="underline underline-offset-2">Name:</span>{" "}
+              <span className="text-[#cdcdcd]">{application.name}</span>
+            </div>
+            <div>
+              <span className="underline underline-offset-2">School:</span>{" "}
+              <span className="text-[#cdcdcd]">{application.school}</span>
+            </div>
+            <div>
+              <span className="underline underline-offset-2">GitHub:</span>{" "}
+              <span className="text-[#cdcdcd]">{application.github}</span>
+            </div>
+            <div>
+              <span className="underline underline-offset-2">Email:</span>{" "}
+              <span className="text-[#cdcdcd]">{application.email}</span>
+            </div>
+            {application.preferredEmail !== "" && (
+              <div>
+                <span className="underline underline-offset-2">
+                  Preferred Email:
+                </span>{" "}
+                <span className="text-[#cdcdcd]">
+                  {application.preferredEmail}
+                </span>
+              </div>
+            )}
           </div>
         </div>
         <div className="mt-4 font-semibold md:mt-8">
           <p>
             Application Status:
             <span
-              className={`ml-4 rounded-md p-1 text-center font-normal ${
+              className={`ml-4 rounded-md py-1 px-2 text-center font-normal ${
                 application.status == "approved"
                   ? "bg-green-500"
                   : application.status == "rejected"
@@ -68,13 +80,10 @@ export default function UserPortal({ user }: UserProps) {
       </div>
       {application.status == "approved" && (
         <>
-          <Link
-            href="/feed"
-            className="mb-16 mt-8 flex items-center gap-4 rounded-lg bg-purple_main p-2 font-semibold text-white hover:bg-[#b63487] hover:duration-200 hover:ease-in-out md:text-md">
-            Continue to Feed
+          <Link href="/feed" className="blue-btn mb-10 mt-8 lg:mb-4">
+            Continue to the Feed
             <BsArrowRight size={24} />
           </Link>
-          <p className="mb-4 text-lg">Food QR Code</p>
         </>
       )}
     </div>

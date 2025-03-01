@@ -80,6 +80,7 @@ export interface feedUsers {
   id: string;
   name: string;
   isAdmin: boolean;
+  isOrganizer: boolean;
   discordId: string;
   bio: string;
   school: string;

@@ -28,33 +28,10 @@ export default async function PortalPage() {
   const { user } = await getUser(session);
 
   return (
-    <div className="bg-[#0B062B] pb-12">
+    <section className="text-md text-white">
+      <div className="portal-background-container"></div>
       <AuthNavBar />
-      <Flower
-        top="top-[24em] hidden md:block"
-        left="left-48"
-        width="w-36"
-        height="h-36"
-      />
-      <Flower
-        top="top-[12em] hidden md:block"
-        left="left-12"
-        width="w-36"
-        height="h-36"
-      />
-      <Flower
-        top="top-[12em] hidden md:block"
-        left="right-[4em]"
-        width="w-36"
-        height="h-36"
-      />
-      <Flower
-        top="top-[22em] hidden md:block"
-        left="right-[10em]"
-        width="w-36"
-        height="h-36"
-      />
       <UserPortal user={user} />
-    </div>
+    </section>
   );
 }
