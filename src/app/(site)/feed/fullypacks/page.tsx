@@ -1,7 +1,8 @@
 "use client";
 import { fullyPacksType } from "@/types/interface";
-import React, { useState } from "react";
+import { useState } from "react";
 import FullyPackCard from "./_components/fully-pack-card";
+import { LightspeedContext } from "./_components/context";
 
 const flaskDescription = (
   <>
@@ -102,11 +103,6 @@ const fullypacks: fullyPacksType[] = [
   ...discordBot
 ];
 
-export const LightspeedContext = React.createContext({
-  enabled: true,
-  toggleLightspeed: () => {}
-});
-
 // Helper function to group fullypacks by category
 const groupedFullypacks = {
   "Web Development": webDev,
@@ -117,7 +113,7 @@ const groupedFullypacks = {
 };
 
 export default function FullyPacks() {
-  const [lightspeedEnabled, setLightspeedEnabled] = React.useState(true);
+  const [lightspeedEnabled, setLightspeedEnabled] = useState(true);
 
   return (
     <LightspeedContext.Provider

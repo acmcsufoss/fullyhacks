@@ -6,7 +6,7 @@ import { Particle } from "./particle";
 import { CardButton } from "./card-button";
 import { PARTICLE_CONFIG, CORNER_POSITIONS } from "./constants";
 import { generateParticles } from "./utils/particle-utils";
-import { LightspeedContext } from "../page";
+import { LightspeedContext } from "./context";
 
 interface FullyPackProps {
   fullypack: fullyPacksType;
