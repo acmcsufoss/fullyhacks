@@ -1,5 +1,5 @@
 import React from "react";
-import { BsLinkedin } from "react-icons/bs";
+import { BsGithub, BsLinkedin } from "react-icons/bs";
 import { PiInstagramLogoFill } from "react-icons/pi";
 import links from "@/lib/data/links.json";
 
@@ -26,9 +26,6 @@ export const LandingFooter: React.FC = () => {
 
           {/* Frame for icons */}
           <div className="flex flex-grow items-center justify-center gap-6 text-[#ECECEC]">
-            <a target="_blank" href={links.linkedin}>
-              <BsLinkedin className="h-[2.75rem] w-12 md:h-14 md:w-14" />
-            </a>
             <div className="relative inline-block">
               {/* ACM text */}
               <a target="_blank" href={links.acmcsuf}>
@@ -44,6 +41,12 @@ export const LandingFooter: React.FC = () => {
                 />
               </a>
             </div>
+            <a target="_blank" href={links.github}>
+              <BsGithub className="h-12 w-12 md:h-14 md:w-14" />
+            </a>
+            <a target="_blank" href={links.linkedin}>
+              <BsLinkedin className="h-[2.75rem] w-12 md:h-14 md:w-14" />
+            </a>
             <a target="_blank" href={links.instagram}>
               {<PiInstagramLogoFill className="h-12 w-12 md:h-16 md:w-16" />}
             </a>
