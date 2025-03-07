@@ -41,7 +41,7 @@ const Applications: React.FC<ApplicationsProps> = (props) => {
 
   const applicationsNumber = filteredApplications.length;
 
-  // setup pagination 
+  // setup pagination
   const idxLastItem = currentPage * itemsPerPage;
   const idxFirstItem = idxLastItem - itemsPerPage;
   const currentApplications = filteredApplications.slice(
@@ -50,7 +50,7 @@ const Applications: React.FC<ApplicationsProps> = (props) => {
   );
 
   const totalPages = Math.ceil(filteredApplications.length / itemsPerPage);
-  const visiblePageCount = 5; 
+  const visiblePageCount = 5;
   const halfVisible = Math.floor(visiblePageCount / 2);
 
   let startPage = Math.max(1, currentPage - halfVisible);
