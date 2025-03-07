@@ -15,9 +15,17 @@ const Applications: React.FC<ApplicationsProps> = (props) => {
   const [statusFilter, setStatusFilter] = useState("all");
   const [isLoading, setLoading] = useState(false);
   const [applicationIdx, pushIdx] = useState<string[]>([]);
+
+  const DEFAULT_PAGE_NUM = 1;
+  const DEFAULT_ITEMS_PER_PAGE = 10;
+  const [currentPage, setCurrentPage] = useState(DEFAULT_PAGE_NUM);
+  const [itemsPerPage, setItemsPerPage] = useState(DEFAULT_ITEMS_PER_PAGE);
+
   const handleStatusChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setStatusFilter(event.target.value);
+    setCurrentPage(1);
   };
+
   const filteredApplications = useMemo(() => {
     // Filter out application when choose from the Filter by: dropdown
     const getFilteredApplication = (
@@ -30,7 +38,47 @@ const Applications: React.FC<ApplicationsProps> = (props) => {
     };
     return getFilteredApplication(applications, statusFilter);
   }, [applications, statusFilter, applicationIdx]);
+
   const applicationsNumber = filteredApplications.length;
+
+  // setup pagination 
+  const idxLastItem = currentPage * itemsPerPage;
+  const idxFirstItem = idxLastItem - itemsPerPage;
+  const currentApplications = filteredApplications.slice(
+    idxFirstItem,
+    idxLastItem
+  );
+
+  const totalPages = Math.ceil(filteredApplications.length / itemsPerPage);
+  const visiblePageCount = 5; 
+  const halfVisible = Math.floor(visiblePageCount / 2);
+
+  let startPage = Math.max(1, currentPage - halfVisible);
+  let endPage = Math.min(totalPages, startPage + visiblePageCount - 1);
+
+  // set start page appropiately if the end page is the last page
+  if (endPage - startPage + 1 < visiblePageCount) {
+    startPage = Math.max(1, endPage - visiblePageCount + 1);
+  }
+
+  const pageNumbers = [];
+  for (let i = startPage; i <= endPage; i++) {
+    pageNumbers.push(i);
+  }
+
+  const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
+  const goToPrevious = () => {
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1);
+    }
+  };
+
+  const goToNext = () => {
+    if (currentPage < totalPages) {
+      setCurrentPage(currentPage + 1);
+    }
+  };
+
   type GroupedData = Record<string, number>;
   const classStat: [] = [];
   const foodStat: [] = [];
@@ -133,7 +181,7 @@ const Applications: React.FC<ApplicationsProps> = (props) => {
             </tr>
           </thead>
           <tbody>
-            {filteredApplications.map((posts, idx) => (
+            {currentApplications.map((posts, idx) => (
               <Application
                 key={posts.id}
                 idx={idx}
@@ -145,6 +193,49 @@ const Applications: React.FC<ApplicationsProps> = (props) => {
           </tbody>
         </table>
       </div>
+      <div className="mt-4 flex justify-center">
+        <nav>
+          <ul className="flex list-none items-center p-0">
+            <li>
+              <button
+                onClick={goToPrevious}
+                disabled={currentPage === 1}
+                className={`rounded border px-3 py-1 ${
+                  currentPage === 1
+                    ? "cursor-not-allowed bg-gray-200 text-gray-500"
+                    : "border-gray-300 bg-white text-gray-700 hover:bg-gray-100"
+                }`}>
+                Previous
+              </button>
+            </li>
+            {pageNumbers.map((number) => (
+              <li key={number} className="mx-1">
+                <button
+                  onClick={() => paginate(number)}
+                  className={`rounded border px-3 py-1 ${
+                    currentPage === number
+                      ? "border-purple_main bg-purple_300 text-purple_main"
+                      : "border-gray-300 bg-white text-gray-700 hover:bg-gray-100"
+                  }`}>
+                  {number}
+                </button>
+              </li>
+            ))}
+            <li>
+              <button
+                onClick={goToNext}
+                disabled={currentPage === totalPages}
+                className={`rounded border px-3 py-1 ${
+                  currentPage === totalPages
+                    ? "cursor-not-allowed bg-gray-200 text-gray-500"
+                    : "border-gray-300 bg-white text-gray-700 hover:bg-gray-100"
+                }`}>
+                Next
+              </button>
+            </li>
+          </ul>
+        </nav>
+      </div>{" "}
     </div>
   );
 };
