@@ -16,10 +16,10 @@ const Applications: React.FC<ApplicationsProps> = (props) => {
   const [isLoading, setLoading] = useState(false);
   const [applicationIdx, pushIdx] = useState<string[]>([]);
 
-  const DEFAULT_PAGE_NUM = 1;
-  const DEFAULT_ITEMS_PER_PAGE = 10;
-  const [currentPage, setCurrentPage] = useState(DEFAULT_PAGE_NUM);
-  const [itemsPerPage, setItemsPerPage] = useState(DEFAULT_ITEMS_PER_PAGE);
+  const INIT_CURR_PAGE_NUM = 1; 
+  const ITEMS_PER_PAGE = 15;
+  const [currentPage, setCurrentPage] = useState(INIT_CURR_PAGE_NUM);
+  const [itemsPerPage, setItemsPerPage] = useState(ITEMS_PER_PAGE);
 
   const handleStatusChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setStatusFilter(event.target.value);
