@@ -16,7 +16,7 @@ const Applications: React.FC<ApplicationsProps> = (props) => {
   const [isLoading, setLoading] = useState(false);
   const [applicationIdx, pushIdx] = useState<string[]>([]);
 
-  const INIT_CURR_PAGE_NUM = 1; 
+  const INIT_CURR_PAGE_NUM = 1;
   const ITEMS_PER_PAGE = 15;
   const [currentPage, setCurrentPage] = useState(INIT_CURR_PAGE_NUM);
   const [itemsPerPage, setItemsPerPage] = useState(ITEMS_PER_PAGE);
