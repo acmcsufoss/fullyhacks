@@ -48,6 +48,7 @@ const Applications: React.FC<ApplicationsProps> = (props) => {
     idxFirstItem,
     idxLastItem
   );
+  const indxFirstItem = idxLastItem - itemsPerPage;
 
   const totalPages = Math.ceil(filteredApplications.length / itemsPerPage);
   const visiblePageCount = 5;
@@ -184,7 +185,7 @@ const Applications: React.FC<ApplicationsProps> = (props) => {
             {currentApplications.map((posts, idx) => (
               <Application
                 key={posts.id}
-                idx={idx}
+                idx={indxFirstItem + idx + 1}
                 application={posts}
                 pushIdx={pushIdx}
                 setLoading={setLoading}
