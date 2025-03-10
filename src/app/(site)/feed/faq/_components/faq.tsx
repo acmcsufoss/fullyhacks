@@ -13,7 +13,7 @@ export function FAQDropDown({
 
   useEffect(() => {
     setMounted(true);
-  });
+  }, []);
 
   const toggleFAQ = () => {
     setOpened(!opened);

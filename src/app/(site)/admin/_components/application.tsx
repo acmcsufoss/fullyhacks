@@ -23,7 +23,7 @@ export const Application: React.FC<ApplicationProps> = (props) => {
     <tr
       key={application.id}
       className="relative rounded-md p-3 hover:bg-gray-100">
-      <th> {idx + 1} </th>
+      <th> {idx} </th>
       <td className="col-span-3 whitespace-normal text-sm font-medium leading-5">
         {application.name}
       </td>
