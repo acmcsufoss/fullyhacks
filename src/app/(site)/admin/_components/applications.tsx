@@ -9,7 +9,8 @@ import { Application } from "./application";
 interface ApplicationsProps {
   applications: ApplicationType[];
 }
-//Application Dashboard
+
+// Application Dashboard
 const Applications: React.FC<ApplicationsProps> = (props) => {
   const { applications } = props;
   const [statusFilter, setStatusFilter] = useState("all");
