@@ -51,9 +51,9 @@ export const sponsors: CompanyType[] = [
   },
   {
     id: "co5",
-    name: "Wolfram",
-    imageSrc: "/companies/wolfram.svg",
-    href: "https://company.wolfram.com/press-center/wolfram-corporate/",
+    name: "Notion",
+    imageSrc: "/companies/notion.svg",
+    href: "https://www.instagram.com/notioncsuf/?igsh=NTc4MTIwNjQ2YQ%3D%3D#",
     styles: {
       top: "top-[25rem] sm:top-[32rem] md:top-[40rem] lg:top-[43%]",
       left: "-left-[5rem] md:left-[-2rem] xl:left-[10rem]",
