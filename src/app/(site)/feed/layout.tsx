@@ -1,3 +1,4 @@
+import { ApplicationStatus } from "@/types/interface";
 import { FeedNavBar, FeedSideBar } from "@/components/nav-bar";
 import { FeedPopUp } from "@/components/pop-up";
 import { getAuthSession } from "@/lib/auth";
@@ -15,7 +16,7 @@ async function getUser() {
       application: true
     }
   });
-  if (user?.application?.status !== "approved") {
+  if (user?.application?.status !== ApplicationStatus.APPROVED) {
     redirect("/portal");
   }
   return user;

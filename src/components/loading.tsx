@@ -11,7 +11,7 @@ export default function Loading(props: LoadingProps) {
   return (
     <>
       {isLoading ? (
-        <AiOutlineLoading size={24} className="animate-spin" />
+        <AiOutlineLoading size={24} className="animate-spin text-white" />
       ) : (
         { children }
       )}

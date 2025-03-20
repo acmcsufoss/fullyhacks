@@ -76,6 +76,18 @@ export interface ApplicationType {
   response: string;
 }
 
+export enum ApplicationUpdate {
+  APPROVE = "approve",
+  REJECT = "reject",
+  WAITLIST = "waitlist"
+}
+
+export enum ApplicationStatus {
+  APPROVED = "approved",
+  REJECTED = "rejected",
+  WAITLISTED = "waitlisted"
+}
+
 export interface feedUsers {
   id: string;
   name: string;
