@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import { ApplicationType, User } from "@/types/interface";
+import { ApplicationType, ApplicationStatus, User } from "@/types/interface";
 import { BsArrowRight } from "react-icons/bs";
 
 interface UserProps {
@@ -63,11 +63,13 @@ export default function UserPortal({ user }: UserProps) {
             Application Status:
             <span
               className={`ml-4 rounded-md py-1 px-2 text-center font-normal ${
-                application.status == "approved"
+                application.status === ApplicationStatus.APPROVED
                   ? "bg-green-500"
-                  : application.status == "rejected"
+                  : application.status === ApplicationStatus.REJECTED
                     ? "bg-red-600"
-                    : "bg-gray-500"
+                    : application.status === ApplicationStatus.WAITLISTED
+                      ? "bg-yellow-500"
+                      : "bg-gray-500"
               }`}>
               {application.status}
             </span>
@@ -78,7 +80,7 @@ export default function UserPortal({ user }: UserProps) {
         </div>
         <div className="hidden md:block"></div>
       </div>
-      {application.status == "approved" && (
+      {application.status == ApplicationStatus.APPROVED && (
         <>
           <Link href="/feed" className="blue-btn mb-10 mt-8 lg:mb-4">
             Continue to the Feed

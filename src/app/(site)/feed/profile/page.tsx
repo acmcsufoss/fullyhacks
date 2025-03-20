@@ -1,5 +1,5 @@
 import { getAuthSession } from "@/lib/auth";
-import { User } from "@/types/interface";
+import { ApplicationStatus } from "@/types/interface";
 import { prisma } from "db";
 import { redirect } from "next/navigation";
 import UserForm from "./_components/user-form";
@@ -16,7 +16,7 @@ async function getUser() {
   if (!user) {
     redirect("/portal");
   }
-  if (user?.application?.status !== "approved") {
+  if (user?.application?.status !== ApplicationStatus.APPROVED) {
     redirect("/apply");
   }
   return user;

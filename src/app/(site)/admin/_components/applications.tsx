@@ -10,6 +10,103 @@ interface ApplicationsProps {
   applications: ApplicationType[];
 }
 
+function PaginationBar({
+  paginate,
+  goToPrevious,
+  goToNext,
+  currentPage,
+  totalPages,
+  pageNumbers
+}: {
+  paginate: (pageNumber: number) => void;
+  goToPrevious: () => void;
+  goToNext: () => void;
+  currentPage: number;
+  totalPages: number;
+  pageNumbers: number[];
+}) {
+  return (
+    <div className="mt-4 flex justify-center">
+      <nav>
+        <ul className="flex list-none items-center gap-2 p-0">
+          <li>
+            <button
+              onClick={goToPrevious}
+              disabled={currentPage === 1}
+              className={`rounded bg-[#3f3865] px-4 py-2 text-white ${
+                currentPage === 1
+                  ? "cursor-not-allowed brightness-75"
+                  : "transition hover:brightness-110"
+              }`}>
+              Previous
+            </button>
+          </li>
+          {pageNumbers.map((number) => (
+            <li key={number}>
+              <button
+                onClick={() => paginate(number)}
+                className={`rounded bg-[#3f3865] px-4 py-2 ${
+                  currentPage === number
+                    ? "text-purple_300 brightness-150"
+                    : "text-white transition hover:brightness-110"
+                }`}>
+                {number}
+              </button>
+            </li>
+          ))}
+          <li>
+            <button
+              onClick={goToNext}
+              disabled={currentPage === totalPages}
+              className={`rounded bg-[#3f3865] px-4 py-2 text-white ${
+                currentPage === totalPages
+                  ? "cursor-not-allowed brightness-75"
+                  : "transition hover:brightness-110"
+              }`}>
+              Next
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  );
+}
+
+function ApplicationStats({
+  applicationsNumber,
+  classStats,
+  foodStats,
+  skillStats
+}: {
+  applicationsNumber: number;
+  classStats: React.ReactNode[];
+  foodStats: React.ReactNode[];
+  skillStats: React.ReactNode[];
+}) {
+  return (
+    <div className="stats stats-vertical my-8 bg-[#3f3865] shadow lg:stats-horizontal">
+      <div className="stat">
+        <div className="text- stat-title text-white">Total applications</div>
+        <div className="stat-value text-white">{applicationsNumber}</div>
+      </div>
+      <div className="stat flex-col justify-center">
+        <div className="stat-title text-white">Grad Year</div>
+        <div className="stat flex items-center p-0">{classStats}</div>
+      </div>
+      <div className="stat flex-col justify-center">
+        <div className="stat-title text-white">Food </div>
+        <div className="stat flex items-center p-0">{foodStats}</div>
+      </div>
+      <div className="stat flex-col justify-center">
+        <div className="stat-title text-white">
+          Skill (1: No Exp, 2: Beginner, 3: Intermediate, 4: Master)
+        </div>
+        <div className="stat flex items-center p-0">{skillStats}</div>
+      </div>
+    </div>
+  );
+}
+
 // Application Dashboard
 const Applications: React.FC<ApplicationsProps> = (props) => {
   const { applications } = props;
@@ -82,9 +179,10 @@ const Applications: React.FC<ApplicationsProps> = (props) => {
   };
 
   type GroupedData = Record<string, number>;
-  const classStat: [] = [];
-  const foodStat: [] = [];
-  const skillStat: [] = [];
+  const classStats: React.ReactNode[] = [];
+  const foodStats: React.ReactNode[] = [];
+  const skillStats: React.ReactNode[] = [];
+
   // Group By function to give the stats
   function groupBy(array: any, key: any): GroupedData {
     return array.reduce((result: GroupedData, currentValue: any) => {
@@ -96,27 +194,27 @@ const Applications: React.FC<ApplicationsProps> = (props) => {
       return result;
     }, {});
   }
-  //Stats
+
   const groupByClass = groupBy(filteredApplications, "class");
   const groupByFood = groupBy(filteredApplications, "food");
   const groupBySkill = groupBy(filteredApplications, "skillLevel");
 
-  const printData = (data: GroupedData, stat: any[]) => {
+  const printData = (data: GroupedData, stat: React.ReactNode[]) => {
     for (const key in data) {
       const percentage = Math.floor((100 * data[key]) / applicationsNumber);
       stat.push(
         <>
-          <div className="stat-title font-semibold">{key}:</div>
-          <div className="stat-value text-md">
+          <div className="stat-title font-semibold text-[#cdcdcd]">{key}:</div>
+          <div className="stat-value text-md text-gray-200">
             {data[key]} ({percentage}%)
           </div>
         </>
       );
     }
   };
-  printData(groupByClass, classStat);
-  printData(groupByFood, foodStat);
-  printData(groupBySkill, skillStat);
+  printData(groupByClass, classStats);
+  printData(groupByFood, foodStats);
+  printData(groupBySkill, skillStats);
 
   return (
     <div className="mt-2 flex flex-col">
@@ -132,7 +230,7 @@ const Applications: React.FC<ApplicationsProps> = (props) => {
       <select
         value={statusFilter}
         onChange={(e) => handleStatusChange(e)}
-        className="select my-4 max-w-xs bg-purple_300 text-purple_main md:w-[200px]">
+        className="select my-4 max-w-xs bg-[#3f3865] text-white md:w-[200px]">
         <option disabled selected>
           Filter by:
         </option>
@@ -142,30 +240,26 @@ const Applications: React.FC<ApplicationsProps> = (props) => {
         <option value="waitlisted">Waitlisted</option>
         <option value="submitted">Not Done</option>
       </select>
-      <p>Refresh page if you want the filter has the most recent update lol</p>
-      <div className="stats stats-vertical my-8 shadow lg:stats-horizontal">
-        <div className="stat">
-          <div className="stat-title">Total applications</div>
-          <div className="stat-value">{applicationsNumber}</div>
-        </div>
-        <div className="stat flex-col justify-center">
-          <div className="stat-title">Grad Year</div>
-          <div className="stat flex items-center p-0">{classStat}</div>
-        </div>
-        <div className="stat flex-col justify-center">
-          <div className="stat-title">Food </div>
-          <div className="stat flex items-center p-0">{foodStat}</div>
-        </div>
-        <div className="stat flex-col justify-center">
-          <div className="stat-title">
-            Skill (1: No Exp, 2: Beginner, 3: Intermediate, 4: Master)
-          </div>
-          <div className="stat flex items-center p-0">{skillStat}</div>
-        </div>
-      </div>
-      <div className="overflow-x-auto">
-        <table className="table w-full">
-          <thead>
+      <p className="text-white">
+        Tip: Refresh the page for the most up-to-date applicant information!
+      </p>
+      <ApplicationStats
+        applicationsNumber={applicationsNumber}
+        classStats={classStats}
+        foodStats={foodStats}
+        skillStats={skillStats}
+      />
+      <PaginationBar
+        paginate={paginate}
+        goToNext={goToNext}
+        goToPrevious={goToPrevious}
+        currentPage={currentPage}
+        pageNumbers={pageNumbers}
+        totalPages={totalPages}
+      />
+      <div className="mt-4 overflow-x-auto bg-[#342e55]">
+        <table className="table w-full text-white [&_td]:bg-[#342e55]">
+          <thead className="[&_th]:bg-[#302c44]">
             <tr>
               <th>#</th>
               <th>Name</th>
@@ -182,7 +276,7 @@ const Applications: React.FC<ApplicationsProps> = (props) => {
               <th>Action</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody className="[&_td]:bg-[#342e55]">
             {currentApplications.map((posts, idx) => (
               <Application
                 key={posts.id}
@@ -195,49 +289,14 @@ const Applications: React.FC<ApplicationsProps> = (props) => {
           </tbody>
         </table>
       </div>
-      <div className="mt-4 flex justify-center">
-        <nav>
-          <ul className="flex list-none items-center p-0">
-            <li>
-              <button
-                onClick={goToPrevious}
-                disabled={currentPage === 1}
-                className={`rounded border px-3 py-1 ${
-                  currentPage === 1
-                    ? "cursor-not-allowed bg-gray-200 text-gray-500"
-                    : "border-gray-300 bg-white text-gray-700 hover:bg-gray-100"
-                }`}>
-                Previous
-              </button>
-            </li>
-            {pageNumbers.map((number) => (
-              <li key={number} className="mx-1">
-                <button
-                  onClick={() => paginate(number)}
-                  className={`rounded border px-3 py-1 ${
-                    currentPage === number
-                      ? "border-purple_main bg-purple_300 text-purple_main"
-                      : "border-gray-300 bg-white text-gray-700 hover:bg-gray-100"
-                  }`}>
-                  {number}
-                </button>
-              </li>
-            ))}
-            <li>
-              <button
-                onClick={goToNext}
-                disabled={currentPage === totalPages}
-                className={`rounded border px-3 py-1 ${
-                  currentPage === totalPages
-                    ? "cursor-not-allowed bg-gray-200 text-gray-500"
-                    : "border-gray-300 bg-white text-gray-700 hover:bg-gray-100"
-                }`}>
-                Next
-              </button>
-            </li>
-          </ul>
-        </nav>
-      </div>{" "}
+      <PaginationBar
+        paginate={paginate}
+        goToNext={goToNext}
+        goToPrevious={goToPrevious}
+        currentPage={currentPage}
+        pageNumbers={pageNumbers}
+        totalPages={totalPages}
+      />
     </div>
   );
 };
