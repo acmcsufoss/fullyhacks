@@ -23,13 +23,15 @@ export default function AdminView({ applications }: { applications: any }) {
 
   return (
     <div>
-      <div className="flex justify-around space-x-1 rounded-xl bg-purple_300 p-2 text-purple_main">
+      <div className="flex justify-around space-x-1 rounded-xl bg-[#3f3865] p-4 text-white">
         {tabList.map((tab, idx) => {
           return (
             <p
               key={tab.id}
               className={`cursor-pointer ${
-                idx == currentIdx ? "font-bold underline" : ""
+                idx == currentIdx
+                  ? "font-bold underline underline-offset-2"
+                  : ""
               }`}
               onClick={() => {
                 setIdx(idx);

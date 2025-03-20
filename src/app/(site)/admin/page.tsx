@@ -28,13 +28,11 @@ export default async function AdminPage() {
   const { user, applications } = await getAdminData(session);
 
   return (
-    <section className=" ">
+    <section className="text-white">
       <AuthNavBar />
       <div className="mt-10 flex flex-col items-center">
-        <p className="text-xl font-semibold text-purple_main">
-          Welcome {user.name}
-        </p>
-        <div className="w-full max-w-[80%] px-2 py-16 sm:px-0">
+        <p className="text-xl font-semibold">Welcome {user.name}</p>
+        <div className="w-full max-w-[80%] px-2 py-16 text-black sm:px-0">
           <AdminView applications={applications} />
         </div>
       </div>
