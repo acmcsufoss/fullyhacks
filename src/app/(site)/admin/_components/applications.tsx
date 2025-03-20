@@ -165,9 +165,9 @@ const Applications: React.FC<ApplicationsProps> = (props) => {
           <div className="stat flex items-center p-0">{skillStat}</div>
         </div>
       </div>
-      <div className="overflow-x-auto">
-        <table className="table w-full text-white [&_*]:bg-[#342e55]">
-          <thead className="[&_*]:bg-[#302c44]">
+      <div className="overflow-x-auto bg-[#342e55]">
+        <table className="table w-full text-white [&_td]:bg-[#342e55] [&_th]:bg-[#342e55]">
+          <thead className="[&_th]:bg-[#302c44]">
             <tr>
               <th>#</th>
               <th>Name</th>

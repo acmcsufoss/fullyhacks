@@ -36,6 +36,7 @@ model Application {
   school         String
   approved       Boolean  @default(false)
   rejected       Boolean  @default(false)
+  waitlisted     Boolean  @default(false)
   skillLevel     Int
   submittedAt    DateTime @default(now())
   updatedAt      DateTime @updatedAt

@@ -27,14 +27,19 @@ export async function PUT(
     }
 
     const data = await request.json();
-    const { approve } = data;
+
+    const { status } = data;
+
+    if (typeof status !== "string") {
+      return NextResponse.json({ message: "" }, { status: 400 });
+    }
 
     const updatedApplication = await prisma.application.update({
       where: { id: params.id },
       data: {
-        approved: approve,
-        rejected: !approve,
-        status: approve ? "approved" : "rejected"
+        approved: status === "approve",
+        rejected: status === "rejected",
+        status: status ? "approved" : "rejected"
       }
     });
 

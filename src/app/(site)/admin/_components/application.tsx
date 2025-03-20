@@ -2,16 +2,23 @@ import { ApplicationType } from "@/types/interface";
 import axios from "axios";
 import React from "react";
 
+enum ApplicationUpdate {
+  APPROVE = "approve",
+  REJECT = "reject",
+  WAITLIST = "waitlist"
+}
+
 interface ApplicationProps {
   application: ApplicationType;
   idx: number;
   setLoading: React.Dispatch<React.SetStateAction<boolean>>;
   pushIdx: React.Dispatch<React.SetStateAction<string[]>>;
 }
-//For each row in the application dashboard
+
 export const Application: React.FC<ApplicationProps> = (props) => {
   const { application, idx, setLoading, pushIdx } = props;
-  const updateApplication = async (id: string, approved: boolean) => {
+
+  const updateApplication = async (id: string, approved: string) => {
     const data = {
       approve: approved
     };
@@ -19,6 +26,7 @@ export const Application: React.FC<ApplicationProps> = (props) => {
     await axios.put(`/api/application/${id}`, data);
     setLoading(false);
   };
+
   return (
     <tr
       key={application.id}
@@ -73,24 +81,32 @@ export const Application: React.FC<ApplicationProps> = (props) => {
             Rejected
           </button>
         ) : (
-          <>
+          <div className="flex flex-col gap-4">
             <button
               onClick={() => {
                 pushIdx((prev) => [...prev, application.id]);
-                updateApplication(application.id, true);
+                updateApplication(application.id, ApplicationUpdate.APPROVE);
               }}
-              className="my-8 rounded-lg bg-emerald-500 p-1 font-semibold hover:bg-emerald-700">
+              className="rounded-lg bg-emerald-500 p-1 font-semibold transition hover:bg-emerald-700">
               Approve
             </button>
             <button
               onClick={() => {
                 pushIdx((prev) => [...prev, application.id]);
-                updateApplication(application.id, false);
+                updateApplication(application.id, ApplicationUpdate.REJECT);
               }}
-              className="rounded-lg bg-red-500 p-1 font-semibold hover:bg-red-800">
+              className="rounded-lg bg-red-500 p-1 font-semibold transition hover:bg-red-800">
               Reject
             </button>
-          </>
+            <button
+              onClick={() => {
+                pushIdx((prev) => [...prev, application.id]);
+                updateApplication(application.id, ApplicationUpdate.WAITLIST);
+              }}
+              className="rounded-lg bg-yellow-500 p-1 font-semibold transition hover:bg-yellow-600">
+              Waitlist
+            </button>
+          </div>
         )}
       </td>
     </tr>
