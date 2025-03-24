@@ -8,7 +8,7 @@ interface ApplyAuthProps {
 
 const ApplyAuth: React.FC<ApplyAuthProps> = ({ children }) => {
   const openDateTs = "2025-02-14T12:00:00.000-08:00";
-  const applicationCloseDateTs = "2025-03-24T23:59:59.999-07:00";
+  const applicationCloseDateTs = "2025-03-31T23:59:59.999-07:00";
   const closeDateTs = "2025-04-13T23:59:59.999-07:00";
 
   const options = { timeZone: "America/Los_Angeles" };
