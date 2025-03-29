@@ -89,7 +89,7 @@ export default function UserForm() {
         {...register("bio")}
         name="bio"
         value={updatedProfile.bio}
-        className={`feed-form-input h-[300px] w-[min(700px,_95%)] rounded-md mb-[15px]${
+        className={`feed-form-input mb-[15px] h-[300px] w-full max-w-[700px] rounded-md ${
           errors.bio ? "error-form" : ""
         }`}
         onChange={handleInfoChange}
@@ -103,12 +103,12 @@ export default function UserForm() {
         {...register("discordId")}
         name="discordId"
         value={updatedProfile.discordId}
-        className={`feed-form-input mb-[15px] w-[min(700px,_95%)] rounded-md ${
+        className={`feed-form-input mb-[15px] w-full max-w-[700px] rounded-md ${
           errors.discordId ? "error-form" : ""
         }`}
         onChange={handleInfoChange}
         type="text"
-        placeholder="Fully #4567"
+        placeholder="Fullyhacker"
       />
       <p className="error-msg">{errors.discordId?.message}</p>
       <p className="text-white">
