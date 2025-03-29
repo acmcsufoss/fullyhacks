@@ -13,10 +13,7 @@
     @apply flex w-[min(300px,_90vw)] items-center justify-center gap-4 rounded-xl bg-[#5BA0BD] p-2 font-semibold text-white transition-opacity duration-300 ease-in-out hover:opacity-90 md:text-md;
   }
   .feed-popup {
-    @apply bg-purple_dark text-white [box-shadow:_0_0_10px_#E149A9];
-  }
-  .feed-form-input {
-    @apply w-[min(30rem,_100%)] border-2 border-[#1E2D79] bg-[#0E0E30] bg-opacity-70 p-4 outline-none focus:border-[#414f94] active:border-[#414f94];
+    @apply bg-[#201c33] text-white;
   }
   .form-label {
     @apply font-medium uppercase text-[#72D6E6] md:text-md;

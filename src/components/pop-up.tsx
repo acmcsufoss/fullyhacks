@@ -124,7 +124,7 @@ export function FeedPopUp() {
               </h3>
               <p className="py-4 font-normal">
                 Fill out these fields so other participants can see how cool you
-                are, it&apos;s a great chance to networking before the event,
+                are, it&apos;s a great chance to network before the event,
                 you&apos;ll be able to update these information in your profile
                 later.
               </p>
@@ -137,7 +137,7 @@ export function FeedPopUp() {
                   {...register("bio")}
                   name="bio"
                   onChange={(e) => setBio(e.target.value)}
-                  className={`form-input rounded-md bg-white text-black ${
+                  className={`form-input rounded-md ${
                     errors.bio ? "error-form" : ""
                   }`}
                   type="text"
@@ -148,12 +148,12 @@ export function FeedPopUp() {
                 <input
                   {...register("discord")}
                   name="discord"
-                  className={`form-input rounded-md bg-white text-black ${
+                  className={`form-input rounded-md ${
                     errors.discord ? "error-form" : ""
                   }`}
                   onChange={(e) => setDiscordId(e.target.value)}
                   type="text"
-                  placeholder="Fully #456"
+                  placeholder="Fullhacker"
                 />
                 <p className="error-msg">{errors.discord?.message}</p>
                 {isLoading ? (
