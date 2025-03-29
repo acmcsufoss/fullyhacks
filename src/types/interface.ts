@@ -152,7 +152,6 @@ export interface eventsType {
 export interface tracksType {
   id: string;
   name: string;
-  team?: number;
   icon?: JSX.Element;
   description: string;
 }

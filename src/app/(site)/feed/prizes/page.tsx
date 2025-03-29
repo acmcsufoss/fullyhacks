@@ -1,4 +1,4 @@
-import { mainCategory, subCategory } from "@/lib/data/prizes";
+import { mainCategory } from "@/lib/data/prizes";
 import { tracksType } from "@/types/interface";
 import { BsMusicPlayer } from "react-icons/bs";
 import { CgSmartphoneChip } from "react-icons/cg";
@@ -38,7 +38,7 @@ const tracks: tracksType[] = [
 
 function Card({ track }: { track: tracksType }) {
   return (
-    <div className="relative flex h-[494px] w-full max-w-[480px] cursor-pointer flex-col items-center rounded-[61.64px] bg-[#173162] p-6 shadow-xl duration-200 ease-in-out hover:bg-[rgb(52,11,103)] hover:text-white">
+    <div className="relative flex min-h-[480px] w-full max-w-[480px] flex-col items-center rounded-[2.5rem] bg-[#173162] p-6 shadow-xl duration-200 ease-in-out hover:text-white">
       <div className="absolute top-0 left-0 -translate-x-1/2 -translate-y-1/2">
         <img src="/assets/hex.svg" alt="hex" className="h-8 w-8" />
       </div>
@@ -70,7 +70,7 @@ function Card({ track }: { track: tracksType }) {
           <img src="/assets/circles.svg" alt="circles" />
         </div>
 
-        <p className="w-[355px] text-center text-lg font-bold text-white">
+        <p className="custom-text-shadow text-center text-lg font-bold text-[#72D6E6]">
           {track.name}
         </p>
 
@@ -79,15 +79,8 @@ function Card({ track }: { track: tracksType }) {
         </div>
       </div>
 
-      <div className="mt-6 flex h-[180px] w-[273px] flex-col items-center text-center">
-        {track.team && (
-          <p className="mb-4 font-normal leading-7 text-white">
-            Total: {track.team} team(s)
-          </p>
-        )}
-        <p className="font-audiowide text-[20px] font-[400] leading-[30px] text-white">
-          {track.description}
-        </p>
+      <div className="mt-6 flex flex-col items-center p-4 text-center">
+        <p className="font-audiowide text-md text-white">{track.description}</p>
       </div>
     </div>
   );
@@ -97,21 +90,19 @@ export default function Prizes() {
   return (
     <div>
       <h1 className="feed-title">Tracks & Prizes</h1>
-      <p className="custom-text-shadow font-audiowide text-[16px] leading-snug text-white sm:text-[18px] lg:text-[24px]">
+      <p className="custom-text-shadow mt-2 font-audiowide leading-snug text-white lg:text-lg">
         Find all details about tracks, prize categories here
       </p>
 
       <div className="mt-10">
         <div className="mb-4 flex items-center gap-4">
-          <p className="font-rubik text-[27px] font-[700] leading-[20px] text-[#72D6E6]">
-            TRACKS
-          </p>
+          <h2 className="text-3xl font-semibold text-[#72D6E6]">TRACKS</h2>
         </div>
-        <p className="font-audiowide text-white md:text-md">
+        <p className="mt-4 font-audiowide text-white md:text-md">
           Hackers have to build their projects around one of these 4 tracks
         </p>
       </div>
-      <div className="mt-10 grid grid-cols-1 gap-y-16 gap-x-0 sm:grid-cols-2 lg:grid-cols-2">
+      <div className="mt-10 grid grid-cols-1 items-center justify-center gap-x-8 gap-y-12 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2">
         {tracks.map((track: tracksType) => {
           return <Card key={track.id} track={track} />;
         })}
@@ -119,41 +110,26 @@ export default function Prizes() {
 
       <div className="mt-14">
         <div className="mb-8">
-          <p className="font-rubik text-[20px] font-[700] leading-[20px] text-[#72D6E6] md:text-[27px]">
-            Prizes
-          </p>
-          <p className="mt-4 font-audiowide text-[16px] leading-[22px] text-white md:text-[20px] md:leading-[30px]">
+          <h2 className="text-3xl font-semibold text-[#72D6E6]">PRIZES</h2>
+          <p className="mt-4 font-audiowide text-white md:text-md">
             Each team has to sign up for one prize category in order to be
             considered for the corresponding prize.
           </p>
         </div>
 
-        <div
-          className="relative mx-auto rounded-[20px] bg-[#173162] px-4 py-4 md:rounded-[61.64px]"
-          style={{ width: "100%", maxWidth: "1060px" }}>
-          <div className="grid h-full grid-cols-1 place-items-center gap-4 sm:grid-cols-2 md:gap-x-3 md:gap-y-2">
-            {mainCategory.slice(0, 4).map((prize: tracksType) => (
-              <div
-                key={prize.id}
-                className="flex flex-col items-center justify-center space-y-4 p-4 sm:p-6">
-                <p className="font-audiowide text-[20px] font-[400] text-[#72D6E6] md:text-[36px]">
-                  {prize.name}
-                </p>
-
-                <div
-                  className="w-full rounded-[10px] bg-[#C5C5C5] text-center md:rounded-[20px]"
-                  style={{
-                    maxWidth: "497px",
-                    height: "auto",
-                    padding: "1rem"
-                  }}>
-                  <p className="mt-4 px-2 text-sm font-normal md:px-4 md:text-base">
-                    {prize.description}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
+        <div className="flex w-full flex-wrap gap-4">
+          {mainCategory.map((prize: tracksType) => (
+            <div
+              key={prize.id}
+              className="flex min-h-[130px] flex-col items-center rounded-lg bg-[#173162] p-4">
+              <h3 className="custom-text-shadow font-audiowide text-md font-[400] text-[#72D6E6] md:text-lg">
+                {prize.name}
+              </h3>
+              <p className="mt-4 px-2 text-white md:text-md">
+                {prize.description}
+              </p>
+            </div>
+          ))}
         </div>
       </div>
     </div>

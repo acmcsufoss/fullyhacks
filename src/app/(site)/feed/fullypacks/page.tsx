@@ -95,14 +95,6 @@ const discordBot: fullyPacksType[] = [
   }
 ];
 
-const fullypacks: fullyPacksType[] = [
-  ...webDev,
-  ...backendDev,
-  ...mobileDev,
-  ...dataScience,
-  ...discordBot
-];
-
 // Helper function to group fullypacks by category
 const groupedFullypacks = {
   "Web Development": webDev,
