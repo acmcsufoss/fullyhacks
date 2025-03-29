@@ -170,7 +170,12 @@ export const FeedNavBar = () => {
         />
       </Link>
       <div className="text-md text-white">
-        <button onClick={() => signOut()}>Sign out</button>
+        <button
+          onClick={() => signOut()}
+          className="group relative py-1 text-md">
+          Sign out
+          <span className="absolute bottom-1 block h-0.5 w-0 bg-white transition-all duration-300 group-hover:w-full group-focus:w-full" />
+        </button>
       </div>
     </nav>
   );
@@ -296,14 +301,14 @@ export const FeedSideBar: React.FC = () => {
       </div>
 
       {/* Desktop View */}
-      <div className="hidden w-[250px] flex-shrink-0 text-sm font-semibold text-[#696969] md:block md:text-[1.125rem]">
+      <div className="hidden w-[250px] flex-shrink-0 text-sm font-semibold text-[#bdbdbd] md:block md:text-[1.125rem]">
         <ul className="flex flex-col gap-4 border-b-2 border-[#72d6e6] p-2">
           {feedItems.map((item) => {
             return (
               <Link
                 key={item.id}
                 href={item.href}
-                className={`flex w-full rounded-lg p-2 transition-colors duration-300 hover:text-white ${pathname === item.href || (item.name === "Home" && pathname.startsWith(item.href)) ? "text-white" : ""}`}>
+                className={`flex w-full rounded-lg p-2 transition-colors duration-300 hover:text-white ${pathname === item.href || (item.name === "Home" && pathname.startsWith(item.href)) ? "custom-text-shadow text-white" : ""}`}>
                 {pathname === item.href ||
                 (item.name === "Home" && pathname.startsWith(item.href)) ? (
                   <MdArrowRight size={28} color="#c2f2ff" />

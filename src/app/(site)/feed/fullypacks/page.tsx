@@ -121,7 +121,7 @@ export default function FullyPacks() {
         enabled: lightspeedEnabled,
         toggleLightspeed: () => setLightspeedEnabled((prev) => !prev)
       }}>
-      <section className="w-full max-w-7xl px-4 text-white sm:px-6 md:px-8">
+      <section className="w-full max-w-7xl text-white">
         <div className="feed-title">FULLYPACKS</div>
         <div className="w-full pb-8">
           <div className="custom-text-shadow md:text-md">
