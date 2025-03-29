@@ -61,12 +61,12 @@ const sponsorGifts: sponsorGiftType[] = [
 
 export default function Resources() {
   return (
-    <section className="mr-20 w-full max-w-3xl text-white">
+    <section className="w-full text-white">
       <div className="feed-title">Resources</div>
       <div className="custom-text-shadow border-b-2 border-[#72d6e6] pb-12 md:text-md">
         Tools to succeed beyond FullyHacks.
       </div>
-      <div className="my-8 grid justify-center gap-6 lg:grid-cols-1">
+      <div className="my-8 grid justify-center gap-6 lg:grid-cols-2">
         {sponsorGifts.map((gift: sponsorGiftType) => {
           return (
             <div

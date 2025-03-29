@@ -95,14 +95,6 @@ const discordBot: fullyPacksType[] = [
   }
 ];
 
-const fullypacks: fullyPacksType[] = [
-  ...webDev,
-  ...backendDev,
-  ...mobileDev,
-  ...dataScience,
-  ...discordBot
-];
-
 // Helper function to group fullypacks by category
 const groupedFullypacks = {
   "Web Development": webDev,
@@ -121,19 +113,12 @@ export default function FullyPacks() {
         enabled: lightspeedEnabled,
         toggleLightspeed: () => setLightspeedEnabled((prev) => !prev)
       }}>
-      <section className="w-full max-w-7xl px-4 text-white sm:px-6 md:px-8">
+      <section className="w-full max-w-7xl text-white">
         <div className="feed-title">FULLYPACKS</div>
         <div className="w-full pb-8">
           <div className="custom-text-shadow md:text-md">
-            beginner friendly templates for participants
+            Beginner friendly templates for participants
           </div>
-          {/* Effects Button
-            <button
-              onClick={() => setLightspeedEnabled((prev) => !prev)}
-              className="ml-4 rounded-lg bg-cyan px-4 py-2 text-purple_card hover:opacity-90">
-              {lightspeedEnabled ? "Disable" : "Enable"} Effects
-            </button>
-          */}
         </div>
 
         {/* Sections */}
@@ -142,11 +127,11 @@ export default function FullyPacks() {
             ([category, packs]) =>
               packs.length > 0 && (
                 <div key={category} className="space-y-8">
-                  <h2 className="mb-10 text-center text-3xl font-semibold text-purple_main">
+                  <h2 className="custom-text-shadow mb-10 text-3xl font-semibold text-white">
                     {category}
                   </h2>
 
-                  <div className="mx-auto grid grid-cols-1 items-start gap-8 sm:gap-12 md:grid-cols-2 lg:grid-cols-3">
+                  <div className="mx-auto grid grid-cols-1 grid-rows-1 gap-8 sm:grid-cols-2 md:grid-cols-1 md:gap-12 lg:grid-cols-2 xl:grid-cols-3">
                     {packs.map((fullypack) => (
                       <FullyPackCard key={fullypack.id} fullypack={fullypack} />
                     ))}

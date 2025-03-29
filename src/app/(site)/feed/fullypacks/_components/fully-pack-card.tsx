@@ -18,12 +18,12 @@ const FullyPackCard: React.FC<FullyPackProps> = ({ fullypack }) => {
   const particles = useMemo(() => generateParticles(PARTICLE_CONFIG.COUNT), []);
 
   return (
-    <div className="inline-block w-full max-w-md">
+    <div className="w-full max-w-md">
       <div
         className="group relative"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}>
-        <div className="relative flex w-full">
+        <div className="relative flex min-h-[300px] w-full md:min-h-[400px]">
           {/* Base card with glow effect */}
           <div className="relative flex w-full flex-col rounded-lg bg-purple_card p-4 transition-all duration-500 group-hover:shadow-[0_0_30px_rgba(70,200,229,0.3)]">
             {/* Only render particles if lightspeed is enabled */}
