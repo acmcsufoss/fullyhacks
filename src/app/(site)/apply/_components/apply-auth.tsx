@@ -15,9 +15,10 @@ const ApplyAuth: React.FC<ApplyAuthProps> = ({ children }) => {
 
   const openDate = new Date(openDateTs).toLocaleString("en-US", options);
   const closeDate = new Date(closeDateTs).toLocaleString("en-US", options);
-  const applicationCloseDate = new Date(
-    applicationCloseDateTs
-  ).toLocaleDateString("en-US", options);
+  const applicationCloseDate = new Date(applicationCloseDateTs).toLocaleString(
+    "en-US",
+    options
+  );
 
   const now = new Date().toLocaleString("en-US", options);
   const applicationOpen =
