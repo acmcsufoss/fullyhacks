@@ -23,7 +23,7 @@ const FullyPackCard: React.FC<FullyPackProps> = ({ fullypack }) => {
         className="group relative"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}>
-        <div className="relative flex min-h-[300px] w-full md:min-h-[400px]">
+        <div className="relative flex min-h-[300px] w-full md:min-h-[450px]">
           {/* Base card with glow effect */}
           <div className="relative flex w-full flex-col rounded-lg bg-purple_card p-4 transition-all duration-500 group-hover:shadow-[0_0_30px_rgba(70,200,229,0.3)]">
             {/* Only render particles if lightspeed is enabled */}
@@ -39,10 +39,13 @@ const FullyPackCard: React.FC<FullyPackProps> = ({ fullypack }) => {
             <p className="relative text-center text-lg font-bold leading-normal text-white transition-colors duration-300 group-hover:text-cyan">
               {fullypack.name}
             </p>
-
-            <div className="text-20 relative z-10 mb-4 mt-4 font-normal leading-7 text-white">
+            <div className="relative z-10 mb-4 mt-4 text-sm font-normal leading-7 text-white">
               {fullypack.description}
             </div>
+            <p>
+              <span className="font-semibold">Category: </span>
+              {fullypack.category}
+            </p>
 
             <div className="relative z-10 mt-auto flex gap-2">
               {fullypack.github && (

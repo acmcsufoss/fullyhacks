@@ -23,11 +23,13 @@ export const CardButton: React.FC<CardButtonProps> = ({
   `;
 
   return (
-    <button className={buttonClassName}>
-      <a href={href} target="_blank" rel="noopener noreferrer">
-        {label}
-      </a>
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={buttonClassName}>
+      <span>{label}</span>
       <Icon size={28} />
-    </button>
+    </a>
   );
 };

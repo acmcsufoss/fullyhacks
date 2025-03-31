@@ -134,6 +134,7 @@ export interface fullyPacksType {
   name: string;
   github?: string;
   link?: string;
+  category: string;
   description: string | JSX.Element;
 }
 
