@@ -2,12 +2,7 @@ import { eventLabel, eventsType } from "@/types/interface";
 import { TiStarFullOutline } from "react-icons/ti";
 import React, { useState } from "react";
 
-const useWindowSize = () => {
-  const [windowSize, setWindowSize] = useState({
-    width: window.innerWidth,
-    height: window.innerHeight
-  });
-};
+const multiplier = 120;
 
 interface CalendarProps {
   events: eventsType[];
@@ -39,7 +34,6 @@ interface EventProps {
 }
 
 const Event: React.FC<EventProps> = ({ event }) => {
-  const multiplier = 110;
   const width = (event.endTime - event.startTime) * multiplier;
   const left = event.startTime * multiplier;
   const top = event.row * 100;
@@ -47,8 +41,7 @@ const Event: React.FC<EventProps> = ({ event }) => {
     event: "#F5595C",
     workshop: "#7D22CC",
     food: "#FFA167",
-    ctf: "#00CC8E",
-    activity: "#6060C2"
+    activity: "#00CC8E"
   };
   const backgroundColor = eventColors[event.type] || "#6060C2";
 
@@ -93,40 +86,32 @@ export const EventLabel: React.FC<EventLableProps> = ({
 }) => {
   const eventLabels: eventLabel[] = [
     {
-      id: "e2",
+      id: "e1",
       name: "Main event",
       type: "event",
       borderStyle: "#F5595C",
       textStyle: "text-[#F5595C] font-rubik"
     },
     {
-      id: "e3",
+      id: "e2",
       name: "Workshops",
       type: "workshop",
       borderStyle: "#7D22CC",
       textStyle: "text-[#7D22CC] font-rubik"
     },
     {
-      id: "e4",
+      id: "e3",
       name: "Food",
       type: "food",
       borderStyle: "#FFA167",
       textStyle: "text-[#FFA167] font-rubik"
     },
-    // new type so event.type can be added as ctf
     {
-      id: "e5",
-      name: "CTF",
-      type: "ctf",
-      borderStyle: "#00CC8E",
-      textStyle: "text-[#00CC8E] font-rubik"
-    },
-    {
-      id: "e6",
+      id: "e4",
       name: "Activity",
       type: "activity",
-      borderStyle: "#6060C2",
-      textStyle: "text-[#6060C2] font-rubik"
+      borderStyle: "#00CC8E",
+      textStyle: "text-[#00CC8E] font-rubik"
     }
   ];
 
@@ -163,7 +148,6 @@ export const EventLabel: React.FC<EventLableProps> = ({
 
 const Calendar: React.FC<CalendarProps> = ({ events }) => {
   const [selectedFilter, setSelectedFilter] = useState<string>("all");
-  const multiplier = 110;
   const hoursArray = Array.from({ length: 30 }, (_, i) => {
     const hour = (i % 12) + 1;
     const period = i < 12 ? "pm" : i > 22 ? "pm" : "am";

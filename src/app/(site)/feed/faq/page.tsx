@@ -31,60 +31,67 @@ const faqs: FAQType[] = [
   },
   {
     id: "faq4",
+    question:
+      "Is it necessary to attend the opening ceremony or be present on the first day to participate?",
+    answer:
+      "While attending the entire event is preferred, it is not mandatory to attend the opening ceremony. However, you must be present for at least one of the two days to ensure you're checked in and have a project eligible for submission."
+  },
+  {
+    id: "faq5",
     question: "Where is the information room?",
     answer:
       "The information room is in CS110A. You can come here to check in or ask questions."
   },
   {
-    id: "faq5",
+    id: "faq6",
     question: "Where do I park my vehicle?",
     answer:
       "Parking at CSUF is free on Saturday and Sunday. We recommend Lot A, Eastside, for overnight parking."
   },
   {
-    id: "faq6",
+    id: "faq7",
     question: "Will there be food?",
     answer:
       "Yes! We will have pizza on the first day for dinner and pastries and fruit for breakfast on Sunday. Snacks and drinks will be available throughout the event."
   },
   {
-    id: "faq7",
+    id: "faq8",
     question: "Does FullyHacks have one theme or multiple themes?",
     answer:
       "FullyHacks has multiple themes, divided into four different tracks."
   },
   {
-    id: "faq8",
+    id: "faq9",
     question: "What should I bring?",
     answer:
       "A sleeping bag, laptop, chargers, snacks, drinks, hygiene items, and anything else you may need."
   },
   {
-    id: "faq9",
+    id: "faq10",
     question: "How do I prepare for the hackathon?",
     answer:
       "If you have no coding experience, check out our FullyPacks template. Make sure your coding environment is set up in advance, including version control (GitHub), an IDE (VSCode), and any necessary frameworks or runtimes (Python, Node.js, etc.)."
   },
   {
-    id: "faq10",
+    id: "faq11",
     question: "What are FullyPacks? Do I have to use them?",
     answer:
       "No, you're not required to use them. FullyPacks are beginner-friendly templates designed to help you start your project if you don't know where to begin."
   },
   {
-    id: "faq11",
+    id: "faq12",
     question: "How do teams work? What if I don't have a team?",
     answer:
       "Teams can have 1 to 4 members. If you don't have a team, we will host a team-forming event after the opening ceremony."
   },
   {
-    id: "faq12",
+    id: "faq13",
     question: "What if I have questions during the hackathon?",
     answer:
       "Please reach out to any of the mentors in your room or ask in our Discord forum channel."
   },
   {
-    id: "faq13",
+    id: "faq14",
     question: "How will the projects be judged?",
     answer:
       "There will be different prize categories announced on the day of the hackathon. You can sign up your project for a category during the team-forming event. Examples include 'Best Use of...' awards."

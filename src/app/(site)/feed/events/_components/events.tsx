@@ -7,11 +7,17 @@ import Calendar, { EventLabel } from "./calendar";
 
 export default function Events() {
   const [selectedFilter, setSelectedFilter] = useState<string>("all");
-
+  const eventColors: Record<string, string> = {
+    event: "#F5595C",
+    workshop: "#7D22CC",
+    food: "#FFA167",
+    activity: "#00CC8E"
+  };
   const filteredEvents =
     selectedFilter === "all"
       ? events
       : events.filter((event: eventsType) => event.type === selectedFilter);
+
   return (
     <>
       {/* Mobile View */}
@@ -31,22 +37,11 @@ export default function Events() {
               <div className="flex flex-row items-center justify-between">
                 <p className="text-lg font-bold">{event.name}</p>
                 <p
-                  className={`h-4 w-4 flex-shrink-0 rounded-full ${
-                    event.type == "event"
-                      ? "bg-[#F5595C]"
-                      : event.type == "workshop"
-                        ? "bg-[#7D22CC]"
-                        : event.type == "food"
-                          ? "bg-[#FFA167]"
-                          : event.type == "ctf"
-                            ? "bg-[#00CC8E]"
-                            : event.type == "activity"
-                              ? "bg-[#6060C2]"
-                              : "#F5595C"
-                  }`}></p>
+                  className="h-4 w-4 flex-shrink-0 rounded-full"
+                  style={{ backgroundColor: eventColors[event.type] }}></p>
               </div>
-              <p> {event.timeString}</p>
-              <p> {event.location} </p>
+              <p>{event.timeString}</p>
+              <p>{event.location}</p>
             </div>
           );
         })}

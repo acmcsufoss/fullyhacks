@@ -210,27 +210,22 @@ export const FeedSideBar: React.FC = () => {
       href: "/feed/events"
     },
     {
-      id: "feed07",
+      id: "feed04",
       name: "Tracks & Prizes",
       href: "/feed/prizes"
     },
     {
-      id: "feed04",
+      id: "feed05",
       name: "FullyPacks",
       href: "/feed/fullypacks"
     },
     {
-      id: "feed05",
-      name: "Resources",
-      href: "/feed/resources"
-    },
-    {
-      id: "feed08",
+      id: "feed06",
       name: "FAQs",
       href: "/feed/faq"
     },
     {
-      id: "feed06",
+      id: "feed07",
       name: "Profile",
       href: "/feed/profile"
     }
@@ -242,7 +237,7 @@ export const FeedSideBar: React.FC = () => {
       {!isOpen && (
         <AiOutlineMenu
           onClick={() => setOpen(true)}
-          className="absolute -top-[5.5rem] left-4 z-20 block cursor-pointer stroke-[2] text-[#72d6e6] md:hidden"
+          className="absolute -top-[5.865rem] left-4 z-20 block cursor-pointer stroke-[2] text-[#72d6e6] md:hidden"
           size={24}
         />
       )}

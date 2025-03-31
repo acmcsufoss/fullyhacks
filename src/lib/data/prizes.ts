@@ -34,6 +34,6 @@ export const mainCategory: tracksType[] = [
   {
     id: "cat7",
     name: "Organizer's Favorite",
-    description: "Smiski/Sonny Angel"
+    description: "Smiski"
   }
 ];
