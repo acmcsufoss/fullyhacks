@@ -7,14 +7,14 @@ export const events: eventsType[] = [
     type: "event",
     date: 0,
     timeString: "1:00 - 3:00",
-    location: "SGMH-1502",
+    location: "TBD",
     startTime: 0,
     endTime: 2,
     row: 0.5
   },
   {
     id: "event2",
-    name: "Opening ceremony",
+    name: "Opening Ceremony",
     type: "event",
     date: 0,
     timeString: "3:00 - 4:00",
@@ -24,114 +24,114 @@ export const events: eventsType[] = [
     row: 1.5
   },
   {
+    id: "event9",
+    name: "Campus Tour",
+    type: "event",
+    date: 0,
+    timeString: "4:00 - 4:30",
+    location: "TBD",
+    startTime: 3.0,
+    endTime: 4.0,
+    row: 4.5
+  },
+  {
     id: "event4",
     name: "Team Forming",
     type: "event",
     date: 0,
     timeString: "4:10 - 5:30",
-    location: "ECS QUAD",
+    location: "TBD",
     startTime: 3.1,
     endTime: 4.5,
     row: 2
-  },
-  {
-    id: "event9",
-    name: "Team Formation (Boushra)",
-    type: "event",
-    date: 0,
-    timeString: "4:40",
-    location: "ECS Quad",
-    startTime: 3.6,
-    endTime: 4.6,
-    row: 4.5
   },
   {
     id: "event3",
     name: "FULLYHACKS BEGINS",
     type: "event",
     date: 0,
-    timeString: "5:00",
-    location: "CS102A, 102B, 104, 110B, 200, 300",
-    startTime: 4,
-    endTime: 5,
+    timeString: "4:00",
+    location: "TBD",
+    startTime: 3,
+    endTime: 4,
     row: 0.5
   },
   {
     id: "workshop1",
-    name: "Postman (Lillian)",
+    name: "Intro to SvelteKit (Tomas)",
     type: "workshop",
     date: 0,
     timeString: "6:00 - 7:00",
-    location: "CS-104",
+    location: "TBD",
     startTime: 5,
     endTime: 6,
     row: 2.5
   },
   {
     id: "workshop2",
-    name: "Svelte Frontend (Diamond)",
+    name: "Notion for Developers (Mon)",
     type: "workshop",
     timeString: "6:00 - 7:00",
-    location: "CS-300",
+    location: "TBD",
     date: 0,
     startTime: 5,
     endTime: 6,
-    row: 3.6
+    row: 3.8
   },
   {
     id: "food1",
     name: "Dinner",
     type: "food",
     date: 0,
-    timeString: "6:00 - 8:30",
-    location: "CS-104",
-    startTime: 5,
-    endTime: 7.5,
-    row: 1.5
+    timeString: "5:30 - 7:30",
+    location: "TBD",
+    startTime: 4.5,
+    endTime: 6.5,
+    row: 1.2
   },
   {
     id: "workshop3",
-    name: "Android Development (Emily)",
+    name: "Intro to AWS (Daniel)",
+    type: "workshop",
+    timeString: "7:00 - 8:00",
+    location: "TBD",
+    date: 0,
+    startTime: 6,
+    endTime: 7,
+    row: 6.0
+  },
+  {
+    id: "workshop4",
+    name: "Intro to Python (Owen)",
     type: "workshop",
     timeString: "8:00 - 9:00",
-    location: "CS-104",
+    location: "TBD",
     date: 0,
     startTime: 7,
     endTime: 8,
     row: 4.5
   },
   {
-    id: "workshop4",
-    name: "Guide to your first internship (Daniel)",
+    id: "workshop5",
+    name: "Integrating AI Into Projects (Ryan)",
     type: "workshop",
     timeString: "8:00 - 9:00",
-    location: "CS-300",
+    location: "TBD",
     date: 0,
     startTime: 7,
     endTime: 8,
-    row: 5.75
-  },
-  {
-    id: "workshop41",
-    name: "IOS Development with SwiftUI (Daniel)",
-    type: "workshop",
-    timeString: "9:00 - 10:00",
-    location: "CS-300",
-    date: 0,
-    startTime: 8,
-    endTime: 9,
-    row: 6.5
+    row: 3
   },
   {
     id: "activity1",
-    name: "Blooket Social (David)",
+    name: "Boiler Set (Patrick)",
     type: "activity",
     date: 0,
-    timeString: "9:00 - 10:00",
-    location: "CS-104",
-    startTime: 8,
-    endTime: 9,
-    row: 1.5
+    timeString: "12:00 - 1:00",
+    location: "TBD",
+    startTime: 11,
+    endTime: 12,
+    row: 1.7
   },
   {
     id: "event11",
@@ -145,74 +145,19 @@ export const events: eventsType[] = [
     row: 0.5
   },
   {
-    id: "workshop5",
-    name: "From Concept to Project (Kyle)",
-    type: "workshop",
-    date: 0,
-    timeString: "10:00 - 11:00",
-    location: "CS-104",
-    startTime: 9,
-    endTime: 10,
-    row: 2.5
-  },
-  {
-    id: "workshop6",
-    name: "Intro to Python (Pillow, Joel)",
-    type: "workshop",
-    date: 0,
-    timeString: "10:00 - 11:00",
-    location: "CS-300",
-    startTime: 9,
-    endTime: 10,
-    row: 4.13
-  },
-  {
     id: "event12",
     name: "Sleeping Room Open",
     type: "event",
     date: 0,
     timeString: "11:30",
-    location: "CS110B, CS209",
+    location: "TBD",
     startTime: 10.5,
     endTime: 11.5,
     row: 0.5
   },
   {
-    id: "workshop7",
-    name: "Build web with FastAPI + HTMX",
-    type: "workshop",
-    date: 0,
-    timeString: "12:00 - 1:00",
-    location: "CS-102A",
-    startTime: 11,
-    endTime: 12,
-    row: 5.75
-  },
-  {
-    id: "workshop8",
-    name: "SQLite Database (Diamond)",
-    type: "workshop",
-    date: 0,
-    timeString: "12:00 - 1:00",
-    location: "CS-102B",
-    startTime: 11,
-    endTime: 12,
-    row: 4.5
-  },
-  {
-    id: "activity2",
-    name: "Movie Night",
-    type: "activity",
-    date: 0,
-    timeString: "1:00",
-    location: "CS-110B",
-    startTime: 12,
-    endTime: 13,
-    row: 1.85
-  },
-  {
     id: "activity3",
-    name: "Watching Sunrise (Boushra)",
+    name: "Watching Sunrise (Sama)",
     type: "activity",
     date: 1,
     timeString: "6:00",
@@ -226,33 +171,22 @@ export const events: eventsType[] = [
     name: "Breakfast",
     type: "food",
     date: 1,
-    timeString: "9:00 - 10:00",
-    location: "CS-104",
+    timeString: "9:00 - 10:30",
+    location: "TBD",
     startTime: 20,
-    endTime: 21,
+    endTime: 21.5,
     row: 2.5
-  },
-  {
-    id: "event5",
-    name: "Treasure Hunt (Boushra & Sama)",
-    type: "event",
-    date: 1,
-    timeString: "10:00 - 12:00",
-    location: "ECS Quad",
-    startTime: 21,
-    endTime: 23,
-    row: 1
   },
   {
     id: "event13",
     name: "Lunch",
     type: "food",
     date: 1,
-    timeString: "12:00 - 1:30",
-    location: "CS-104",
+    timeString: "12:00 - 2:00",
+    location: "TBD",
     startTime: 23,
     endTime: 24.5,
-    row: 2.5
+    row: 3
   },
   {
     id: "event6",
@@ -260,7 +194,7 @@ export const events: eventsType[] = [
     type: "event",
     date: 1,
     timeString: "4:00",
-    location: "",
+    location: "TBD",
     startTime: 27,
     endTime: 28,
     row: 0.5
@@ -271,31 +205,20 @@ export const events: eventsType[] = [
     type: "event",
     date: 1,
     timeString: "4:00 - 6:00",
-    location: "CS-104",
+    location: "TBD",
     startTime: 27,
     endTime: 29,
-    row: 1.45
+    row: 1.7
   },
   {
     id: "event8",
-    name: "Closing ceremony & Announce winners",
+    name: "Closing ceremony & Announce Winners",
     type: "event",
     date: 1,
-    timeString: "6:00",
+    timeString: "6:15",
     location: "SGMH-1502",
     startTime: 29,
     endTime: 30,
-    row: 2
-  },
-  {
-    id: "hackctf1",
-    name: "CTF test",
-    type: "ctf",
-    date: 1,
-    timeString: "1:00 - 4:00",
-    location: "CS-104",
-    startTime: 12,
-    endTime: 15,
-    row: 3.5
+    row: 2.5
   }
 ];
