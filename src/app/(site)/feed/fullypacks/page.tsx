@@ -1,5 +1,5 @@
 "use client";
-import { fullyPacksType } from "@/types/interface";
+import { FullypackType } from "@/types/interface";
 import { useState } from "react";
 import FullyPackCard from "./_components/fully-pack-card";
 import { LightspeedContext } from "./_components/context";
@@ -33,7 +33,7 @@ const reactNativeDescription = (
   </>
 );
 
-const fullyPacks: fullyPacksType[] = [
+const fullyPacks: FullypackType[] = [
   {
     id: "web01",
     name: "Flask + Vercel",
@@ -79,17 +79,6 @@ const fullyPacks: fullyPacksType[] = [
     description:
       "This is a simple Data Science project analyzing a universities dataset using Google Colab, Python, Pandas, Matplotlib",
     category: "Data Science"
-  }
-];
-
-const discordBot: fullyPacksType[] = [
-  {
-    id: "bot01",
-    name: "Discord Bot Python",
-    github: "https://github.com/acmcsufoss/fullypack_discord_python",
-    description:
-      "Discord.py is a Python library for building Discord bots. It provides an easy-to-use interface for interacting with the Discord API, allowing developers to create bots that can perform a wide range of tasks, such as moderating channels, automating tasks, and responding to user commands.",
-    category: "Discord Bots"
   }
 ];
 

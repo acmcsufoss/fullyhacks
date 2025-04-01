@@ -1,11 +1,11 @@
 import { mainCategory } from "@/lib/data/prizes";
-import { tracksType } from "@/types/interface";
+import { TrackType } from "@/types/interface";
 import { BsMusicPlayer } from "react-icons/bs";
 import { CgSmartphoneChip } from "react-icons/cg";
 import { MdOutlineRecycling } from "react-icons/md";
 import { TbAccessible } from "react-icons/tb";
 
-const tracks: tracksType[] = [
+const tracks: TrackType[] = [
   {
     id: "track1",
     name: "Entertainment",
@@ -36,7 +36,7 @@ const tracks: tracksType[] = [
   }
 ];
 
-function Card({ track }: { track: tracksType }) {
+function Card({ track }: { track: TrackType }) {
   return (
     <div className="relative flex min-h-[480px] w-full max-w-[480px] flex-col items-center rounded-[2.5rem] bg-[#173162] p-6 shadow-xl duration-200 ease-in-out hover:text-white">
       <div className="absolute top-0 left-0 -translate-x-1/2 -translate-y-1/2">
@@ -103,7 +103,7 @@ export default function Prizes() {
         </p>
       </div>
       <div className="mt-10 grid grid-cols-1 items-center justify-center gap-x-8 gap-y-12 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2">
-        {tracks.map((track: tracksType) => {
+        {tracks.map((track: TrackType) => {
           return <Card key={track.id} track={track} />;
         })}
       </div>
@@ -118,7 +118,7 @@ export default function Prizes() {
         </div>
 
         <div className="flex w-full flex-wrap gap-4">
-          {mainCategory.map((prize: tracksType) => (
+          {mainCategory.map((prize: TrackType) => (
             <div
               key={prize.id}
               className="flex min-h-[130px] flex-col items-center rounded-lg bg-[#173162] p-4">

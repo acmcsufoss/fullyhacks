@@ -1,6 +1,6 @@
-import { eventsType } from "@/types/interface";
+import { EventType } from "@/types/interface";
 
-export const events: eventsType[] = [
+export const events: EventType[] = [
   {
     id: "event1",
     name: "Check-in",

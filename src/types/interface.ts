@@ -88,7 +88,7 @@ export enum ApplicationStatus {
   WAITLISTED = "waitlisted"
 }
 
-export interface feedUsers {
+export interface FeedUserType {
   id: string;
   name: string;
   isAdmin: boolean;
@@ -99,7 +99,7 @@ export interface feedUsers {
   application: ApplicationType;
 }
 
-export interface announcementsType {
+export interface AnnouncementType {
   id: string;
   title: string;
   content: string;
@@ -122,14 +122,7 @@ export interface User {
   application?: ApplicationType;
 }
 
-export interface sponsorGiftType {
-  id: string;
-  company: string;
-  content: string;
-  access: string | JSX.Element;
-}
-
-export interface fullyPacksType {
+export interface FullypackType {
   id: string;
   name: string;
   github?: string;
@@ -138,7 +131,7 @@ export interface fullyPacksType {
   description: string | JSX.Element;
 }
 
-export interface eventsType {
+export interface EventType {
   id: string;
   name: string;
   date: number;
@@ -150,7 +143,7 @@ export interface eventsType {
   type: string;
 }
 
-export interface tracksType {
+export interface TrackType {
   id: string;
   name: string;
   icon?: JSX.Element;
@@ -159,12 +152,4 @@ export interface tracksType {
 
 export interface University {
   institution: string;
-}
-
-export interface eventLabel {
-  id: string;
-  name: string;
-  type: string;
-  borderStyle: string;
-  textStyle: string;
 }

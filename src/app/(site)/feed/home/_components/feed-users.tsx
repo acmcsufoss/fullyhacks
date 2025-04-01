@@ -1,6 +1,6 @@
 "use client";
 
-import { feedUsers } from "@/types/interface";
+import { FeedUserType } from "@/types/interface";
 import { useState } from "react";
 import { BsDiscord, BsGithub } from "react-icons/bs";
 
@@ -14,11 +14,15 @@ function getUppercaseLetters(str: string) {
   return result;
 }
 
-export default function FeedUsers({ feedUsers }: { feedUsers: feedUsers[] }) {
+export default function FeedUsers({
+  feedUsers
+}: {
+  feedUsers: FeedUserType[];
+}) {
   const [isOpen, setOpen] = useState(false);
   return (
     <div className="mt-8 flex flex-col gap-4">
-      {feedUsers.map((user: feedUsers) => {
+      {feedUsers.map((user) => {
         return (
           <div
             key={user.id}

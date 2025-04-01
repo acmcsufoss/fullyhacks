@@ -1,12 +1,12 @@
 "use client";
 
-import { announcementsType } from "@/types/interface";
+import { AnnouncementType } from "@/types/interface";
 import Timeago from "react-timeago";
 
 export default function Announcement({
   announcement
 }: {
-  announcement: announcementsType;
+  announcement: AnnouncementType;
 }) {
   return (
     <div className="relative my-10 rounded-xl bg-purple_card p-4 font-audiowide text-white">

@@ -1,7 +1,7 @@
 "use client";
 
 import { events } from "@/lib/data/events";
-import { eventsType } from "@/types/interface";
+import { EventType } from "@/types/interface";
 import { useState } from "react";
 import Calendar, { EventLabel } from "./calendar";
 
@@ -16,7 +16,7 @@ export default function Events() {
   const filteredEvents =
     selectedFilter === "all"
       ? events
-      : events.filter((event: eventsType) => event.type === selectedFilter);
+      : events.filter((event: EventType) => event.type === selectedFilter);
 
   return (
     <>
@@ -29,7 +29,7 @@ export default function Events() {
             setSelectedFilter={setSelectedFilter}
           />
         </div>
-        {filteredEvents.map((event: eventsType) => {
+        {filteredEvents.map((event: EventType) => {
           return (
             <div
               key={event.id}

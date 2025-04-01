@@ -1,4 +1,4 @@
-import { feedUsers } from "@/types/interface";
+import { FeedUserType } from "@/types/interface";
 import { prisma } from "db";
 import FeedUsers from "../_components/feed-users";
 import { notFound } from "next/navigation";
@@ -13,7 +13,7 @@ const PAGE_SIZE = 10;
 
 async function getFeedUsers(
   pageNumber: number
-): Promise<{ feedUsers: feedUsers[]; totalFeedUsers: number }> {
+): Promise<{ feedUsers: FeedUserType[]; totalFeedUsers: number }> {
   const skip = (pageNumber - 1) * PAGE_SIZE;
 
   const totalFeedUsers = await prisma.application.count({

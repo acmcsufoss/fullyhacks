@@ -1,6 +1,6 @@
 "use client";
 
-import { fullyPacksType } from "@/types/interface";
+import { FullypackType } from "@/types/interface";
 import React, { useState, useMemo } from "react";
 import { Particle } from "./particle";
 import { CardButton } from "./card-button";
@@ -9,7 +9,7 @@ import { generateParticles } from "./utils/particle-utils";
 import { LightspeedContext } from "./context";
 
 interface FullyPackProps {
-  fullypack: fullyPacksType;
+  fullypack: FullypackType;
 }
 
 const FullyPackCard: React.FC<FullyPackProps> = ({ fullypack }) => {

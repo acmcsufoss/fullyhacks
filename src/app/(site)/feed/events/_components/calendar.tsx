@@ -1,12 +1,20 @@
-import { eventLabel, eventsType } from "@/types/interface";
+import { EventType } from "@/types/interface";
 import { TiStarFullOutline } from "react-icons/ti";
 import React, { useState } from "react";
+
+interface EventLabel {
+  id: string;
+  name: string;
+  type: string;
+  borderStyle: string;
+  textStyle: string;
+}
 
 const multiplier = 120;
 
 interface CalendarProps {
-  events: eventsType[];
-  filteredEvent: eventsType[];
+  events: EventType[];
+  filteredEvent: EventType[];
   setFilteredEvent?: any;
 }
 
@@ -30,7 +38,7 @@ const TimeStamp: React.FC<TimeProps> = (props) => {
 };
 
 interface EventProps {
-  event: eventsType;
+  event: EventType;
 }
 
 const Event: React.FC<EventProps> = ({ event }) => {
@@ -77,14 +85,14 @@ const Event: React.FC<EventProps> = ({ event }) => {
 };
 interface EventLableProps {
   selectedFilter: string;
-  events?: eventsType[];
+  events?: EventType[];
   setSelectedFilter: (filter: string) => void;
 }
 export const EventLabel: React.FC<EventLableProps> = ({
   selectedFilter,
   setSelectedFilter
 }) => {
-  const eventLabels: eventLabel[] = [
+  const eventLabels: EventLabel[] = [
     {
       id: "e1",
       name: "Main event",
@@ -125,7 +133,7 @@ export const EventLabel: React.FC<EventLableProps> = ({
 
   return (
     <>
-      {eventLabels.map((event: eventLabel) => {
+      {eventLabels.map((event) => {
         return (
           <div
             key={event.id}
@@ -206,7 +214,7 @@ const Calendar: React.FC<CalendarProps> = ({ events }) => {
             ))}
 
             {/* Render Events */}
-            {events.map((event: eventsType) => {
+            {events.map((event: EventType) => {
               const eventOpacity =
                 selectedFilter === "all" || event.type === selectedFilter
                   ? 1

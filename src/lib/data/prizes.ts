@@ -1,6 +1,6 @@
-import { tracksType } from "@/types/interface";
+import { TrackType } from "@/types/interface";
 
-export const mainCategory: tracksType[] = [
+export const mainCategory: TrackType[] = [
   {
     id: "cat1",
     name: "Best Beginner Project",

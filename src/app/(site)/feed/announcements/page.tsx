@@ -1,5 +1,5 @@
 import { prisma } from "db";
-import { announcementsType } from "@/types/interface";
+import { AnnouncementType } from "@/types/interface";
 import Announcement from "./_components/announcement";
 
 async function getAnnouncements() {
@@ -12,14 +12,14 @@ async function getAnnouncements() {
 }
 
 export default async function AnnouncementsPage() {
-  const announcements: announcementsType[] = await getAnnouncements();
+  const announcements: AnnouncementType[] = await getAnnouncements();
   return (
     <div>
       <p className="feed-title">Announcements</p>
       <p className="custom-text-shadow font-audiowide text-white md:text-md">
         Official announcements from the FullyHacks team
       </p>
-      {announcements.map((announcement: announcementsType) => {
+      {announcements.map((announcement: AnnouncementType) => {
         return (
           <Announcement key={announcement.id} announcement={announcement} />
         );
