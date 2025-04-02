@@ -15,6 +15,9 @@
   .feed-popup {
     @apply bg-[#201c33] text-white;
   }
+  .feed-form-input {
+    @apply w-[min(30rem,_100%)] border-2 border-[#1E2D79] bg-[#0E0E30] bg-opacity-70 p-4 outline-none focus:border-[#414f94] active:border-[#414f94];
+  }
   .form-label {
     @apply font-medium uppercase text-[#72D6E6] md:text-md;
   }
