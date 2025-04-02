@@ -4,6 +4,7 @@ import { authOptions } from "./auth";
 import { prisma } from "db";
 import { validate } from "@/middleware/validate";
 import { applicationSchema } from "@/schemas/application";
+import { tsOptions, openDate, closeDate } from "./dates";
 
 async function handleApplication(
   data: any,
@@ -18,6 +19,19 @@ async function handleApplication(
   if (!data.agree) {
     return NextResponse.json(
       { message: "Must agree before submit" },
+      { status: 403 }
+    );
+  }
+
+  const now = new Date().toLocaleString("en-US", tsOptions);
+  const applicationOpen = now >= openDate && now <= closeDate;
+
+  if (
+    !applicationOpen &&
+    process.env.NEXT_PUBLIC_TEST_APPS?.toLowerCase() !== "true"
+  ) {
+    return NextResponse.json(
+      { message: "Applications are not open at this time." },
       { status: 403 }
     );
   }

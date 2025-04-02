@@ -1,29 +1,16 @@
 "use client";
 
 import React from "react";
+import { tsOptions, openDate, closeDate, endDate } from "@/lib/dates";
 
 interface ApplyAuthProps {
   children?: React.ReactNode;
 }
 
 const ApplyAuth: React.FC<ApplyAuthProps> = ({ children }) => {
-  const openDateTs = "2025-02-14T12:00:00.000-08:00";
-  const applicationCloseDateTs = "2025-03-31T23:59:59.999-07:00";
-  const closeDateTs = "2025-04-13T23:59:59.999-07:00";
-
-  const options = { timeZone: "America/Los_Angeles" };
-
-  const openDate = new Date(openDateTs).toLocaleString("en-US", options);
-  const closeDate = new Date(closeDateTs).toLocaleString("en-US", options);
-  const applicationCloseDate = new Date(applicationCloseDateTs).toLocaleString(
-    "en-US",
-    options
-  );
-
-  const now = new Date().toLocaleString("en-US", options);
+  const now = new Date().toLocaleString("en-US", tsOptions);
   const applicationOpen =
-    new Date(now) >= new Date(openDate) &&
-    new Date(now) <= new Date(applicationCloseDate);
+    new Date(now) >= new Date(openDate) && new Date(now) <= new Date(closeDate);
 
   if (
     applicationOpen ||
@@ -38,7 +25,7 @@ const ApplyAuth: React.FC<ApplyAuthProps> = ({ children }) => {
         <div className="custom-text-shadow z-10 flex flex-col items-center gap-12 text-center">
           <p>Applications for FullyHacks 2025 will open soon!</p>
         </div>
-      ) : new Date(now) >= new Date(closeDate) ? (
+      ) : new Date(now) >= new Date(endDate) ? (
         <p className="custom-text-shadow z-10">
           FullyHacks 2025 has ended, we&apos;ll see you next year 🐘.
         </p>
