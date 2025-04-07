@@ -11,7 +11,8 @@ export default function Events() {
     event: "#F5595C",
     workshop: "#7D22CC",
     food: "#FFA167",
-    activity: "#00CC8E"
+    activity: "#00CC8E",
+    mentorship: "#6060C2"
   };
   const filteredEvents =
     selectedFilter === "all"

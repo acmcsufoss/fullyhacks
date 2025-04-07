@@ -140,7 +140,7 @@ export interface EventType {
   location: string;
   endTime: number;
   row: number;
-  type: string;
+  type: "event" | "workshop" | "food" | "activity" | "mentorship";
 }
 
 export interface TrackType {

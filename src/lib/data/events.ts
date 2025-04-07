@@ -57,26 +57,26 @@ export const events: EventType[] = [
     row: 0.5
   },
   {
-    id: "workshop1",
-    name: "Intro to SvelteKit (Tomas)",
-    type: "workshop",
+    id: "mentorship1",
+    name: "Mentorship",
+    type: "mentorship",
     date: 0,
-    timeString: "6:00 - 7:00 PM",
+    timeString: "5:00 - 11:00 PM",
     location: "TBD",
-    startTime: 5,
-    endTime: 6,
-    row: 2.5
+    startTime: 4,
+    endTime: 7,
+    row: 6.5
   },
   {
-    id: "workshop2",
-    name: "Notion for Developers (Mon)",
-    type: "workshop",
-    timeString: "6:00 - 7:00 PM",
-    location: "TBD",
+    id: "mentorship2",
+    name: "Mentorship",
+    type: "mentorship",
     date: 0,
-    startTime: 5,
-    endTime: 6,
-    row: 3.8
+    timeString: "5:00 - 11:00 PM",
+    location: "TBD",
+    startTime: 7,
+    endTime: 10,
+    row: 6.5
   },
   {
     id: "food1",
@@ -90,6 +90,28 @@ export const events: EventType[] = [
     row: 1.2
   },
   {
+    id: "workshop1",
+    name: "Intro to SvelteKit (Tomas)",
+    type: "workshop",
+    date: 0,
+    timeString: "6:00 - 7:00 PM",
+    location: "TBD",
+    startTime: 5,
+    endTime: 6,
+    row: 2.5
+  },
+  {
+    id: "workshop2",
+    name: "Notion 101: A Beginner's Guide (Mon)",
+    type: "workshop",
+    timeString: "6:00 - 7:00 PM",
+    location: "TBD",
+    date: 0,
+    startTime: 5,
+    endTime: 6,
+    row: 3.8
+  },
+  {
     id: "workshop3",
     name: "Intro to AWS (Daniel)",
     type: "workshop",
@@ -98,7 +120,7 @@ export const events: EventType[] = [
     date: 0,
     startTime: 6,
     endTime: 7,
-    row: 6.0
+    row: 5.2
   },
   {
     id: "workshop4",
@@ -109,7 +131,7 @@ export const events: EventType[] = [
     date: 0,
     startTime: 7,
     endTime: 8,
-    row: 4.5
+    row: 3.8
   },
   {
     id: "workshop5",
@@ -120,7 +142,7 @@ export const events: EventType[] = [
     date: 0,
     startTime: 7,
     endTime: 8,
-    row: 3
+    row: 2.5
   },
   {
     id: "event11",
@@ -176,6 +198,28 @@ export const events: EventType[] = [
     startTime: 20,
     endTime: 21.5,
     row: 2.5
+  },
+  {
+    id: "mentorship3",
+    name: "Mentorship",
+    type: "mentorship",
+    date: 1,
+    timeString: "9:00 AM - 3:00 PM",
+    location: "TBD",
+    startTime: 20,
+    endTime: 23,
+    row: 5.0
+  },
+  {
+    id: "mentorship4",
+    name: "Mentorship",
+    type: "mentorship",
+    date: 0,
+    timeString: "9:00 AM - 3:00 PM",
+    location: "TBD",
+    startTime: 23,
+    endTime: 26,
+    row: 5.0
   },
   {
     id: "event13",

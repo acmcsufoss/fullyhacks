@@ -95,7 +95,7 @@ export const EventLabel: React.FC<EventLableProps> = ({
   const eventLabels: EventLabel[] = [
     {
       id: "e1",
-      name: "Main event",
+      name: "Main Event",
       type: "event",
       borderStyle: "#F5595C",
       textStyle: "text-[#F5595C] font-rubik"
@@ -120,6 +120,13 @@ export const EventLabel: React.FC<EventLableProps> = ({
       type: "activity",
       borderStyle: "#00CC8E",
       textStyle: "text-[#00CC8E] font-rubik"
+    },
+    {
+      id: "e5",
+      name: "Mentorship",
+      type: "mentorship",
+      borderStyle: "#6060C2",
+      textStyle: "text-[#6060C2] font-rubik"
     }
   ];
 
