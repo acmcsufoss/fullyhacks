@@ -427,21 +427,12 @@ export const team: TeamType[] = [
         textBelow: true
       },
       {
-        id: "operations22",
-        name: "Amy",
-        image: "",
-        role: "Operations Officer",
-        href: "",
-        vertex: { x: 720, y: 490 },
-        textBelow: true
-      },
-      {
         id: "operations23",
         name: "Brianna",
         image: "",
         role: "Operations Officer",
         href: "",
-        vertex: { x: 400, y: 620 },
+        vertex: { x: 720, y: 490 },
         textBelow: true
       },
       {
@@ -468,7 +459,7 @@ export const team: TeamType[] = [
         image: "/team/david.jpg",
         role: "Operations Officer",
         href: "https://www.linkedin.com/in/david-solano787",
-        vertex: { x: 570, y: 690 },
+        vertex: { x: 520, y: 690 },
         textBelow: true
       },
       {

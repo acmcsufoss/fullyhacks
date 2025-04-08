@@ -50,21 +50,20 @@ export const teamEdges: TeamEdge[][] = [
     { start: { x: 840, y: 470 }, end: { x: 820, y: 620 } }
   ],
   [
+    { start: { x: 200, y: 220 }, end: { x: 390, y: 250 } },
     { start: { x: 250, y: 70 }, end: { x: 200, y: 220 } },
     { start: { x: 250, y: 70 }, end: { x: 410, y: 50 } },
-    { start: { x: 200, y: 220 }, end: { x: 390, y: 250 } },
-    { start: { x: 410, y: 50 }, end: { x: 520, y: 120 } },
-    { start: { x: 520, y: 120 }, end: { x: 390, y: 250 } },
     { start: { x: 390, y: 250 }, end: { x: 420, y: 370 } },
+    { start: { x: 410, y: 50 }, end: { x: 520, y: 120 } },
     { start: { x: 420, y: 370 }, end: { x: 550, y: 390 } },
+    { start: { x: 520, y: 120 }, end: { x: 390, y: 250 } },
     { start: { x: 550, y: 390 }, end: { x: 560, y: 520 } },
-    { start: { x: 560, y: 520 }, end: { x: 400, y: 620 } },
-    { start: { x: 560, y: 520 }, end: { x: 570, y: 690 } },
+    { start: { x: 560, y: 520 }, end: { x: 520, y: 690 } },
     { start: { x: 560, y: 520 }, end: { x: 720, y: 490 } },
     { start: { x: 720, y: 490 }, end: { x: 850, y: 440 } },
+    { start: { x: 720, y: 700 }, end: { x: 560, y: 690 } },
     { start: { x: 850, y: 440 }, end: { x: 880, y: 620 } },
-    { start: { x: 880, y: 620 }, end: { x: 720, y: 700 } },
-    { start: { x: 720, y: 700 }, end: { x: 720, y: 490 } }
+    { start: { x: 880, y: 620 }, end: { x: 720, y: 700 } }
   ]
 ];
 
