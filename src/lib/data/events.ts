@@ -64,7 +64,7 @@ export const events: EventType[] = [
     timeString: "5:00 - 8:00 PM",
     location: "CS 102A",
     startTime: 4,
-    endTime: 7,
+    endTime: 6.95,
     row: 6.5
   },
   {
@@ -74,7 +74,7 @@ export const events: EventType[] = [
     date: 0,
     timeString: "8:00 - 11:00 PM",
     location: "CS 102A",
-    startTime: 7,
+    startTime: 7.05,
     endTime: 10,
     row: 6.5
   },
@@ -193,10 +193,10 @@ export const events: EventType[] = [
     name: "Mentorship",
     type: "mentorship",
     date: 1,
-    timeString: "9:00 AM - 3:00 PM",
+    timeString: "9:00 AM - 12:00 PM",
     location: "CS 102A",
     startTime: 20,
-    endTime: 23,
+    endTime: 22.95,
     row: 5.0
   },
   {
@@ -204,9 +204,9 @@ export const events: EventType[] = [
     name: "Mentorship",
     type: "mentorship",
     date: 0,
-    timeString: "9:00 AM - 3:00 PM",
+    timeString: "12:00 - 3:00 PM",
     location: "CS 102A",
-    startTime: 23,
+    startTime: 23.05,
     endTime: 26,
     row: 5.0
   },
@@ -241,7 +241,7 @@ export const events: EventType[] = [
     location: "CS 104, 300, 401",
     startTime: 27,
     endTime: 29,
-    row: 1.7
+    row: 2.2
   },
   {
     id: "event8",
@@ -252,6 +252,6 @@ export const events: EventType[] = [
     location: "SGMH-1502",
     startTime: 29,
     endTime: 30,
-    row: 2.5
+    row: 3.2
   }
 ];
