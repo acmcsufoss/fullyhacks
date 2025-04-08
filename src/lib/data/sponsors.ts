@@ -92,7 +92,7 @@ export const sponsors: CompanyType[] = [
     href: "https://incogni.com/",
     styles: {
       top: "top-[60rem] sm:top-[56rem] md:top-[57rem] lg:top-[68%]",
-      left: "left-[10rem] sm:left-[20rem] md:left-[28rem] lg:left-[30rem] xl:left-[44rem]",
+      left: "left-[3rem] sm:left-[20rem] md:left-[28rem] lg:left-[30rem] xl:left-[44rem]",
       width: "w-[9rem] sm:w-[11rem] lg:w-[14rem]",
       animation: "animate-slight-tilt"
     }
@@ -107,6 +107,18 @@ export const sponsors: CompanyType[] = [
       left: "left-[15rem] sm:left-[29rem] md:left-[36rem] lg:left-[50rem] xl:left-[60rem]",
       width: "w-[9rem] sm:w-[11rem] lg:w-[14rem]",
       animation: "animate-slight-tilt animation-delay-2000"
+    }
+  },
+  {
+    id: "co10",
+    name: "Cerebras",
+    imageSrc: "/companies/cerebras.svg",
+    href: "https://www.cerebras.ai/",
+    styles: {
+      top: "top-[60rem] sm:top-[53rem] md:top-[52rem] lg:top-[70%]",
+      left: "left-[12rem] sm:left-[31rem] md:left-[37rem] lg:left-[46rem] xl:left-[60rem]",
+      width: "w-[13rem] sm:w-[16rem] lg:w-[20rem]",
+      animation: "animate-slight-tilt animation-delay-1000"
     }
   }
 ];

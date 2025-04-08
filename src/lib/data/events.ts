@@ -248,7 +248,7 @@ export const events: EventType[] = [
     name: "Closing ceremony & Announce Winners",
     type: "event",
     date: 1,
-    timeString: "6:15 PM",
+    timeString: "6:30 PM",
     location: "SGMH-1502",
     startTime: 29,
     endTime: 30,
