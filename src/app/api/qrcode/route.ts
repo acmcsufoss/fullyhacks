@@ -9,28 +9,23 @@ export async function GET(req: NextRequest) {
   if (!session || !session.user?.email) {
     return new NextResponse("Unauthorized", { status: 401 });
   }
-  const userEmail = session.user.email;
-  const emailParam = req.nextUrl.searchParams.get("email");
 
-  if (userEmail !== emailParam) {
+  const userEmail = session.user.email;
+  const user = await prisma.user.findUnique({
+    where: { email: userEmail },
+    include: { application: true }
+  });
+  if (!user || !user.application || !user.application.approved) {
     return new NextResponse("Forbidden", { status: 403 });
   }
 
-  const application = await prisma.application.findFirst({
-    where: { email: userEmail },
-    select: { approved: true }
-  });
-  if (!application?.approved) {
-    return new NextResponse("Application was not approved", { status: 403 });
+  const email = user.application.email;
+  if (!email) {
+    return new NextResponse("Missing email", { status: 400 });
   }
-
   const token = process.env.QRCODE_TOKEN;
   if (!token) {
     return new NextResponse("Token not present", { status: 400 });
-  }
-  const email = req.nextUrl.searchParams.get("email");
-  if (!email) {
-    return new NextResponse("Missing email", { status: 400 });
   }
   const targetUrl = `https://fullyhacksqr.acmcsuf.com/users/${email}/qr.png`;
   const imageRes = await fetch(targetUrl, {

@@ -92,7 +92,7 @@ export default function UserPortal({ user }: UserProps) {
         <div className="grid gap-2">
           <p className="text-center">Food QR Code:</p>
           <img
-            src={`/api/qrcode?email=${encodeURIComponent(user.email)}`}
+            src="/api/qrcode"
             alt="User QR Code"
             className="aspect-square w-64"
           />
