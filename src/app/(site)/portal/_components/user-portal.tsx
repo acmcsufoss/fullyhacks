@@ -18,7 +18,7 @@ export default function UserPortal({ user }: UserProps) {
   const formattedDate = date.toLocaleDateString("en-US", option);
 
   return (
-    <div className="relative mx-4 flex flex-col items-center justify-center text-white">
+    <div className="relative mx-4 mb-16 flex flex-col items-center justify-center text-white">
       <h2 className="custom-text-shadow text-center text-5xl md:text-[4rem]">
         USER PORTAL
       </h2>
@@ -80,13 +80,23 @@ export default function UserPortal({ user }: UserProps) {
         </div>
         <div className="hidden md:block"></div>
       </div>
-      {application.status == ApplicationStatus.APPROVED && (
+      {application.status === ApplicationStatus.APPROVED && (
         <>
           <Link href="/feed" className="blue-btn mb-10 mt-8 lg:mb-4">
             Continue to the Feed
             <BsArrowRight size={24} />
           </Link>
         </>
+      )}
+      {application.status === ApplicationStatus.APPROVED && (
+        <div className="grid gap-2">
+          <p className="text-center">Food QR Code:</p>
+          <img
+            src={`/api/qrcode?email=${encodeURIComponent(user.email)}`}
+            alt="User QR Code"
+            className="aspect-square w-64"
+          />
+        </div>
       )}
     </div>
   );
