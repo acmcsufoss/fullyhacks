@@ -257,11 +257,13 @@ export const FeedSideBar: React.FC = () => {
             isOpen ? "translate-x-0" : "-translate-x-full"
           }`}>
           <div className="mb-8 flex items-center justify-between">
-            <img
-              src="/assets/fullyhacks_logo.png"
-              alt="Fully logo"
-              className="w-12"
-            />
+            <Link href="/">
+              <img
+                src="/assets/fullyhacks_logo.png"
+                alt="Fully logo"
+                className="w-12"
+              />
+            </Link>
             <AiOutlineClose
               onClick={() => setOpen(false)}
               size={24}
