@@ -88,16 +88,6 @@ export default function UserPortal({ user }: UserProps) {
           </Link>
         </>
       )}
-      {application.status === ApplicationStatus.APPROVED && (
-        <div className="grid gap-2">
-          <p className="text-center">Food QR Code:</p>
-          <img
-            src="/api/qrcode"
-            alt="User QR Code"
-            className="aspect-square w-64"
-          />
-        </div>
-      )}
     </div>
   );
 }
