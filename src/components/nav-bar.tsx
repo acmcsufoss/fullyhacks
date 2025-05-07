@@ -4,22 +4,10 @@ import { MenuType } from "@/types/interface";
 import { signOut } from "next-auth/react";
 import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
-import {
-  AiOutlineClose,
-  AiOutlineMenu,
-  AiOutlineQuestionCircle
-} from "react-icons/ai";
-import {
-  BiCalendarEvent,
-  BiHomeAlt,
-  BiLogOut,
-  BiUserCircle
-} from "react-icons/bi";
-import { BsDiscord, BsLightbulb } from "react-icons/bs";
-import { HiMenu, HiOutlineSpeakerphone } from "react-icons/hi";
-import { HiOutlineTrophy } from "react-icons/hi2";
+import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
+import { BsDiscord } from "react-icons/bs";
+import { HiMenu } from "react-icons/hi";
 import { IoArrowBackSharp } from "react-icons/io5";
-import { SlEnergy } from "react-icons/sl";
 import links from "@/lib/data/links.json";
 import { usePathname } from "next/navigation";
 import { MdArrowRight } from "react-icons/md";
@@ -245,7 +233,7 @@ export const FeedSideBar: React.FC = () => {
         className={`fixed inset-0 z-50 ${isOpen ? "visible" : "invisible delay-300"} transition-[visibility]`}>
         {/* Blur overlay */}
         <div
-          className={`absolute inset-0 bg-purple_dark/40 backdrop-blur-sm transition-opacity duration-300 ${
+          className={`absolute inset-0 bg-[#0D0A22]/40 backdrop-blur-sm transition-opacity duration-300 ${
             isOpen ? "opacity-100" : "opacity-0"
           }`}
           onClick={() => setOpen(false)}
