@@ -1,9 +1,6 @@
 # 🚀 FullyHacks 2025
 
-**Welcome to FullyHacks 2025 — CSUF's first 24-hour in-person hackathon!**  
-This repository contains the codebase for the official website and supporting tools. See more [info.](https://acmcsuf.com/hackathons) about FullyHacks!
-
----
+**Welcome to FullyHacks 2025 — CSUF's first 24-hour in-person hackathon!** This repository contains the codebase for the official website and supporting tools. See more [info.](https://acmcsuf.com/hackathons) about FullyHacks!
 
 ## 🛠 Tech Stack
 
@@ -11,8 +8,6 @@ This repository contains the codebase for the official website and supporting to
 - **Styling:** [TailwindCSS](https://tailwindcss.com/), [DaisyUI](https://daisyui.com/)
 - **ORM:** [Prisma](https://www.prisma.io/)
 - **Database:** [MongoDB](https://www.mongodb.com/)
-
----
 
 ## ⚙️ Local Development Setup
 
@@ -41,8 +36,6 @@ NODE_ENV=dev
 
 > 💡 Refer to `.env.example` for all supported environment variables.
 
----
-
 ## 🏃‍♂️ Running the Project
 
 ### Start the Website
@@ -57,8 +50,6 @@ npm run dev
 npx prisma studio
 ```
 
----
-
 ## ✅ Before You Commit
 
 - Format your code using:
@@ -67,18 +58,12 @@ npx prisma studio
 npm run format
 ```
 
----
-
 ## 🔐 Environment Variables & Privacy
 
 - Server environment variables are **confidential** to protect participant data.
 - Only the **FullyHacks Web Team** should use the production variables.
 - You’re welcome to connect your own database locally to explore.
 
----
+## ⚠️ Note
 
-## ⚠️ Important Note
-
-This repo is **not** connected to the live Vercel deployment.  
-Due to Vercel’s team organization costs, the deployed repo is located here:  
-👉 [anhduy1202/fullyhacks](https://github.com/anhduy1202/fullyhacks)
+This repo is **not** connected to the live Vercel deployment due to Vercel’s team organization costs.
