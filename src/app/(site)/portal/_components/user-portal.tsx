@@ -3,11 +3,7 @@ import Link from "next/link";
 import { ApplicationType, ApplicationStatus, User } from "@/types/interface";
 import { BsArrowRight } from "react-icons/bs";
 
-interface UserProps {
-  user: User;
-}
-
-export default function UserPortal({ user }: UserProps) {
+export default function UserPortal({ user }: { user: User }) {
   const application: ApplicationType = user.application as ApplicationType;
   const date: Date = new Date(application.submittedAt);
   const option: Intl.DateTimeFormatOptions = {

@@ -3,11 +3,11 @@
 import React from "react";
 import { tsOptions, openDate, closeDate, endDate } from "@/lib/dates";
 
-interface ApplyAuthProps {
+export default function ApplyAuth({
+  children
+}: {
   children?: React.ReactNode;
-}
-
-const ApplyAuth: React.FC<ApplyAuthProps> = ({ children }) => {
+}) {
   const now = new Date().toLocaleString("en-US", tsOptions);
   const applicationOpen =
     new Date(now) >= new Date(openDate) && new Date(now) <= new Date(closeDate);
@@ -36,6 +36,4 @@ const ApplyAuth: React.FC<ApplyAuthProps> = ({ children }) => {
       )}
     </div>
   );
-};
-
-export default ApplyAuth;
+}

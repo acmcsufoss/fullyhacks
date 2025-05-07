@@ -3,21 +3,13 @@ import { AiOutlineSearch } from "react-icons/ai";
 import uniJson from "@/lib/data/usuni.json";
 import { University } from "@/types/interface";
 
-interface SchoolSuggestionProps {
-  register: any;
-  errors: any;
-  dispatch: any;
-  application: any;
-  setValue: any;
-}
-
-const SchoolSuggestion: React.FC<SchoolSuggestionProps> = ({
+export default function SchoolSuggestion({
   register,
   errors,
   dispatch,
   application,
   setValue
-}) => {
+}: any) {
   const [search, setSearch] = useState<string>("");
   const [filteredSchool, setfilteredSchool] = useState<University[]>([]);
   const universites: University[] = uniJson.usUniveristies;
@@ -82,6 +74,4 @@ const SchoolSuggestion: React.FC<SchoolSuggestionProps> = ({
       </div>
     </div>
   );
-};
-
-export default SchoolSuggestion;
+}

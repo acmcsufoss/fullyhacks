@@ -11,15 +11,7 @@ const teamTags = [
   "Operations Team"
 ];
 
-interface TeamProps {
-  team: TeamType[];
-}
-
-interface TeamMemberProps {
-  member: TeamMember;
-}
-
-const listToMatrix = (list: TeamMember[], n: number = 8) => {
+function listToMatrix(list: TeamMember[], n: number = 8) {
   // separate the all list into groups of n elements
   let matrix: TeamMember[][] = [];
   for (let i = 0, k = -1; i < list.length; i++) {
@@ -30,9 +22,9 @@ const listToMatrix = (list: TeamMember[], n: number = 8) => {
     matrix[k].push(list[i]);
   }
   return matrix;
-};
+}
 
-const filterTeamMembers = (team: TeamType[], tag: string): TeamMember[] => {
+function filterTeamMembers(team: TeamType[], tag: string): TeamMember[] {
   if (tag === "All") {
     const filteredTeamMembers: TeamMember[] = [];
     for (const teamGroup of team) {
@@ -51,9 +43,9 @@ const filterTeamMembers = (team: TeamType[], tag: string): TeamMember[] => {
     }
   }
   return filteredTeamMembers;
-};
+}
 
-const TeamMemberComponent: React.FC<TeamMemberProps> = ({ member }) => {
+function TeamMemberComponent({ member }: { member: TeamMember }) {
   return (
     <div className="flex w-[190px] flex-col items-center">
       <a target="_blank" href={member.href}>
@@ -75,9 +67,9 @@ const TeamMemberComponent: React.FC<TeamMemberProps> = ({ member }) => {
       </div>
     </div>
   );
-};
+}
 
-const TeamGrid: React.FC<TeamProps> = ({ team }) => {
+export default function TeamGrid({ team }: { team: TeamType[] }) {
   const [filteredTeam, setFilteredTeam] = useState<TeamMember[][]>(
     listToMatrix(filterTeamMembers(team, "All"), 4)
   );
@@ -149,6 +141,4 @@ const TeamGrid: React.FC<TeamProps> = ({ team }) => {
       )}
     </>
   );
-};
-
-export default TeamGrid;
+}

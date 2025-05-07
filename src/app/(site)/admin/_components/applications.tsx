@@ -108,8 +108,11 @@ function ApplicationStats({
 }
 
 // Application Dashboard
-const Applications: React.FC<ApplicationsProps> = (props) => {
-  const { applications } = props;
+export default function Applications({
+  applications
+}: {
+  applications: ApplicationType[];
+}) {
   const [statusFilter, setStatusFilter] = useState("all");
   const [isLoading, setLoading] = useState(false);
   const [applicationIdx, pushIdx] = useState<string[]>([]);
@@ -299,6 +302,4 @@ const Applications: React.FC<ApplicationsProps> = (props) => {
       />
     </div>
   );
-};
-
-export default Applications;
+}

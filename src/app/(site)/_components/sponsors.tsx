@@ -2,7 +2,7 @@ import { sponsors } from "@/lib/data/sponsors";
 import { CompanyType } from "@/types/interface";
 import React from "react";
 
-const LittleAsteroids: React.FC = () => {
+function LittleAsteroids() {
   const littleAsteroids = [
     {
       src: "/assets/little_asteroid.svg",
@@ -57,14 +57,9 @@ const LittleAsteroids: React.FC = () => {
       ))}
     </div>
   );
-};
-
-interface SponsorAsteroidProps {
-  asteroid: CompanyType;
 }
 
-const SponsorAsteroid: React.FC<SponsorAsteroidProps> = (props) => {
-  const { asteroid } = props;
+function SponsorAsteroid({ asteroid }: { asteroid: CompanyType }) {
   return (
     <a
       target="_blank"
@@ -73,7 +68,7 @@ const SponsorAsteroid: React.FC<SponsorAsteroidProps> = (props) => {
       <img src={asteroid.imageSrc} alt="Asteroid" className="object-cover" />
     </a>
   );
-};
+}
 
 export default function Sponsors() {
   return (

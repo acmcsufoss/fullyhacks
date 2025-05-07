@@ -58,10 +58,10 @@ const initialState: ApplicationState = {
   agree: false
 };
 
-const reducer = (
+function reducer(
   state: ApplicationState,
   action: FormAction
-): ApplicationState => {
+): ApplicationState {
   switch (action.type) {
     case "SAVE_DRAFT":
       const { name, value } = action.payload;
@@ -106,7 +106,7 @@ const reducer = (
     default:
       return state;
   }
-};
+}
 
 function FormLabel({ label, optional }: { label: string; optional?: boolean }) {
   return (
@@ -119,12 +119,7 @@ function FormLabel({ label, optional }: { label: string; optional?: boolean }) {
   );
 }
 
-interface ApplicationProps {
-  url: string;
-}
-
-const ApplicationForm: React.FC<ApplicationProps> = (props) => {
-  const { url } = props;
+export default function ApplicationForm({ url }: { url: string }) {
   const router = useRouter();
   const {
     register,
@@ -521,6 +516,4 @@ const ApplicationForm: React.FC<ApplicationProps> = (props) => {
       </form>
     </>
   );
-};
-
-export default ApplicationForm;
+}

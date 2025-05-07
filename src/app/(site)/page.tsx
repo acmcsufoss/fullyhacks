@@ -12,9 +12,9 @@ import {
   TeamBackgroundEffects
 } from "./_components/background-effects";
 import Sponsors from "./_components/sponsors";
-import { LandingFooter } from "@/components/footer";
-import FAQ from "./_components/faq";
 import Team from "./_components/team";
+import FAQ from "./_components/faq";
+import LandingFooter from "./_components/footer";
 
 export default function Home() {
   return (

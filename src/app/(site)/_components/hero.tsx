@@ -1,6 +1,6 @@
 import { NavBarLanding } from "@/components/nav-bar";
 
-const Hero: React.FC = () => {
+export default function Hero() {
   return (
     <>
       <NavBarLanding />
@@ -25,6 +25,4 @@ const Hero: React.FC = () => {
       </section>
     </>
   );
-};
-
-export default Hero;
+}

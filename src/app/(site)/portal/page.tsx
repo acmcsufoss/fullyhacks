@@ -1,5 +1,4 @@
 import React from "react";
-import Flower from "@/components/flower";
 import UserPortal from "./_components/user-portal";
 import { AuthNavBar } from "@/components/nav-bar";
 import { redirect } from "next/navigation";

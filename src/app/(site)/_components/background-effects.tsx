@@ -1,4 +1,4 @@
-export const SponsorsBackgroundEffects = () => {
+export function SponsorsBackgroundEffects() {
   return (
     <>
       <img
@@ -13,9 +13,9 @@ export const SponsorsBackgroundEffects = () => {
       />
     </>
   );
-};
+}
 
-export const TeamBackgroundEffects = () => {
+export function TeamBackgroundEffects() {
   return (
     <>
       <img
@@ -35,9 +35,9 @@ export const TeamBackgroundEffects = () => {
       />
     </>
   );
-};
+}
 
-export const FAQBackgroundEffects = () => {
+export function FAQBackgroundEffects() {
   return (
     <>
       <img
@@ -62,9 +62,9 @@ export const FAQBackgroundEffects = () => {
       />
     </>
   );
-};
+}
 
-export const FooterBackgroundEffects = () => {
+export function FooterBackgroundEffects() {
   return (
     <>
       <img
@@ -129,4 +129,4 @@ export const FooterBackgroundEffects = () => {
       />
     </>
   );
-};
+}

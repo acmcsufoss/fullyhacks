@@ -12,7 +12,7 @@ import links from "@/lib/data/links.json";
 import { usePathname } from "next/navigation";
 import { MdArrowRight } from "react-icons/md";
 
-export const NavBarLanding: React.FC = () => {
+export function NavBarLanding() {
   const menuList: MenuType[] = [
     {
       id: "about",
@@ -110,9 +110,9 @@ export const NavBarLanding: React.FC = () => {
       </div>
     </nav>
   );
-};
+}
 
-export const GenericNavBar = () => {
+export function GenericNavBar() {
   return (
     <nav className="flex flex-row-reverse items-center justify-center px-4 py-8">
       <Link href="/" className="gradient-btn ml-auto">
@@ -123,9 +123,9 @@ export const GenericNavBar = () => {
       </Link>
     </nav>
   );
-};
+}
 
-export const AuthNavBar = () => {
+export function AuthNavBar() {
   return (
     <nav className="z-10 flex flex-row-reverse items-center justify-between px-4 py-8 md:flex-row md:py-4">
       <Link href="/" className="z-10 hidden md:block">
@@ -145,9 +145,9 @@ export const AuthNavBar = () => {
       </div>
     </nav>
   );
-};
+}
 
-export const FeedNavBar = () => {
+export function FeedNavBar() {
   return (
     <nav className="z-10 flex flex-row-reverse items-center justify-between px-4 py-8 md:flex-row md:py-4">
       <Link href="/" className="hidden md:block">
@@ -167,9 +167,9 @@ export const FeedNavBar = () => {
       </div>
     </nav>
   );
-};
+}
 
-export const FeedSideBar: React.FC = () => {
+export function FeedSideBar() {
   const [isOpen, setOpen] = useState(false);
   const pathname = usePathname();
   const lastPathname = useRef(pathname);
@@ -312,4 +312,4 @@ export const FeedSideBar: React.FC = () => {
       </div>
     </>
   );
-};
+}

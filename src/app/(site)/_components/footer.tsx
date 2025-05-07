@@ -3,7 +3,7 @@ import { BsGithub, BsLinkedin } from "react-icons/bs";
 import { PiInstagramLogoFill } from "react-icons/pi";
 import links from "@/lib/data/links.json";
 
-export const LandingFooter: React.FC = () => {
+export default function LandingFooter() {
   return (
     <>
       <div className="relative mt-[10rem] flex pt-80 lg:mt-[30rem]">
@@ -61,4 +61,4 @@ export const LandingFooter: React.FC = () => {
       </div>
     </>
   );
-};
+}

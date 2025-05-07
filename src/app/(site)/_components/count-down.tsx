@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { CSSProperties } from "react";
+
 interface TimeState {
   days: number;
   hours: number;
@@ -28,7 +29,7 @@ const calculateTimeLeft = (targetDate: Date) => {
 
   return timeLeft;
 };
-const CountDown = () => {
+export default function CountDown() {
   const targetDate = new Date("2025-04-12T00:00:00");
   const [time, setTimeLeft] = useState(calculateTimeLeft(targetDate));
 
@@ -85,6 +86,4 @@ const CountDown = () => {
       </div>
     </div>
   );
-};
-
-export default CountDown;
+}

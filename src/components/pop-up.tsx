@@ -8,14 +8,15 @@ import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import Loading from "./loading";
 
-interface PopUpProps {
+export default function PopUp({
+  title,
+  content,
+  action
+}: {
   title: string;
   content: any;
   action: string;
-}
-
-export default function PopUp(props: PopUpProps) {
-  const { title, content, action } = props;
+}) {
   const [isChecked, setCheck] = useState(true);
   return (
     <>

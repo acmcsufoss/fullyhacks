@@ -1,13 +1,13 @@
 import React from "react";
 import { AiOutlineLoading } from "react-icons/ai";
 
-interface LoadingProps {
+export default function Loading({
+  children,
+  isLoading
+}: {
   children?: React.PropsWithChildren;
   isLoading: boolean;
-}
-
-export default function Loading(props: LoadingProps) {
-  const { isLoading, children } = props;
+}) {
   return (
     <>
       {isLoading ? (

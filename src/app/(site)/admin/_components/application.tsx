@@ -9,7 +9,7 @@ interface ApplicationProps {
   pushIdx: React.Dispatch<React.SetStateAction<string[]>>;
 }
 
-export const Application: React.FC<ApplicationProps> = (props) => {
+export function Application(props: ApplicationProps) {
   const { application, idx, setLoading, pushIdx } = props;
 
   const updateApplicationStatus = async (id: string, status: string) => {
@@ -138,4 +138,4 @@ export const Application: React.FC<ApplicationProps> = (props) => {
       </td>
     </tr>
   );
-};
+}

@@ -15,7 +15,7 @@ const schema = yup
   .required();
 
 type FormData = yup.InferType<typeof schema>;
-const AnnouncementForm: React.FC = () => {
+export default function AnnouncementForm() {
   const {
     register,
     handleSubmit,
@@ -99,6 +99,4 @@ const AnnouncementForm: React.FC = () => {
       )}
     </form>
   );
-};
-
-export default AnnouncementForm;
+}

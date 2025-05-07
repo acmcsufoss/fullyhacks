@@ -5,7 +5,7 @@ interface TabBarProps {
   setTabName: React.Dispatch<React.SetStateAction<string>>;
 }
 
-const TabBar: React.FC<TabBarProps> = (props) => {
+export default function TabBar(props: TabBarProps) {
   const { tabName, setTabName } = props;
   const [currentIdx, setCurrentIdx] = useState(0);
   const handleChange = (tab: string, id: number) => {
@@ -42,6 +42,4 @@ const TabBar: React.FC<TabBarProps> = (props) => {
       })}
     </ul>
   );
-};
-
-export default TabBar;
+}

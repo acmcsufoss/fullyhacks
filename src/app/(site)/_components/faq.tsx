@@ -3,15 +3,13 @@ import { FAQType } from "@/types/interface";
 import React, { useState, useEffect } from "react";
 import { FaChevronDown } from "react-icons/fa";
 
-interface FAQDropDownProps {
-  question: string;
-  answer: string;
-}
-
-export const FAQDropDown: React.FC<FAQDropDownProps> = ({
+export function FAQDropDown({
   question,
   answer
-}) => {
+}: {
+  question: string;
+  answer: string;
+}) {
   const [opened, setOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
 
@@ -49,7 +47,7 @@ export const FAQDropDown: React.FC<FAQDropDownProps> = ({
       </div>
     </div>
   );
-};
+}
 
 export default function FAQ() {
   return (
