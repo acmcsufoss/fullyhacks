@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { tsOptions, openDate, closeDate, endDate } from "@/lib/dates";
+import { tsOptions, openDate, closeDate, endDate } from "@/lib/data/dates";
 
 export default function ApplyAuth({
   children

@@ -1,8 +1,8 @@
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
-import { prisma } from "db";
 import { getServerSession, NextAuthOptions } from "next-auth";
 import GitHubProvider from "next-auth/providers/github";
 import { redirect } from "next/navigation";
+import { prisma } from "db";
 
 const clientId =
   process.env.NODE_ENV === "development"

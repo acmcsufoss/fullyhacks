@@ -1,6 +1,6 @@
 import { getServerSession } from "next-auth";
 import { NextRequest, NextResponse } from "next/server";
-import { authOptions } from "../auth";
+import { authOptions } from "@/lib/auth";
 import { prisma } from "db";
 
 export const handleProfileUpdate = async (data: any, req: NextRequest) => {

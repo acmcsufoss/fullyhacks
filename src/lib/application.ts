@@ -1,10 +1,10 @@
 import { getServerSession } from "next-auth";
 import { NextRequest, NextResponse } from "next/server";
-import { authOptions } from "./auth";
-import { prisma } from "db";
+import { authOptions } from "@/lib/auth";
 import { validate } from "@/middleware/validate";
 import { applicationSchema } from "@/schemas/application";
-import { tsOptions, openDate, closeDate } from "./dates";
+import { tsOptions, openDate, closeDate } from "@/lib/data/dates";
+import { prisma } from "db";
 
 async function handleApplication(
   data: any,
