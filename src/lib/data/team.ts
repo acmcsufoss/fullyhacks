@@ -255,7 +255,7 @@ export const team: TeamType[] = [
         name: "Casey",
         image: "/team/casey.jpg",
         role: "Operations Officer",
-        href: "www.linkedin.com/in/casey-dane",
+        href: "https://www.linkedin.com/in/casey-dane",
         vertex: { x: 680, y: 70 },
         textBelow: true
       },
