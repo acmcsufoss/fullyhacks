@@ -1,9 +1,11 @@
-import PopUp from "@/components/pop-up";
+import { PopUp } from "@/components/pop-up";
 import AuthButton from "./_components/auth-button";
 import { GenericNavBar } from "@/components/nav-bar";
 import { redirect } from "next/navigation";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
+
+const POPUP_STORAGE_KEY = "SignInPagePopUp";
 
 export default async function SignIn() {
   const session = await getServerSession(authOptions);
@@ -40,6 +42,7 @@ export default async function SignIn() {
         title="Before you continue"
         content="FullyHacks is only open to college students 18 years old or older 🐘"
         action="I understand"
+        storageKey={POPUP_STORAGE_KEY}
       />
       <div className="md relative mx-8 mt-6 flex flex-col items-center justify-center">
         <div className="mb-16 flex flex-col items-center rounded-lg bg-gradient-to-b from-[#72D6E6] to-[#173162] px-4 pt-8 pb-12 shadow-md md:px-16">

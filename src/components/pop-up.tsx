@@ -3,27 +3,43 @@
 import { yupResolver } from "@hookform/resolvers/yup";
 import axios from "axios";
 import { useRouter } from "next/navigation";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import Loading from "./loading";
 
-export default function PopUp({
+export function PopUp({
   title,
   content,
-  action
+  action,
+  storageKey
 }: {
   title: string;
   content: any;
   action: string;
+  storageKey?: string;
 }) {
-  const [isChecked, setCheck] = useState(true);
+  const [isVisible, setVisible] = useState(false);
+
+  useEffect(() => {
+    if (!storageKey) return;
+    const hasSeen = localStorage.getItem(storageKey);
+    if (!hasSeen) setVisible(true);
+  }, [storageKey]);
+
+  const handleClose = () => {
+    if (!storageKey) return;
+    localStorage.setItem(storageKey, "disabled");
+    setVisible(false);
+  };
+
   return (
     <>
       <input
         type="checkbox"
         id="my-modal"
-        checked={isChecked}
+        checked={isVisible}
+        readOnly
         className="modal-toggle"
       />
       <div className="modal">
@@ -33,7 +49,7 @@ export default function PopUp({
           <div className="modal-action">
             <label
               htmlFor="my-modal"
-              onClick={() => setCheck(false)}
+              onClick={handleClose}
               className="btn border-none bg-[#122a58] normal-case text-white transition-colors duration-300 hover:bg-white hover:text-[#122a58]">
               {action}
             </label>
