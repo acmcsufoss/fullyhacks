@@ -3,7 +3,11 @@
   "plugins": [
     "typescript",
     "unicorn",
-    "oxc"
+    "oxc",
+    "react",
+    "react-perf",
+    "import",
+    "jsx-a11y",
   ],
   "categories": {
     "correctness": "error"
