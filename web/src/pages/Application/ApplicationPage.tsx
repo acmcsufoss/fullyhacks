@@ -344,8 +344,11 @@ export function ApplicationPage() {
       >
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
           <div className="flex flex-col gap-2">
-            <label className="font-baloo text-xl text-[#EFEFEF]">First Name</label>
+            <label htmlFor="application-firstName" className="font-baloo text-xl text-[#EFEFEF]">
+              First Name
+            </label>
             <input
+              id="application-firstName"
               type="text"
               value={form.firstName}
               onChange={(e) => updateField("firstName", e.target.value)}
@@ -359,8 +362,11 @@ export function ApplicationPage() {
           </div>
 
           <div className="flex flex-col gap-2">
-            <label className="font-baloo text-xl text-[#EFEFEF]">Last Name</label>
+            <label htmlFor="application-lastName" className="font-baloo text-xl text-[#EFEFEF]">
+              Last Name
+            </label>
             <input
+              id="application-lastName"
               type="text"
               value={form.lastName}
               onChange={(e) => updateField("lastName", e.target.value)}
@@ -374,8 +380,11 @@ export function ApplicationPage() {
           </div>
         </div>
         <div className="flex flex-col gap-2">
-          <label className="font-baloo text-xl text-[#EFEFEF]">Email</label>
+          <label htmlFor="application-email" className="font-baloo text-xl text-[#EFEFEF]">
+            Email
+          </label>
           <input
+            id="application-email"
             type="email"
             value={form.email}
             onChange={(e) => updateField("email", e.target.value.toLowerCase().trim())}
@@ -387,8 +396,11 @@ export function ApplicationPage() {
         </div>
         {isSchoolOther ? (
           <div className="flex flex-col gap-2">
-            <label className="font-baloo text-xl text-[#EFEFEF]">School (Other)</label>
+            <label htmlFor="application-schoolOther" className="font-baloo text-xl text-[#EFEFEF]">
+              School (Other)
+            </label>
             <input
+              id="application-schoolOther"
               type="text"
               value={form.schoolOther}
               onChange={(e) => updateField("schoolOther", e.target.value)}
@@ -423,8 +435,11 @@ export function ApplicationPage() {
         )}
 
         <div className="flex flex-col gap-2">
-          <label className="font-baloo text-xl text-[#EFEFEF]">GitHub URL</label>
+          <label htmlFor="application-githubUrl" className="font-baloo text-xl text-[#EFEFEF]">
+            GitHub URL
+          </label>
           <input
+            id="application-githubUrl"
             type="url"
             value={form.githubUrl}
             onChange={(e) => updateField("githubUrl", e.target.value.trim())}
@@ -438,10 +453,11 @@ export function ApplicationPage() {
         </div>
 
         <div className="flex flex-col gap-2">
-          <label className="font-baloo text-xl text-[#EFEFEF]">
+          <label htmlFor="application-linkedinUrl" className="font-baloo text-xl text-[#EFEFEF]">
             LinkedIn URL <span className="text-[#EFEFEF]/50 text-base">(optional)</span>
           </label>
           <input
+            id="application-linkedinUrl"
             type="url"
             value={form.linkedinUrl}
             onChange={(e) => updateField("linkedinUrl", e.target.value.trim())}
@@ -452,8 +468,11 @@ export function ApplicationPage() {
         </div>
 
         <div className="flex flex-col gap-2">
-          <label className="font-baloo text-xl text-[#EFEFEF]">Pronouns</label>
+          <label htmlFor="application-pronouns" className="font-baloo text-xl text-[#EFEFEF]">
+            Pronouns
+          </label>
           <input
+            id="application-pronouns"
             type="text"
             value={form.pronouns}
             onChange={(e) => updateField("pronouns", e.target.value)}
@@ -467,8 +486,11 @@ export function ApplicationPage() {
         </div>
 
         <div className="flex flex-col gap-2">
-          <label className="font-baloo text-xl text-[#EFEFEF]">Phone Number</label>
+          <label htmlFor="application-phone" className="font-baloo text-xl text-[#EFEFEF]">
+            Phone Number
+          </label>
           <input
+            id="application-phone"
             type="tel"
             value={form.phone}
             onChange={(e) => updateField("phone", formatPhoneNumber(e.target.value))}
@@ -481,8 +503,11 @@ export function ApplicationPage() {
 
         {isMajorOther ? (
           <div className="flex flex-col gap-2">
-            <label className="font-baloo text-xl text-[#EFEFEF]">Major (Other)</label>
+            <label htmlFor="application-majorOther" className="font-baloo text-xl text-[#EFEFEF]">
+              Major (Other)
+            </label>
             <input
+              id="application-majorOther"
               type="text"
               value={form.majorOther}
               onChange={(e) => updateField("majorOther", e.target.value)}
@@ -517,8 +542,11 @@ export function ApplicationPage() {
         )}
 
         <div className="flex flex-col gap-2">
-          <label className="font-baloo text-xl text-[#EFEFEF]">Graduation Year</label>
+          <label htmlFor="application-gradYear" className="font-baloo text-xl text-[#EFEFEF]">
+            Graduation Year
+          </label>
           <input
+            id="application-gradYear"
             type="text"
             inputMode="numeric"
             value={form.gradYear}
@@ -536,8 +564,11 @@ export function ApplicationPage() {
         </div>
 
         <div className="flex flex-col gap-2">
-          <label className="font-baloo text-xl text-[#EFEFEF]">Age</label>
+          <label htmlFor="application-age" className="font-baloo text-xl text-[#EFEFEF]">
+            Age
+          </label>
           <select
+            id="application-age"
             value={form.age}
             onChange={(e) => updateField("age", e.target.value)}
             className={errors.age ? SELECT_ERROR_CLASS : SELECT_CLASS}
@@ -555,8 +586,11 @@ export function ApplicationPage() {
         </div>
 
         <div className="flex flex-col gap-2">
-          <label className="font-baloo text-xl text-[#EFEFEF]">Level of Study</label>
+          <label htmlFor="application-level" className="font-baloo text-xl text-[#EFEFEF]">
+            Level of Study
+          </label>
           <select
+            id="application-level"
             value={form.level}
             onChange={(e) => updateField("level", e.target.value)}
             className={errors.level ? SELECT_ERROR_CLASS : SELECT_CLASS}
@@ -583,8 +617,11 @@ export function ApplicationPage() {
         />
 
         <div className="flex flex-col gap-2">
-          <label className="font-baloo text-xl text-[#EFEFEF]">Skill Level</label>
+          <label htmlFor="application-skillLevel" className="font-baloo text-xl text-[#EFEFEF]">
+            Skill Level
+          </label>
           <select
+            id="application-skillLevel"
             value={form.skillLevel}
             onChange={(e) => updateField("skillLevel", e.target.value)}
             className={errors.skillLevel ? SELECT_ERROR_CLASS : SELECT_CLASS}
@@ -608,10 +645,11 @@ export function ApplicationPage() {
         </div>
 
         <div className="flex flex-col gap-2">
-          <label className="font-baloo text-xl text-[#EFEFEF]">
+          <label htmlFor="application-whyJoin" className="font-baloo text-xl text-[#EFEFEF]">
             Why do you want to join FullyHacks?
           </label>
           <textarea
+            id="application-whyJoin"
             value={form.whyJoin}
             onChange={(e) => {
               const words = e.target.value
@@ -639,7 +677,7 @@ export function ApplicationPage() {
         </div>
 
         <div className="flex flex-col gap-2">
-          <label className="font-baloo text-xl text-[#EFEFEF]">
+          <label htmlFor="application-resume" className="font-baloo text-xl text-[#EFEFEF]">
             Resume <span className="text-[#EFEFEF]/50 text-base">(PDF only, max 5 MB)</span>
           </label>
           <button
@@ -656,6 +694,7 @@ export function ApplicationPage() {
             {resumeFile ? `✓ ${resumeFile.name}` : "Click to upload resume..."}
           </button>
           <input
+            id="application-resume"
             ref={resumeInputRef}
             type="file"
             accept="application/pdf"
@@ -669,8 +708,11 @@ export function ApplicationPage() {
         </div>
 
         <div className="flex flex-col gap-2">
-          <label className="font-baloo text-xl text-[#EFEFEF]">Food Choice</label>
+          <label htmlFor="application-foodChoice" className="font-baloo text-xl text-[#EFEFEF]">
+            Food Choice
+          </label>
           <select
+            id="application-foodChoice"
             value={form.foodChoice}
             onChange={(e) => updateField("foodChoice", e.target.value)}
             className={errors.foodChoice ? SELECT_ERROR_CLASS : SELECT_CLASS}
@@ -698,10 +740,11 @@ export function ApplicationPage() {
 
         {form.foodChoice === "other" && (
           <div className="flex flex-col gap-2">
-            <label className="font-baloo text-xl text-[#EFEFEF]">
+            <label htmlFor="application-foodOther" className="font-baloo text-xl text-[#EFEFEF]">
               If you chose Other, please specify
             </label>
             <input
+              id="application-foodOther"
               type="text"
               value={form.foodOther}
               onChange={(e) => updateField("foodOther", e.target.value)}
@@ -716,8 +759,11 @@ export function ApplicationPage() {
         )}
 
         <div className="flex flex-col gap-2">
-          <label className="font-baloo text-xl text-[#EFEFEF]">Shirt Size</label>
+          <label htmlFor="application-shirtSize" className="font-baloo text-xl text-[#EFEFEF]">
+            Shirt Size
+          </label>
           <select
+            id="application-shirtSize"
             value={form.shirtSize}
             onChange={(e) => updateField("shirtSize", e.target.value)}
             className={errors.shirtSize ? SELECT_ERROR_CLASS : SELECT_CLASS}

@@ -140,7 +140,12 @@ export function Header() {
 
       {isMobile && mobileMenuOpen && (
         <div className="fixed inset-0 z-[100] flex items-start justify-end p-4">
-          <div className="absolute inset-0 bg-black/30" onClick={() => setMobileMenuOpen(false)} />
+          <button
+            type="button"
+            aria-label="Close navigation"
+            className="absolute inset-0 bg-black/30"
+            onClick={() => setMobileMenuOpen(false)}
+          />
           <div
             className="relative rounded-2xl p-6 pt-12 flex flex-col gap-4 min-w-[300px] mt-2"
             style={{ backgroundColor: "#004284" }}

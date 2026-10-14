@@ -49,7 +49,8 @@ const AGREEMENT_FIELDS = new Set([
 function CheckboxVisual({ checked }: { checked: boolean }) {
   return (
     <div
-      className={`w-8 h-8 rounded-[7px] shrink-0 flex items-center justify-center ${checked ? "bg-[#72D6E6]" : "bg-[#72D6E6]/50"}`}
+      aria-hidden="true"
+      className={`peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 w-8 h-8 rounded-[7px] shrink-0 flex items-center justify-center ${checked ? "bg-[#72D6E6]" : "bg-[#72D6E6]/50"}`}
     >
       {checked && (
         <svg width="18" height="14" viewBox="0 0 18 14" fill="none">
@@ -525,10 +526,13 @@ export function MissingFieldsModal({ missingFields, uid, onComplete }: MissingFi
           {/* isAdult standalone */}
           {agreementFields.includes("isAdult") && (
             <div className="flex flex-col gap-1">
-              <label
-                className="flex items-center gap-3 cursor-pointer"
-                onClick={() => setBool("isAdult", !boolValues["isAdult"])}
-              >
+              <label className="flex items-center gap-3 cursor-pointer">
+                <input
+                  type="checkbox"
+                  className="peer sr-only"
+                  checked={!!boolValues["isAdult"]}
+                  onChange={(e) => setBool("isAdult", e.target.checked)}
+                />
                 <CheckboxVisual checked={boolValues["isAdult"]} />
                 <span className="font-baloo text-base text-[#EFEFEF]">
                   I'm 18 or older by April 18th, 2026
@@ -563,10 +567,13 @@ export function MissingFieldsModal({ missingFields, uid, onComplete }: MissingFi
                   person in order to participate
                 </li>
               </ul>
-              <label
-                className="flex items-center gap-3 cursor-pointer mt-2"
-                onClick={() => setBool("agreeTerms", !boolValues["agreeTerms"])}
-              >
+              <label className="flex items-center gap-3 cursor-pointer mt-2">
+                <input
+                  type="checkbox"
+                  className="peer sr-only"
+                  checked={!!boolValues["agreeTerms"]}
+                  onChange={(e) => setBool("agreeTerms", e.target.checked)}
+                />
                 <CheckboxVisual checked={boolValues["agreeTerms"]} />
                 <span className="font-baloo text-base text-[#EFEFEF]">
                   I agree to the FullyHacks event terms above
@@ -587,11 +594,14 @@ export function MissingFieldsModal({ missingFields, uid, onComplete }: MissingFi
               <div className="flex flex-col gap-4 mt-1">
                 {agreementFields.includes("mlhCodeOfConduct") && (
                   <div className="flex flex-col gap-1">
-                    <label
-                      className="flex items-start gap-3 cursor-pointer"
-                      onClick={() => setBool("mlhCodeOfConduct", !boolValues["mlhCodeOfConduct"])}
-                    >
+                    <label className="flex items-start gap-3 cursor-pointer">
                       <div className="mt-1">
+                        <input
+                          type="checkbox"
+                          className="peer sr-only"
+                          checked={!!boolValues["mlhCodeOfConduct"]}
+                          onChange={(e) => setBool("mlhCodeOfConduct", e.target.checked)}
+                        />
                         <CheckboxVisual checked={boolValues["mlhCodeOfConduct"]} />
                       </div>
                       <span className="font-baloo text-base text-[#EFEFEF]">
@@ -618,11 +628,14 @@ export function MissingFieldsModal({ missingFields, uid, onComplete }: MissingFi
 
                 {agreementFields.includes("mlhPrivacy") && (
                   <div className="flex flex-col gap-1">
-                    <label
-                      className="flex items-start gap-3 cursor-pointer"
-                      onClick={() => setBool("mlhPrivacy", !boolValues["mlhPrivacy"])}
-                    >
+                    <label className="flex items-start gap-3 cursor-pointer">
                       <div className="mt-1">
+                        <input
+                          type="checkbox"
+                          className="peer sr-only"
+                          checked={!!boolValues["mlhPrivacy"]}
+                          onChange={(e) => setBool("mlhPrivacy", e.target.checked)}
+                        />
                         <CheckboxVisual checked={boolValues["mlhPrivacy"]} />
                       </div>
                       <span className="font-baloo text-base text-[#EFEFEF]">
@@ -670,11 +683,14 @@ export function MissingFieldsModal({ missingFields, uid, onComplete }: MissingFi
                 )}
 
                 {agreementFields.includes("mlhEmails") && (
-                  <label
-                    className="flex items-start gap-3 cursor-pointer"
-                    onClick={() => setBool("mlhEmails", !boolValues["mlhEmails"])}
-                  >
+                  <label className="flex items-start gap-3 cursor-pointer">
                     <div className="mt-1">
+                      <input
+                        type="checkbox"
+                        className="peer sr-only"
+                        checked={!!boolValues["mlhEmails"]}
+                        onChange={(e) => setBool("mlhEmails", e.target.checked)}
+                      />
                       <CheckboxVisual checked={!!boolValues["mlhEmails"]} />
                     </div>
                     <span className="font-baloo text-base text-[#EFEFEF]">

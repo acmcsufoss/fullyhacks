@@ -193,9 +193,14 @@ export function Sponsors() {
           </div>
         </div>
 
-        <div className={`cursor-pointer transition-all duration-300`} onClick={handleLaunch}>
-          <img src={GameMachineBase} alt="Game Machine Base" className="full mx-auto" />
-        </div>
+        <button
+          type="button"
+          aria-label="Launch sponsor game"
+          className="block w-full cursor-pointer transition-all duration-300"
+          onClick={handleLaunch}
+        >
+          <img src={GameMachineBase} alt="" className="full mx-auto" />
+        </button>
       </div>
 
       <div className="flex justify-between w-full md:px-30 px-6">

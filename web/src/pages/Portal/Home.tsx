@@ -209,12 +209,14 @@ export function Home({ uid, firstName, lastName }: HomeProps) {
           <div
             className="fixed inset-0 z-[100] flex items-center justify-center p-4"
             style={{ background: "rgba(0, 0, 0, 0.8)" }}
-            onClick={() => setShowQR(false)}
           >
-            <div
-              className="relative bg-white rounded-3xl p-8 md:p-12 flex flex-col items-center gap-6 max-w-sm w-full"
-              onClick={(e) => e.stopPropagation()}
-            >
+            <button
+              type="button"
+              aria-label="Close QR code"
+              className="absolute inset-0"
+              onClick={() => setShowQR(false)}
+            />
+            <div className="relative bg-white rounded-3xl p-8 md:p-12 flex flex-col items-center gap-6 max-w-sm w-full">
               <button
                 onClick={() => setShowQR(false)}
                 className="absolute top-4 right-4 text-gray-500 hover:text-gray-800 text-2xl cursor-pointer font-bold leading-none"

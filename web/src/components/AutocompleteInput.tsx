@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useId } from "react";
 import { INPUT_CLASS, INPUT_STYLE } from "../data/formConstants";
 
 export function AutocompleteInput({
@@ -19,12 +19,9 @@ export function AutocompleteInput({
   error?: string;
 }) {
   const [isOpen, setIsOpen] = useState(false);
-  const [inputValue, setInputValue] = useState(value);
+  const inputValue = value;
+  const inputId = useId();
   const wrapperRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    setInputValue(value);
-  }, [value]);
 
   useEffect(() => {
     function handleClickOutside(e: MouseEvent) {
@@ -58,14 +55,16 @@ export function AutocompleteInput({
 
   return (
     <div className="flex flex-col gap-2 w-full" ref={wrapperRef}>
-      <label className="font-baloo text-xl text-[#EFEFEF]">{label}</label>
+      <label htmlFor={inputId} className="font-baloo text-xl text-[#EFEFEF]">
+        {label}
+      </label>
       <div className="relative">
         <input
+          id={inputId}
           type="text"
           value={inputValue}
           placeholder={placeholder}
           onChange={(e) => {
-            setInputValue(e.target.value);
             onChange(e.target.value);
             setIsOpen(true);
           }}
@@ -81,11 +80,9 @@ export function AutocompleteInput({
                 type="button"
                 onClick={() => {
                   if (opt === "Other") {
-                    setInputValue("");
                     onChange("");
                     onSelectOther?.();
                   } else {
-                    setInputValue(opt);
                     onChange(opt);
                   }
                   setIsOpen(false);

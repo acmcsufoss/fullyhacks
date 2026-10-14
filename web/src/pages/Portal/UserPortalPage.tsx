@@ -58,21 +58,28 @@ export function UserPortalPage({
       style={{ background: "linear-gradient(180deg, #2EB2EF 0%, #163474 100%)" }}
     >
       <img
+        alt=""
         src={plant}
         className="absolute bottom-0 right-0 w-[200px] lg:w-[400px] pointer-events-none"
       />
       <img
+        alt=""
         src={bubblesL}
         className="absolute bottom-50 left-20 w-[80px] pointer-events-none hidden lg:block"
       />
       <img
+        alt=""
         src={bubblesR}
         className="absolute top-20 right-20 w-[100px] pointer-events-none hidden lg:block"
       />
 
       {!menuOpen && (
         <div className="lg:hidden flex items-center justify-between px-4 py-3 relative z-30">
-          <button onClick={() => setMenuOpen(true)} className="text-[#EFEFEF] cursor-pointer p-2">
+          <button
+            aria-label="Open navigation"
+            onClick={() => setMenuOpen(true)}
+            className="text-[#EFEFEF] cursor-pointer p-2"
+          >
             <svg
               width="28"
               height="28"
@@ -86,7 +93,7 @@ export function UserPortalPage({
             </svg>
           </button>
 
-          <img src={FullyHacksLogo} className="w-[120px]" />
+          <img alt="FullyHacks" src={FullyHacksLogo} className="w-[120px]" />
 
           <div className="w-11" />
         </div>
@@ -98,6 +105,7 @@ export function UserPortalPage({
           style={{ background: "linear-gradient(180deg, #2EB2EF 0%, #163474 100%)" }}
         >
           <button
+            aria-label="Close navigation"
             onClick={() => setMenuOpen(false)}
             className="absolute top-4 left-4 text-[#EFEFEF] cursor-pointer p-2"
           >
@@ -117,26 +125,31 @@ export function UserPortalPage({
             </svg>
           </button>
 
-          <img src={FullyHacksLogo} className="w-[90px] mb-4" />
+          <img alt="FullyHacks" src={FullyHacksLogo} className="w-[90px] mb-4" />
 
           <p className="font-baloo text-2xl text-[#EFEFEF] text-center">Welcome, {displayName}</p>
 
           <ul className="flex flex-col items-center font-baloo text-3xl gap-5 mt-4">
             {NAV_ITEMS.map((item) => (
-              <li
-                key={item.key}
-                onClick={() => navigateTo(item.key)}
-                className={`cursor-pointer transition-colors ${currentPage === item.key ? "text-[#69CEC3]" : "text-[#EFEFEF]"}`}
-              >
-                {item.label}
+              <li key={item.key}>
+                <button
+                  type="button"
+                  onClick={() => navigateTo(item.key)}
+                  className={`cursor-pointer transition-colors ${currentPage === item.key ? "text-[#69CEC3]" : "text-[#EFEFEF]"}`}
+                >
+                  {item.label}
+                </button>
               </li>
             ))}
             {isOperations && (
-              <li
-                onClick={() => navigateTo("organizer")}
-                className={`cursor-pointer transition-colors font-bold ${currentPage === "organizer" ? "text-[#F59E0B]" : "text-[#F59E0B]/70"}`}
-              >
-                organizer tools
+              <li>
+                <button
+                  type="button"
+                  onClick={() => navigateTo("organizer")}
+                  className={`cursor-pointer transition-colors font-bold ${currentPage === "organizer" ? "text-[#F59E0B]" : "text-[#F59E0B]/70"}`}
+                >
+                  organizer tools
+                </button>
               </li>
             )}
           </ul>
@@ -154,34 +167,39 @@ export function UserPortalPage({
             href="https://discord.gg/N6yykApS6h"
             className="font-baloo text-xl mt-2 flex flex-row gap-3 items-center"
           >
-            <img src={discordLogo} className="w-[40px]" />
+            <img alt="" src={discordLogo} className="w-[40px]" />
             <p className="whitespace-nowrap text-2xl text-[#EFEFEF]">Discord Server</p>
           </a>
         </div>
       )}
 
       <div className="hidden lg:flex flex-col items-end pl-20 shrink-0 overflow-y-auto">
-        <img src={FullyHacksLogo} className="w-[250px] self-center pb-10 pt-10" />
+        <img alt="FullyHacks" src={FullyHacksLogo} className="w-[250px] self-center pb-10 pt-10" />
         <p className="font-baloo text-4xl whitespace-nowrap pb-10 self-center">
           Welcome, {displayName}
         </p>
 
         <ul className="flex flex-col items-end font-baloo text-4xl gap-6">
           {NAV_ITEMS.map((item) => (
-            <li
-              key={item.key}
-              onClick={() => navigateTo(item.key)}
-              className={`cursor-pointer transition-colors ${currentPage === item.key ? "text-[#69CEC3]" : ""}`}
-            >
-              {item.label}
+            <li key={item.key}>
+              <button
+                type="button"
+                onClick={() => navigateTo(item.key)}
+                className={`cursor-pointer transition-colors ${currentPage === item.key ? "text-[#69CEC3]" : ""}`}
+              >
+                {item.label}
+              </button>
             </li>
           ))}
           {isOperations && (
-            <li
-              onClick={() => navigateTo("organizer")}
-              className={`cursor-pointer transition-colors font-bold text-3xl ${currentPage === "organizer" ? "text-[#F59E0B]" : "text-[#F59E0B]/70 hover:text-[#F59E0B]"}`}
-            >
-              organizer
+            <li>
+              <button
+                type="button"
+                onClick={() => navigateTo("organizer")}
+                className={`cursor-pointer transition-colors font-bold text-3xl ${currentPage === "organizer" ? "text-[#F59E0B]" : "text-[#F59E0B]/70 hover:text-[#F59E0B]"}`}
+              >
+                organizer
+              </button>
             </li>
           )}
           <button className="font-baloo text-3xl cursor-pointer" onClick={onSignOut}>
@@ -193,7 +211,7 @@ export function UserPortalPage({
           href="https://discord.gg/N6yykApS6h"
           className="font-baloo text-2xl mt-6 flex flex-row gap-5 items-center self-center"
         >
-          <img src={discordLogo} className="w-[60px]" />
+          <img alt="" src={discordLogo} className="w-[60px]" />
           <p className="whitespace-nowrap text-4xl">Discord Server</p>
         </a>
       </div>

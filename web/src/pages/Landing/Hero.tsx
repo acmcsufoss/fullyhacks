@@ -22,8 +22,8 @@ export function Hero() {
     return { d: 0, h: 0, m: 0 };
   };
 
-  const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
-  const [closed, setClosed] = useState(isApplicationsClosed());
+  const [timeLeft, setTimeLeft] = useState(calculateTimeLeft);
+  const [closed, setClosed] = useState(isApplicationsClosed);
 
   useEffect(() => {
     if (closed) return;
