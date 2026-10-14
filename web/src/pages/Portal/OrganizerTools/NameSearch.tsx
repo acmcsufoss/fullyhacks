@@ -48,7 +48,7 @@ export function NameSearch({ participants, onSelect }: NameSearchProps) {
           background: "rgba(53, 120, 167, 0.35)",
           border: "1.5px solid rgba(239,239,239,0.3)",
         }}
-        autoFocus
+        aria-label="Search participants by name"
       />
 
       {results.length > 0 && (
@@ -61,15 +61,17 @@ export function NameSearch({ participants, onSelect }: NameSearchProps) {
           }}
         >
           {results.map((p) => (
-            <li
-              key={p.userId}
-              onClick={() => handleSelect(p)}
-              className="px-4 py-3 cursor-pointer hover:bg-white/10 transition-colors border-b border-white/10 last:border-0"
-            >
-              <p className="font-baloo text-[#EFEFEF] text-lg">
-                {p.firstName} {p.lastName}
-              </p>
-              {p.school && <p className="font-baloo text-[#EFEFEF]/60 text-sm">{p.school}</p>}
+            <li key={p.userId} className="border-b border-white/10 last:border-0">
+              <button
+                type="button"
+                onClick={() => handleSelect(p)}
+                className="w-full text-left px-4 py-3 cursor-pointer hover:bg-white/10 transition-colors"
+              >
+                <p className="font-baloo text-[#EFEFEF] text-lg">
+                  {p.firstName} {p.lastName}
+                </p>
+                {p.school && <p className="font-baloo text-[#EFEFEF]/60 text-sm">{p.school}</p>}
+              </button>
             </li>
           ))}
         </ul>

@@ -18,9 +18,7 @@ export function OrganizerTools() {
   const [selectedParticipant, setSelectedParticipant] = useState<ParticipantData | null>(null);
   const [activeTab, setActiveTab] = useState<"tools" | "stats">("tools");
 
-  const fetchParticipants = useCallback(async (isRefresh = false) => {
-    if (isRefresh) setRefreshing(true);
-    else setLoading(true);
+  const fetchParticipants = useCallback(async () => {
     try {
       const snap = await getDocs(collection(db, "applications"));
       const accepted: ParticipantData[] = [];
@@ -45,8 +43,8 @@ export function OrganizerTools() {
       });
       setParticipants(accepted);
     } finally {
-      if (isRefresh) setRefreshing(false);
-      else setLoading(false);
+      setRefreshing(false);
+      setLoading(false);
     }
   }, []);
 
@@ -122,7 +120,10 @@ export function OrganizerTools() {
       {activeTab === "stats" && (
         <CheckInStats
           participants={participants}
-          onRefresh={() => fetchParticipants(true)}
+          onRefresh={() => {
+            setRefreshing(true);
+            void fetchParticipants();
+          }}
           refreshing={refreshing}
         />
       )}
