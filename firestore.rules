@@ -1,0 +1,97 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function signedIn() {
+      return request.auth != null;
+    }
+
+    function isAdmin() {
+      return signedIn()
+        && exists(/databases/$(database)/documents/admin/$(request.auth.uid));
+    }
+
+    function isOps() {
+      return signedIn()
+        && exists(/databases/$(database)/documents/operations/$(request.auth.uid));
+    }
+
+    // placeholder deadline, update this and deadline.ts once the 2027 date is set
+    // 2027-03-26T23:59:59-07:00 = 1806130799000ms
+    function applicationsOpen() {
+      return request.time.toMillis() < 1806130799000;
+    }
+
+    function changedFields() {
+      return request.resource.data.diff(resource.data).affectedKeys();
+    }
+
+    function flagSetToTrueIfChanged(field) {
+      return !changedFields().hasAny([field])
+        || request.resource.data[field] == true;
+    }
+
+    // fields the missing fields popup can fill in
+    function editableFields() {
+      return [
+        'firstName', 'lastName', 'email', 'school', 'githubUrl', 'pronouns',
+        'phone', 'major', 'gradYear', 'age', 'level', 'country', 'skillLevel',
+        'whyJoin', 'foodChoice', 'shirtSize',
+        'schoolOther', 'majorOther', 'foodOther',
+        'isAdult', 'agreeTerms', 'mlhCodeOfConduct', 'mlhPrivacy', 'mlhEmails'
+      ];
+    }
+
+    match /applications/{uid} {
+      allow get: if signedIn()
+        && (request.auth.uid == uid || isAdmin() || isOps());
+
+      allow list: if isAdmin() || isOps();
+
+      allow create: if signedIn()
+        && request.auth.uid == uid
+        && request.resource.data.userId == uid
+        && request.resource.data.status == 'pending'
+        && request.resource.data.submittedAt == request.time
+        && !request.resource.data.keys().hasAny([
+             'checkedIn', 'saturdayDinner', 'sundayBreakfast',
+             'sundayLunch', 'sundayDinner'
+           ])
+        && applicationsOpen();
+
+      // owner: accepted hackers filling in missing fields
+      allow update: if signedIn()
+        && request.auth.uid == uid
+        && resource.data.status == 'accepted'
+        && changedFields().hasOnly(editableFields());
+
+      // admin: status only
+      allow update: if isAdmin()
+        && changedFields().hasOnly(['status'])
+        && request.resource.data.status in ['pending', 'accepted', 'rejected'];
+
+      // ops: check-in flags only, set to true, accepted hackers only
+      allow update: if isOps()
+        && resource.data.status == 'accepted'
+        && changedFields().hasOnly([
+             'checkedIn', 'saturdayDinner', 'sundayBreakfast',
+             'sundayLunch', 'sundayDinner'
+           ])
+        && flagSetToTrueIfChanged('checkedIn')
+        && flagSetToTrueIfChanged('saturdayDinner')
+        && flagSetToTrueIfChanged('sundayBreakfast')
+        && flagSetToTrueIfChanged('sundayLunch')
+        && flagSetToTrueIfChanged('sundayDinner');
+    }
+
+    // role docs are added by hand in the console w/ read permissions set to owner
+    match /admin/{uid} {
+      allow get: if signedIn() && request.auth.uid == uid;
+    }
+
+    match /operations/{uid} {
+      allow get: if signedIn() && request.auth.uid == uid;
+    }
+  }
+}

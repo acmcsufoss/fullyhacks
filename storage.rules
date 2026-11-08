@@ -1,0 +1,24 @@
+rules_version = '2';
+
+service firebase.storage {
+  match /b/{bucket}/o {
+
+    // Resumes are uploaded with the application to resumes/{uid}/resume.pdf
+    match /resumes/{uid}/{fileName} {
+      // Owners and admins can read
+      allow read: if request.auth != null
+        && (request.auth.uid == uid
+            || firestore.exists(/databases/(default)/documents/admin/$(request.auth.uid)));
+
+      // Owners can upload their own resume
+      allow create, update: if request.auth != null
+        && request.auth.uid == uid
+        && request.resource.contentType == 'application/pdf'
+        && request.resource.size < 5 * 1024 * 1024;
+
+      allow delete: if false;
+    }
+
+    // Everything else is denied by default
+  }
+}
