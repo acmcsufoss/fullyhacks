@@ -58,4 +58,4 @@ jobs:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
           firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_FULLYHACKS_2027 }}
           channelId: live
-          projectId: fullyhacks-2027
+          projectId: ${{ vars.FIREBASE_PROJECT_ID }}
