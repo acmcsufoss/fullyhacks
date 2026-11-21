@@ -7,7 +7,6 @@ import type { CheckInType, ParticipantData } from "./types";
 interface QuickCheckInProps {
   participants: ParticipantData[];
   onCheckIn: (userId: string, type: CheckInType) => Promise<void>;
-  onUpdateLocal: (userId: string, type: CheckInType) => void;
 }
 
 type Confirmation = {
@@ -15,7 +14,7 @@ type Confirmation = {
   alreadyDone: boolean;
 };
 
-export function QuickCheckIn({ participants, onCheckIn, onUpdateLocal }: QuickCheckInProps) {
+export function QuickCheckIn({ participants, onCheckIn }: QuickCheckInProps) {
   const [selectedType, setSelectedType] = useState<CheckInType | null>(null);
   const [scanning, setScanning] = useState(false);
   const [confirmation, setConfirmation] = useState<Confirmation | null>(null);
@@ -99,7 +98,6 @@ export function QuickCheckIn({ participants, onCheckIn, onUpdateLocal }: QuickCh
           if (!alreadyDone) {
             try {
               await onCheckIn(data.uid!, type);
-              onUpdateLocal(data.uid!, type);
             } catch {
               setError("Failed to save — try again");
             }
@@ -123,7 +121,7 @@ export function QuickCheckIn({ participants, onCheckIn, onUpdateLocal }: QuickCh
       }
       scannerRef.current = null;
     }
-  }, [onCheckIn, onUpdateLocal]);
+  }, [onCheckIn]);
 
   useEffect(() => {
     return () => {
