@@ -1,6 +1,7 @@
-# 🐟 FullyHacks 2026
+# 🐘 FullyHacks 2027
 
-Welcome to the **FullyHacks 2026** web repository! This project contains the official website for CSUF's annual hackathon.
+Welcome to the **FullyHacks 2027** web repository! This project contains the official website for CSUF's annual hackathon.  
+To see the state of the website for previous hackathon years, see the branch named after that year (e.g., `2026`).
 
 ## 🛠 Tech Stack
 
@@ -14,40 +15,12 @@ Welcome to the **FullyHacks 2026** web repository! This project contains the off
 ### 1. Clone the Repo
 
 ```bash
-git clone https://github.com/acmcsufoss/fullyhacks2026.git
-cd fullyhacks2026
+git clone https://github.com/acmcsufoss/fullyhacks.git
+cd fullyhacks
 ```
 
-### 2. Install Dependencies
+See the web [`README.md`](https://github.com/acmcsufoss/fullyhacks/blob/main/web/README.md) for more information on developing the site.
 
-Navigate to the `web` directory and install dependencies:
+## Versioning
 
-```bash
-cd web
-npm install
-```
-
-### 3. Run the Development Server
-
-Start the local server:
-
-```bash
-npm run dev
-```
-
-The site will be available at `http://localhost:5173` (or the port shown in your terminal).
-
-## 🧰 Scripts & Commands
-
-All commands should be run from the `web` directory.
-
-- **Start Dev Server**: `npm run dev`
-- **Build for Production**: `npm run build`
-- **Lint Code**: `npm run lint`
-- **Format Code**: `npm run format`
-- **Preview Build**: `npm run preview`
-
-## ⚠️ Notes
-
-- Ensure you are using a recent version of Node.js.
-- This repository is configured for **Tailwind CSS v4**, so some configuration may differ from v3 projects (e.g., CSS-first configuration in `src/index.css`).
+This project uses a `YYYY.MINOR.PATCH` versioning scheme. For example, `v2027.2.1` is the first patch for the second release of 2027.
