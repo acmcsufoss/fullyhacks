@@ -58,7 +58,7 @@ export function OrganizerTools() {
 
   const liveSelected =
     selectedParticipant &&
-    (participants.find((p) => p.userId === selectedParticipant.userId) ?? selectedParticipant);
+    (participants.find((p) => p.userId === selectedParticipant.userId) ?? null);
 
   const handleQRScan = (data: { uid: string; firstName: string; lastName: string }) => {
     const found = participants.find((p) => p.userId === data.uid);
