@@ -3,8 +3,6 @@ import type { ParticipantData } from "./types";
 
 interface CheckInStatsProps {
   participants: ParticipantData[];
-  onRefresh: () => void;
-  refreshing: boolean;
 }
 
 const FOOD_LABELS: Record<string, string> = {
@@ -17,7 +15,7 @@ const FOOD_LABELS: Record<string, string> = {
   other: "Other",
 };
 
-export function CheckInStats({ participants, onRefresh, refreshing }: CheckInStatsProps) {
+export function CheckInStats({ participants }: CheckInStatsProps) {
   const total = participants.length;
   const checkedInCount = participants.filter((p) => !!p.checkedIn).length;
   const notCheckedIn = total - checkedInCount;
@@ -53,29 +51,6 @@ export function CheckInStats({ participants, onRefresh, refreshing }: CheckInSta
         <p className="font-baloo text-[#EFEFEF]/70 text-sm">
           Total accepted: <span className="text-[#EFEFEF] font-bold">{total}</span>
         </p>
-        <button
-          onClick={onRefresh}
-          disabled={refreshing}
-          className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg font-baloo text-sm font-semibold cursor-pointer transition-all duration-150 disabled:opacity-60"
-          style={{ background: "rgba(53, 120, 167, 0.4)", color: "#EFEFEF" }}
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="14"
-            height="14"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            className={refreshing ? "animate-spin" : ""}
-          >
-            <path d="M21 12a9 9 0 1 1-9-9c2.52 0 4.93 1 6.74 2.74L21 8" />
-            <path d="M21 3v5h-5" />
-          </svg>
-          {refreshing ? "Refreshing…" : "Refresh"}
-        </button>
       </div>
 
       {total === 0 ? (

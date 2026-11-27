@@ -1,5 +1,5 @@
-import { useCallback, useEffect, useState } from "react";
-import { collection, getDocs, updateDoc, doc } from "firebase/firestore";
+import { useEffect, useState } from "react";
+import { collection, onSnapshot, query, where, updateDoc, doc } from "firebase/firestore";
 import { db } from "../../firebase";
 import type { ParticipantData, CheckInType } from "./OrganizerTools/types";
 import { ParticipantCard } from "./OrganizerTools/ParticipantCard";
@@ -13,18 +13,19 @@ type StandardMode = "none" | "scan" | "search";
 export function OrganizerTools() {
   const [participants, setParticipants] = useState<ParticipantData[]>([]);
   const [loading, setLoading] = useState(true);
-  const [refreshing, setRefreshing] = useState(false);
+  const [loadError, setLoadError] = useState<string | null>(null);
   const [standardMode, setStandardMode] = useState<StandardMode>("none");
   const [selectedParticipant, setSelectedParticipant] = useState<ParticipantData | null>(null);
   const [activeTab, setActiveTab] = useState<"tools" | "stats">("tools");
 
-  const fetchParticipants = useCallback(async () => {
-    try {
-      const snap = await getDocs(collection(db, "applications"));
-      const accepted: ParticipantData[] = [];
-      snap.forEach((d) => {
-        const data = d.data();
-        if (data.status === "accepted") {
+  useEffect(() => {
+    const acceptedQuery = query(collection(db, "applications"), where("status", "==", "accepted"));
+    return onSnapshot(
+      acceptedQuery,
+      (snap) => {
+        const accepted: ParticipantData[] = [];
+        snap.forEach((d) => {
+          const data = d.data();
           accepted.push({
             userId: d.id,
             firstName: data.firstName ?? "",
@@ -39,27 +40,25 @@ export function OrganizerTools() {
             sundayLunch: data.sundayLunch ?? false,
             sundayDinner: data.sundayDinner ?? false,
           });
-        }
-      });
-      setParticipants(accepted);
-    } finally {
-      setRefreshing(false);
-      setLoading(false);
-    }
+        });
+        setParticipants(accepted);
+        setLoadError(null);
+        setLoading(false);
+      },
+      () => {
+        setLoadError("Could not load live participant data. Try reloading the page.");
+        setLoading(false);
+      },
+    );
   }, []);
-
-  useEffect(() => {
-    fetchParticipants();
-  }, [fetchParticipants]);
 
   const handleCheckIn = async (userId: string, type: CheckInType) => {
     await updateDoc(doc(db, "applications", userId), { [type]: true });
-    // optimistic update
-    setParticipants((prev) => prev.map((p) => (p.userId === userId ? { ...p, [type]: true } : p)));
-    if (selectedParticipant?.userId === userId) {
-      setSelectedParticipant((prev) => (prev ? { ...prev, [type]: true } : prev));
-    }
   };
+
+  const liveSelected =
+    selectedParticipant &&
+    (participants.find((p) => p.userId === selectedParticipant.userId) ?? null);
 
   const handleQRScan = (data: { uid: string; firstName: string; lastName: string }) => {
     const found = participants.find((p) => p.userId === data.uid);
@@ -81,10 +80,6 @@ export function OrganizerTools() {
     setStandardMode("none");
   };
 
-  const handleUpdateLocal = (userId: string, type: CheckInType) => {
-    setParticipants((prev) => prev.map((p) => (p.userId === userId ? { ...p, [type]: true } : p)));
-  };
-
   if (loading) {
     return (
       <div className="flex items-center justify-center h-full py-20">
@@ -99,6 +94,7 @@ export function OrganizerTools() {
       <p className="font-baloo text-[#EFEFEF]/60 text-sm mb-5">
         {participants.length} accepted participants
       </p>
+      {loadError && <p className="font-baloo text-red-300 text-sm mb-4">{loadError}</p>}
 
       {/* Tab switcher */}
       <div className="flex gap-2 mb-6">
@@ -117,16 +113,7 @@ export function OrganizerTools() {
         ))}
       </div>
 
-      {activeTab === "stats" && (
-        <CheckInStats
-          participants={participants}
-          onRefresh={() => {
-            setRefreshing(true);
-            void fetchParticipants();
-          }}
-          refreshing={refreshing}
-        />
-      )}
+      {activeTab === "stats" && <CheckInStats participants={participants} />}
 
       {activeTab === "tools" && (
         <div className="flex flex-col gap-6">
@@ -182,7 +169,7 @@ export function OrganizerTools() {
               </div>
             )}
 
-            {selectedParticipant && (
+            {liveSelected && (
               <div>
                 <button
                   onClick={() => setSelectedParticipant(null)}
@@ -190,7 +177,7 @@ export function OrganizerTools() {
                 >
                   ← Back
                 </button>
-                <ParticipantCard participant={selectedParticipant} onCheckIn={handleCheckIn} />
+                <ParticipantCard participant={liveSelected} onCheckIn={handleCheckIn} />
               </div>
             )}
           </section>
@@ -218,11 +205,7 @@ export function OrganizerTools() {
                 — keep camera on for fast throughput
               </span>
             </p>
-            <QuickCheckIn
-              participants={participants}
-              onCheckIn={handleCheckIn}
-              onUpdateLocal={handleUpdateLocal}
-            />
+            <QuickCheckIn participants={participants} onCheckIn={handleCheckIn} />
           </section>
         </div>
       )}
