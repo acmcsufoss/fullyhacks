@@ -9,6 +9,7 @@ import { AboutUs } from "./AboutUs";
 import SunRays from "../../assets/LandingPage/Header/SunRays.svg";
 
 import Atlantis from "../../assets/LandingPage/Background/Atlantis.svg";
+
 export function LandingPage() {
   return (
     <div className="landing-page min-h-screen flex flex-col w-full items-center justify-center text-slate-100 relative overflow-x-hidden">
